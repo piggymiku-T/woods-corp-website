@@ -950,3 +950,39 @@ a {
     background: #2563eb;
     transform: translateY(-3px);
 }
+/* 鼠标跟随 Logo 样式 */
+.mouse-follower {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.85);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: white;
+    pointer-events: none;  /* 让鼠标事件穿透，不干扰点击 */
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+    opacity: 0.9;
+}
+
+/* 可选的缩小动画，让跟随更柔和 */
+.mouse-follower span {
+    transform: scale(1);
+    transition: transform 0.2s ease;
+}
+
+/* 鼠标悬停可链接时，可以稍微放大效果（可选） */
+a:hover ~ .mouse-follower,
+button:hover ~ .mouse-follower {
+    transform: translate(-50%, -50%) scale(1.2);
+}
