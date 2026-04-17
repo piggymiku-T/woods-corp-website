@@ -114,3 +114,33 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 });
+// 鼠标跟随 Logo
+const follower = document.getElementById('mouseFollower');
+if (follower) {
+    let mouseX = 0, mouseY = 0;
+    let followerX = 0, followerY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    function animateFollower() {
+        // 缓动跟随，更平滑
+        followerX += (mouseX - followerX) * 0.2;
+        followerY += (mouseY - followerY) * 0.2;
+        follower.style.left = followerX + 'px';
+        follower.style.top = followerY + 'px';
+        requestAnimationFrame(animateFollower);
+    }
+    
+    animateFollower();
+    
+    // 可选：当鼠标移出窗口时隐藏
+    document.addEventListener('mouseleave', () => {
+        follower.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+        follower.style.opacity = '0.9';
+    });
+}
