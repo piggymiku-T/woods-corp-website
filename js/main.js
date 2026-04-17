@@ -1,146 +1,46 @@
-/**
- * WOODS CORPORATIONS - メインスクリプト
- */
+// 等待DOM加载完毕（修复：原代码直接运行，找不到元素）
+document.addEventListener('DOMContentLoaded', function () {
+  // 鼠标效果（改为原生JS，修复$未定义问题）
+  const cursor = document.createElement('div');
+  cursor.classList.add('cursor');
+  document.body.appendChild(cursor);
 
-// DOMが読み込まれたら実行
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // ----- ハンバーガーメニュー -----
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-        
-        // メニューリンクをクリックしたら閉じる
-        const navLinks = document.querySelectorAll('.nav-links a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
+  document.addEventListener('mousemove', function (e) {
+    cursor.style.left = e.pageX + 'px';
+    cursor.style.top = e.pageY + 'px';
+  });
+
+  // banner轮播
+  let currentIndex = 0;
+  const bannerItem = document.querySelectorAll('.banner-item');
+  const totalBanner = bannerItem.length;
+
+  function showBanner(index) {
+    bannerItem.forEach(item => item.classList.remove('active'));
+    if (bannerItem[index]) {
+      bannerItem[index].classList.add('active');
     }
-    
-    // ----- スクロールでナビゲーションスタイル変更 -----
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+  }
+
+  // 修复：原代码只定义了函数，没启动轮播
+  if (totalBanner > 0) {
+    showBanner(currentIndex);
+
+    setInterval(function () {
+      currentIndex = (currentIndex + 1) % totalBanner;
+      showBanner(currentIndex);
+    }, 3000);
+  }
+
+  // 导航栏滚动效果
+  window.addEventListener('scroll', function () {
+    const header = document.querySelector('header');
+    if (header) {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     }
-    
-    // ----- 戻るボタン -----
-    const backToTop = document.getElementById('backToTop');
-    if (backToTop) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
-        });
-        
-        backToTop.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-    
-    // ----- コンタクトフォーム -----
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // フォームデータを収集
-            const formData = new FormData(contactForm);
-            const formValues = {};
-            formData.forEach((value, key) => {
-                formValues[key] = value;
-            });
-            
-            // 実際のメール送信はバックエンドが必要です
-            // ここでは確認メッセージを表示
-            alert('お問い合わせありがとうございます。担当者より折り返しご連絡いたします。');
-            contactForm.reset();
-        });
-    }
-    
-    // ----- スムーズスクロール (アンカーリンク) -----
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href === '#' || href === '') return;
-            
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 80;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // ----- フェードインアニメーション (Intersection Observer) -----
-    const animateElements = document.querySelectorAll('.philosophy-card, .strength-card, .service-card, .achievement-card');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
+  });
 });
-// 鼠标跟随 Logo
-const follower = document.getElementById('mouseFollower');
-if (follower) {
-    let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-    
-    function animateFollower() {
-        // 缓动跟随，更平滑
-        followerX += (mouseX - followerX) * 0.2;
-        followerY += (mouseY - followerY) * 0.2;
-        follower.style.left = followerX + 'px';
-        follower.style.top = followerY + 'px';
-        requestAnimationFrame(animateFollower);
-    }
-    
-    animateFollower();
-    
-    // 可选：当鼠标移出窗口时隐藏
-    document.addEventListener('mouseleave', () => {
-        follower.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', () => {
-        follower.style.opacity = '0.9';
-    });
-}
