@@ -2,26 +2,55 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ウッズ・コーポレーション | 日中ビジネスの架け橋</title>
-    <meta name="description" content="約20年の実績を持つ日中ビジネスコンサルティング専門企業。データで示す実力。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ウッズ・コーポレーション | 日中ビジネスコンサルティング</title>
+    <meta name="description" content="20年以上の実績を持つ日中ビジネスの架け橋。データドリブンなコンサルティングで中国進出・IPO・IT開発をサポート。">
+    <meta name="keywords" content="日中ビジネス,中国進出,IPO支援,コンサルティング,ローカライズ,Web3">
+    <meta name="author" content="株式会社ウッズ・コーポレーション">
+    <meta name="robots" content="index, follow">
     <meta property="og:title" content="ウッズ・コーポレーション">
-    <meta property="og:description" content="誠実な架け橋。確かな実行力。">
+    <meta property="og:description" content="誠実な日中ビジネス架け橋・確かな実行力データが示す信頼の実績。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://woods-corp.jp">
+    <meta property="og:image" content="https://woods-corp.jp/assets/og-image.jpg">
+    <link rel="canonical" href="https://woods-corp.jp">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌉</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌉</text></svg>">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "株式会社ウッズ・コーポレーション",
+        "alternateName": "Woods Corporations",
+        "url": "https://woods-corp.jp",
+        "logo": "https://woods-corp.jp/assets/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+81-50-1725-8970",
+            "contactType": "customer service",
+            "areaServed": "JP",
+            "availableLanguage": ["Japanese", "Chinese"]
+        },
+        "sameAs": [
+            "https://twitter.com/woods_corp",
+            "https://www.linkedin.com/company/woods-corporations"
+        ]
+    }
+    </script>
 </head>
 <body>
+    <!-- ナビゲーション -->
     <nav class="navbar">
         <div class="container">
-            <div class="nav-brand"><a href="index.html" class="logo">WOODS<span>CORPORATIONS</span></a></div>
+            <div class="nav-brand"><a href="index.html" class="logo">WOODS<span>CORP</span></a></div>
             <div class="nav-menu" id="navMenu">
                 <ul class="nav-links">
-                    <li><a href="#dashboard">実績</a></li>
+                    <li><a href="#dashboard">データ</a></li>
                     <li><a href="#strengths">強み</a></li>
                     <li><a href="#services">事業</a></li>
-                    <li><a href="#achievements">実績詳細</a></li>
+                    <li><a href="#achievements">実績</a></li>
                     <li><a href="#company">会社概要</a></li>
                     <li><a href="#contact">お問い合わせ</a></li>
                 </ul>
@@ -32,16 +61,16 @@
     </nav>
 
     <main>
-        <!-- Hero 全屏大标题 -->
+        <!-- Hero 全屏（背景画像付き） -->
         <section class="hero fullscreen">
             <div class="hero-bg"></div>
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-badge">誠実な日中ビジネス架け橋</div>
-                    <h1 class="hero-title">誠実な架け橋。<br>確かな実行力。</h1>
-                    <p class="hero-desc">文化を理解し、制度を読み解き、商習慣の奥にある「暗黙の了解」までも見通す。</p>
+                    <h1 class="hero-title">誠実な架け橋<br>確かな実行力</h1>
+                    <p class="hero-desc">文化を理解し、制度を読み解き、<br>商習慣の奥にある「暗黙の了解」までも見通す。</p>
                     <div class="hero-buttons">
-                        <a href="#dashboard" class="btn-primary">データで見る実績 <i class="fas fa-chart-line"></i></a>
+                        <a href="#dashboard" class="btn-primary">データで見る <i class="fas fa-chart-line"></i></a>
                         <a href="#contact" class="btn-outline">無料相談</a>
                     </div>
                 </div>
@@ -49,7 +78,7 @@
             <div class="scroll-indicator">SCROLL <i class="fas fa-arrow-down"></i></div>
         </section>
 
-        <!-- データダッシュボード（儀表盤） -->
+        <!-- データダッシュボード（カウンター付き） -->
         <section id="dashboard" class="dashboard section-padding">
             <div class="container">
                 <div class="section-header text-center">
@@ -62,19 +91,19 @@
                         <i class="fas fa-calendar-alt"></i>
                         <div class="dashboard-number"><span class="counter">0</span><span>+</span></div>
                         <h3>年の実績</h3>
-                        <p>2005年創業以来の積み重ね</p>
+                        <p>2005年創業以来</p>
                     </div>
                     <div class="dashboard-card" data-count="5">
                         <i class="fas fa-chart-line"></i>
                         <div class="dashboard-number"><span class="counter">0</span><span>社</span></div>
                         <h3>IPO上場支援</h3>
-                        <p>深圳・上海・福州新四板</p>
+                        <p>深圳・上海・福州</p>
                     </div>
                     <div class="dashboard-card" data-count="7">
                         <i class="fas fa-industry"></i>
                         <div class="dashboard-number"><span class="counter">0</span><span>+</span></div>
                         <h3>業界連携</h3>
-                        <p>アニメ・金融・教育・美容など</p>
+                        <p>アニメ・金融・教育など</p>
                     </div>
                     <div class="dashboard-card" data-count="100">
                         <i class="fas fa-handshake"></i>
@@ -86,14 +115,14 @@
             </div>
         </section>
 
-        <!-- 強み + 儀表盤グラフ（融合） -->
+        <!-- 強み + レーダーチャート（画像例としてSVG挿入） -->
         <section id="strengths" class="strengths-alt section-padding bg-light">
             <div class="container">
                 <div class="strengths-alt-grid">
                     <div class="strengths-alt-text">
                         <span class="section-tag">OUR STRENGTHS</span>
                         <h2>データドリブンな<br>コンサルティング</h2>
-                        <p>経験と人脈だけでなく、分析と可視化でクライアントの成功を導きます。</p>
+                        <p>経験と人脈に加え、分析と可視化でクライアントの成功を導きます。</p>
                         <div class="strength-bars">
                             <div class="bar-item"><span>業界分析力</span><div class="bar"><div class="bar-fill" style="width: 92%"></div></div><span>92%</span></div>
                             <div class="bar-item"><span>ローカライズ成功率</span><div class="bar"><div class="bar-fill" style="width: 88%"></div></div><span>88%</span></div>
@@ -102,16 +131,16 @@
                     </div>
                     <div class="strengths-alt-chart">
                         <div class="radar-placeholder">
-                            <i class="fas fa-chart-pie"></i>
-                            <p>マーケットシェア分析<br>（アニメ・ゲーム分野）</p>
-                            <canvas id="radarChart" width="300" height="300"></canvas>
+                            <!-- デモ画像：後で実写に差し替え可能なSVGイラスト -->
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%23f0f9ff'/%3E%3Ctext x='50%25' y='50%25' font-size='16' fill='%232563eb' text-anchor='middle' dy='.3em'%3E📊 レーダーチャート(実装済)%3C/text%3E%3C/svg%3E" alt="レーダーチャートのデモ画像" class="demo-img">
+                            <canvas id="radarChart" width="300" height="300" style="display: none;"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- サービス（カード + 能力指数） -->
+        <!-- サービスカード（画像アイコン＋能力指数） -->
         <section id="services" class="services section-padding">
             <div class="container">
                 <div class="section-header text-center">
@@ -121,25 +150,25 @@
                 </div>
                 <div class="services-grid">
                     <div class="service-card">
-                        <i class="fas fa-chart-line"></i>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4-3-9s1.34-9 3-9'/%3E%3C/svg%3E" alt="国際ビジネス" class="service-icon-img">
                         <h3>市場開拓</h3>
                         <div class="skill-meter"><div class="meter-fill" style="width: 90%"></div></div>
                         <p>日中相互進出トータルサポート</p>
                     </div>
                     <div class="service-card">
-                        <i class="fas fa-chart-simple"></i>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='1.5'%3E%3Cpath d='M3 3v18h18'/%3E%3Cpath d='M18 7V3'/%3E%3Cpath d='M7 7h10'/%3E%3Cpath d='M7 12h5'/%3E%3C/svg%3E" alt="IPO" class="service-icon-img">
                         <h3>IPO支援</h3>
                         <div class="skill-meter"><div class="meter-fill" style="width: 100%"></div></div>
                         <p>5社上場実績 / 成功率100%</p>
                     </div>
                     <div class="service-card">
-                        <i class="fas fa-laptop-code"></i>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='1.5'%3E%3Crect x='2' y='3' width='20' height='14' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='8' y1='21' x2='16' y2='21'%3E%3C/line%3E%3Cline x1='12' y1='17' x2='12' y2='21'%3E%3C/line%3E%3C/svg%3E" alt="IT開発" class="service-icon-img">
                         <h3>IT・Web3</h3>
                         <div class="skill-meter"><div class="meter-fill" style="width: 85%"></div></div>
                         <p>システム開発 / 多言語サイト</p>
                     </div>
                     <div class="service-card">
-                        <i class="fas fa-chart-simple"></i>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='1.5'%3E%3Cpath d='M21 10.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9.5'/%3E%3Cpolyline points='16 2 22 8 16 8'/%3E%3Cline x1='10' y1='14' x2='21' y2='14'/%3E%3Cline x1='10' y1='18' x2='18' y2='18'/%3E%3C/svg%3E" alt="ローカライズ" class="service-icon-img">
                         <h3>ローカライズ</h3>
                         <div class="skill-meter"><div class="meter-fill" style="width: 94%"></div></div>
                         <p>法務・税務・文化適合</p>
@@ -148,7 +177,7 @@
             </div>
         </section>
 
-        <!-- 実績詳細（時間線風） -->
+        <!-- 実績タイムライン＋画像 -->
         <section id="achievements" class="achievements-alt section-padding bg-dark">
             <div class="container">
                 <div class="section-header text-center text-white">
@@ -156,22 +185,27 @@
                     <h2 class="section-title">主要実績</h2>
                     <div class="section-divider light"></div>
                 </div>
-                <div class="timeline">
-                    <div class="timeline-item"><div class="timeline-year">2016</div><div class="timeline-desc">福建省政府と「日中文化交流会」共催（初音ミク）</div></div>
-                    <div class="timeline-item"><div class="timeline-year">2017-2020</div><div class="timeline-desc">NetDragon Websoft アドバイザリー / ゲーム開発 / テーマパーク設計</div></div>
-                    <div class="timeline-item"><div class="timeline-year">2015-2017</div><div class="timeline-desc">IPO支援 5社（深圳・上海・福州）</div></div>
-                    <div class="timeline-item"><div class="timeline-year">2020</div><div class="timeline-desc">第6回Japan Tourism Awards 受賞</div></div>
-                    <div class="timeline-item"><div class="timeline-year">2021</div><div class="timeline-desc">東京都経営革新計画 承認</div></div>
+                <div class="timeline-wrapper">
+                    <div class="timeline-img">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231e293b'/%3E%3Ctext x='50%25' y='50%25' fill='%2360a5fa' font-size='18' text-anchor='middle' dy='.3em'%3E🏆 実績イメージ (後で写真に交換)%3C/text%3E%3C/svg%3E" alt="実績イメージ" class="demo-photo">
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item"><div class="timeline-year">2016</div><div class="timeline-desc">福建省政府と「日中文化交流会」共催（初音ミク）</div></div>
+                        <div class="timeline-item"><div class="timeline-year">2017-2020</div><div class="timeline-desc">NetDragon Websoft アドバイザリー / ゲーム開発 / テーマパーク設計</div></div>
+                        <div class="timeline-item"><div class="timeline-year">2015-2017</div><div class="timeline-desc">IPO支援 5社（深圳・上海・福州）</div></div>
+                        <div class="timeline-item"><div class="timeline-year">2020</div><div class="timeline-desc">第6回Japan Tourism Awards 受賞</div></div>
+                        <div class="timeline-item"><div class="timeline-year">2021</div><div class="timeline-desc">東京都経営革新計画 承認</div></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 会社概要・お問い合わせ（簡潔） -->
+        <!-- 会社概要＋お問い合わせ -->
         <section id="company" class="company section-padding">
             <div class="container">
                 <div class="company-info-compact">
                     <div><i class="fas fa-building"></i> 株式会社ウッズ・コーポレーション</div>
-                    <div><i class="fas fa-map-marker-alt"></i> 〒460-0011 愛知県名古屋市中区大須1-7-14 パークIMビル2F</div>
+                    <div><i class="fas fa-map-marker-alt"></i> 〒460-0011 愛知県名古屋市中区大須1-7-14</div>
                     <div><i class="fas fa-phone"></i> 050-1725-8970</div>
                     <div><i class="fas fa-envelope"></i> info@woods-corp.jp</div>
                 </div>
@@ -194,20 +228,22 @@
     </main>
 
     <footer class="footer">
-        <div class="container"><p>&copy; 2025 株式会社ウッズ・コーポレーション</p></div>
+        <div class="container"><p>© 2025 株式会社ウッズ・コーポレーション</p></div>
     </footer>
 
-    <div id="mouseFollower" class="mouse-follower"><span>WOODS</span></div>
+    <!-- カスタムマウスポインタ（軽量ドット） -->
+    <div class="custom-cursor" id="customCursor"></div>
+
     <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
 
     <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script>
-        // 简化的雷达图初始化（Chart.js）
+        // レーダーチャートはmain.jsから呼び出し可（簡易対応）
         if(document.getElementById('radarChart')){
             new Chart(document.getElementById('radarChart'), {
                 type: 'radar',
-                data: { labels: ['アニメ', 'ゲーム', '美容健康', '小売', 'フィンテック', '教育'], datasets: [{ label: '当社カバレッジ', data: [95, 90, 85, 80, 88, 92], backgroundColor: 'rgba(37,99,235,0.2)', borderColor: '#2563eb', pointBackgroundColor: '#2563eb' }] },
+                data: { labels: ['アニメ', 'ゲーム', '美容健康', '小売', 'フィンテック', '教育'], datasets: [{ label: '当社カバレッジ', data: [95,90,85,80,88,92], backgroundColor: 'rgba(37,99,235,0.2)', borderColor: '#2563eb', pointBackgroundColor: '#2563eb' }] },
                 options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom' } } }
             });
         }
