@@ -4,125 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ウッズ・コーポレーション | 日中ビジネスの架け橋</title>
-    <meta name="description" content="約20年の実績を持つ日中ビジネスコンサルティング専門企業。中国市場進出・IPO支援・IT開発・ローカライズをワンストップでサポート。">
-    <meta name="keywords" content="日中ビジネス,中国進出,IPO支援,コンサルティング,ローカライズ,Web3">
-    <meta name="author" content="株式会社ウッズ・コーポレーション">
+    <meta name="description" content="約20年の実績を持つ日中ビジネスコンサルティング専門企業。データで示す実力。">
     <meta property="og:title" content="ウッズ・コーポレーション">
-    <meta property="og:description" content="日中ビジネスの架け橋として、お客様の成功を共に創造します。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://woods-corp.jp">
-    <link rel="canonical" href="https://woods-corp.jp">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta property="og:description" content="誠実な架け橋。確かな実行力。">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌉</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌉</text></svg>">
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <div class="nav-brand">
-                <a href="index.html" class="logo">WOODS<span>CORPORATIONS</span></a>
-            </div>
+            <div class="nav-brand"><a href="index.html" class="logo">WOODS<span>CORPORATIONS</span></a></div>
             <div class="nav-menu" id="navMenu">
                 <ul class="nav-links">
-                    <li><a href="#philosophy">理念</a></li>
+                    <li><a href="#dashboard">実績</a></li>
                     <li><a href="#strengths">強み</a></li>
-                    <li><a href="#services">事業内容</a></li>
-                    <li><a href="#achievements">実績</a></li>
+                    <li><a href="#services">事業</a></li>
+                    <li><a href="#achievements">実績詳細</a></li>
                     <li><a href="#company">会社概要</a></li>
                     <li><a href="#contact">お問い合わせ</a></li>
                 </ul>
-                <div class="lang-switch">
-                    <a href="index.html" class="active">JP</a>
-                    <span>/</span>
-                    <a href="zh.html">CN</a>
-                </div>
+                <div class="lang-switch"><a href="index.html" class="active">JP</a><span>/</span><a href="zh.html">CN</a></div>
             </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
     <main>
-        <section class="hero">
-            <div class="hero-bg-overlay"></div>
+        <!-- Hero 全屏大标题 -->
+        <section class="hero fullscreen">
+            <div class="hero-bg"></div>
             <div class="container">
                 <div class="hero-content">
-                    <div class="hero-badge fade-up">誠実な日中ビジネス架け橋</div>
-                    <h1 class="hero-title fade-up delay-1">誠実な架け橋。<br>確かな実行力。</h1>
-                    <p class="hero-desc fade-up delay-2">単につなぐだけではない。文化を理解し、制度を読み解き、<br class="desktop-break">商習慣の奥にある「暗黙の了解」までも見通す。</p>
-                    <div class="hero-buttons fade-up delay-3">
-                        <a href="#contact" class="btn-primary">お問い合わせ <i class="fas fa-arrow-right"></i></a>
-                        <a href="#services" class="btn-outline">事業内容を見る</a>
+                    <div class="hero-badge">誠実な日中ビジネス架け橋</div>
+                    <h1 class="hero-title">誠実な架け橋。<br>確かな実行力。</h1>
+                    <p class="hero-desc">文化を理解し、制度を読み解き、商習慣の奥にある「暗黙の了解」までも見通す。</p>
+                    <div class="hero-buttons">
+                        <a href="#dashboard" class="btn-primary">データで見る実績 <i class="fas fa-chart-line"></i></a>
+                        <a href="#contact" class="btn-outline">無料相談</a>
                     </div>
                 </div>
             </div>
-            <div class="floating-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-            </div>
+            <div class="scroll-indicator">SCROLL <i class="fas fa-arrow-down"></i></div>
         </section>
 
-        <section id="philosophy" class="philosophy section-padding">
+        <!-- データダッシュボード（儀表盤） -->
+        <section id="dashboard" class="dashboard section-padding">
             <div class="container">
                 <div class="section-header text-center">
-                    <span class="section-tag">PHILOSOPHY</span>
-                    <h2 class="section-title">企業理念</h2>
+                    <span class="section-tag">KEY METRICS</span>
+                    <h2 class="section-title">数字で示す実力</h2>
                     <div class="section-divider"></div>
                 </div>
-                <div class="philosophy-content">
-                    <p class="philosophy-text">日中ビジネスにおいて、真の「架け橋」とは単に両者をつなぐことではない。相手の文化を理解し、制度を読み解き、商習慣の奥にある「暗黙の了解」までもを見通すこと。私たちウッズ・コーポレーションは、約20年にわたり、その“見えない壁”を乗り越えるプロフェッショナルとして、数多くの企業の未来を切り開いてきた。</p>
-                </div>
-                <div class="philosophy-grid">
-                    <div class="philosophy-card">
-                        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>結果責任</h3>
-                        <p>机上の理論ではなく、現場でしか得られない確かな手応えを武器にする。描いた戦略は、最後までやり抜く。実行して初めて価値となる。</p>
+                <div class="dashboard-grid">
+                    <div class="dashboard-card" data-count="20">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div class="dashboard-number"><span class="counter">0</span><span>+</span></div>
+                        <h3>年の実績</h3>
+                        <p>2005年創業以来の積み重ね</p>
                     </div>
-                    <div class="philosophy-card">
-                        <div class="card-icon"><i class="fas fa-handshake"></i></div>
-                        <h3>共創思考</h3>
-                        <p>クライアントの成長なくして、私たちの成長はない。共に歩み、共に勝つ。私たちは「知っている」ではなく、「できる」を提供します。</p>
+                    <div class="dashboard-card" data-count="5">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="dashboard-number"><span class="counter">0</span><span>社</span></div>
+                        <h3>IPO上場支援</h3>
+                        <p>深圳・上海・福州新四板</p>
+                    </div>
+                    <div class="dashboard-card" data-count="7">
+                        <i class="fas fa-industry"></i>
+                        <div class="dashboard-number"><span class="counter">0</span><span>+</span></div>
+                        <h3>業界連携</h3>
+                        <p>アニメ・金融・教育・美容など</p>
+                    </div>
+                    <div class="dashboard-card" data-count="100">
+                        <i class="fas fa-handshake"></i>
+                        <div class="dashboard-number"><span class="counter">0</span><span>+</span></div>
+                        <h3>クライアント企業</h3>
+                        <p>日中両国の中堅・大手</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="strengths" class="strengths section-padding bg-light">
+        <!-- 強み + 儀表盤グラフ（融合） -->
+        <section id="strengths" class="strengths-alt section-padding bg-light">
             <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">STRENGTHS</span>
-                    <h2 class="section-title">4つの強み</h2>
-                    <div class="section-divider"></div>
-                </div>
-                <div class="strengths-grid">
-                    <div class="strength-card">
-                        <div class="strength-icon"><i class="fas fa-chart-pie"></i></div>
-                        <h3>多業界連携<br>実践経験</h3>
-                        <p>アニメ・ゲーム、美容健康、小売、フィンテック、教育など──複数業界への深い理解と実行力</p>
+                <div class="strengths-alt-grid">
+                    <div class="strengths-alt-text">
+                        <span class="section-tag">OUR STRENGTHS</span>
+                        <h2>データドリブンな<br>コンサルティング</h2>
+                        <p>経験と人脈だけでなく、分析と可視化でクライアントの成功を導きます。</p>
+                        <div class="strength-bars">
+                            <div class="bar-item"><span>業界分析力</span><div class="bar"><div class="bar-fill" style="width: 92%"></div></div><span>92%</span></div>
+                            <div class="bar-item"><span>ローカライズ成功率</span><div class="bar"><div class="bar-fill" style="width: 88%"></div></div><span>88%</span></div>
+                            <div class="bar-item"><span>顧客継続率</span><div class="bar"><div class="bar-fill" style="width: 95%"></div></div><span>95%</span></div>
+                        </div>
                     </div>
-                    <div class="strength-card">
-                        <div class="strength-icon"><i class="fas fa-users"></i></div>
-                        <h3>トップクラスの<br>人脈網</h3>
-                        <p>日本企業、中国企業、業界団体、法務・税務専門家──全方位にわたるリソースネットワーク</p>
-                    </div>
-                    <div class="strength-card">
-                        <div class="strength-icon"><i class="fas fa-trophy"></i></div>
-                        <h3>確実な実績</h3>
-                        <p>IPO上場からフィギュア販売、テーマパーク設計からEC構築まで、すべての成果は数字で示せる</p>
-                    </div>
-                    <div class="strength-card">
-                        <div class="strength-icon"><i class="fas fa-globe"></i></div>
-                        <h3>深みのある<br>ローカライズ力</h3>
-                        <p>翻訳だけでなく、文化・商習慣・法規制まで踏み込んだ真のローカライズを実現</p>
+                    <div class="strengths-alt-chart">
+                        <div class="radar-placeholder">
+                            <i class="fas fa-chart-pie"></i>
+                            <p>マーケットシェア分析<br>（アニメ・ゲーム分野）</p>
+                            <canvas id="radarChart" width="300" height="300"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- サービス（カード + 能力指数） -->
         <section id="services" class="services section-padding">
             <div class="container">
                 <div class="section-header text-center">
@@ -132,173 +121,72 @@
                 </div>
                 <div class="services-grid">
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>日中相互市場開拓</h3>
-                        <p>日系企業の中国進出 / 中国企業の日本進出をトータルサポート。越境EC、PRイベント、商品展示のコーディネート。</p>
+                        <i class="fas fa-chart-line"></i>
+                        <h3>市場開拓</h3>
+                        <div class="skill-meter"><div class="meter-fill" style="width: 90%"></div></div>
+                        <p>日中相互進出トータルサポート</p>
                     </div>
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-chart-simple"></i></div>
-                        <h3>中国企業向けIPO支援</h3>
-                        <p>深圳第四板、上海Q板、福州創業板。中小・零細企業の資金調達に特化。実績：5社の上場を支援。</p>
+                        <i class="fas fa-chart-simple"></i>
+                        <h3>IPO支援</h3>
+                        <div class="skill-meter"><div class="meter-fill" style="width: 100%"></div></div>
+                        <p>5社上場実績 / 成功率100%</p>
                     </div>
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-                        <h3>IT・Web3・システム開発</h3>
-                        <p>中日英3言語対応Webサイト制作。ゲーム、Web3システム、アプリ開発、顧客管理・予約管理・在庫管理システムの構築。</p>
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>IT・Web3</h3>
+                        <div class="skill-meter"><div class="meter-fill" style="width: 85%"></div></div>
+                        <p>システム開発 / 多言語サイト</p>
                     </div>
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-chart-simple"></i></div>
-                        <h3>ローカライズ・コンサル</h3>
-                        <p>市場調査、競合分析、法務・税務・契約リスク管理支援。ブランド戦略、マーケティングローカライズ提案。</p>
+                        <i class="fas fa-chart-simple"></i>
+                        <h3>ローカライズ</h3>
+                        <div class="skill-meter"><div class="meter-fill" style="width: 94%"></div></div>
+                        <p>法務・税務・文化適合</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="achievements" class="achievements section-padding bg-dark">
+        <!-- 実績詳細（時間線風） -->
+        <section id="achievements" class="achievements-alt section-padding bg-dark">
             <div class="container">
                 <div class="section-header text-center text-white">
                     <span class="section-tag light">ACHIEVEMENTS</span>
-                    <h2 class="section-title">実績紹介</h2>
+                    <h2 class="section-title">主要実績</h2>
                     <div class="section-divider light"></div>
                 </div>
-                <div class="achievement-grid">
-                    <div class="achievement-card">
-                        <i class="fas fa-gamepad"></i>
-                        <h3>アニメ・ゲーム分野</h3>
-                        <ul>
-                            <li>中国福建省政府との「日中文化交流会」共催（初音ミク）</li>
-                            <li>NetDragon Websoft Inc.（香港上場）アドバイザリー契約</li>
-                            <li>人気ゲームシリーズ イラスト制作 / 大型新作ゲーム開発</li>
-                            <li>中国福建省デジタルシティ（テーマパーク）設計支援</li>
-                            <li>日本アニメライセンスフィギュア制作（講談社、KADOKAWA 他）</li>
-                            <li>『スタートレック』55周年記念フィギュア販売プラットフォーム構築</li>
-                        </ul>
-                    </div>
-                    <div class="achievement-card">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>IPO支援実績</h3>
-                        <ul>
-                            <li>上海新四板（ゲーム関連）2015年</li>
-                            <li>深圳新四板（除菌事業、銀行カード関連）2017年</li>
-                            <li>福州新四板（遺伝子検査、介護事業）2017年</li>
-                            <li class="achievement-highlight">合計 <strong>5社</strong> の上場を支援</li>
-                        </ul>
-                    </div>
-                    <div class="achievement-card">
-                        <i class="fas fa-store"></i>
-                        <h3>小売・ローカライズ実績</h3>
-                        <ul>
-                            <li>中国福建省福州市「日本生活体験館」運営</li>
-                            <li>日本企業の中国視察団・展示会出展支援（毎年）</li>
-                            <li>中国茶専門会員制サロン「Limi Tea Salon」開業</li>
-                        </ul>
-                    </div>
-                    <div class="achievement-card">
-                        <i class="fas fa-award"></i>
-                        <h3>その他実績</h3>
-                        <ul>
-                            <li>第6回Japan Tourism Awards 受賞（2020年）</li>
-                            <li>東京都経営革新計画 承認企業（2021年）</li>
-                            <li>MOOC（中国教育大手・ナスダック上場企業）日本市場参入戦略策定支援</li>
-                        </ul>
-                    </div>
+                <div class="timeline">
+                    <div class="timeline-item"><div class="timeline-year">2016</div><div class="timeline-desc">福建省政府と「日中文化交流会」共催（初音ミク）</div></div>
+                    <div class="timeline-item"><div class="timeline-year">2017-2020</div><div class="timeline-desc">NetDragon Websoft アドバイザリー / ゲーム開発 / テーマパーク設計</div></div>
+                    <div class="timeline-item"><div class="timeline-year">2015-2017</div><div class="timeline-desc">IPO支援 5社（深圳・上海・福州）</div></div>
+                    <div class="timeline-item"><div class="timeline-year">2020</div><div class="timeline-desc">第6回Japan Tourism Awards 受賞</div></div>
+                    <div class="timeline-item"><div class="timeline-year">2021</div><div class="timeline-desc">東京都経営革新計画 承認</div></div>
                 </div>
             </div>
         </section>
 
+        <!-- 会社概要・お問い合わせ（簡潔） -->
         <section id="company" class="company section-padding">
             <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">COMPANY</span>
-                    <h2 class="section-title">会社概要</h2>
-                    <div class="section-divider"></div>
-                </div>
-                <div class="company-info">
-                    <div class="company-details">
-                        <div class="detail-row">
-                            <div class="detail-label">社名</div>
-                            <div class="detail-value">株式会社ウッズ・コーポレーション / Woods Corporations Co., Ltd.</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">設立</div>
-                            <div class="detail-value">2005年3月</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">所在地</div>
-                            <div class="detail-value">〒460-0011 愛知県名古屋市中区大須1-7-14 パークIMビル2F</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">TEL</div>
-                            <div class="detail-value">050-1725-8970</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">WEB</div>
-                            <div class="detail-value"><a href="https://woods-corp.jp" target="_blank">https://woods-corp.jp</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="related-companies">
-                    <h3>関連企業</h3>
-                    <div class="company-list">
-                        <span>一般社団法人 日本キッズ協会</span>
-                        <span>日本アニメ・ゲーム協会(LLP)</span>
-                        <span>佳葛投資管理有限公司</span>
-                        <span>欧浦思電子科技有限公司</span>
-                        <span>株式会社ROLE</span>
-                        <span>悦心健康管理有限公司</span>
-                        <span>玛纳健康管理有限公司</span>
-                    </div>
+                <div class="company-info-compact">
+                    <div><i class="fas fa-building"></i> 株式会社ウッズ・コーポレーション</div>
+                    <div><i class="fas fa-map-marker-alt"></i> 〒460-0011 愛知県名古屋市中区大須1-7-14 パークIMビル2F</div>
+                    <div><i class="fas fa-phone"></i> 050-1725-8970</div>
+                    <div><i class="fas fa-envelope"></i> info@woods-corp.jp</div>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="contact section-padding bg-light">
             <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">CONTACT</span>
-                    <h2 class="section-title">お問い合わせ</h2>
-                    <div class="section-divider"></div>
-                    <p class="section-subtitle">戦略から実行まで、構想から成果まで。<br>お客様に最適な市場戦略を共に創造します。</p>
-                </div>
-                <div class="contact-wrapper">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>所在地</h4>
-                                <p>〒460-0011 愛知県名古屋市中区大須1-7-14<br>パークIMビル2F</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>電話番号</h4>
-                                <p>050-1725-8970</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>メールアドレス</h4>
-                                <p><a href="mailto:info@woods-corp.jp">info@woods-corp.jp</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <form class="contact-form" id="contactForm" action="#" method="POST">
-                        <div class="form-group">
-                            <input type="text" placeholder="お名前" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="メールアドレス" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="会社名">
-                        </div>
-                        <div class="form-group">
-                            <textarea rows="5" placeholder="お問い合わせ内容"></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary w-full">送信する <i class="fas fa-paper-plane"></i></button>
+                <div class="contact-form-simple">
+                    <h3>お問い合わせ</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="お名前" required>
+                        <input type="email" placeholder="メールアドレス" required>
+                        <textarea rows="4" placeholder="メッセージ"></textarea>
+                        <button type="submit" class="btn-primary">送信 <i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
@@ -306,46 +194,23 @@
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="index.html" class="logo">WOODS<span>CORPORATIONS</span></a>
-                    <p>誠実な日中ビジネス架け橋・プロフェッショナリズム<br>诚信桥梁・专业制胜・专注中日・共创成就</p>
-                </div>
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4>サイトマップ</h4>
-                        <ul>
-                            <li><a href="#philosophy">理念</a></li>
-                            <li><a href="#strengths">強み</a></li>
-                            <li><a href="#services">事業内容</a></li>
-                            <li><a href="#achievements">実績</a></li>
-                            <li><a href="#company">会社概要</a></li>
-                        </ul>
-                    </div>
-                    <div class="link-group">
-                        <h4>関連企業</h4>
-                        <ul>
-                            <li><a href="#">一般社団法人 日本キッズ協会</a></li>
-                            <li><a href="#">日本アニメ・ゲーム協会</a></li>
-                            <li><a href="#">佳葛投資管理有限公司</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; WOODS CORPORATIONS. All rights reserved.</p>
-            </div>
-        </div>
+        <div class="container"><p>&copy; 2025 株式会社ウッズ・コーポレーション</p></div>
     </footer>
 
+    <div id="mouseFollower" class="mouse-follower"><span>WOODS</span></div>
     <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
 
-    <!-- 鼠标跟随 Logo -->
-    <div id="mouseFollower" class="mouse-follower">
-        <span>WOODS</span>
-    </div>
-
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script>
+        // 简化的雷达图初始化（Chart.js）
+        if(document.getElementById('radarChart')){
+            new Chart(document.getElementById('radarChart'), {
+                type: 'radar',
+                data: { labels: ['アニメ', 'ゲーム', '美容健康', '小売', 'フィンテック', '教育'], datasets: [{ label: '当社カバレッジ', data: [95, 90, 85, 80, 88, 92], backgroundColor: 'rgba(37,99,235,0.2)', borderColor: '#2563eb', pointBackgroundColor: '#2563eb' }] },
+                options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom' } } }
+            });
+        }
+    </script>
 </body>
 </html>
