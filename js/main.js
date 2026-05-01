@@ -1,123 +1,71 @@
-/**
- * WOODS CORPORATIONS - メインスクリプト
- * モダンなインタラクションとマウスフォロワー
- */
-
 document.addEventListener('DOMContentLoaded', function() {
-    // ----- ハンバーガーメニュー -----
+    // ハンバーガー
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-        
-        const navLinks = document.querySelectorAll('.nav-links a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
+    if(hamburger) {
+        hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+        document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
     }
-    
-    // ----- スクロールでナビゲーション変更 -----
+
+    // スクロールでナビ変化
     const navbar = document.querySelector('.navbar');
-    if (navbar) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    }
-    
-    // ----- 戻るボタン -----
-    const backToTop = document.getElementById('backToTop');
-    if (backToTop) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
-        });
-        
-        backToTop.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-    
-    // ----- マウスフォロワー（鼠标跟随Logo）-----
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+
+    // 戻るボタン
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => backBtn.classList.toggle('show', window.scrollY > 300));
+    backBtn?.addEventListener('click', e => { e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); });
+
+    // マウスフォロワー
     const follower = document.getElementById('mouseFollower');
-    if (follower) {
-        let mouseX = 0, mouseY = 0;
-        let followerX = 0, followerY = 0;
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-        
-        function animateFollower() {
-            followerX += (mouseX - followerX) * 0.2;
-            followerY += (mouseY - followerY) * 0.2;
-            follower.style.left = followerX + 'px';
-            follower.style.top = followerY + 'px';
-            requestAnimationFrame(animateFollower);
+    if(follower) {
+        let mx=0, my=0, fx=0, fy=0;
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+        function animate() {
+            fx += (mx - fx) * 0.2;
+            fy += (my - fy) * 0.2;
+            follower.style.left = fx + 'px';
+            follower.style.top = fy + 'px';
+            requestAnimationFrame(animate);
         }
-        
-        animateFollower();
-        
-        document.addEventListener('mouseleave', () => {
-            follower.style.opacity = '0';
-        });
-        document.addEventListener('mouseenter', () => {
-            follower.style.opacity = '0.9';
+        animate();
+        document.addEventListener('mouseleave', () => follower.style.opacity = '0');
+        document.addEventListener('mouseenter', () => follower.style.opacity = '0.9');
+    }
+
+    // カウンター（スクロールで発動）
+    const counters = document.querySelectorAll('.counter');
+    let started = false;
+    function startCounters() {
+        if(started) return;
+        started = true;
+        counters.forEach(counter => {
+            const target = parseInt(counter.closest('.dashboard-card')?.dataset.count || '0');
+            let current = 0;
+            const step = Math.ceil(target / 50);
+            const timer = setInterval(() => {
+                current += step;
+                if(current >= target) {
+                    counter.innerText = target;
+                    clearInterval(timer);
+                } else counter.innerText = current;
+            }, 30);
         });
     }
-    
-    // ----- スムーズスクロール（アンカーリンク）-----
+    const dashboardSection = document.getElementById('dashboard');
+    window.addEventListener('scroll', () => {
+        if(dashboardSection && window.scrollY + window.innerHeight > dashboardSection.offsetTop + 100) startCounters();
+    });
+    startCounters(); // すでに表示されている場合
+
+    // スムーススクロール
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href === '#' || href === '') return;
-            const target = document.querySelector(href);
-            if (target) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) {
                 e.preventDefault();
-                const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 80;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
-    
-    // ----- スクロール時のカードフェードイン（Intersection Observer）-----
-    const cards = document.querySelectorAll('.philosophy-card, .strength-card, .service-card, .achievement-card');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-    
-    cards.forEach(card => {
-        observer.observe(card);
-    });
-    
-    // ----- コンタクトフォーム（ダミー送信）-----
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('お問い合わせありがとうございます。担当者より折り返しご連絡いたします。\n感谢您的咨询，我们会尽快与您联系。');
-            contactForm.reset();
-        });
-    }
 });
