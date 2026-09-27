@@ -114,7 +114,12 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     body { cursor: auto; }
     .custom-cursor { display: none; }
 }
-
+.address-img {
+    display: block;
+    max-width: 100%;   /* ← 这里控制最大宽度 */
+    height: auto;
+    margin-top: 4px;
+}
 /* ========== 区域标题 ========== */
 .section-header { margin-bottom: 60px; }
 .section-tag {
@@ -617,7 +622,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
 .contact-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 0.75fr 1.25fr;   /* ← 左0.75 : 右1.25 */
     gap: 40px;
     max-width: 1180px;
     margin: 0 auto;
