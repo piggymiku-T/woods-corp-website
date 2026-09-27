@@ -45,7 +45,7 @@
 </script>
 
 <style>
-/* ========== 方案A：暖金灰调（Warm Charcoal & Gold） ========== */
+/* ========== 暖金灰调 ========== */
 :root {
     --bg-dark: #1A1816;
     --bg-deep: #131110;
@@ -78,7 +78,6 @@ body {
 }
 ::selection { background: var(--primary); color: var(--bg-deep); }
 ::-moz-selection { background: var(--primary); color: var(--bg-deep); }
-
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg-deep); }
 ::-webkit-scrollbar-thumb {
@@ -136,10 +135,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     margin-bottom: 20px;
     border: 1px solid rgba(201, 169, 110, 0.2);
 }
-.section-tag.light {
-    color: var(--primary);
-    background: rgba(201, 169, 110, 0.15);
-}
+.section-tag.light { color: var(--primary); background: rgba(201, 169, 110, 0.15); }
 .section-title {
     font-size: clamp(28px, 3.5vw, 42px);
     font-weight: 700;
@@ -160,11 +156,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     box-shadow: 0 0 10px var(--primary-glow);
 }
 .section-divider.light { background: linear-gradient(90deg, var(--primary), var(--accent)); }
-.section-subtitle {
-    font-size: 18px;
-    color: var(--text-muted);
-    margin-top: 24px;
-}
+.section-subtitle { font-size: 18px; color: var(--text-muted); margin-top: 24px; }
 .text-center { text-align: center; }
 
 /* ========== 导航栏 ========== */
@@ -187,11 +179,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 .navbar .container { display: flex; justify-content: space-between; align-items: center; }
-.nav-logo {
-    height: 42px;
-    width: auto;
-    display: block;
-}
+.nav-logo { height: 42px; width: auto; display: block; }
 .logo-img { display: inline-flex; align-items: center; }
 .nav-menu { display: flex; align-items: center; gap: 40px; }
 .nav-links { display: flex; list-style: none; gap: 32px; }
@@ -237,7 +225,6 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     border-color: var(--primary);
     box-shadow: 0 0 15px var(--primary-glow);
 }
-
 .hamburger { display: none; flex-direction: column; cursor: pointer; }
 .hamburger span {
     width: 25px;
@@ -398,12 +385,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     border-radius: 20px;
     flex-wrap: wrap;
 }
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-}
+.stat-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .stat-number {
     font-size: 36px;
     font-weight: 800;
@@ -412,11 +394,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     line-height: 1.2;
 }
 .stat-plus { font-size: 20px; }
-.stat-label {
-    font-size: 13px;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-}
+.stat-label { font-size: 13px; color: var(--text-muted); letter-spacing: 1px; }
 
 /* ========== 服务板块 ========== */
 .service-block {
@@ -449,17 +427,9 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     line-height: 1;
     min-width: 70px;
 }
-.service-block-header h3 {
-    font-size: 26px;
-    margin-bottom: 6px;
-    color: var(--text-main);
-}
-.service-block-header p {
-    color: var(--text-muted);
-    font-size: 15px;
-}
+.service-block-header h3 { font-size: 26px; margin-bottom: 6px; color: var(--text-main); }
+.service-block-header p { color: var(--text-muted); font-size: 15px; }
 
-/* ========== 服务详情网格 ========== */
 .service-items {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -475,10 +445,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     border-bottom: 1px solid rgba(201, 169, 110, 0.06);
     transition: all 0.3s ease;
 }
-.service-item:hover {
-    color: var(--text-main);
-    padding-left: 6px;
-}
+.service-item:hover { color: var(--text-main); padding-left: 6px; }
 .service-item i {
     color: var(--primary);
     font-size: 16px;
@@ -487,8 +454,6 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     flex-shrink: 0;
     text-shadow: 0 0 8px var(--primary-glow);
 }
-
-/* ========== 服务板块底部 ========== */
 .service-block-footer {
     margin-top: 24px;
     padding-top: 20px;
@@ -505,13 +470,9 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     border: 1px solid rgba(201, 169, 110, 0.2);
 }
 
-/* ========== 为什么选择我们 ========== */
+/* ========== WHY US ========== */
 .bg-light { background: rgba(19, 17, 16, 0.5); }
-.whyus-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
+.whyus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .whyus-card {
     padding: 44px 32px;
     text-align: center;
@@ -579,11 +540,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 }
 
 /* ========== 数据仪表盘 ========== */
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-}
+.dashboard-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
 .dashboard-card {
     padding: 44px 24px;
     text-align: center;
@@ -620,7 +577,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 @media (max-width: 1024px) { .dashboard-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .dashboard-grid { grid-template-columns: 1fr; } }
 
-/* ========== 实绩时间轴 ========== */
+/* ========== 实绩时间轴（文字在左、图片在右） ========== */
 .bg-dark {
     background: linear-gradient(135deg, #131110 0%, #1A1816 100%);
     border-top: 1px solid var(--border-glass);
@@ -628,18 +585,25 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 }
 .timeline-wrapper {
     display: flex;
-    gap: 40px;
+    gap: 50px;
     flex-wrap: wrap;
     align-items: center;
 }
-.timeline-img { flex: 1; min-width: 220px; }
+.timeline { flex: 1.4; min-width: 320px; }
+.timeline-img { flex: 1; min-width: 260px; }
 .timeline-img img {
     width: 100%;
+    height: auto;
     border-radius: 24px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.85), 0 0 40px rgba(201, 169, 110, 0.15);
     border: 1px solid var(--border-glass);
+    display: block;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
-.timeline { flex: 2; min-width: 280px; }
+.timeline-img img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 60px rgba(201, 169, 110, 0.25);
+}
 .timeline-item {
     display: flex;
     gap: 30px;
@@ -656,10 +620,64 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     text-shadow: 0 0 10px var(--primary-glow);
 }
 .timeline-desc { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
-@media (max-width: 768px) {
-    .timeline-wrapper { flex-direction: column; }
+@media (max-width: 900px) {
+    .timeline-wrapper { flex-direction: column; gap: 40px; }
     .timeline-item { flex-direction: column; gap: 6px; }
     .timeline-year { min-width: auto; }
+}
+
+/* ========== 结尾 CTA 区块 ========== */
+.cta-section {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(201, 169, 110, 0.06) 0%, rgba(139, 111, 71, 0.03) 50%, rgba(19, 17, 16, 0.9) 100%);
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+}
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(201, 169, 110, 0.12) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+.cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.cta-content h2 {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    margin-bottom: 24px;
+    line-height: 1.25;
+    background: linear-gradient(135deg, #F5F2ED 0%, #C9A96E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+.cta-content p {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    line-height: 1.85;
+}
+.cta-content .btn-primary {
+    padding: 20px 52px;
+    font-size: 17px;
+}
+@media (max-width: 768px) {
+    .cta-content p { font-size: 15px; }
+    .cta-content .btn-primary { padding: 16px 40px; font-size: 15px; }
 }
 
 /* ========== 公司概要 ========== */
@@ -677,11 +695,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     font-size: 15px;
     color: var(--text-muted);
 }
-.company-info-compact div {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-}
+.company-info-compact div { display: inline-flex; align-items: center; gap: 10px; }
 .company-info-compact div i { color: var(--primary); font-size: 16px; text-shadow: 0 0 10px var(--primary-glow); }
 .company-info-compact a { color: var(--primary); font-weight: 500; }
 .company-info-compact a:hover { text-decoration: underline; }
@@ -698,10 +712,17 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
 .contact-form-simple h3 {
-    font-size: 24px;
-    margin-bottom: 28px;
+    font-size: 26px;
+    margin-bottom: 12px;
     text-align: center;
     color: var(--text-main);
+}
+.contact-form-simple .form-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 32px;
+    line-height: 1.7;
 }
 .contact-form-simple input,
 .contact-form-simple textarea {
@@ -727,6 +748,9 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 }
 .contact-form-simple textarea { resize: vertical; }
 .contact-form-simple .btn-primary { width: 100%; justify-content: center; }
+@media (max-width: 640px) {
+    .contact-form-simple { padding: 32px 24px; }
+}
 
 /* ========== 页脚 ========== */
 .footer {
@@ -768,8 +792,8 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 }
 
 /* ========== 滚动淡入 ========== */
-.dashboard-card, .service-card, .timeline-item, .whyus-card, .industry-tag,
-.service-block, .stat-item {
+.dashboard-card, .timeline-item, .whyus-card, .industry-tag,
+.service-block, .stat-item, .cta-content, .timeline-img {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
@@ -779,24 +803,15 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     transform: translateY(0) !important;
 }
 
-/* ========== 服务与行业响应式 ========== */
+/* ========== 响应式 ========== */
 @media (max-width: 768px) {
-    .service-stats {
-        gap: 30px;
-        padding: 24px;
-    }
+    .service-stats { gap: 30px; padding: 24px; }
     .stat-number { font-size: 28px; }
     .service-block { padding: 24px; }
-    .service-block-header {
-        flex-direction: column;
-        gap: 12px;
-    }
+    .service-block-header { flex-direction: column; gap: 12px; }
     .service-block-number { font-size: 36px; min-width: auto; }
     .service-block-header h3 { font-size: 22px; }
-    .service-items {
-        grid-template-columns: 1fr;
-        gap: 4px;
-    }
+    .service-items { grid-template-columns: 1fr; gap: 4px; }
 }
 </style>
 </head>
@@ -858,7 +873,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         <div class="scroll-indicator" data-zh="滚动">SCROLL <i class="fas fa-arrow-down"></i></div>
     </section>
 
-    <!-- 服务 -->
+    <!-- SERVICES -->
     <section id="services" class="services section-padding">
         <div class="container">
             <div class="section-header text-center">
@@ -870,7 +885,6 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 </p>
             </div>
 
-            <!-- 数据条 -->
             <div class="service-stats">
                 <div class="stat-item">
                     <span class="stat-number">2005</span>
@@ -890,7 +904,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 </div>
             </div>
 
-            <!-- 板块 01：市场开拓 -->
+            <!-- 01 -->
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">01</span>
@@ -914,7 +928,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 </div>
             </div>
 
-            <!-- 板块 02：商务对接 -->
+            <!-- 02 -->
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">02</span>
@@ -937,7 +951,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 </div>
             </div>
 
-            <!-- 板块 03：IPO支援 -->
+            <!-- 03 -->
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">03</span>
@@ -947,7 +961,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                     </div>
                 </div>
                 <div class="service-items">
-                    <div class="service-item"><i class="fas fa-building"></i><span data-zh="深圳第四板・上海Q板・福州創業板・海南展示板等への上場支援">深圳第四板・上海Q板・福州創業板・海南展示板等への上場支援</span></div>
+                    <div class="service-item"><i class="fas fa-building"></i><span data-zh="深圳第四板・上海Q板・天津創業板等への上場支援">深圳第四板・上海Q板・天津創業板等への上場支援</span></div>
                     <div class="service-item"><i class="fas fa-file-alt"></i><span data-zh="上場申請書類の作成・提出">上場申請書類の作成・提出</span></div>
                     <div class="service-item"><i class="fas fa-users"></i><span data-zh="投資説明会の企画運営">投資説明会の企画運営</span></div>
                     <div class="service-item"><i class="fas fa-stamp"></i><span data-zh="会社設立登記・法定代表者代行">会社設立登記・法定代表者代行</span></div>
@@ -961,7 +975,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 </div>
             </div>
 
-            <!-- 板块 04：IT・Web3 -->
+            <!-- 04 -->
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">04</span>
@@ -1084,7 +1098,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         </div>
     </section>
 
-    <!-- ACHIEVEMENTS -->
+    <!-- ACHIEVEMENTS（文字在左、图片在右） -->
     <section id="achievements" class="achievements-alt section-padding bg-dark">
         <div class="container">
             <div class="section-header text-center text-white">
@@ -1093,9 +1107,6 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 <div class="section-divider light"></div>
             </div>
             <div class="timeline-wrapper">
-                <div class="timeline-img">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231A1816'/%3E%3Ctext x='50%25' y='50%25' fill='%23C9A96E' font-size='18' text-anchor='middle' dy='.3em'%3E🏪 日本生活体験館（福州）%3C/text%3E%3C/svg%3E" alt="日本生活体験館">
-                </div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-year">2010-現在</div>
@@ -1122,6 +1133,26 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                         <div class="timeline-desc" data-zh="东京都经营革新计划 批准企业">東京都経営革新計画 承認企業に選定</div>
                     </div>
                 </div>
+                <div class="timeline-img">
+                    <!-- 【重要】请把这张图替换为「日本生活体验馆」的实拍照片，命名为 japan-experience.jpg 上传到 assets/ 文件夹 -->
+                    <!-- 当前使用 Unsplash 示例图（日本生活方式/零售场景），您可以先看效果，之后换成自己的照片 -->
+                    <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?w=800&q=80" alt="日本生活体験館（福州）- イメージ">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ★ 结尾 CTA（新增，避免草率结束） -->
+    <section class="cta-section section-padding">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-zh="让我们共同创造未来">共に未来を創る<br>パートナーへ</h2>
+                <p data-zh="约20年日中商务现场积累的实战经验。<br>从战略到执行，从构想到成果。<br>与您共同创造最优市场战略。">
+                    約20年にわたり日中ビジネスの現場で積み重ねた実戦経験。<br>
+                    戦略から実行まで、構想から成果まで。<br>
+                    お客様に最適な市場戦略を共に創造します。
+                </p>
+                <a href="#contact" class="btn-primary" data-zh="立即咨询 <i class='fas fa-arrow-right'></i>">お問い合わせ <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -1143,6 +1174,9 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         <div class="container">
             <div class="contact-form-simple">
                 <h3 data-zh="联系我们">お問い合わせ</h3>
+                <p class="form-subtitle" data-zh="请填写以下表单，我们将在 1-2 个工作日内与您联系。">
+                    以下のフォームにご記入ください。1〜2営業日以内にご連絡いたします。
+                </p>
                 <form id="contactForm">
                     <input type="text" placeholder="お名前" data-zh-placeholder="姓名" required>
                     <input type="email" placeholder="メールアドレス" data-zh-placeholder="邮箱地址" required>
@@ -1165,7 +1199,6 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    /* ========== 语言切换 ========== */
     const langBtn = document.getElementById('langBtn');
     const langLabel = document.getElementById('langLabel');
     
@@ -1194,7 +1227,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    /* ========== 汉堡菜单 ========== */
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
     if (hamburger && navMenu) {
@@ -1204,14 +1236,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    /* ========== 导航滚动 ========== */
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) navbar.classList.add('scrolled');
         else navbar.classList.remove('scrolled');
     });
     
-    /* ========== 返回顶部 ========== */
     const backBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) backBtn.classList.add('show');
@@ -1222,7 +1252,6 @@ document.addEventListener('DOMContentLoaded', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     
-    /* ========== 自定义光标 ========== */
     const cursor = document.getElementById('customCursor');
     if (cursor && window.matchMedia('(pointer: fine)').matches) {
         let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
@@ -1237,12 +1266,10 @@ document.addEventListener('DOMContentLoaded', function() {
             requestAnimationFrame(animateCursor);
         }
         animateCursor();
-        
         document.addEventListener('mousedown', () => cursor.classList.add('clicked'));
         document.addEventListener('mouseup', () => cursor.classList.remove('clicked'));
     }
     
-    /* ========== 数据计数器 ========== */
     const counters = document.querySelectorAll('.counter');
     let started = false;
     function startCounters() {
@@ -1267,17 +1294,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    /* ========== 滚动淡入 ========== */
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.dashboard-card, .timeline-item, .whyus-card, .industry-tag, .service-block, .stat-item').forEach(el => {
+    document.querySelectorAll('.dashboard-card, .timeline-item, .whyus-card, .industry-tag, .service-block, .stat-item, .cta-content, .timeline-img').forEach(el => {
         observer.observe(el);
     });
     
-    /* ========== 平滑滚动 ========== */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -1292,7 +1317,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    /* ========== 表单提交（演示） ========== */
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
