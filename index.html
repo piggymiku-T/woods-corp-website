@@ -23,7 +23,7 @@
     "@type": "Organization",
     "name": "株式会社ウッズ・コーポレーション",
     "alternateName": "WOODS Corporation CO.,LTD.",
-    "description": "中国市場進出支援、ビジネスマッチング、IPOコンサルティングを専門とするコンサルティングファーム。実店舗「日本生活体験館」を活用した実証型マーケティングを強みとし、AI、エネルギー、観光、都市開発、LED、ファッションなど15以上の業界で実績。",
+    "description": "中国市場進出支援、ビジネスマッチング、IPOコンサルティングを専門とするコンサルティングファーム。",
     "url": "https://woods-corp.jp",
     "logo": "https://woods-corp.jp/assets/logo.png",
     "address": {
@@ -55,7 +55,6 @@
     --primary-dark: #A8863F;
     --primary-glow: rgba(201, 169, 110, 0.4);
     --accent: #8B6F47;
-    --accent-glow: rgba(139, 111, 71, 0.35);
     --text-main: #F5F2ED;
     --text-muted: #9B9088;
     --border-glass: rgba(201, 169, 110, 0.15);
@@ -74,10 +73,8 @@ body {
     overflow-x: hidden;
     cursor: none;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 ::selection { background: var(--primary); color: var(--bg-deep); }
-::-moz-selection { background: var(--primary); color: var(--bg-deep); }
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg-deep); }
 ::-webkit-scrollbar-thumb {
@@ -85,7 +82,6 @@ body {
     border-radius: 10px;
     border: 2px solid var(--bg-deep);
 }
-::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
 .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
 .section-padding { padding: 100px 0; }
@@ -99,8 +95,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 /* ========== 鼠标光标 ========== */
 .custom-cursor {
     position: fixed;
-    width: 32px;
-    height: 32px;
+    width: 32px; height: 32px;
     background-image: url('assets/logo.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -124,51 +119,38 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 .section-header { margin-bottom: 60px; }
 .section-tag {
     display: inline-block;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
     color: var(--primary);
     background: rgba(201, 169, 110, 0.1);
-    padding: 6px 14px;
-    border-radius: 30px;
+    padding: 6px 14px; border-radius: 30px;
     margin-bottom: 20px;
     border: 1px solid rgba(201, 169, 110, 0.2);
 }
 .section-tag.light { color: var(--primary); background: rgba(201, 169, 110, 0.15); }
 .section-title {
     font-size: clamp(28px, 3.5vw, 42px);
-    font-weight: 700;
-    margin-bottom: 20px;
+    font-weight: 700; margin-bottom: 20px;
     background: linear-gradient(135deg, #F5F2ED 0%, #C9A96E 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
+    -webkit-background-clip: text; background-clip: text;
     color: transparent;
     word-break: keep-all;
-    overflow-wrap: break-word;
 }
 .section-divider {
-    width: 60px;
-    height: 3px;
+    width: 60px; height: 3px;
     background: linear-gradient(90deg, var(--primary), var(--accent));
-    margin: 20px auto 0;
-    border-radius: 3px;
+    margin: 20px auto 0; border-radius: 3px;
     box-shadow: 0 0 10px var(--primary-glow);
 }
-.section-divider.light { background: linear-gradient(90deg, var(--primary), var(--accent)); }
 .section-subtitle { font-size: 18px; color: var(--text-muted); margin-top: 24px; }
 .text-center { text-align: center; }
 
 /* ========== 导航栏 ========== */
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
+    position: fixed; top: 0; width: 100%;
     background: rgba(26, 24, 22, 0.78);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: 1000;
-    padding: 20px 0;
+    z-index: 1000; padding: 20px 0;
     transition: all 0.4s ease;
     border-bottom: 1px solid rgba(201, 169, 110, 0.06);
 }
@@ -184,19 +166,13 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 .nav-menu { display: flex; align-items: center; gap: 40px; }
 .nav-links { display: flex; list-style: none; gap: 32px; }
 .nav-links a {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 14px; font-weight: 500;
     color: var(--text-muted);
-    position: relative;
-    letter-spacing: 0.5px;
+    position: relative; letter-spacing: 0.5px;
 }
 .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 0;
-    height: 2px;
+    content: ''; position: absolute;
+    bottom: -6px; left: 0; width: 0; height: 2px;
     background: var(--primary);
     transition: width 0.3s;
     box-shadow: 0 0 8px var(--primary-glow);
@@ -205,18 +181,14 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 .nav-links a:hover { color: var(--text-main); }
 
 .lang-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    display: inline-flex; align-items: center; gap: 6px;
     padding: 8px 16px;
     background: rgba(201, 169, 110, 0.06);
     border: 1px solid var(--border-glass);
     border-radius: 30px;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 13px; font-weight: 600;
     color: var(--text-muted);
-    cursor: pointer;
-    transition: all 0.3s ease;
+    cursor: pointer; transition: all 0.3s ease;
     font-family: inherit;
 }
 .lang-btn:hover {
@@ -227,24 +199,19 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 }
 .hamburger { display: none; flex-direction: column; cursor: pointer; }
 .hamburger span {
-    width: 25px;
-    height: 2px;
+    width: 25px; height: 2px;
     background: var(--text-main);
-    margin: 3px 0;
-    transition: 0.3s;
+    margin: 3px 0; transition: 0.3s;
 }
 @media (max-width: 900px) {
     .hamburger { display: flex; }
     .nav-menu {
-        position: fixed;
-        top: 80px;
-        left: -100%;
+        position: fixed; top: 80px; left: -100%;
         width: 100%;
         background: rgba(19, 17, 16, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
-        padding: 40px;
-        transition: left 0.4s ease;
+        padding: 40px; transition: left 0.4s ease;
         gap: 30px;
         box-shadow: 0 20px 40px rgba(0,0,0,0.9);
         border-bottom: 1px solid var(--border-glass);
@@ -256,22 +223,16 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
 /* ========== Hero ========== */
 .hero.fullscreen {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+    min-height: 100vh; display: flex; align-items: center;
+    position: relative; overflow: hidden;
 }
 .hero-video {
-    position: absolute;
-    top: 0; left: 0;
+    position: absolute; top: 0; left: 0;
     width: 100%; height: 100%;
-    object-fit: cover;
-    z-index: 1;
+    object-fit: cover; z-index: 1;
 }
 .hero-overlay {
-    position: absolute;
-    top: 0; left: 0;
+    position: absolute; top: 0; left: 0;
     width: 100%; height: 100%;
     background: linear-gradient(90deg, rgba(19,17,16,0.96) 0%, rgba(19,17,16,0.72) 55%, rgba(19,17,16,0.25) 100%);
     z-index: 2;
@@ -279,49 +240,34 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 .hero .container { position: relative; z-index: 3; }
 .hero-content { max-width: 820px; }
 .hero-badge {
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: var(--primary);
+    display: inline-block; font-size: 13px; font-weight: 600;
+    letter-spacing: 2px; color: var(--primary);
     background: rgba(201, 169, 110, 0.1);
-    padding: 8px 18px;
-    border-radius: 30px;
+    padding: 8px 18px; border-radius: 30px;
     margin-bottom: 28px;
     border: 1px solid rgba(201, 169, 110, 0.25);
     backdrop-filter: blur(10px);
 }
 .hero-title {
     font-size: clamp(30px, 4.2vw, 54px);
-    font-weight: 800;
-    color: var(--text-main);
+    font-weight: 800; color: var(--text-main);
     text-shadow: 0 2px 25px rgba(0,0,0,0.9);
-    margin-bottom: 24px;
-    line-height: 1.3;
+    margin-bottom: 24px; line-height: 1.3;
     word-break: keep-all;
-    overflow-wrap: break-word;
-    letter-spacing: 0.01em;
 }
 .hero-desc {
-    font-size: 18px;
-    color: var(--text-muted);
-    margin-bottom: 36px;
-    line-height: 1.85;
+    font-size: 18px; color: var(--text-muted);
+    margin-bottom: 36px; line-height: 1.85;
     text-shadow: 0 1px 12px rgba(0,0,0,0.6);
 }
 .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
 .btn-primary {
     background: linear-gradient(135deg, var(--primary) 0%, #E0C58A 100%);
     color: var(--bg-deep);
-    padding: 16px 36px;
-    border-radius: 40px;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
+    padding: 16px 36px; border-radius: 40px;
+    font-weight: 700; border: none; cursor: pointer;
     transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    display: inline-flex; align-items: center; gap: 8px;
     font-size: 16px;
     box-shadow: 0 0 25px var(--primary-glow);
 }
@@ -334,13 +280,10 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     backdrop-filter: blur(10px);
     border: 1px solid var(--border-glass);
     color: var(--text-main);
-    padding: 16px 36px;
-    border-radius: 40px;
+    padding: 16px 36px; border-radius: 40px;
     font-weight: 600;
     transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    display: inline-flex; align-items: center; gap: 8px;
     font-size: 16px;
 }
 .btn-outline:hover {
@@ -351,15 +294,11 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     box-shadow: 0 0 25px var(--primary-glow);
 }
 .scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute; bottom: 30px;
+    left: 50%; transform: translateX(-50%);
     color: var(--text-muted);
-    font-size: 12px;
-    letter-spacing: 2px;
-    z-index: 3;
-    animation: bounce 2s infinite;
+    font-size: 12px; letter-spacing: 2px;
+    z-index: 3; animation: bounce 2s infinite;
 }
 @keyframes bounce {
     0%,100% { transform: translate(-50%, 0); }
@@ -372,12 +311,10 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     .hero-overlay { background: linear-gradient(180deg, rgba(19,17,16,0.65) 0%, rgba(19,17,16,0.96) 100%); }
 }
 
-/* ========== 服务实绩数据条 ========== */
+/* ========== 数据条 ========== */
 .service-stats {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin-bottom: 60px;
+    display: flex; justify-content: center;
+    gap: 60px; margin-bottom: 60px;
     padding: 30px 40px;
     background: var(--bg-glass);
     backdrop-filter: blur(16px);
@@ -387,8 +324,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 }
 .stat-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .stat-number {
-    font-size: 36px;
-    font-weight: 800;
+    font-size: 36px; font-weight: 800;
     color: var(--primary);
     text-shadow: 0 0 20px var(--primary-glow);
     line-height: 1.2;
@@ -400,46 +336,73 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 .service-block {
     background: var(--bg-glass);
     backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-glass);
     border-radius: 24px;
     padding: 40px;
     margin-bottom: 30px;
     transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+.service-block::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -50%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201, 169, 110, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+    transition: opacity 0.4s ease;
 }
 .service-block:hover {
     border-color: var(--border-glass-hover);
     box-shadow: var(--shadow-glow);
 }
+.service-block:hover::before { opacity: 1.5; }
+
 .service-block-header {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 24px;
     margin-bottom: 32px;
     padding-bottom: 24px;
     border-bottom: 1px solid var(--border-glass);
+    position: relative;
+    z-index: 1;
 }
 .service-block-number {
-    font-size: 48px;
-    font-weight: 800;
+    font-size: 48px; font-weight: 800;
     color: var(--primary);
-    opacity: 0.3;
-    line-height: 1;
+    opacity: 0.3; line-height: 1;
     min-width: 70px;
 }
-.service-block-header h3 { font-size: 26px; margin-bottom: 6px; color: var(--text-main); }
-.service-block-header p { color: var(--text-muted); font-size: 15px; }
+.service-block-title { flex: 1; }
+.service-block-title h3 { font-size: 26px; margin-bottom: 6px; color: var(--text-main); }
+.service-block-title p { color: var(--text-muted); font-size: 15px; }
+
+/* 服务板块右侧大图标 */
+.service-block-icon {
+    font-size: 80px;
+    color: var(--primary);
+    opacity: 0.12;
+    line-height: 1;
+    transition: all 0.4s ease;
+    flex-shrink: 0;
+}
+.service-block:hover .service-block-icon {
+    opacity: 0.25;
+    transform: scale(1.08);
+}
 
 .service-items {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 4px 40px;
+    position: relative;
+    z-index: 1;
 }
 .service-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
+    display: flex; align-items: center;
+    gap: 12px; font-size: 14px;
     color: var(--text-muted);
     padding: 10px 0;
     border-bottom: 1px solid rgba(201, 169, 110, 0.06);
@@ -448,21 +411,20 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 .service-item:hover { color: var(--text-main); padding-left: 6px; }
 .service-item i {
     color: var(--primary);
-    font-size: 16px;
-    width: 20px;
-    text-align: center;
-    flex-shrink: 0;
+    font-size: 16px; width: 20px;
+    text-align: center; flex-shrink: 0;
     text-shadow: 0 0 8px var(--primary-glow);
 }
 .service-block-footer {
     margin-top: 24px;
     padding-top: 20px;
     border-top: 1px solid var(--border-glass);
+    position: relative;
+    z-index: 1;
 }
 .service-tag {
     display: inline-block;
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 13px; font-weight: 500;
     color: var(--primary);
     background: rgba(201, 169, 110, 0.1);
     padding: 6px 16px;
@@ -474,8 +436,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 .bg-light { background: rgba(19, 17, 16, 0.5); }
 .whyus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .whyus-card {
-    padding: 44px 32px;
-    text-align: center;
+    padding: 44px 32px; text-align: center;
     background: var(--bg-glass);
     backdrop-filter: blur(16px);
     border: 1px solid var(--border-glass);
@@ -489,8 +450,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     transform: translateY(-8px);
 }
 .whyus-card i {
-    font-size: 44px;
-    color: var(--primary);
+    font-size: 44px; color: var(--primary);
     margin-bottom: 24px;
     text-shadow: 0 0 20px var(--primary-glow);
 }
@@ -501,10 +461,8 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 /* ========== 行业标签云 ========== */
 .industries { background: rgba(19, 17, 16, 0.7); }
 .industries-cloud {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
+    display: flex; flex-wrap: wrap;
+    justify-content: center; gap: 14px;
     margin: 40px 0 20px;
 }
 .industry-tag {
@@ -512,15 +470,12 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     backdrop-filter: blur(10px);
     border-radius: 60px;
     padding: 10px 24px;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 14px; font-weight: 500;
     color: var(--text-muted);
     box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     transition: all 0.3s ease;
     border: 1px solid var(--border-glass);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    display: inline-flex; align-items: center; gap: 8px;
 }
 .industry-tag i { color: var(--primary); font-size: 14px; }
 .industry-tag:hover {
@@ -531,8 +486,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     background: rgba(201, 169, 110, 0.1);
 }
 .industries-note {
-    text-align: center;
-    font-size: 13px;
+    text-align: center; font-size: 13px;
     color: var(--text-muted);
     margin-top: 30px;
     border-top: 1px solid var(--border-glass);
@@ -542,8 +496,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 /* ========== 数据仪表盘 ========== */
 .dashboard-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
 .dashboard-card {
-    padding: 44px 24px;
-    text-align: center;
+    padding: 44px 24px; text-align: center;
     background: var(--bg-glass);
     backdrop-filter: blur(16px);
     border: 1px solid var(--border-glass);
@@ -557,17 +510,13 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     transform: translateY(-8px);
 }
 .dashboard-card i {
-    font-size: 40px;
-    color: var(--primary);
-    margin-bottom: 16px;
-    display: block;
+    font-size: 40px; color: var(--primary);
+    margin-bottom: 16px; display: block;
     text-shadow: 0 0 20px var(--primary-glow);
 }
 .dashboard-number {
-    font-size: 54px;
-    font-weight: 800;
-    margin: 8px 0;
-    color: var(--text-main);
+    font-size: 54px; font-weight: 800;
+    margin: 8px 0; color: var(--text-main);
     text-shadow: 0 0 30px rgba(201, 169, 110, 0.35);
 }
 .dashboard-number span:last-child { font-size: 28px; color: var(--primary); }
@@ -577,23 +526,20 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 @media (max-width: 1024px) { .dashboard-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .dashboard-grid { grid-template-columns: 1fr; } }
 
-/* ========== 实绩时间轴（文字在左、图片在右） ========== */
+/* ========== 实绩时间轴 ========== */
 .bg-dark {
     background: linear-gradient(135deg, #131110 0%, #1A1816 100%);
     border-top: 1px solid var(--border-glass);
     border-bottom: 1px solid var(--border-glass);
 }
 .timeline-wrapper {
-    display: flex;
-    gap: 50px;
-    flex-wrap: wrap;
-    align-items: center;
+    display: flex; gap: 50px;
+    flex-wrap: wrap; align-items: center;
 }
 .timeline { flex: 1.4; min-width: 320px; }
 .timeline-img { flex: 1; min-width: 260px; }
 .timeline-img img {
-    width: 100%;
-    height: auto;
+    width: 100%; height: auto;
     border-radius: 24px;
     box-shadow: 0 30px 60px rgba(0,0,0,0.85), 0 0 40px rgba(201, 169, 110, 0.15);
     border: 1px solid var(--border-glass);
@@ -605,18 +551,14 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 60px rgba(201, 169, 110, 0.25);
 }
 .timeline-item {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 24px;
-    padding-bottom: 16px;
+    display: flex; gap: 30px;
+    margin-bottom: 24px; padding-bottom: 16px;
     border-bottom: 1px solid rgba(245, 242, 237, 0.06);
 }
 .timeline-item:last-child { border-bottom: none; }
 .timeline-year {
-    font-weight: 800;
-    min-width: 110px;
-    color: var(--primary);
-    font-size: 15px;
+    font-weight: 800; min-width: 110px;
+    color: var(--primary); font-size: 15px;
     text-shadow: 0 0 10px var(--primary-glow);
 }
 .timeline-desc { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
@@ -626,10 +568,9 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     .timeline-year { min-width: auto; }
 }
 
-/* ========== 结尾 CTA 区块 ========== */
+/* ========== 结尾 CTA ========== */
 .cta-section {
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
     text-align: center;
     background: linear-gradient(135deg, rgba(201, 169, 110, 0.06) 0%, rgba(139, 111, 71, 0.03) 50%, rgba(19, 17, 16, 0.9) 100%);
     border-top: 1px solid var(--border-glass);
@@ -638,97 +579,130 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 .cta-section::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: 50%;
+    top: -50%; left: 50%;
     transform: translateX(-50%);
-    width: 800px;
-    height: 800px;
+    width: 800px; height: 800px;
     background: radial-gradient(circle, rgba(201, 169, 110, 0.12) 0%, transparent 60%);
     pointer-events: none;
-    z-index: 0;
 }
 .cta-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    margin: 0 auto;
+    position: relative; z-index: 1;
+    max-width: 800px; margin: 0 auto;
 }
 .cta-content h2 {
     font-size: clamp(28px, 4vw, 48px);
-    font-weight: 800;
-    margin-bottom: 24px;
+    font-weight: 800; margin-bottom: 24px;
     line-height: 1.25;
     background: linear-gradient(135deg, #F5F2ED 0%, #C9A96E 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     word-break: keep-all;
-    overflow-wrap: break-word;
 }
 .cta-content p {
-    font-size: 18px;
-    color: var(--text-muted);
-    margin-bottom: 40px;
-    line-height: 1.85;
+    font-size: 18px; color: var(--text-muted);
+    margin-bottom: 40px; line-height: 1.85;
 }
-.cta-content .btn-primary {
-    padding: 20px 52px;
-    font-size: 17px;
-}
-@media (max-width: 768px) {
-    .cta-content p { font-size: 15px; }
-    .cta-content .btn-primary { padding: 16px 40px; font-size: 15px; }
-}
+.cta-content .btn-primary { padding: 20px 52px; font-size: 17px; }
 
-/* ========== 公司概要 ========== */
-.company-info-compact {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px 40px;
-    background: var(--bg-glass);
-    backdrop-filter: blur(16px);
-    border: 1px solid var(--border-glass);
-    padding: 44px;
-    border-radius: 24px;
-    text-align: center;
-    font-size: 15px;
-    color: var(--text-muted);
-}
-.company-info-compact div { display: inline-flex; align-items: center; gap: 10px; }
-.company-info-compact div i { color: var(--primary); font-size: 16px; text-shadow: 0 0 10px var(--primary-glow); }
-.company-info-compact a { color: var(--primary); font-weight: 500; }
-.company-info-compact a:hover { text-decoration: underline; }
-
-/* ========== 联系表单 ========== */
-.contact-form-simple {
-    max-width: 600px;
+/* ========== 联系 + 公司信息 合并（左右布局） ========== */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    max-width: 1180px;
     margin: 0 auto;
+    align-items: stretch;
+}
+
+/* 左侧：公司信息面板 */
+.company-panel {
     background: var(--bg-glass);
     backdrop-filter: blur(20px);
     border: 1px solid var(--border-glass);
-    padding: 48px;
+    padding: 44px 40px;
     border-radius: 28px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.company-panel h3 {
+    font-size: 24px;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+.company-panel .panel-subtitle {
+    font-size: 13px;
+    color: var(--primary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    font-weight: 600;
+}
+.company-info-list { display: flex; flex-direction: column; gap: 20px; }
+.company-info-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(201, 169, 110, 0.08);
+}
+.company-info-item:last-child { border-bottom: none; padding-bottom: 0; }
+.company-info-item i {
+    color: var(--primary);
+    font-size: 20px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+.company-info-item .info-content { flex: 1; }
+.company-info-item .info-label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+.company-info-item .info-value {
+    font-size: 15px;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+.company-info-item .info-value a { color: var(--primary); }
+.company-info-item .info-value a:hover { text-decoration: underline; }
+
+/* 右侧：联系表单 */
+.contact-form-simple {
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glass);
+    padding: 44px 40px;
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
 }
 .contact-form-simple h3 {
-    font-size: 26px;
-    margin-bottom: 12px;
-    text-align: center;
+    font-size: 24px;
+    margin-bottom: 8px;
     color: var(--text-main);
 }
 .contact-form-simple .form-subtitle {
-    text-align: center;
     color: var(--text-muted);
     font-size: 14px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     line-height: 1.7;
 }
+.contact-form-simple form { flex: 1; display: flex; flex-direction: column; }
 .contact-form-simple input,
 .contact-form-simple textarea {
     width: 100%;
     padding: 16px 20px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     background: rgba(13, 12, 11, 0.6);
     border: 1px solid var(--border-glass);
     border-radius: 16px;
@@ -746,10 +720,21 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     box-shadow: 0 0 20px var(--primary-glow);
     background: rgba(201, 169, 110, 0.05);
 }
-.contact-form-simple textarea { resize: vertical; }
-.contact-form-simple .btn-primary { width: 100%; justify-content: center; }
+.contact-form-simple textarea { resize: vertical; min-height: 100px; }
+.contact-form-simple .btn-primary {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
 @media (max-width: 640px) {
-    .contact-form-simple { padding: 32px 24px; }
+    .company-panel, .contact-form-simple { padding: 32px 24px; }
 }
 
 /* ========== 页脚 ========== */
@@ -764,20 +749,14 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
 /* ========== 返回顶部 ========== */
 .back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
+    position: fixed; bottom: 30px; right: 30px;
     background: var(--bg-glass);
     backdrop-filter: blur(10px);
     color: var(--primary);
-    width: 48px;
-    height: 48px;
+    width: 48px; height: 48px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden;
     transition: all 0.3s ease;
     z-index: 999;
     border: 1px solid var(--border-glass);
@@ -793,7 +772,8 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
 /* ========== 滚动淡入 ========== */
 .dashboard-card, .timeline-item, .whyus-card, .industry-tag,
-.service-block, .stat-item, .cta-content, .timeline-img {
+.service-block, .stat-item, .cta-content, .timeline-img,
+.company-panel, .contact-form-simple {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
@@ -808,10 +788,12 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     .service-stats { gap: 30px; padding: 24px; }
     .stat-number { font-size: 28px; }
     .service-block { padding: 24px; }
-    .service-block-header { flex-direction: column; gap: 12px; }
+    .service-block-header { flex-direction: column; gap: 12px; align-items: flex-start; }
     .service-block-number { font-size: 36px; min-width: auto; }
-    .service-block-header h3 { font-size: 22px; }
+    .service-block-title h3 { font-size: 22px; }
+    .service-block-icon { font-size: 56px; position: absolute; right: 24px; top: 24px; }
     .service-items { grid-template-columns: 1fr; gap: 4px; }
+    .cta-content .btn-primary { padding: 16px 40px; font-size: 15px; }
 }
 </style>
 </head>
@@ -833,7 +815,6 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 <li><a href="#industries" data-zh="覆盖行业">実績業界</a></li>
                 <li><a href="#dashboard" data-zh="数据">データ</a></li>
                 <li><a href="#achievements" data-zh="案例">事例</a></li>
-                <li><a href="#company" data-zh="公司">会社概要</a></li>
                 <li><a href="#contact" data-zh="联系">お問い合わせ</a></li>
             </ul>
             <button class="lang-btn" id="langBtn" aria-label="言語切替">
@@ -908,10 +889,11 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">01</span>
-                    <div>
+                    <div class="service-block-title">
                         <h3 data-zh="市场开拓支援">市場開拓支援</h3>
                         <p data-zh="从战略到落地，全程陪跑">戦略策定から現地マーケティング・販路開拓まで実行</p>
                     </div>
+                    <i class="fas fa-globe-asia service-block-icon"></i>
                 </div>
                 <div class="service-items">
                     <div class="service-item"><i class="fas fa-shopping-cart"></i><span data-zh="中国語ECサイト構築・運営サポート">中国語ECサイト構築・運営サポート</span></div>
@@ -932,10 +914,11 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">02</span>
-                    <div>
+                    <div class="service-block-title">
                         <h3 data-zh="商务对接">ビジネスマッチング</h3>
                         <p data-zh="精准对接，共创共赢">最適な提携先を発掘し、事業共創・販路拡大を促進</p>
                     </div>
+                    <i class="fas fa-handshake service-block-icon"></i>
                 </div>
                 <div class="service-items">
                     <div class="service-item"><i class="fas fa-search"></i><span data-zh="中国パートナー企業の発掘・紹介">中国パートナー企業の発掘・紹介</span></div>
@@ -955,10 +938,11 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">03</span>
-                    <div>
+                    <div class="service-block-title">
                         <h3 data-zh="IPO・融资支持">IPO・資金調達支援</h3>
                         <p data-zh="从申请到上市，全程护航">中国証券市場への上場・資金調達をワンストップでサポート</p>
                     </div>
+                    <i class="fas fa-chart-line service-block-icon"></i>
                 </div>
                 <div class="service-items">
                     <div class="service-item"><i class="fas fa-building"></i><span data-zh="深圳第四板・上海Q板・天津創業板等への上場支援">深圳第四板・上海Q板・天津創業板等への上場支援</span></div>
@@ -979,10 +963,11 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">04</span>
-                    <div>
+                    <div class="service-block-title">
                         <h3 data-zh="IT・Web3开发">IT・Web3・システム開発</h3>
                         <p data-zh="数字化转型，技术赋能">Webシステム・アプリ・ゲーム開発で事業のデジタル化を支援</p>
                     </div>
+                    <i class="fas fa-laptop-code service-block-icon"></i>
                 </div>
                 <div class="service-items">
                     <div class="service-item"><i class="fas fa-gamepad"></i><span data-zh="Webゲーム開発（オフショア受託）">Webゲーム開発（オフショア受託）</span></div>
@@ -1098,7 +1083,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         </div>
     </section>
 
-    <!-- ACHIEVEMENTS（文字在左、图片在右） -->
+    <!-- ACHIEVEMENTS -->
     <section id="achievements" class="achievements-alt section-padding bg-dark">
         <div class="container">
             <div class="section-header text-center text-white">
@@ -1134,15 +1119,13 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                     </div>
                 </div>
                 <div class="timeline-img">
-                    <!-- 【重要】请把这张图替换为「日本生活体验馆」的实拍照片，命名为 japan-experience.jpg 上传到 assets/ 文件夹 -->
-                    <!-- 当前使用 Unsplash 示例图（日本生活方式/零售场景），您可以先看效果，之后换成自己的照片 -->
-                    <img src="assets/japan-experience.png" alt="日本生活体験館（福州）- イメージ">
+                    <img src="assets/business-strength.jpg" alt="Woods Corporations - 実績と信頼">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ★ 结尾 CTA（新增，避免草率结束） -->
+    <!-- ★ 结尾 CTA -->
     <section class="cta-section section-padding">
         <div class="container">
             <div class="cta-content">
@@ -1152,38 +1135,70 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                     戦略から実行まで、構想から成果まで。<br>
                     お客様に最適な市場戦略を共に創造します。
                 </p>
-                <a href="#contact" class="btn-primary" data-zh="立即咨询 <i class='fas fa-arrow-right'></i>">お問合わせ <i class="fas fa-arrow-right"></i></a>
+                <a href="#contact" class="btn-primary" data-zh="立即咨询 <i class='fas fa-arrow-right'></i>">お問い合わせ <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- COMPANY -->
-    <section id="company" class="company section-padding">
+    <!-- ★ CONTACT：公司信息 + 联系表单 左右布局 -->
+    <section id="contact" class="contact section-padding">
         <div class="container">
-            <div class="company-info-compact">
-                <div><i class="fas fa-building"></i> <span data-zh="WOODS Corporation CO.,LTD.">株式会社ウッズ・コーポレーション</span></div>
-                <div><i class="fas fa-map-marker-alt"></i> 〒460-0011 <span data-zh="Park IM Building 2, 1-7-14 Osu, Naka-ku, Nagoya-shi, Aichi-ken, Japan">愛知県名古屋市中区大須1-7-14 パークIMビル2F</span></div>
-                <div><i class="fas fa-phone"></i> 050-1725-8970</div>
-                <div><i class="fas fa-envelope"></i> info@woods-corp.jp</div>
+            <div class="section-header text-center">
+                <span class="section-tag" data-zh="联系我们">CONTACT</span>
+                <h2 class="section-title" data-zh="联系我们">お問い合わせ</h2>
+                <div class="section-divider"></div>
             </div>
-        </div>
-    </section>
+            <div class="contact-wrapper">
+                <!-- 左侧：公司信息 -->
+                <div class="company-panel">
+                    <h3 data-zh="公司概要">会社概要</h3>
+                    <div class="panel-subtitle">Company Profile</div>
+                    <div class="company-info-list">
+                        <div class="company-info-item">
+                            <i class="fas fa-building"></i>
+                            <div class="info-content">
+                                <span class="info-label" data-zh="公司名称">社名</span>
+                                <span class="info-value" data-zh="WOODS Corporation CO.,LTD.">株式会社ウッズ・コーポレーション</span>
+                            </div>
+                        </div>
+                        <div class="company-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="info-content">
+                                <span class="info-label" data-zh="地址">所在地</span>
+                                <span class="info-value" data-zh="Park IM Building 2, 1-7-14 Osu, Naka-ku, Nagoya, Aichi 460-0011, Japan">〒460-0011 愛知県名古屋市中区大須1-7-14 パークIMビル2F</span>
+                            </div>
+                        </div>
+                        <div class="company-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div class="info-content">
+                                <span class="info-label" data-zh="电话">TEL</span>
+                                <span class="info-value">050-1725-8970</span>
+                            </div>
+                        </div>
+                        <div class="company-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="info-content">
+                                <span class="info-label" data-zh="邮箱">EMAIL</span>
+                                <span class="info-value"><a href="mailto:info@woods-corp.jp">info@woods-corp.jp</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact section-padding bg-light">
-        <div class="container">
-            <div class="contact-form-simple">
-                <h3 data-zh="联系我们">お問い合わせ</h3>
-                <p class="form-subtitle" data-zh="请填写以下表单，我们将在 1-2 个工作日内与您联系。">
-                    以下のフォームにご記入ください。担当者より1〜2営業日以内にご連絡いたします。
-                </p>
-                <form id="contactForm">
-                    <input type="text" placeholder="お名前" data-zh-placeholder="姓名" required>
-                    <input type="email" placeholder="メールアドレス" data-zh-placeholder="邮箱地址" required>
-                    <input type="text" placeholder="会社名" data-zh-placeholder="公司名称">
-                    <textarea rows="4" placeholder="メッセージ" data-zh-placeholder="留言内容"></textarea>
-                    <button type="submit" class="btn-primary"><span data-zh="发送">送信</span> <i class="fas fa-paper-plane"></i></button>
-                </form>
+                <!-- 右侧：联系表单 -->
+                <div class="contact-form-simple">
+                    <h3 data-zh="咨询表单">お問い合わせフォーム</h3>
+                    <p class="form-subtitle" data-zh="请填写以下表单，我们将在 1-2 个工作日内与您联系。">
+                        以下のフォームにご記入ください。担当者より1〜2営業日以内にご連絡いたします。
+                    </p>
+                    <form id="contactForm">
+                        <input type="text" placeholder="お名前" data-zh-placeholder="姓名" required>
+                        <input type="email" placeholder="メールアドレス" data-zh-placeholder="邮箱地址" required>
+                        <input type="text" placeholder="会社名" data-zh-placeholder="公司名称">
+                        <textarea rows="4" placeholder="メッセージ" data-zh-placeholder="留言内容"></textarea>
+                        <button type="submit" class="btn-primary"><span data-zh="发送">送信</span> <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -1299,7 +1314,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.dashboard-card, .timeline-item, .whyus-card, .industry-tag, .service-block, .stat-item, .cta-content, .timeline-img').forEach(el => {
+    document.querySelectorAll('.dashboard-card, .timeline-item, .whyus-card, .industry-tag, .service-block, .stat-item, .cta-content, .timeline-img, .company-panel, .contact-form-simple').forEach(el => {
         observer.observe(el);
     });
     
