@@ -23,8 +23,8 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "株式会社ウッズ・コーポレーション",
-    "alternateName": "WOODS Corporation CO.,LTD. ",
-    "description": "中国市場進出支援、ビジネスマッチング、IPOコンサルティングを専門とするコンサルティングファーム。実店舗「日本生活体験館」を活用した実証型マーケティングを強みとし、AI、エネルギー、観光、都市開発、LED、教育、ファッションなど15以上の業界で実績。",
+    "alternateName": "WOODS Corporation CO.,LTD.",
+    "description": "中国市場進出支援、ビジネスマッチング、IPOコンサルティングを専門とするコンサルティングファーム。実店舗「日本生活体験館」を活用した実証型マーケティングを強みとし、AI、エネルギー、観光、都市開発、LED、ファッションなど15以上の業界で実績。",
     "url": "https://woods-corp.jp",
     "logo": "https://woods-corp.jp/assets/logo.png",
     "address": {
@@ -46,20 +46,21 @@
 </script>
 
 <style>
-/* ========== 深色主题变量 ========== */
+/* ========== 黑金高级主题变量 ========== */
 :root {
-    --bg-dark: #050810;
-    --bg-glass: rgba(15, 23, 42, 0.65);
-    --bg-glass-hover: rgba(30, 41, 59, 0.8);
-    --primary: #00d2ff;       /* 霓虹青 */
-    --primary-dark: #0088cc;
-    --primary-glow: rgba(0, 210, 255, 0.4);
-    --accent: #ffaa00;        /* 暖金 */
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
+    --bg-dark: #0A0A0A;            /* 黑曜石 */
+    --bg-glass: rgba(18, 18, 18, 0.7);
+    --bg-glass-hover: rgba(30, 30, 30, 0.85);
+    --primary: #E5C07B;            /* 香槟金 */
+    --primary-dark: #C9A05C;
+    --primary-glow: rgba(229, 192, 123, 0.4);
+    --accent: #00D2FF;             /* 冷光蓝（取自视频） */
+    --accent-glow: rgba(0, 210, 255, 0.3);
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
     --border-glass: rgba(255, 255, 255, 0.08);
-    --border-glass-hover: rgba(0, 210, 255, 0.3);
-    --shadow-glow: 0 0 30px rgba(0, 210, 255, 0.15);
+    --border-glass-hover: rgba(229, 192, 123, 0.4);
+    --shadow-glow: 0 0 30px rgba(229, 192, 123, 0.15);
     --font: 'Inter', 'Noto Sans JP', 'Noto Sans SC', sans-serif;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -82,26 +83,26 @@ body {
 h1, h2, h3 { font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
 a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
-/* ========== 自定义光标 ========== */
+/* ========== 鼠标光标（自定义Logo + 点击发光） ========== */
 .custom-cursor {
     position: fixed;
-    width: 10px;
-    height: 10px;
-    background: var(--primary);
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background-image: url('assets/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s, background 0.2s, box-shadow 0.2s;
-    box-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary-glow);
+    transition: transform 0.15s ease, filter 0.2s ease;
+    filter: drop-shadow(0 0 4px rgba(229, 192, 123, 0.6));
+    /* 如果您的Logo是深色，请启用下面这行（取消注释）：
+       filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(229, 192, 123, 0.8)); */
 }
-a:hover ~ .custom-cursor,
-button:hover ~ .custom-cursor {
-    width: 30px;
-    height: 30px;
-    background: rgba(0, 210, 255, 0.2);
-    box-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary-glow);
-    border: 1px solid var(--primary);
+.custom-cursor.clicked {
+    transform: translate(-50%, -50%) scale(1.6);
+    filter: drop-shadow(0 0 15px rgba(229, 192, 123, 0.9)) drop-shadow(0 0 30px rgba(229, 192, 123, 0.5));
 }
 @media (pointer: coarse) {
     body { cursor: auto; }
@@ -117,21 +118,21 @@ button:hover ~ .custom-cursor {
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--primary);
-    background: rgba(0, 210, 255, 0.1);
+    background: rgba(229, 192, 123, 0.1);
     padding: 6px 14px;
     border-radius: 30px;
     margin-bottom: 20px;
-    border: 1px solid rgba(0, 210, 255, 0.2);
+    border: 1px solid rgba(229, 192, 123, 0.2);
 }
 .section-tag.light {
     color: var(--primary);
-    background: rgba(0, 210, 255, 0.15);
+    background: rgba(229, 192, 123, 0.15);
 }
 .section-title {
     font-size: 42px;
     font-weight: 700;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #E5C07B 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -139,12 +140,12 @@ button:hover ~ .custom-cursor {
 .section-divider {
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, var(--primary), #a5b4fc);
+    background: linear-gradient(90deg, var(--primary), var(--accent));
     margin: 20px auto 0;
     border-radius: 3px;
     box-shadow: 0 0 10px var(--primary-glow);
 }
-.section-divider.light { background: linear-gradient(90deg, var(--primary), #a5b4fc); }
+.section-divider.light { background: linear-gradient(90deg, var(--primary), var(--accent)); }
 .section-subtitle {
     font-size: 18px;
     color: var(--text-muted);
@@ -157,7 +158,7 @@ button:hover ~ .custom-cursor {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(5, 8, 16, 0.8);
+    background: rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
@@ -167,12 +168,19 @@ button:hover ~ .custom-cursor {
 }
 .navbar.scrolled {
     padding: 12px 0;
-    background: rgba(5, 8, 16, 0.95);
+    background: rgba(10, 10, 10, 0.95);
     border-bottom: 1px solid var(--border-glass);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 .navbar .container { display: flex; justify-content: space-between; align-items: center; }
-.nav-logo { height: 40px; width: auto; display: block; filter: brightness(0) invert(1); }
+.nav-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+    /* 如果原始Logo是白色的，保持原样。
+       如果是深色的，请打开下面这行：
+       filter: brightness(0) invert(1); */
+}
 .logo-img { display: inline-flex; align-items: center; }
 .nav-menu { display: flex; align-items: center; gap: 40px; }
 .nav-links { display: flex; list-style: none; gap: 32px; }
@@ -213,7 +221,7 @@ button:hover ~ .custom-cursor {
     font-family: inherit;
 }
 .lang-btn:hover {
-    background: rgba(0, 210, 255, 0.1);
+    background: rgba(229, 192, 123, 0.1);
     color: var(--primary);
     border-color: var(--primary);
     box-shadow: 0 0 15px var(--primary-glow);
@@ -234,7 +242,7 @@ button:hover ~ .custom-cursor {
         top: 80px;
         left: -100%;
         width: 100%;
-        background: rgba(5, 8, 16, 0.98);
+        background: rgba(10, 10, 10, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
         padding: 40px;
@@ -267,31 +275,34 @@ button:hover ~ .custom-cursor {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: linear-gradient(90deg, rgba(5,8,16,0.95) 0%, rgba(5,8,16,0.7) 50%, rgba(5,8,16,0.1) 100%);
+    background: linear-gradient(90deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 60%, rgba(10,10,10,0.2) 100%);
     z-index: 2;
 }
 .hero .container { position: relative; z-index: 3; }
-.hero-content { max-width: 700px; }
+.hero-content { max-width: 800px; } /* 加宽以确保标题能自然断行 */
 .hero-badge {
     display: inline-block;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 2px;
     color: var(--primary);
-    background: rgba(0, 210, 255, 0.1);
+    background: rgba(229, 192, 123, 0.1);
     padding: 8px 18px;
     border-radius: 30px;
     margin-bottom: 28px;
-    border: 1px solid rgba(0, 210, 255, 0.2);
+    border: 1px solid rgba(229, 192, 123, 0.2);
     backdrop-filter: blur(10px);
 }
 .hero-title {
-    font-size: 60px;
+    font-size: clamp(32px, 4.5vw, 56px); /* 自适应字号，防止溢出 */
     font-weight: 800;
     color: var(--text-main);
     text-shadow: 0 2px 20px rgba(0,0,0,0.8);
     margin-bottom: 24px;
-    line-height: 1.15;
+    line-height: 1.3;
+    /* 关键：日文不自然换行的修复 */
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 .hero-desc {
     font-size: 18px;
@@ -302,8 +313,8 @@ button:hover ~ .custom-cursor {
 }
 .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary) 0%, #a5b4fc 100%);
-    color: #050810;
+    background: linear-gradient(135deg, var(--primary) 0%, #F5D796 100%);
+    color: #0A0A0A;
     padding: 16px 36px;
     border-radius: 40px;
     font-weight: 700;
@@ -357,37 +368,19 @@ button:hover ~ .custom-cursor {
     50% { transform: translate(-50%, 8px); }
 }
 @media (max-width: 768px) {
-    .hero-title { font-size: 36px; }
     .hero-desc { font-size: 15px; }
     .hero-buttons { flex-direction: column; }
     .btn-primary, .btn-outline { justify-content: center; }
-    .hero-overlay { background: linear-gradient(180deg, rgba(5,8,16,0.6) 0%, rgba(5,8,16,0.95) 100%); }
+    .hero-overlay { background: linear-gradient(180deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.95) 100%); }
 }
 
 /* ========== 卡片通用（玻璃拟态） ========== */
-.card-base {
-    background: var(--bg-glass);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border-glass);
-    border-radius: 24px;
-    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-.card-base:hover {
-    background: var(--bg-glass-hover);
-    border-color: var(--border-glass-hover);
-    box-shadow: var(--shadow-glow);
-    transform: translateY(-8px);
-}
-
-/* ========== 服务 ========== */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
 }
 .service-card {
-    composes: card-base;
     padding: 36px 28px;
     text-align: center;
     background: var(--bg-glass);
@@ -402,7 +395,7 @@ button:hover ~ .custom-cursor {
     box-shadow: var(--shadow-glow);
     transform: translateY(-8px);
 }
-.service-icon-img { width: 44px; height: 44px; margin-bottom: 20px; filter: brightness(0) invert(1) sepia(1) hue-rotate(180deg) saturate(5); }
+.service-icon-img { width: 44px; height: 44px; margin-bottom: 20px; filter: brightness(0) invert(1) sepia(1) hue-rotate(10deg) saturate(3); }
 .service-card h3 { font-size: 20px; margin-bottom: 12px; color: var(--text-main); }
 .service-card p { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
 .skill-meter {
@@ -414,7 +407,7 @@ button:hover ~ .custom-cursor {
 }
 .meter-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary), #a5b4fc);
+    background: linear-gradient(90deg, var(--primary), var(--accent));
     width: 0;
     border-radius: 10px;
     box-shadow: 0 0 10px var(--primary-glow);
@@ -423,7 +416,7 @@ button:hover ~ .custom-cursor {
 @media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } }
 
 /* ========== 为什么选择我们 ========== */
-.bg-light { background: rgba(15, 23, 42, 0.3); }
+.bg-light { background: rgba(18, 18, 18, 0.3); }
 .whyus-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -455,7 +448,7 @@ button:hover ~ .custom-cursor {
 @media (max-width: 768px) { .whyus-grid { grid-template-columns: 1fr; } }
 
 /* ========== 行业标签云 ========== */
-.industries { background: rgba(15, 23, 42, 0.5); }
+.industries { background: rgba(18, 18, 18, 0.5); }
 .industries-cloud {
     display: flex;
     flex-wrap: wrap;
@@ -484,7 +477,7 @@ button:hover ~ .custom-cursor {
     border-color: var(--primary);
     color: var(--text-main);
     box-shadow: 0 0 20px var(--primary-glow);
-    background: rgba(0, 210, 255, 0.1);
+    background: rgba(229, 192, 123, 0.1);
 }
 .industries-note {
     text-align: center;
@@ -528,7 +521,7 @@ button:hover ~ .custom-cursor {
     font-weight: 800;
     margin: 8px 0;
     color: var(--text-main);
-    text-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
+    text-shadow: 0 0 30px rgba(229, 192, 123, 0.3);
 }
 .dashboard-number span:last-child { font-size: 28px; color: var(--primary); }
 .dashboard-card h3 { font-size: 18px; margin-bottom: 8px; color: var(--text-main); }
@@ -539,7 +532,7 @@ button:hover ~ .custom-cursor {
 
 /* ========== 实绩时间轴 ========== */
 .bg-dark {
-    background: linear-gradient(135deg, #050810 0%, #0a0f1d 100%);
+    background: linear-gradient(135deg, #0A0A0A 0%, #141414 100%);
     border-top: 1px solid var(--border-glass);
     border-bottom: 1px solid var(--border-glass);
 }
@@ -625,7 +618,7 @@ button:hover ~ .custom-cursor {
     width: 100%;
     padding: 16px 20px;
     margin-bottom: 18px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
     border: 1px solid var(--border-glass);
     border-radius: 16px;
     font-family: inherit;
@@ -640,14 +633,14 @@ button:hover ~ .custom-cursor {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 20px var(--primary-glow);
-    background: rgba(0, 210, 255, 0.05);
+    background: rgba(229, 192, 123, 0.05);
 }
 .contact-form-simple textarea { resize: vertical; }
 .contact-form-simple .btn-primary { width: 100%; justify-content: center; }
 
 /* ========== 页脚 ========== */
 .footer {
-    background: #02040a;
+    background: #050505;
     color: var(--text-muted);
     padding: 40px 0;
     text-align: center;
@@ -679,7 +672,7 @@ button:hover ~ .custom-cursor {
 .back-to-top.show { opacity: 1; visibility: visible; }
 .back-to-top:hover {
     background: var(--primary);
-    color: #050810;
+    color: #0A0A0A;
     box-shadow: 0 0 20px var(--primary-glow);
     transform: translateY(-3px);
 }
@@ -698,7 +691,7 @@ button:hover ~ .custom-cursor {
 </head>
 <body>
 
-<!-- 自定义光标 -->
+<!-- 自定义光标（Logo） -->
 <div class="custom-cursor" id="customCursor"></div>
 
 <!-- 导航栏 -->
@@ -706,6 +699,7 @@ button:hover ~ .custom-cursor {
     <div class="container">
         <div class="nav-brand">
             <a href="#" class="logo-img">
+                <!-- 注意：如果原始Logo是深色，请在CSS中为 .nav-logo 启用反转滤镜 -->
                 <img src="assets/logo.png" alt="WOODS CORPORATIONS" class="nav-logo">
             </a>
         </div>
@@ -733,16 +727,16 @@ button:hover ~ .custom-cursor {
 <main>
     <!-- HERO 视频区域 -->
     <section class="hero fullscreen">
-        <!-- 这里放置您的视频文件 -->
+        <!-- 视频 -->
         <video class="hero-video" autoplay muted loop playsinline poster="assets/woods-poster.jpg">
             <source src="assets/woods-video.mp4" type="video/mp4">
-            <!-- 如果视频无法播放，显示后备图片 -->
+            <!-- 视频无法播放时的后备图片 -->
             <img src="assets/woods-poster.jpg" alt="Woods Corporations Banner" style="width:100%; height:100%; object-fit:cover;">
         </video>
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge" data-zh="株式会社伍兹集团">株式会社ウッズ・コーポレーション</div>
+                <div class="hero-badge" data-zh="WOODS Corporation CO.,LTD.">株式会社ウッズ・コーポレーション</div>
                 <h1 class="hero-title" data-zh="专注中日商务的<br>咨询机构">日中ビジネスに特化した<br>コンサルティングファーム</h1>
                 <p class="hero-desc" data-zh="从战略制定到当地市场营销·渠道开拓，全程执行。<br>发掘最佳合作伙伴，促进事业共创·渠道扩展。<br>新四板上市·融资支持，Web系统开发。">
                     戦略策定から現地マーケティング・販路開拓まで実行。<br>
@@ -768,25 +762,25 @@ button:hover ~ .custom-cursor {
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%2300d2ff' stroke-width='1.5'%3E%3Cpath d='M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4-3-9s1.34-9 3-9'/%3E%3C/svg%3E" alt="市場開拓" class="service-icon-img">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%23E5C07B' stroke-width='1.5'%3E%3Cpath d='M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4-3-9s1.34-9 3-9'/%3E%3C/svg%3E" alt="市場開拓" class="service-icon-img">
                     <h3 data-zh="市场开拓支持">市場開拓支援</h3>
                     <div class="skill-meter"><div class="meter-fill" style="width: 90%"></div></div>
                     <p data-zh="从战略到当地营销·渠道开拓全程执行。全面支持日企进入中国/中企进入日本。">戦略策定から現地マーケティング・販路開拓まで実行。日系企業の中国進出・中国企業の日本進出をトータルサポート。</p>
                 </div>
                 <div class="service-card">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%2300d2ff' stroke-width='1.5'%3E%3Cpath d='M3 3v18h18'/%3E%3Cpath d='M18 7V3'/%3E%3Cpath d='M7 7h10'/%3E%3Cpath d='M7 12h5'/%3E%3C/svg%3E" alt="ビジネスマッチング" class="service-icon-img">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%23E5C07B' stroke-width='1.5'%3E%3Cpath d='M3 3v18h18'/%3E%3Cpath d='M18 7V3'/%3E%3Cpath d='M7 7h10'/%3E%3Cpath d='M7 12h5'/%3E%3C/svg%3E" alt="ビジネスマッチング" class="service-icon-img">
                     <h3 data-zh="商务对接">ビジネスマッチング</h3>
                     <div class="skill-meter"><div class="meter-fill" style="width: 95%"></div></div>
                     <p data-zh="发掘最佳合作伙伴，促进事业共创·渠道扩展。活用中日顶级人脉网络。">最適な提携先を発掘し、事業共創・販路拡大を促進。日中双方のトップクラスの人脈網を活用。</p>
                 </div>
                 <div class="service-card">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%2300d2ff' stroke-width='1.5'%3E%3Crect x='2' y='3' width='20' height='14' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='8' y1='21' x2='16' y2='21'%3E%3C/line%3E%3Cline x1='12' y1='17' x2='12' y2='21'%3E%3C/line%3E%3C/svg%3E" alt="IPO" class="service-icon-img">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%23E5C07B' stroke-width='1.5'%3E%3Crect x='2' y='3' width='20' height='14' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='8' y1='21' x2='16' y2='21'%3E%3C/line%3E%3Cline x1='12' y1='17' x2='12' y2='21'%3E%3C/line%3E%3C/svg%3E" alt="IPO" class="service-icon-img">
                     <h3 data-zh="IPO·融资支持">IPO・資金調達</h3>
                     <div class="skill-meter"><div class="meter-fill" style="width: 100%"></div></div>
-                    <p data-zh="深圳新四板·上海Q板·福州创业板上市支持。中小企业融资，实绩5家。">深圳新四板・上海Q板・福州創業板・海南展示板での上場支援。中小・零細企業の資金調達をサポート。実績5社。</p>
+                    <p data-zh="深圳新四板·上海Q板·福州创业板・海南展示板上市支持。中小企业融资，实绩5家。">深圳新四板・上海Q板・福州創業板・海南展示板での上場支援。中小・零細企業の資金調達をサポート。実績5社。</p>
                 </div>
                 <div class="service-card">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%2300d2ff' stroke-width='1.5'%3E%3Cpath d='M21 10.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9.5'/%3E%3Cpolyline points='16 2 22 8 16 8'/%3E%3Cline x1='10' y1='14' x2='21' y2='14'/%3E%3Cline x1='10' y1='18' x2='18' y2='18'/%3E%3C/svg%3E" alt="IT" class="service-icon-img">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%23E5C07B' stroke-width='1.5'%3E%3Cpath d='M21 10.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9.5'/%3E%3Cpolyline points='16 2 22 8 16 8'/%3E%3Cline x1='10' y1='14' x2='21' y2='14'/%3E%3Cline x1='10' y1='18' x2='18' y2='18'/%3E%3C/svg%3E" alt="IT" class="service-icon-img">
                     <h3 data-zh="IT·Web3开发">IT・Web3開発</h3>
                     <div class="skill-meter"><div class="meter-fill" style="width: 85%"></div></div>
                     <p data-zh="Web系统·应用·游戏开发。多语言网站、客户管理·预约管理系统构建。">Webシステム・アプリ・ゲーム開発。多言語サイト制作、顧客管理・予約管理システムの構築。</p>
@@ -873,7 +867,7 @@ button:hover ~ .custom-cursor {
                     <i class="fas fa-chart-line"></i>
                     <div class="dashboard-number"><span class="counter">5</span><span data-zh="家">社</span></div>
                     <h3 data-zh="IPO上市支持">IPO上場支援</h3>
-                    <p data-zh="深圳·上海·福州新四板">深圳・上海・福州・海南新四板</p>
+                    <p data-zh="深圳·上海·福州新四板">深圳・上海・福州新四板</p>
                 </div>
                 <div class="dashboard-card" data-count="15">
                     <i class="fas fa-industry"></i>
@@ -901,7 +895,7 @@ button:hover ~ .custom-cursor {
             </div>
             <div class="timeline-wrapper">
                 <div class="timeline-img">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%230a0f1d'/%3E%3Ctext x='50%25' y='50%25' fill='%2300d2ff' font-size='18' text-anchor='middle' dy='.3em'%3E🏪 日本生活体験館（福州）%3C/text%3E%3C/svg%3E" alt="日本生活体験館">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23141414'/%3E%3Ctext x='50%25' y='50%25' fill='%23E5C07B' font-size='18' text-anchor='middle' dy='.3em'%3E🏪 日本生活体験館（福州）%3C/text%3E%3C/svg%3E" alt="日本生活体験館">
                 </div>
                 <div class="timeline">
                     <div class="timeline-item">
@@ -1029,7 +1023,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     
-    /* ========== 自定义光标 ========== */
+    /* ========== 自定义光标（Logo + 点击发光） ========== */
     const cursor = document.getElementById('customCursor');
     if (cursor && window.matchMedia('(pointer: fine)').matches) {
         let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
@@ -1044,6 +1038,10 @@ document.addEventListener('DOMContentLoaded', function() {
             requestAnimationFrame(animateCursor);
         }
         animateCursor();
+        
+        // 点击发光效果
+        document.addEventListener('mousedown', () => cursor.classList.add('clicked'));
+        document.addEventListener('mouseup', () => cursor.classList.remove('clicked'));
     }
     
     /* ========== 数据计数器 ========== */
