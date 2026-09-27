@@ -142,7 +142,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     margin: 20px auto 0; border-radius: 3px;
     box-shadow: 0 0 10px var(--primary-glow);
 }
-.section-subtitle { font-size: 18px; color: var(--text-muted); margin-top: 24px; }
+.section-subtitle { font-size: 18px; color: var(--text-muted); margin-top: 24px; line-height: 1.85; }
 .text-center { text-align: center; }
 
 /* ========== 导航栏 ========== */
@@ -162,7 +162,30 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 }
 .navbar .container { display: flex; justify-content: space-between; align-items: center; }
 .nav-logo { height: 42px; width: auto; display: block; }
-.logo-img { display: inline-flex; align-items: center; }
+
+/* ===== Logo + 公司名 组合 ===== */
+.logo-img {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+}
+.nav-brand-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--text-main);
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.nav-brand-text .brand-accent {
+    background: linear-gradient(135deg, #F5F2ED 0%, #C9A96E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 .nav-menu { display: flex; align-items: center; gap: 40px; }
 .nav-links { display: flex; list-style: none; gap: 32px; }
 .nav-links a {
@@ -219,6 +242,14 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     .nav-menu.active { left: 0; }
     .nav-links { flex-direction: column; gap: 24px; width: 100%; }
     .nav-links a { font-size: 18px; display: block; padding: 10px 0; color: var(--text-main); }
+}
+@media (max-width: 640px) {
+    .nav-brand-text {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+    .logo-img { gap: 8px; }
+    .nav-logo { height: 34px; }
 }
 
 /* ========== Hero ========== */
@@ -377,7 +408,6 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 .service-block-title h3 { font-size: 26px; margin-bottom: 6px; color: var(--text-main); }
 .service-block-title p { color: var(--text-muted); font-size: 15px; }
 
-/* ===== 服务板块右侧装饰图（改用图片） ===== */
 .service-block-icon {
     width: 120px;
     height: 120px;
@@ -567,44 +597,24 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     .timeline-year { min-width: auto; }
 }
 
-/* ========== 结尾 CTA ========== */
-.cta-section {
-    position: relative; overflow: hidden;
-    text-align: center;
-    background: linear-gradient(135deg, rgba(201, 169, 110, 0.06) 0%, rgba(139, 111, 71, 0.03) 50%, rgba(19, 17, 16, 0.9) 100%);
-    border-top: 1px solid var(--border-glass);
-    border-bottom: 1px solid var(--border-glass);
+/* ========== 联系区域（整合了 CTA 内容） ========== */
+#contact {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(201, 169, 110, 0.05) 0%, rgba(139, 111, 71, 0.02) 50%, rgba(19, 17, 16, 0.9) 100%);
 }
-.cta-section::before {
+#contact::before {
     content: '';
     position: absolute;
-    top: -50%; left: 50%;
+    top: -30%; left: 50%;
     transform: translateX(-50%);
-    width: 800px; height: 800px;
-    background: radial-gradient(circle, rgba(201, 169, 110, 0.12) 0%, transparent 60%);
+    width: 900px; height: 900px;
+    background: radial-gradient(circle, rgba(201, 169, 110, 0.08) 0%, transparent 60%);
     pointer-events: none;
+    z-index: 0;
 }
-.cta-content {
-    position: relative; z-index: 1;
-    max-width: 800px; margin: 0 auto;
-}
-.cta-content h2 {
-    font-size: clamp(28px, 4vw, 48px);
-    font-weight: 800; margin-bottom: 24px;
-    line-height: 1.25;
-    background: linear-gradient(135deg, #F5F2ED 0%, #C9A96E 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    word-break: keep-all;
-}
-.cta-content p {
-    font-size: 18px; color: var(--text-muted);
-    margin-bottom: 40px; line-height: 1.85;
-}
-.cta-content .btn-primary { padding: 20px 52px; font-size: 17px; }
+#contact .container { position: relative; z-index: 1; }
 
-/* ========== 联系 + 公司信息 合并 ========== */
 .contact-wrapper {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -769,7 +779,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
 /* ========== 滚动淡入 ========== */
 .dashboard-card, .timeline-item, .whyus-card, .industry-tag,
-.service-block, .stat-item, .cta-content, .timeline-img,
+.service-block, .stat-item, .timeline-img,
 .company-panel, .contact-form-simple {
     opacity: 0;
     transform: translateY(30px);
@@ -797,7 +807,6 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         opacity: 0.7;
     }
     .service-items { grid-template-columns: 1fr; gap: 4px; }
-    .cta-content .btn-primary { padding: 16px 40px; font-size: 15px; }
 }
 </style>
 </head>
@@ -810,6 +819,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         <div class="nav-brand">
             <a href="#" class="logo-img">
                 <img src="assets/logo.png" alt="WOODS Corporation CO.,LTD." class="nav-logo">
+                <span class="nav-brand-text">WOODS <span class="brand-accent">CORPORATION</span></span>
             </a>
         </div>
         <div class="nav-menu" id="navMenu">
@@ -889,7 +899,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 </div>
             </div>
 
-            <!-- 01 市场开拓支援 -->
+            <!-- 01 -->
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">01</span>
@@ -914,7 +924,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 </div>
             </div>
 
-            <!-- 02 商务对接 -->
+            <!-- 02 -->
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">02</span>
@@ -938,7 +948,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 </div>
             </div>
 
-            <!-- 03 IPO -->
+            <!-- 03 -->
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">03</span>
@@ -963,7 +973,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 </div>
             </div>
 
-            <!-- 04 IT -->
+            <!-- 04 -->
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">04</span>
@@ -1129,28 +1139,18 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section section-padding">
-        <div class="container">
-            <div class="cta-content">
-                <h2 data-zh="让我们共同创造未来">共に未来を創る<br>パートナーへ</h2>
-                <p data-zh="约20年日中商务现场积累的实战经验。<br>从战略到执行，从构想到成果。<br>与您共同创造最优市场战略。">
-                    約20年にわたり日中ビジネスの現場で積み重ねた実戦経験。<br>
-                    戦略から実行まで、構想から成果まで。<br>
-                    お客様に最適な市場戦略を共に創造します。
-                </p>
-                <a href="#contact" class="btn-primary" data-zh="立即咨询 <i class='fas fa-arrow-right'></i>">お問い合わせ <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
+    <!-- ★ CONTACT（整合了 CTA 内容） -->
     <section id="contact" class="contact section-padding">
         <div class="container">
             <div class="section-header text-center">
                 <span class="section-tag" data-zh="联系我们">CONTACT</span>
-                <h2 class="section-title" data-zh="联系我们">お問い合わせ</h2>
+                <h2 class="section-title" data-zh="让我们共同创造未来">共に未来を創るパートナーへ</h2>
                 <div class="section-divider"></div>
+                <p class="section-subtitle" data-zh="约20年日中商务现场积累的实战经验。从战略到执行，从构想到成果。与您共同创造最优市场战略。">
+                    約20年にわたり日中ビジネスの現場で積み重ねた実戦経験。<br>
+                    戦略から実行まで、構想から成果まで。<br>
+                    お客様に最適な市場戦略を共に創造します。
+                </p>
             </div>
             <div class="contact-wrapper">
                 <div class="company-panel">
@@ -1316,7 +1316,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.dashboard-card, .timeline-item, .whyus-card, .industry-tag, .service-block, .stat-item, .cta-content, .timeline-img, .company-panel, .contact-form-simple').forEach(el => {
+    document.querySelectorAll('.dashboard-card, .timeline-item, .whyus-card, .industry-tag, .service-block, .stat-item, .timeline-img, .company-panel, .contact-form-simple').forEach(el => {
         observer.observe(el);
     });
     
