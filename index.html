@@ -17,7 +17,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="icon" type="image/png" href="assets/logo.png">
 
-<!-- JSON-LD（AI・SEO対策） -->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -48,17 +47,17 @@
 <style>
 /* ========== 方案A：暖金灰调（Warm Charcoal & Gold） ========== */
 :root {
-    --bg-dark: #1A1816;                      /* 暖炭灰 */
-    --bg-deep: #131110;                      /* 更深底色 */
-    --bg-glass: rgba(35, 32, 30, 0.75);      /* 玻璃卡片 */
+    --bg-dark: #1A1816;
+    --bg-deep: #131110;
+    --bg-glass: rgba(35, 32, 30, 0.75);
     --bg-glass-hover: rgba(50, 45, 42, 0.88);
-    --primary: #C9A96E;                      /* 香槟金 */
+    --primary: #C9A96E;
     --primary-dark: #A8863F;
     --primary-glow: rgba(201, 169, 110, 0.4);
-    --accent: #8B6F47;                       /* 深暖棕（次强调） */
+    --accent: #8B6F47;
     --accent-glow: rgba(139, 111, 71, 0.35);
-    --text-main: #F5F2ED;                    /* 暖白 */
-    --text-muted: #9B9088;                   /* 暖灰 */
+    --text-main: #F5F2ED;
+    --text-muted: #9B9088;
     --border-glass: rgba(201, 169, 110, 0.15);
     --border-glass-hover: rgba(201, 169, 110, 0.4);
     --shadow-glow: 0 0 30px rgba(201, 169, 110, 0.15);
@@ -77,11 +76,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-/* 文字选中颜色 */
 ::selection { background: var(--primary); color: var(--bg-deep); }
 ::-moz-selection { background: var(--primary); color: var(--bg-deep); }
 
-/* 滚动条美化 */
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg-deep); }
 ::-webkit-scrollbar-thumb {
@@ -100,7 +97,7 @@ body {
 h1, h2, h3 { font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
 a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
-/* ========== 鼠标光标（Logo + 点击发光） ========== */
+/* ========== 鼠标光标 ========== */
 .custom-cursor {
     position: fixed;
     width: 32px;
@@ -114,8 +111,6 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     transform: translate(-50%, -50%);
     transition: transform 0.15s ease, filter 0.2s ease;
     filter: drop-shadow(0 0 5px rgba(201, 169, 110, 0.7));
-    /* 如果您的Logo是深色，请取消下一行注释把它反白：
-       filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(201, 169, 110, 0.8)); */
 }
 .custom-cursor.clicked {
     transform: translate(-50%, -50%) scale(1.6);
@@ -196,10 +191,6 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     height: 42px;
     width: auto;
     display: block;
-    /* 如果Logo在暖炭灰底上看不清，请取消下一行注释进行反白处理： */
-    /* filter: brightness(0) invert(1); */
-    /* 如果只需提高亮度与暖化： */
-    /* filter: brightness(1.1) sepia(0.3) hue-rotate(-10deg); */
 }
 .logo-img { display: inline-flex; align-items: center; }
 .nav-menu { display: flex; align-items: center; gap: 40px; }
@@ -276,7 +267,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     .nav-links a { font-size: 18px; display: block; padding: 10px 0; color: var(--text-main); }
 }
 
-/* ========== Hero 视频区域 ========== */
+/* ========== Hero ========== */
 .hero.fullscreen {
     min-height: 100vh;
     display: flex;
@@ -320,7 +311,6 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     text-shadow: 0 2px 25px rgba(0,0,0,0.9);
     margin-bottom: 24px;
     line-height: 1.3;
-    /* 修复日文不自然换行 */
     word-break: keep-all;
     overflow-wrap: break-word;
     letter-spacing: 0.01em;
@@ -395,52 +385,125 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     .hero-overlay { background: linear-gradient(180deg, rgba(19,17,16,0.65) 0%, rgba(19,17,16,0.96) 100%); }
 }
 
-/* ========== 服务卡片 ========== */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+/* ========== 服务实绩数据条 ========== */
+.service-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 60px;
+    padding: 30px 40px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    flex-wrap: wrap;
 }
-.service-card {
-    padding: 36px 28px;
-    text-align: center;
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+.stat-number {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--primary);
+    text-shadow: 0 0 20px var(--primary-glow);
+    line-height: 1.2;
+}
+.stat-plus { font-size: 20px; }
+.stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+/* ========== 服务板块 ========== */
+.service-block {
     background: var(--bg-glass);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-glass);
     border-radius: 24px;
-    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    padding: 40px;
+    margin-bottom: 30px;
+    transition: all 0.4s ease;
 }
-.service-card:hover {
-    background: var(--bg-glass-hover);
+.service-block:hover {
     border-color: var(--border-glass-hover);
     box-shadow: var(--shadow-glow);
-    transform: translateY(-8px);
 }
-.service-icon-img {
-    width: 44px;
-    height: 44px;
-    margin-bottom: 20px;
-    filter: brightness(0) invert(1) sepia(1) hue-rotate(10deg) saturate(3) brightness(1.1);
+.service-block-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-glass);
 }
-.service-card h3 { font-size: 20px; margin-bottom: 12px; color: var(--text-main); }
-.service-card p { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
-.skill-meter {
-    height: 4px;
-    background: rgba(245, 242, 237, 0.08);
-    border-radius: 10px;
-    margin: 18px 0;
-    overflow: hidden;
+.service-block-number {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--primary);
+    opacity: 0.3;
+    line-height: 1;
+    min-width: 70px;
 }
-.meter-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary-dark), var(--primary));
-    width: 0;
-    border-radius: 10px;
-    box-shadow: 0 0 10px var(--primary-glow);
+.service-block-header h3 {
+    font-size: 26px;
+    margin-bottom: 6px;
+    color: var(--text-main);
 }
-@media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } }
+.service-block-header p {
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* ========== 服务详情网格 ========== */
+.service-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 40px;
+}
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-muted);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+    transition: all 0.3s ease;
+}
+.service-item:hover {
+    color: var(--text-main);
+    padding-left: 6px;
+}
+.service-item i {
+    color: var(--primary);
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+    text-shadow: 0 0 8px var(--primary-glow);
+}
+
+/* ========== 服务板块底部 ========== */
+.service-block-footer {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-glass);
+}
+.service-tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--primary);
+    background: rgba(201, 169, 110, 0.1);
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(201, 169, 110, 0.2);
+}
 
 /* ========== 为什么选择我们 ========== */
 .bg-light { background: rgba(19, 17, 16, 0.5); }
@@ -705,7 +768,8 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 }
 
 /* ========== 滚动淡入 ========== */
-.dashboard-card, .service-card, .timeline-item, .whyus-card, .industry-tag {
+.dashboard-card, .service-card, .timeline-item, .whyus-card, .industry-tag,
+.service-block, .stat-item {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
@@ -714,14 +778,32 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
+
+/* ========== 服务与行业响应式 ========== */
+@media (max-width: 768px) {
+    .service-stats {
+        gap: 30px;
+        padding: 24px;
+    }
+    .stat-number { font-size: 28px; }
+    .service-block { padding: 24px; }
+    .service-block-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .service-block-number { font-size: 36px; min-width: auto; }
+    .service-block-header h3 { font-size: 22px; }
+    .service-items {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+}
 </style>
 </head>
 <body>
 
-<!-- 自定义光标（Logo） -->
 <div class="custom-cursor" id="customCursor"></div>
 
-<!-- 导航栏 -->
 <nav class="navbar">
     <div class="container">
         <div class="nav-brand">
@@ -751,7 +833,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 </nav>
 
 <main>
-    <!-- HERO 视频区域 -->
+    <!-- HERO -->
     <section class="hero fullscreen">
         <video class="hero-video" autoplay muted loop playsinline poster="assets/woods-poster.jpg">
             <source src="assets/woods-video.mp4" type="video/mp4">
@@ -777,180 +859,136 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     </section>
 
     <!-- 服务 -->
-<section id="services" class="services section-padding">
-    <div class="container">
-        <div class="section-header text-center">
-            <span class="section-tag" data-zh="服务内容">SERVICES</span>
-            <h2 class="section-title" data-zh="事业内容">事業内容</h2>
-            <div class="section-divider"></div>
-            <p class="section-subtitle" data-zh="从战略到执行，从构想到成果。为您的日中商务提供一站式专业支持。">
-                戦略から実行まで、構想から成果まで。日中ビジネスをワンストップでサポートします。
-            </p>
+    <section id="services" class="services section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag" data-zh="服务内容">SERVICES</span>
+                <h2 class="section-title" data-zh="事业内容">事業内容</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle" data-zh="从战略到执行，从构想到成果。为您的日中商务提供一站式专业支持。">
+                    戦略から実行まで、構想から成果まで。日中ビジネスをワンストップでサポートします。
+                </p>
+            </div>
+
+            <!-- 数据条 -->
+            <div class="service-stats">
+                <div class="stat-item">
+                    <span class="stat-number">2005</span>
+                    <span class="stat-label" data-zh="年创业至今">年創業</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">15<span class="stat-plus">+</span></span>
+                    <span class="stat-label" data-zh="覆盖行业">対応業界</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5<span class="stat-plus">社</span></span>
+                    <span class="stat-label" data-zh="IPO上市支持">IPO上場支援</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100<span class="stat-plus">+</span></span>
+                    <span class="stat-label" data-zh="服务客户">クライアント企業</span>
+                </div>
+            </div>
+
+            <!-- 板块 01：市场开拓 -->
+            <div class="service-block">
+                <div class="service-block-header">
+                    <span class="service-block-number">01</span>
+                    <div>
+                        <h3 data-zh="市场开拓支援">市場開拓支援</h3>
+                        <p data-zh="从战略到落地，全程陪跑">戦略策定から現地マーケティング・販路開拓まで実行</p>
+                    </div>
+                </div>
+                <div class="service-items">
+                    <div class="service-item"><i class="fas fa-shopping-cart"></i><span data-zh="中国語ECサイト構築・運営サポート">中国語ECサイト構築・運営サポート</span></div>
+                    <div class="service-item"><i class="fas fa-globe"></i><span data-zh="中国語ホームページ制作・サーバ運用">中国語ホームページ制作・サーバ運用</span></div>
+                    <div class="service-item"><i class="fas fa-file-signature"></i><span data-zh="掲載認可申請代行（ICP等）">掲載認可申請代行（ICP等）</span></div>
+                    <div class="service-item"><i class="fas fa-glass-cheers"></i><span data-zh="富裕層向けPRイベント企画・コーディネート">富裕層向けPRイベント企画・コーディネート</span></div>
+                    <div class="service-item"><i class="fas fa-store"></i><span data-zh="商品展示・アンテナショップ運営支援">商品展示・アンテナショップ運営支援</span></div>
+                    <div class="service-item"><i class="fas fa-ship"></i><span data-zh="日中貿易支援・販路開拓">日中貿易支援・販路開拓</span></div>
+                    <div class="service-item"><i class="fas fa-chart-pie"></i><span data-zh="市場リサーチ・競合分析">市場リサーチ・競合分析</span></div>
+                    <div class="service-item"><i class="fas fa-network-wired"></i><span data-zh="越境ECプラットフォーム連携">越境ECプラットフォーム連携</span></div>
+                </div>
+                <div class="service-block-footer">
+                    <span class="service-tag" data-zh="実績：福州「日本生活体験館」運営">実績：福州「日本生活体験館」運営</span>
+                </div>
+            </div>
+
+            <!-- 板块 02：商务对接 -->
+            <div class="service-block">
+                <div class="service-block-header">
+                    <span class="service-block-number">02</span>
+                    <div>
+                        <h3 data-zh="商务对接">ビジネスマッチング</h3>
+                        <p data-zh="精准对接，共创共赢">最適な提携先を発掘し、事業共創・販路拡大を促進</p>
+                    </div>
+                </div>
+                <div class="service-items">
+                    <div class="service-item"><i class="fas fa-search"></i><span data-zh="中国パートナー企業の発掘・紹介">中国パートナー企業の発掘・紹介</span></div>
+                    <div class="service-item"><i class="fas fa-handshake"></i><span data-zh="日本企業と中国企業の提携仲介">日本企業と中国企業の提携仲介</span></div>
+                    <div class="service-item"><i class="fas fa-calendar-alt"></i><span data-zh="広州交易会等への出展支援">広州交易会等への出展支援</span></div>
+                    <div class="service-item"><i class="fas fa-gamepad"></i><span data-zh="アニメ・ゲーム展示会への誘致">アニメ・ゲーム展示会への誘致</span></div>
+                    <div class="service-item"><i class="fas fa-plane"></i><span data-zh="ビジネス視察ツアーの企画・手配">ビジネス視察ツアーの企画・手配</span></div>
+                    <div class="service-item"><i class="fas fa-chart-line"></i><span data-zh="投資家向けロードショー企画">投資家向けロードショー企画</span></div>
+                    <div class="service-item"><i class="fas fa-user-tie"></i><span data-zh="顧問契約・継続的アドバイザリー">顧問契約・継続的アドバイザリー</span></div>
+                </div>
+                <div class="service-block-footer">
+                    <span class="service-tag" data-zh="主要取引先：NetDragon、講談社、KADOKAWA 他">主要取引先：NetDragon、講談社、KADOKAWA 他</span>
+                </div>
+            </div>
+
+            <!-- 板块 03：IPO支援 -->
+            <div class="service-block">
+                <div class="service-block-header">
+                    <span class="service-block-number">03</span>
+                    <div>
+                        <h3 data-zh="IPO・融资支持">IPO・資金調達支援</h3>
+                        <p data-zh="从申请到上市，全程护航">中国証券市場への上場・資金調達をワンストップでサポート</p>
+                    </div>
+                </div>
+                <div class="service-items">
+                    <div class="service-item"><i class="fas fa-building"></i><span data-zh="深圳第四板・上海Q板・天津創業板等への上場支援">深圳第四板・上海Q板・天津創業板等への上場支援</span></div>
+                    <div class="service-item"><i class="fas fa-file-alt"></i><span data-zh="上場申請書類の作成・提出">上場申請書類の作成・提出</span></div>
+                    <div class="service-item"><i class="fas fa-users"></i><span data-zh="投資説明会の企画運営">投資説明会の企画運営</span></div>
+                    <div class="service-item"><i class="fas fa-stamp"></i><span data-zh="会社設立登記・法定代表者代行">会社設立登記・法定代表者代行</span></div>
+                    <div class="service-item"><i class="fas fa-university"></i><span data-zh="銀行口座開設支援">銀行口座開設支援</span></div>
+                    <div class="service-item"><i class="fas fa-briefcase"></i><span data-zh="上場後の企業運営代行">上場後の企業運営代行</span></div>
+                    <div class="service-item"><i class="fas fa-calculator"></i><span data-zh="記帳代行・秘書サービス">記帳代行・秘書サービス</span></div>
+                    <div class="service-item"><i class="fas fa-coins"></i><span data-zh="資本金立替">資本金立替</span></div>
+                </div>
+                <div class="service-block-footer">
+                    <span class="service-tag" data-zh="実績：5社のIPO上場を支援">実績：5社のIPO上場を支援</span>
+                </div>
+            </div>
+
+            <!-- 板块 04：IT・Web3 -->
+            <div class="service-block">
+                <div class="service-block-header">
+                    <span class="service-block-number">04</span>
+                    <div>
+                        <h3 data-zh="IT・Web3开发">IT・Web3・システム開発</h3>
+                        <p data-zh="数字化转型，技术赋能">Webシステム・アプリ・ゲーム開発で事業のデジタル化を支援</p>
+                    </div>
+                </div>
+                <div class="service-items">
+                    <div class="service-item"><i class="fas fa-gamepad"></i><span data-zh="Webゲーム開発（オフショア受託）">Webゲーム開発（オフショア受託）</span></div>
+                    <div class="service-item"><i class="fas fa-cube"></i><span data-zh="Web3（ブロックチェーン・メタバース）開発">Web3（ブロックチェーン・メタバース）開発</span></div>
+                    <div class="service-item"><i class="fas fa-laptop-code"></i><span data-zh="Webシステム開発・サイト制作">Webシステム開発・サイト制作</span></div>
+                    <div class="service-item"><i class="fas fa-shopping-bag"></i><span data-zh="ECサイト制作">ECサイト制作</span></div>
+                    <div class="service-item"><i class="fas fa-mobile-alt"></i><span data-zh="アプリ開発">アプリ開発</span></div>
+                    <div class="service-item"><i class="fas fa-database"></i><span data-zh="顧客管理・予約管理・在庫管理システム構築">顧客管理・予約管理・在庫管理システム構築</span></div>
+                    <div class="service-item"><i class="fas fa-language"></i><span data-zh="翻訳・通訳サービス">翻訳・通訳サービス</span></div>
+                    <div class="service-item"><i class="fas fa-file-contract"></i><span data-zh="提携弁護士による契約書作成支援">提携弁護士による契約書作成支援</span></div>
+                </div>
+                <div class="service-block-footer">
+                    <span class="service-tag" data-zh="対応言語：日本語・中国語・英語">対応言語：日本語・中国語・英語</span>
+                </div>
+            </div>
+
         </div>
+    </section>
 
-        <!-- 服务实绩数据条 -->
-        <div class="service-stats">
-            <div class="stat-item">
-                <span class="stat-number">2005</span>
-                <span class="stat-label" data-zh="年创业至今">年創業</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">15<span class="stat-plus">+</span></span>
-                <span class="stat-label" data-zh="覆盖行业">対応業界</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">5<span class="stat-plus">社</span></span>
-                <span class="stat-label" data-zh="IPO上市支持">IPO上場支援</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">100<span class="stat-plus">+</span></span>
-                <span class="stat-label" data-zh="服务客户">クライアント企業</span>
-            </div>
-        </div>
-
-/* ========== 服务实绩数据条 ========== */
-.service-stats {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin-bottom: 60px;
-    padding: 30px 40px;
-    background: var(--bg-glass);
-    backdrop-filter: blur(16px);
-    border: 1px solid var(--border-glass);
-    border-radius: 20px;
-}
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-}
-.stat-number {
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--primary);
-    text-shadow: 0 0 20px var(--primary-glow);
-    line-height: 1.2;
-}
-.stat-plus {
-    font-size: 20px;
-}
-.stat-label {
-    font-size: 13px;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-}
-
-/* ========== 服务板块 ========== */
-.service-block {
-    background: var(--bg-glass);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border-glass);
-    border-radius: 24px;
-    padding: 40px;
-    margin-bottom: 30px;
-    transition: all 0.4s ease;
-}
-.service-block:hover {
-    border-color: var(--border-glass-hover);
-    box-shadow: var(--shadow-glow);
-}
-.service-block-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--border-glass);
-}
-.service-block-number {
-    font-size: 48px;
-    font-weight: 800;
-    color: var(--primary);
-    opacity: 0.3;
-    line-height: 1;
-    min-width: 70px;
-}
-.service-block-header h3 {
-    font-size: 26px;
-    margin-bottom: 6px;
-    color: var(--text-main);
-}
-.service-block-header p {
-    color: var(--text-muted);
-    font-size: 15px;
-}
-
-/* ========== 服务详情网格 ========== */
-.service-items {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px 40px;
-}
-.service-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    color: var(--text-muted);
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(201, 169, 110, 0.06);
-    transition: all 0.3s ease;
-}
-.service-item:hover {
-    color: var(--text-main);
-    padding-left: 6px;
-}
-.service-item i {
-    color: var(--primary);
-    font-size: 16px;
-    width: 20px;
-    text-align: center;
-    flex-shrink: 0;
-    text-shadow: 0 0 8px var(--primary-glow);
-}
-
-/* ========== 服务板块底部 ========== */
-.service-block-footer {
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-glass);
-}
-.service-tag {
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--primary);
-    background: rgba(201, 169, 110, 0.1);
-    padding: 6px 16px;
-    border-radius: 20px;
-    border: 1px solid rgba(201, 169, 110, 0.2);
-}
-
-/* ========== 响应式 ========== */
-@media (max-width: 768px) {
-    .service-stats {
-        flex-wrap: wrap;
-        gap: 30px;
-        padding: 24px;
-    }
-    .stat-number { font-size: 28px; }
-    .service-block { padding: 24px; }
-    .service-block-header {
-        flex-direction: column;
-        gap: 12px;
-    }
-    .service-block-number { font-size: 36px; min-width: auto; }
-    .service-block-header h3 { font-size: 22px; }
-    .service-items {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-}
-
-    <!-- 为什么选择我们 -->
+    <!-- WHY US -->
     <section id="whyus" class="whyus section-padding bg-light">
         <div class="container">
             <div class="section-header text-center">
@@ -978,7 +1016,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         </div>
     </section>
 
-    <!-- 行业标签云 -->
+    <!-- INDUSTRIES -->
     <section id="industries" class="industries section-padding">
         <div class="container">
             <div class="section-header text-center">
@@ -1009,7 +1047,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         </div>
     </section>
 
-    <!-- 数据仪表盘 -->
+    <!-- DASHBOARD -->
     <section id="dashboard" class="dashboard section-padding bg-light">
         <div class="container">
             <div class="section-header text-center">
@@ -1046,7 +1084,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         </div>
     </section>
 
-    <!-- 实绩时间轴 -->
+    <!-- ACHIEVEMENTS -->
     <section id="achievements" class="achievements-alt section-padding bg-dark">
         <div class="container">
             <div class="section-header text-center text-white">
@@ -1088,7 +1126,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         </div>
     </section>
 
-    <!-- 公司概要 -->
+    <!-- COMPANY -->
     <section id="company" class="company section-padding">
         <div class="container">
             <div class="company-info-compact">
@@ -1100,7 +1138,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         </div>
     </section>
 
-    <!-- 联系表单 -->
+    <!-- CONTACT -->
     <section id="contact" class="contact section-padding bg-light">
         <div class="container">
             <div class="contact-form-simple">
@@ -1184,7 +1222,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     
-    /* ========== 自定义光标（Logo + 点击发光） ========== */
+    /* ========== 自定义光标 ========== */
     const cursor = document.getElementById('customCursor');
     if (cursor && window.matchMedia('(pointer: fine)').matches) {
         let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
@@ -1235,7 +1273,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.dashboard-card, .service-card, .timeline-item, .whyus-card, .industry-tag').forEach(el => {
+    document.querySelectorAll('.dashboard-card, .timeline-item, .whyus-card, .industry-tag, .service-block, .stat-item').forEach(el => {
         observer.observe(el);
     });
     
