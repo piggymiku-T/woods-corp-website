@@ -255,12 +255,12 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     .nav-logo { height: 34px; }
 }
 
-/* ========== Hero（视频 fixed 固定，文字正常滚动）========== */
+/* ========== Hero（视频固定在背景）========== */
 .hero.fullscreen {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    position: relative;      /* 普通相对定位，文字随页面滚动 */
+    position: relative;
     overflow: hidden;
     z-index: 0;
 }
@@ -273,7 +273,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     width: 100%;
     height: 100vh;
     object-fit: cover;
-    z-index: -2;             /* 沉到所有内容之下 */
+    z-index: -2;
 }
 
 /* 遮罩也固定，跟随视频 */
@@ -283,8 +283,8 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     left: 0;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(90deg, rgba(19,17,16,0.96) 0%, rgba(19,17,16,0.72) 55%, rgba(19,17,16,0.25) 100%);
-    z-index: -1;             /* 在视频之上、其他内容之下 */
+    background: linear-gradient(90deg, rgba(19,17,16,0.96) 0%, rgba(19,17,16,0.72) 55%, rgba(19,17,16,0.35) 100%);
+    z-index: -1;
     pointer-events: none;
 }
 
@@ -361,20 +361,13 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     50% { transform: translate(-50%, 8px); }
 }
 
-/* ===== 让 Hero 之后的区块盖在固定视频上方 ===== */
+/* ===== 关键：Hero 之后的区块半透明，让背后视频透出来 ===== */
 main > section:not(.hero) {
     position: relative;
     z-index: 1;
-    background-color: var(--bg-deep);  /* 每个区块都有实色底，遮住视频 */
-}
-
-/* 但某些区块已有渐变背景，这里不覆盖它们的 background */
-main > section.bg-dark {
-    background: linear-gradient(135deg, #131110 0%, #1A1816 100%);
-    background-color: transparent;
-}
-main > section#contact {
-    background: linear-gradient(135deg, rgba(201, 169, 110, 0.05) 0%, rgba(139, 111, 71, 0.02) 50%, rgba(19, 17, 16, 0.9) 100%), #131110;
+    background-color: rgba(19, 17, 16, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 /* ========== 数据条 ========== */
@@ -496,8 +489,8 @@ main > section#contact {
     border: 1px solid rgba(201, 169, 110, 0.2);
 }
 
-/* ========== WHY US ========== */
-.bg-light { background: #131110; }
+/* ========== WHY US（半透明）========== */
+.bg-light { background-color: rgba(19, 17, 16, 0.82); }
 .whyus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .whyus-card {
     padding: 44px 32px; text-align: center;
@@ -522,8 +515,8 @@ main > section#contact {
 .whyus-card p { color: var(--text-muted); line-height: 1.8; font-size: 15px; }
 @media (max-width: 768px) { .whyus-grid { grid-template-columns: 1fr; } }
 
-/* ========== 行业标签云 ========== */
-.industries { background: #131110; }
+/* ========== 行业标签云（半透明）========== */
+.industries { background-color: rgba(19, 17, 16, 0.86); }
 .industries-cloud {
     display: flex; flex-wrap: wrap;
     justify-content: center; gap: 14px;
@@ -590,9 +583,9 @@ main > section#contact {
 @media (max-width: 1024px) { .dashboard-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .dashboard-grid { grid-template-columns: 1fr; } }
 
-/* ========== 实绩时间轴 ========== */
+/* ========== 实绩时间轴（半透明渐变）========== */
 .bg-dark {
-    background: linear-gradient(135deg, #131110 0%, #1A1816 100%);
+    background: linear-gradient(135deg, rgba(19,17,16,0.92) 0%, rgba(26,24,22,0.92) 100%);
     border-top: 1px solid var(--border-glass);
     border-bottom: 1px solid var(--border-glass);
 }
@@ -632,13 +625,13 @@ main > section#contact {
     .timeline-year { min-width: auto; }
 }
 
-/* ========== 联系区域 ========== */
+/* ========== 联系区域（半透明 + 金色光晕）========== */
 #contact {
     position: relative;
     overflow: hidden;
-    background:
-        linear-gradient(135deg, rgba(201, 169, 110, 0.05) 0%, rgba(139, 111, 71, 0.02) 50%, rgba(19, 17, 16, 0.9) 100%),
-        #131110;
+    background: linear-gradient(135deg, rgba(201, 169, 110, 0.06) 0%, rgba(139, 111, 71, 0.03) 50%, rgba(19, 17, 16, 0.88) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 #contact::before {
     content: '';
@@ -802,9 +795,11 @@ main > section#contact {
     .company-panel, .contact-form-simple { padding: 32px 24px; }
 }
 
-/* ========== 页脚 ========== */
+/* ========== 页脚（半透明）========== */
 .footer {
-    background: #0D0C0B;
+    background: rgba(13, 12, 11, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: var(--text-muted);
     padding: 40px 0;
     text-align: center;
@@ -873,7 +868,7 @@ main > section#contact {
     .hero-overlay { background: linear-gradient(180deg, rgba(19,17,16,0.65) 0%, rgba(19,17,16,0.96) 100%); }
 }
 
-/* ===== 移动端：视频改为 absolute，避免 iOS fixed 兼容问题 ===== */
+/* ===== 移动端：视频改回 absolute，避免 iOS fixed 兼容问题 ===== */
 @media (max-width: 768px) {
     .hero-video {
         position: absolute;
@@ -882,6 +877,13 @@ main > section#contact {
     .hero-overlay {
         position: absolute;
         height: 100%;
+    }
+    /* 移动端为了性能，去掉 backdrop-filter */
+    main > section:not(.hero),
+    #contact,
+    .footer {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
 }
 </style>
@@ -919,7 +921,7 @@ main > section#contact {
 </nav>
 
 <main>
-    <!-- HERO（视频固定，文字滚动） -->
+    <!-- HERO -->
     <section class="hero fullscreen">
         <video class="hero-video" autoplay muted loop playsinline poster="assets/woods-poster.jpg">
             <source src="assets/woods-video.mp4" type="video/mp4">
