@@ -365,9 +365,9 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 main > section:not(.hero) {
     position: relative;
     z-index: 1;
-    background-color: rgba(19, 17, 16, 0.88);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(19, 17, 16, 0.68);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 /* ========== 数据条 ========== */
@@ -490,7 +490,7 @@ main > section:not(.hero) {
 }
 
 /* ========== WHY US（半透明）========== */
-.bg-light { background-color: rgba(19, 17, 16, 0.82); }
+.bg-light { background-color: rgba(19, 17, 16, 0.62); }
 .whyus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .whyus-card {
     padding: 44px 32px; text-align: center;
@@ -516,7 +516,7 @@ main > section:not(.hero) {
 @media (max-width: 768px) { .whyus-grid { grid-template-columns: 1fr; } }
 
 /* ========== 行业标签云（半透明）========== */
-.industries { background-color: rgba(19, 17, 16, 0.86); }
+.industries { background-color: rgba(19, 17, 16, 0.68); }
 .industries-cloud {
     display: flex; flex-wrap: wrap;
     justify-content: center; gap: 14px;
@@ -585,7 +585,7 @@ main > section:not(.hero) {
 
 /* ========== 实绩时间轴（半透明渐变）========== */
 .bg-dark {
-    background: linear-gradient(135deg, rgba(19,17,16,0.92) 0%, rgba(26,24,22,0.92) 100%);
+    background: linear-gradient(135deg, rgba(19,17,16,0.72) 0%, rgba(26,24,22,0.72) 100%);
     border-top: 1px solid var(--border-glass);
     border-bottom: 1px solid var(--border-glass);
 }
@@ -629,9 +629,9 @@ main > section:not(.hero) {
 #contact {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(201, 169, 110, 0.06) 0%, rgba(139, 111, 71, 0.03) 50%, rgba(19, 17, 16, 0.88) 100%);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: linear-gradient(135deg, rgba(201, 169, 110, 0.06) 0%, rgba(139, 111, 71, 0.03) 50%, rgba(19, 17, 16, 0.72) 100%);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 #contact::before {
     content: '';
@@ -797,7 +797,7 @@ main > section:not(.hero) {
 
 /* ========== 页脚（半透明）========== */
 .footer {
-    background: rgba(13, 12, 11, 0.95);
+    background: rgba(13, 12, 11, 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     color: var(--text-muted);
