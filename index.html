@@ -868,22 +868,38 @@ main > section:not(.hero) {
     .hero-overlay { background: linear-gradient(180deg, rgba(19,17,16,0.65) 0%, rgba(19,17,16,0.96) 100%); }
 }
 
-/* ===== 移动端：视频改回 absolute，避免 iOS fixed 兼容问题 ===== */
+/* ===== 移动端：保持视频 fixed，同时兼顾性能 ===== */
 @media (max-width: 768px) {
+    /* 视频保持固定在背后，加 GPU 加速处理 iOS 兼容 */
     .hero-video {
-        position: absolute;
-        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;                /* 动态视口高度，适配 iOS 地址栏 */
+        object-fit: cover;
+        z-index: -2;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);      /* 强制 GPU 加速 */
+        will-change: transform;
     }
     .hero-overlay {
-        position: absolute;
-        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        z-index: -1;
+        pointer-events: none;
     }
-    /* 移动端为了性能，去掉 backdrop-filter */
+    /* 移动端降低 blur 强度，兼顾性能 */
     main > section:not(.hero),
     #contact,
     .footer {
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
     }
 }
 </style>
