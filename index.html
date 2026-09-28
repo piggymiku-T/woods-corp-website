@@ -114,12 +114,16 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     body { cursor: auto; }
     .custom-cursor { display: none; }
 }
+
+/* 地址图片 */
 .address-img {
     display: block;
-    max-width: 100%;   /* ← 这里控制最大宽度 */
+    max-width: 240px;
+    width: 100%;
     height: auto;
     margin-top: 4px;
 }
+
 /* ========== 区域标题 ========== */
 .section-header { margin-bottom: 60px; }
 .section-tag {
@@ -252,10 +256,15 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     .nav-logo { height: 34px; }
 }
 
-/* ========== Hero ========== */
+/* ========== Hero（sticky 固定）========== */
 .hero.fullscreen {
-    min-height: 100vh; display: flex; align-items: center;
-    position: relative; overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    z-index: 0;
 }
 .hero-video {
     position: absolute; top: 0; left: 0;
@@ -340,11 +349,11 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     0%,100% { transform: translate(-50%, 0); }
     50% { transform: translate(-50%, 8px); }
 }
-@media (max-width: 768px) {
-    .hero-desc { font-size: 15px; }
-    .hero-buttons { flex-direction: column; }
-    .btn-primary, .btn-outline { justify-content: center; }
-    .hero-overlay { background: linear-gradient(180deg, rgba(19,17,16,0.65) 0%, rgba(19,17,16,0.96) 100%); }
+
+/* ===== 让 Hero 之后的区块盖在 sticky hero 上方 ===== */
+main > section:not(.hero) {
+    position: relative;
+    z-index: 1;
 }
 
 /* ========== 数据条 ========== */
@@ -466,8 +475,8 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     border: 1px solid rgba(201, 169, 110, 0.2);
 }
 
-/* ========== WHY US ========== */
-.bg-light { background: rgba(19, 17, 16, 0.5); }
+/* ========== WHY US（不透明背景）========== */
+.bg-light { background: #131110; }
 .whyus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .whyus-card {
     padding: 44px 32px; text-align: center;
@@ -492,8 +501,8 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 .whyus-card p { color: var(--text-muted); line-height: 1.8; font-size: 15px; }
 @media (max-width: 768px) { .whyus-grid { grid-template-columns: 1fr; } }
 
-/* ========== 行业标签云 ========== */
-.industries { background: rgba(19, 17, 16, 0.7); }
+/* ========== 行业标签云（不透明背景）========== */
+.industries { background: #131110; }
 .industries-cloud {
     display: flex; flex-wrap: wrap;
     justify-content: center; gap: 14px;
@@ -602,11 +611,13 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     .timeline-year { min-width: auto; }
 }
 
-/* ========== 联系区域 ========== */
+/* ========== 联系区域（不透明背景）========== */
 #contact {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(201, 169, 110, 0.05) 0%, rgba(139, 111, 71, 0.02) 50%, rgba(19, 17, 16, 0.9) 100%);
+    background:
+        linear-gradient(135deg, rgba(201, 169, 110, 0.05) 0%, rgba(139, 111, 71, 0.02) 50%, rgba(19, 17, 16, 0.9) 100%),
+        #131110;
 }
 #contact::before {
     content: '';
@@ -622,7 +633,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
 .contact-wrapper {
     display: grid;
-    grid-template-columns: 0.75fr 1.25fr;   /* ← 左0.75 : 右1.25 */
+    grid-template-columns: 0.75fr 1.25fr;
     gap: 40px;
     max-width: 1180px;
     margin: 0 auto;
@@ -739,7 +750,6 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     margin-top: 8px;
 }
 
-/* 表单状态提示 */
 .form-status {
     margin-top: 16px;
     padding: 14px 18px;
@@ -834,6 +844,18 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         opacity: 0.7;
     }
     .service-items { grid-template-columns: 1fr; gap: 4px; }
+    .hero-desc { font-size: 15px; }
+    .hero-buttons { flex-direction: column; }
+    .btn-primary, .btn-outline { justify-content: center; }
+    .hero-overlay { background: linear-gradient(180deg, rgba(19,17,16,0.65) 0%, rgba(19,17,16,0.96) 100%); }
+}
+
+/* ===== 关键：放在样式表最末尾，确保覆盖主定义 ===== */
+@media (max-width: 768px) {
+    .hero.fullscreen {
+        position: relative;
+        top: auto;
+    }
 }
 </style>
 </head>
@@ -926,7 +948,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 </div>
             </div>
 
-            <!-- 01 市场开拓支援 -->
+            <!-- 01 -->
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">01</span>
@@ -951,7 +973,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 </div>
             </div>
 
-            <!-- 02 商务对接 -->
+            <!-- 02 -->
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">02</span>
@@ -971,11 +993,11 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                     <div class="service-item"><i class="fas fa-user-tie"></i><span data-zh="顾问合约·持续咨询">顧問契約・継続的アドバイザリー</span></div>
                 </div>
                 <div class="service-block-footer">
-                    <span class="service-tag" data-zh="主要取引先：NetDragon、講談社、KADOKAWA 他">主要取引先：NetDragon...他</span>
+                    <span class="service-tag" data-zh="主要取引先：NetDragon、講談社、KADOKAWA 他">主要取引先：NetDragon、講談社、KADOKAWA 他</span>
                 </div>
             </div>
 
-            <!-- 03 IPO -->
+            <!-- 03 -->
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">03</span>
@@ -1000,7 +1022,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                 </div>
             </div>
 
-            <!-- 04 IT -->
+            <!-- 04 -->
             <div class="service-block">
                 <div class="service-block-header">
                     <span class="service-block-number">04</span>
@@ -1192,12 +1214,12 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                             </div>
                         </div>
                         <div class="company-info-item">
-    <i class="fas fa-map-marker-alt"></i>
-    <div class="info-content">
-        <span class="info-label" data-zh="地址">所在地</span>
-        <img src="assets/address.png" alt="所在地" class="address-img">
-    </div>
-</div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="info-content">
+                                <span class="info-label" data-zh="地址">所在地</span>
+                                <img src="assets/address.png" alt="所在地" class="address-img">
+                            </div>
+                        </div>
                         <div class="company-info-item">
                             <i class="fas fa-phone"></i>
                             <div class="info-content">
@@ -1220,15 +1242,10 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
                     <p class="form-subtitle" data-zh="请填写以下表单，我们将在 1-2 个工作日内与您联系。">
                         以下のフォームにご記入ください。担当者より1〜2営業日以内にご連絡いたします。
                     </p>
-                    <!-- ★ 表单提交到 Web3Forms，自动转发到 info@woods-corp.jp -->
                     <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-                        <!-- ⚠️ 请把下面 value 替换为您注册 Web3Forms 后获得的 Access Key -->
                         <input type="hidden" name="access_key" value="9983b9f6-b32f-4f9c-8b7d-ba8e28cb3410">
-                        <!-- 邮件主题 -->
                         <input type="hidden" name="subject" value="【官网咨询】来自 Woods Corporation 官网的新咨询">
-                        <!-- 发件人显示名称 -->
                         <input type="hidden" name="from_name" value="Woods Corporation Website">
-                        <!-- 反垃圾保护 -->
                         <input type="checkbox" name="botcheck" style="display:none;">
 
                         <input type="text" name="name" placeholder="お名前" data-zh-placeholder="姓名" required>
@@ -1374,7 +1391,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    /* ========== 表单提交（Web3Forms → info@woods-corp.jp） ========== */
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
@@ -1386,7 +1402,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const lang = document.documentElement.lang.startsWith('zh') ? 'zh' : 'ja';
             const originalBtnHTML = submitBtn.innerHTML;
             
-            // 禁用按钮 + 显示加载状态
             submitBtn.disabled = true;
             submitBtn.innerHTML = lang === 'zh' ? '发送中...' : '送信中...';
             formStatus.className = 'form-status';
