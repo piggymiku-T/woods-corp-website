@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="format-detection" content="telephone=no">
 <title>店舗用LED広告ウォール ご提案書｜KTCグループ 御中</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -110,7 +113,7 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
 .flow-t{font-size:14px;font-weight:800;color:var(--navy);line-height:1.4;}
 .flow-d{font-size:11px;color:var(--muted);line-height:1.5;}
 
-/* ============ 修正18/19页：玻璃拟态屏幕，底部对齐 ============ */
+/* ============ 18/19页：玻璃拟态屏幕，底部对齐 ============ */
 .vision-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:16px;flex:1;min-height:0;}
 .vision-card{position:relative;border-radius:12px;overflow:hidden;background:#0b1729;display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(11,23,41,.15);}
 .vision-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform .4s ease;}
@@ -121,25 +124,15 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
 .vision-meta .c-name{font-size:16px;font-weight:800;color:#fff;line-height:1.2;}
 .effect-tag{display:inline-block;align-self:flex-start;font-size:10px;font-weight:800;color:#fff;background:rgba(255,106,43,.9);padding:3px 10px;border-radius:999px;margin-top:2px;}
 .vision-screen{
-  position:absolute;
-  right: 16px;
-  bottom: 16px;
-  width: 38%;
-  height: 26%;
+  position:absolute;right:16px;bottom:16px;width:38%;height:26%;
   background:rgba(11, 23, 41, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 106, 43, 0.5);
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 106, 43, 0.1);
+  backdrop-filter: blur(10px);-webkit-backdrop-filter: blur(10px);
+  border:1px solid rgba(255,106,43,0.5);border-radius:8px;
+  box-shadow:0 8px 32px rgba(0,0,0,.4), inset 0 0 20px rgba(255,106,43,.1);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
-  z-index:3;overflow:hidden;
-  transition: all 0.3s ease;
+  z-index:3;overflow:hidden;transition:all .3s ease;
 }
-.vision-screen:hover{
-  border-color: rgba(255, 106, 43, 0.9);
-  box-shadow: 0 8px 32px rgba(255, 106, 43, 0.25), inset 0 0 20px rgba(255, 106, 43, 0.2);
-}
+.vision-screen:hover{border-color:rgba(255,106,43,0.9);box-shadow:0 8px 32px rgba(255,106,43,.25), inset 0 0 20px rgba(255,106,43,.2);}
 .vision-screen::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,106,43,.1),transparent);transform:translateX(-100%);animation:visionSweep 4s ease-in-out infinite;}
 .vs-line1{font-size:11px;font-weight:800;color:#fff;position:relative;z-index:2;}
 .vs-line2{font-size:14px;font-weight:800;color:#ff8a55;position:relative;z-index:2;}
@@ -165,17 +158,89 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
 .hint{position:fixed;left:24px;bottom:20px;font-size:11px;letter-spacing:.08em;color:#94a3b8;z-index:100;user-select:none;transition:opacity .5s ease;}
 .hint.hide{opacity:0;}
 @keyframes visionSweep{0%{transform:translateX(-100%)}55%,100%{transform:translateX(100%)}}
-@media (hover:none){.nav{width:48px;height:48px;} .hint{display:none;}}
+
+/* ============ ダウンロードボタン ============ */
+.pdf-btn{
+  position:fixed; left:22px; bottom:20px; z-index:200;
+  display:inline-flex; align-items:center; gap:10px;
+  padding:12px 22px; border:none; border-radius:999px; cursor:pointer;
+  background:linear-gradient(135deg,#ff6a2b,#ff8a55);
+  color:#fff; font-size:14px; font-weight:800; letter-spacing:.06em;
+  font-family:inherit;
+  box-shadow:0 12px 28px rgba(255,106,43,.35);
+  transition:transform .18s ease, box-shadow .18s ease, opacity .2s ease;
+}
+.pdf-btn:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(255,106,43,.45);}
+.pdf-btn:active{transform:translateY(0);}
+.pdf-btn:disabled{opacity:.55; cursor:wait;}
+.pdf-btn svg{width:18px;height:18px;flex:none;}
+
+/* ============ PDF 生成遮罩 ============ */
+.pdf-overlay{
+  position:fixed; inset:0; z-index:999;
+  background:rgba(11,23,41,.78);
+  backdrop-filter:blur(6px);
+  display:none; align-items:center; justify-content:center; flex-direction:column; gap:18px;
+  color:#fff; font-size:15px; letter-spacing:.06em;
+}
+.pdf-overlay.on{display:flex;}
+.pdf-overlay .spinner{
+  width:44px; height:44px; border-radius:50%;
+  border:3px solid rgba(255,255,255,.18);
+  border-top-color:#ff8a55;
+  animation:spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.pdf-overlay .progress-text{font-size:13px; color:#c3d3e6;}
+.pdf-overlay .title{font-size:16px; font-weight:800; color:#ffb088;}
+
+/* 导出 PDF 时隐藏 UI */
+body.exporting .hud,
+body.exporting .counter,
+body.exporting .progress-wrap,
+body.exporting .hint,
+body.exporting .pdf-btn { display:none !important; }
+body.exporting .slide { border-radius:0 !important; box-shadow:none !important; }
+body.exporting .vision-screen{
+  background: rgba(11, 23, 41, 0.82) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 隐藏渲染舞台（用于PDF导出） */
+#pdfStage{position:fixed; left:-99999px; top:0; width:1280px; height:720px; overflow:hidden;}
+#pdfStage .slide{position:absolute !important; inset:0 !important; opacity:1 !important; transform:none !important; display:flex !important; border-radius:0 !important; box-shadow:none !important;}
+
+@media (hover:none){.nav{width:48px;height:48px;} .hint{display:none;} .pdf-btn{padding:14px 22px;}}
+
 @media print{
   html,body{overflow:visible;height:auto;background:#fff;}
   .stage{position:static;display:block;background:#fff;}
   .deck{width:100%;height:auto;transform:none!important;}
   .slide{position:relative;inset:auto;opacity:1!important;transform:none!important;page-break-after:always;border-radius:0;box-shadow:none;height:720px;display:flex!important;}
-  .hud,.counter,.progress-wrap,.hint{display:none!important;}
+  .hud,.counter,.progress-wrap,.hint,.pdf-btn,.pdf-overlay{display:none!important;}
 }
 </style>
 </head>
 <body>
+
+<!-- PDF 生成中的遮罩 -->
+<div class="pdf-overlay" id="pdfOverlay">
+  <div class="spinner"></div>
+  <div class="title">PDFを生成しています…</div>
+  <div class="progress-text" id="pdfProgress">しばらくお待ちください。</div>
+</div>
+
+<!-- PDF 一键下载按钮 -->
+<button class="pdf-btn" id="downloadPdfBtn" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+    <polyline points="7 10 12 15 17 10"></polyline>
+    <line x1="12" y1="15" x2="12" y2="3"></line>
+  </svg>
+  PDFをダウンロード
+</button>
+
 <div class="stage">
 <div class="deck" id="deck">
 
@@ -555,7 +620,6 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
     <header class="s-head"><div class="s-no">18</div><h2>店頭VISIONイメージ ①</h2><div class="s-en">Storefront Vision Mockups</div></header>
     <div class="s-body">
       <div class="vision-grid">
-        <!-- 英語教室 -->
         <div class="vision-card">
           <img src="../assets/shop-english-transparent.webp" onerror="this.src='../assets/shop-pc-curved.webp'" alt="" class="vision-bg" loading="lazy">
           <div class="vision-overlay"></div>
@@ -570,7 +634,6 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
             <div class="vs-line3">英会話・初心者OK</div>
           </div>
         </div>
-        <!-- パソコン教室 -->
         <div class="vision-card">
           <img src="../assets/shop-pc-curved.webp" alt="" class="vision-bg" loading="lazy">
           <div class="vision-overlay"></div>
@@ -585,7 +648,6 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
             <div class="vs-line3">60代からの安心レッスン</div>
           </div>
         </div>
-        <!-- プログラミング教室 -->
         <div class="vision-card">
           <img src="../assets/shop-coding-interactive.webp" alt="" class="vision-bg" loading="lazy">
           <div class="vision-overlay"></div>
@@ -600,7 +662,6 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
             <div class="vs-line3">子ども未来教室</div>
           </div>
         </div>
-        <!-- 日本語学校 -->
         <div class="vision-card">
           <img src="../assets/shop-japanese-world.webp" alt="" class="vision-bg" loading="lazy">
           <div class="vision-overlay"></div>
@@ -626,7 +687,6 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
     <header class="s-head"><div class="s-no">19</div><h2>店頭VISIONイメージ ②</h2><div class="s-en">Storefront Vision Mockups</div></header>
     <div class="s-body">
       <div class="vision-grid">
-        <!-- 学習塾 -->
         <div class="vision-card">
           <img src="../assets/shop-cram-pillar.webp" alt="" class="vision-bg" loading="lazy">
           <div class="vision-overlay"></div>
@@ -641,7 +701,6 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
             <div class="vs-line3">無料体験実施中</div>
           </div>
         </div>
-        <!-- 保育園 -->
         <div class="vision-card">
           <img src="../assets/shop-nursery-soft.webp" alt="" class="vision-bg" loading="lazy">
           <div class="vision-overlay"></div>
@@ -656,7 +715,6 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
             <div class="vs-line3">のびのび育つ</div>
           </div>
         </div>
-        <!-- ABC整体 -->
         <div class="vision-card">
           <img src="../assets/shop-relax-transparent.webp" alt="" class="vision-bg" loading="lazy">
           <div class="vision-overlay"></div>
@@ -671,7 +729,6 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
             <div class="vs-line3">ABC整体 初回体験受付中</div>
           </div>
         </div>
-        <!-- 全社共通：建築表皮 -->
         <div class="vision-card">
           <img src="../assets/building-facade.webp" alt="" class="vision-bg" loading="lazy">
           <div class="vision-overlay"></div>
@@ -701,57 +758,210 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
 <div class="progress-wrap"><div class="progress-bar" id="bar"></div></div>
 <div class="hint" id="hint">← → / Space で操作　·　Esc で一覧</div>
 
+<!-- PDF 生成用の隠しステージ -->
+<div id="pdfStage" aria-hidden="true"></div>
+
+<!-- html2canvas + jsPDF（PDF 生成ライブラリ） -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
 <script>
 (function(){
   'use strict';
-  var ACCESS_CODE = '';
-  var gate      = document.getElementById('gate');
-  var gateInput = document.getElementById('gateInput');
-  var gateBtn   = document.getElementById('gateBtn');
-  var gateErr   = document.getElementById('gateErr');
-  if (ACCESS_CODE) {
-    gate.classList.add('on'); setTimeout(function(){ gateInput.focus(); }, 120);
-    function tryUnlock(){ if (gateInput.value === ACCESS_CODE) { gate.classList.remove('on'); start(); } else { gateErr.textContent = 'コードが正しくありません'; gateInput.value = ''; gateInput.focus(); } }
-    gateBtn.addEventListener('click', tryUnlock);
-    gateInput.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
-  } else { start(); }
-  function start(){
-    var deck   = document.getElementById('deck');
-    var slides = Array.prototype.slice.call(deck.querySelectorAll('.slide'));
-    var total  = slides.length;
-    var index  = 0;
-    var counter  = document.getElementById('counter');
-    var bar      = document.getElementById('bar');
-    var prevBtn  = document.getElementById('prevBtn');
-    var nextBtn  = document.getElementById('nextBtn');
-    var hint     = document.getElementById('hint');
-    var m = /^#(\d+)$/.exec(location.hash || '');
-    if (m) { var n = parseInt(m[1], 10) - 1; if (n >= 0 && n < total) index = n; }
-    function render(){
-      for (var i = 0; i < total; i++){ slides[i].classList.toggle('active', i === index); slides[i].classList.toggle('prev',   i <  index); }
-      counter.textContent = String(index + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
-      bar.style.width = ((index + 1) / total * 100) + '%';
-      prevBtn.disabled = (index === 0); nextBtn.disabled = (index === total - 1);
-      try { history.replaceState(null, '', '#' + (index + 1)); } catch(e){}
+
+  /* ============================================================
+     スライドナビゲーション
+     ============================================================ */
+  var deck   = document.getElementById('deck');
+  var slides = Array.prototype.slice.call(deck.querySelectorAll('.slide'));
+  var total  = slides.length;
+  var index  = 0;
+
+  var counter  = document.getElementById('counter');
+  var bar      = document.getElementById('bar');
+  var prevBtn  = document.getElementById('prevBtn');
+  var nextBtn  = document.getElementById('nextBtn');
+  var hint     = document.getElementById('hint');
+
+  var m = /^#(\d+)$/.exec(location.hash || '');
+  if (m) { var n = parseInt(m[1], 10) - 1; if (n >= 0 && n < total) index = n; }
+
+  function render(){
+    for (var i = 0; i < total; i++){
+      slides[i].classList.toggle('active', i === index);
+      slides[i].classList.toggle('prev',   i <  index);
     }
-    function go(n){ if (n < 0 || n >= total || n === index) return; index = n; render(); hideHint(); }
-    function next(){ go(index + 1); } function prev(){ go(index - 1); }
-    var BASE_W = 1280, BASE_H = 720;
-    function fit(){ var s = Math.min(window.innerWidth / BASE_W, window.innerHeight / BASE_H); document.documentElement.style.setProperty('--scale', (s * 0.94).toFixed(4)); }
-    window.addEventListener('resize', fit); window.addEventListener('orientationchange', function(){ setTimeout(fit, 120); }); fit();
-    document.addEventListener('keydown', function(e){
-      if (gate.classList.contains('on')) return;
-      switch(e.key){ case 'ArrowRight': case 'ArrowDown': case 'PageDown': case ' ': e.preventDefault(); next(); break; case 'ArrowLeft': case 'ArrowUp': case 'PageUp': e.preventDefault(); prev(); break; case 'Home': e.preventDefault(); go(0); break; case 'End': e.preventDefault(); go(total - 1); break; default: if (/^[1-9]$/.test(e.key)) { var t = parseInt(e.key, 10) - 1; if (t < total) go(t); } }
-    });
-    nextBtn.addEventListener('click', next); prevBtn.addEventListener('click', prev);
-    var wheelLock = false;
-    window.addEventListener('wheel', function(e){ if (gate.classList.contains('on')) return; if (wheelLock) return; if (Math.abs(e.deltaY) < 24 && Math.abs(e.deltaX) < 24) return; wheelLock = true; setTimeout(function(){ wheelLock = false; }, 620); if (e.deltaY > 0 || e.deltaX > 0) next(); else prev(); }, { passive: true });
-    var tx = 0, ty = 0, tracking = false;
-    document.addEventListener('touchstart', function(e){ if (gate.classList.contains('on')) return; if (e.touches.length !== 1) { tracking = false; return; } tx = e.touches[0].clientX; ty = e.touches[0].clientY; tracking = true; }, { passive: true });
-    document.addEventListener('touchend', function(e){ if (!tracking) return; tracking = false; var t = e.changedTouches[0]; var dx = t.clientX - tx; var dy = t.clientY - ty; if (Math.abs(dx) > 52 && Math.abs(dx) > Math.abs(dy)) { if (dx < 0) next(); else prev(); } }, { passive: true });
-    var hintTimer = setTimeout(hideHint, 6000); function hideHint(){ clearTimeout(hintTimer); hint.classList.add('hide'); }
-    render();
+    counter.textContent = String(index + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
+    bar.style.width = ((index + 1) / total * 100) + '%';
+    prevBtn.disabled = (index === 0);
+    nextBtn.disabled = (index === total - 1);
+    try { history.replaceState(null, '', '#' + (index + 1)); } catch(e){}
   }
+  function go(n){ if (n < 0 || n >= total || n === index) return; index = n; render(); hideHint(); }
+  function next(){ go(index + 1); }
+  function prev(){ go(index - 1); }
+
+  var BASE_W = 1280, BASE_H = 720;
+  function fit(){
+    var s = Math.min(window.innerWidth / BASE_W, window.innerHeight / BASE_H);
+    document.documentElement.style.setProperty('--scale', (s * 0.94).toFixed(4));
+  }
+  window.addEventListener('resize', fit);
+  window.addEventListener('orientationchange', function(){ setTimeout(fit, 120); });
+  fit();
+
+  document.addEventListener('keydown', function(e){
+    switch(e.key){
+      case 'ArrowRight': case 'ArrowDown': case 'PageDown': case ' ':
+        e.preventDefault(); next(); break;
+      case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
+        e.preventDefault(); prev(); break;
+      case 'Home': e.preventDefault(); go(0); break;
+      case 'End':  e.preventDefault(); go(total - 1); break;
+      default:
+        if (/^[1-9]$/.test(e.key)) { var t = parseInt(e.key, 10) - 1; if (t < total) go(t); }
+    }
+  });
+
+  nextBtn.addEventListener('click', next);
+  prevBtn.addEventListener('click', prev);
+
+  var wheelLock = false;
+  window.addEventListener('wheel', function(e){
+    if (wheelLock) return;
+    if (Math.abs(e.deltaY) < 24 && Math.abs(e.deltaX) < 24) return;
+    wheelLock = true; setTimeout(function(){ wheelLock = false; }, 620);
+    if (e.deltaY > 0 || e.deltaX > 0) next(); else prev();
+  }, { passive: true });
+
+  var tx = 0, ty = 0, tracking = false;
+  document.addEventListener('touchstart', function(e){
+    if (e.touches.length !== 1) { tracking = false; return; }
+    tx = e.touches[0].clientX; ty = e.touches[0].clientY; tracking = true;
+  }, { passive: true });
+  document.addEventListener('touchend', function(e){
+    if (!tracking) return; tracking = false;
+    var t = e.changedTouches[0];
+    var dx = t.clientX - tx;
+    var dy = t.clientY - ty;
+    if (Math.abs(dx) > 52 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  var hintTimer = setTimeout(hideHint, 6000);
+  function hideHint(){ clearTimeout(hintTimer); hint.classList.add('hide'); }
+
+  render();
+
+  /* ============================================================
+     PDF 一括ダウンロード
+     ============================================================ */
+  var pdfBtn      = document.getElementById('downloadPdfBtn');
+  var pdfOverlay  = document.getElementById('pdfOverlay');
+  var pdfProgress = document.getElementById('pdfProgress');
+  var pdfStage    = document.getElementById('pdfStage');
+
+  function waitImages(container){
+    var imgs = container.querySelectorAll('img');
+    var promises = [];
+    imgs.forEach(function(img){
+      if (img.complete && img.naturalWidth > 0) return;
+      promises.push(new Promise(function(res){
+        img.addEventListener('load', res, { once:true });
+        img.addEventListener('error', res, { once:true });
+      }));
+    });
+    return Promise.all(promises);
+  }
+
+  pdfBtn.addEventListener('click', async function(){
+    if (!window.html2canvas || !window.jspdf) {
+      alert('PDFライブラリの読み込みに失敗しました。ネットワークをご確認ください。');
+      return;
+    }
+    pdfBtn.disabled = true;
+    pdfOverlay.classList.add('on');
+    document.body.classList.add('exporting');
+    pdfProgress.textContent = 'しばらくお待ちください。';
+
+    try {
+      var { jsPDF } = window.jspdf;
+      var pdf = new jsPDF({
+        orientation: 'landscape',
+        unit: 'px',
+        format: [1280, 720],
+        compress: true,
+        hotfixes: ['px_scaling']
+      });
+
+      // 元の状態を保存
+      var originalStates = slides.map(function(s){
+        return {
+          active: s.classList.contains('active'),
+          prev:   s.classList.contains('prev')
+        };
+      });
+
+      // すべてのスライドを非表示にしてから、1枚ずつPDFへ
+      slides.forEach(function(s){ s.classList.remove('active','prev'); });
+
+      for (var i = 0; i < slides.length; i++){
+        // レンダリング用ステージへクローン
+        pdfStage.innerHTML = '';
+        var clone = slides[i].cloneNode(true);
+        clone.style.opacity = '1';
+        clone.style.transform = 'none';
+        clone.style.position = 'absolute';
+        clone.style.inset = '0';
+        clone.style.display = 'flex';
+        clone.style.borderRadius = '0';
+        clone.style.boxShadow = 'none';
+        pdfStage.appendChild(clone);
+
+        // 画像読み込み待ち
+        await waitImages(clone);
+        // さらに少し待つ（フォント・CSSアニメ安定）
+        await new Promise(function(r){ setTimeout(r, 120); });
+
+        var canvas = await html2canvas(clone, {
+          width: 1280,
+          height: 720,
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: '#ffffff',
+          logging: false,
+          windowWidth: 1280,
+          windowHeight: 720
+        });
+
+        var imgData = canvas.toDataURL('image/jpeg', 0.9);
+        if (i > 0) pdf.addPage([1280, 720], 'landscape');
+        pdf.addImage(imgData, 'JPEG', 0, 0, 1280, 720, undefined, 'FAST');
+
+        pdfProgress.textContent = 'PDFを生成中… ' + (i + 1) + ' / ' + slides.length;
+      }
+
+      var filename = 'Woods_LED広告ウォールご提案書.pdf';
+      pdf.save(filename);
+
+      // 元の状態に戻す
+      pdfStage.innerHTML = '';
+      slides.forEach(function(s, i){
+        s.classList.toggle('active', originalStates[i].active);
+        s.classList.toggle('prev',   originalStates[i].prev);
+      });
+    } catch (err) {
+      console.error(err);
+      alert('PDF生成中にエラーが発生しました。時間をおいて再度お試しください。');
+    } finally {
+      pdfOverlay.classList.remove('on');
+      document.body.classList.remove('exporting');
+      pdfBtn.disabled = false;
+    }
+  });
+
 })();
 </script>
 </body>
