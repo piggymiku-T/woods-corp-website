@@ -4,17 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BuuPo日本市场落地 — 供应商合作资料</title>
+<!-- 引入 html2pdf 库，实现一键下载PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
-  /* ===== 基础变量（与KTC提案保持一致） ===== */
+  /* ===== 基础变量（与KTC提案保持统一） ===== */
   :root {
     --green: #4CAF50;
     --green-dark: #2E7D32;
     --green-light: #E8F5E9;
     --green-pale: #F1F8E9;
     --orange: #FF9800;
-    --orange-light: #FFF3E0;
-    --blue: #2196F3;
-    --blue-light: #E3F2FD;
     --cream: #FFFDE7;
     --text-dark: #2C3E50;
     --text-mid: #546E7A;
@@ -48,168 +47,112 @@
   .page::before {
     content: '';
     position: absolute;
-    top: -40px;
-    right: -40px;
-    width: 200px;
-    height: 200px;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
     background: radial-gradient(circle, rgba(76,175,80,0.06) 0%, transparent 70%);
     border-radius: 50%;
-    pointer-events: none;
   }
 
   .page::after {
     content: '';
     position: absolute;
-    bottom: -60px;
-    left: -60px;
-    width: 180px;
-    height: 180px;
+    bottom: -60px; left: -60px;
+    width: 180px; height: 180px;
     background: radial-gradient(circle, rgba(255,152,0,0.05) 0%, transparent 70%);
     border-radius: 50%;
-    pointer-events: none;
   }
 
   /* ===== 封面 ===== */
   .cover {
     background: linear-gradient(160deg, #F1F8E9 0%, #E8F5E9 30%, #FFFDE7 70%, #FFF8E1 100%);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; position: relative;
   }
 
   .cover::before {
     content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
     background-image:
       radial-gradient(circle at 15% 20%, rgba(76,175,80,0.1) 0%, transparent 40%),
       radial-gradient(circle at 85% 80%, rgba(255,152,0,0.08) 0%, transparent 40%),
       radial-gradient(circle at 50% 50%, rgba(33,150,243,0.04) 0%, transparent 50%);
-    pointer-events: none;
   }
 
   .cover .mascot-area {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
+    width: 120px; height: 120px; border-radius: 50%;
     background: linear-gradient(135deg, var(--green-light), var(--cream));
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     margin: 0 auto 24px;
     box-shadow: 0 8px 32px rgba(76,175,80,0.15);
-    font-size: 56px;
-    position: relative;
-    z-index: 1;
+    font-size: 56px; position: relative; z-index: 1;
   }
 
   .cover h1 {
-    font-size: 30px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: var(--green-dark);
-    margin-bottom: 12px;
-    position: relative;
-    z-index: 1;
+    font-size: 30px; font-weight: 700;
+    letter-spacing: 3px; color: var(--green-dark);
+    margin-bottom: 12px; position: relative; z-index: 1;
   }
 
   .cover h2 {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--text-mid);
-    margin-bottom: 32px;
-    position: relative;
-    z-index: 1;
+    font-size: 18px; font-weight: 500;
+    color: var(--text-mid); margin-bottom: 32px;
+    position: relative; z-index: 1;
   }
 
   .cover .line {
-    width: 100px;
-    height: 3px;
+    width: 100px; height: 3px;
     background: linear-gradient(90deg, var(--green), var(--orange));
-    margin: 0 auto 32px;
-    border-radius: 2px;
-    position: relative;
-    z-index: 1;
+    margin: 0 auto 32px; border-radius: 2px;
+    position: relative; z-index: 1;
   }
 
   .cover .tagline {
-    font-size: 15px;
-    color: var(--green-dark);
-    font-weight: 600;
-    position: relative;
-    z-index: 1;
+    font-size: 15px; color: var(--green-dark);
+    font-weight: 600; position: relative; z-index: 1;
   }
 
   .cover .date {
-    margin-top: 56px;
-    font-size: 13px;
-    color: var(--text-mid);
-    position: relative;
-    z-index: 1;
-    line-height: 2;
+    margin-top: 56px; font-size: 13px;
+    color: var(--text-mid); position: relative;
+    z-index: 1; line-height: 2;
   }
 
   /* ===== 标题 ===== */
   h2.section-title {
-    font-size: 21px;
-    color: var(--green-dark);
-    padding-left: 18px;
-    margin-bottom: 28px;
-    font-weight: 700;
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-size: 21px; color: var(--green-dark);
+    padding-left: 18px; margin-bottom: 28px;
+    font-weight: 700; position: relative;
+    display: flex; align-items: center; gap: 10px;
   }
 
   h2.section-title::before {
     content: '';
-    position: absolute;
-    left: 0;
-    top: 4px;
-    bottom: 4px;
-    width: 5px;
-    border-radius: 3px;
+    position: absolute; left: 0; top: 4px; bottom: 4px;
+    width: 5px; border-radius: 3px;
     background: linear-gradient(180deg, var(--green), var(--orange));
   }
 
   h2.section-title .icon {
-    font-size: 22px;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--green-light);
-    border-radius: 10px;
+    font-size: 22px; width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--green-light); border-radius: 10px;
     flex-shrink: 0;
   }
 
   h3 {
-    font-size: 16px;
-    color: var(--text-dark);
-    margin: 28px 0 14px;
-    font-weight: 600;
+    font-size: 16px; color: var(--text-dark);
+    margin: 28px 0 14px; font-weight: 600;
     padding-bottom: 8px;
     border-bottom: 2px solid var(--green-light);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: flex; align-items: center; gap: 8px;
   }
 
   h3 .icon-sm {
-    font-size: 18px;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--green-light);
-    border-radius: 8px;
+    font-size: 18px; width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--green-light); border-radius: 8px;
     flex-shrink: 0;
   }
 
@@ -217,23 +160,16 @@
 
   /* ===== 表格 ===== */
   table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin: 18px 0;
-    font-size: 13px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
+    width: 100%; border-collapse: separate;
+    border-spacing: 0; margin: 18px 0;
+    font-size: 13px; border-radius: 10px;
+    overflow: hidden; box-shadow: var(--shadow);
   }
 
   th {
     background: linear-gradient(135deg, var(--green-dark), var(--green));
-    color: #fff;
-    padding: 12px 14px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 13px;
+    color: #fff; padding: 12px 14px;
+    text-align: left; font-weight: 600; font-size: 13px;
   }
 
   td {
@@ -252,8 +188,7 @@
 
   .card {
     background: linear-gradient(160deg, #FFFFFF, var(--bg-soft));
-    border-radius: 14px;
-    padding: 22px;
+    border-radius: 14px; padding: 22px;
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
     transition: transform 0.2s, box-shadow 0.2s;
@@ -265,29 +200,21 @@
   }
 
   .card .card-icon {
-    font-size: 28px;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--green-light);
-    border-radius: 12px;
+    font-size: 28px; width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--green-light); border-radius: 12px;
     margin-bottom: 12px;
   }
 
   .card h4 {
-    font-size: 15px;
-    color: var(--green-dark);
-    margin-bottom: 8px;
-    font-weight: 600;
+    font-size: 15px; color: var(--green-dark);
+    margin-bottom: 8px; font-weight: 600;
   }
 
   .card p { font-size: 13px; color: var(--text-mid); }
 
   .num {
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 30px; font-weight: 700;
     background: linear-gradient(135deg, var(--green-dark), var(--green));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -299,10 +226,8 @@
   /* ===== 盒子 ===== */
   .box {
     background: var(--green-pale);
-    border-radius: 12px;
-    padding: 22px 24px;
-    margin: 18px 0;
-    border-left: 4px solid var(--green);
+    border-radius: 12px; padding: 22px 24px;
+    margin: 18px 0; border-left: 4px solid var(--green);
   }
 
   .box.gold {
@@ -316,13 +241,9 @@
   }
 
   .box .box-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--green-dark);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-size: 15px; font-weight: 700;
+    color: var(--green-dark); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
   }
 
   .box.red .box-title { color: #C0392B; }
@@ -334,12 +255,9 @@
   .badge {
     display: inline-block;
     background: linear-gradient(135deg, var(--green), var(--green-dark));
-    color: #fff;
-    padding: 2px 12px;
-    border-radius: 20px;
-    font-size: 10px;
-    font-weight: 700;
-    margin-left: 8px;
+    color: #fff; padding: 2px 12px;
+    border-radius: 20px; font-size: 10px;
+    font-weight: 700; margin-left: 8px;
     vertical-align: middle;
   }
 
@@ -347,129 +265,82 @@
   .badge.orange { background: linear-gradient(135deg, var(--orange), #F57C00); }
 
   /* ===== 图标清单 ===== */
-  .icon-list {
-    list-style: none;
-    padding: 0;
-  }
-
+  .icon-list { list-style: none; padding: 0; }
   .icon-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 8px 0;
-    font-size: 13px;
+    display: flex; align-items: flex-start;
+    gap: 10px; padding: 8px 0; font-size: 13px;
   }
 
   .icon-list li .li-icon {
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--green-light);
-    border-radius: 6px;
-    font-size: 13px;
-    flex-shrink: 0;
-    margin-top: 1px;
+    width: 24px; height: 24px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--green-light); border-radius: 6px;
+    font-size: 13px; flex-shrink: 0; margin-top: 1px;
   }
 
   /* ===== 页脚 ===== */
   .footer {
-    text-align: center;
-    font-size: 10px;
-    color: var(--text-light);
-    margin-top: 40px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border);
+    text-align: center; font-size: 10px;
+    color: var(--text-light); margin-top: 40px;
+    padding-top: 18px; border-top: 1px solid var(--border);
   }
 
   .page-num {
-    position: absolute;
-    bottom: 18px;
-    right: 30px;
-    font-size: 11px;
-    color: var(--text-light);
-    background: var(--green-light);
-    padding: 2px 10px;
-    border-radius: 10px;
-    font-weight: 600;
+    position: absolute; bottom: 18px; right: 30px;
+    font-size: 11px; color: var(--text-light);
+    background: var(--green-light); padding: 2px 10px;
+    border-radius: 10px; font-weight: 600;
   }
 
-  /* ===== 打印 ===== */
+  /* ===== 悬浮PDF下载按钮 ===== */
+  .pdf-btn {
+    position: fixed; bottom: 30px; right: 30px;
+    background: linear-gradient(135deg, #2E7D32, #4CAF50);
+    color: #ffffff; border: none;
+    padding: 14px 28px; border-radius: 40px;
+    font-size: 15px; font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    letter-spacing: 1px;
+  }
+
+  .pdf-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.4);
+    background: linear-gradient(135deg, #1B5E20, #388E3C);
+  }
+
+  .pdf-btn:active { transform: translateY(1px); }
+  .pdf-btn:disabled { background: #999; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  /* ===== 打印适配 ===== */
   @media print {
-    body { background: #fff; }
-    .page { box-shadow: none; margin: 0; padding: 40px 50px; }
-    .cover { min-height: auto; padding: 80px 50px; }
+    body {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    .page { box-shadow: none !important; margin: 0 !important; padding: 40px 50px !important; }
+    .cover { min-height: auto !important; padding: 80px 50px !important; }
+    .pdf-btn { display: none !important; }
+    .page { page-break-after: always; break-after: page; }
   }
 
   @media (max-width: 600px) {
     .page { padding: 30px 20px; }
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .cover h1 { font-size: 22px; }
   }
-
-  /* ===== 悬浮PDF下载按钮 ===== */
-.pdf-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: linear-gradient(135deg, #2E7D32, #4CAF50);
-    color: #ffffff;
-    border: none;
-    padding: 14px 28px;
-    border-radius: 40px;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
-    z-index: 9999;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Hiragino Kaku Gothic Pro', 'Noto Sans JP', 'Microsoft YaHei', sans-serif;
-    letter-spacing: 1px;
-}
-
-.pdf-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.4);
-    background: linear-gradient(135deg, #1B5E20, #388E3C);
-}
-
-.pdf-btn:active {
-    transform: translateY(1px);
-}
-
-/* ===== 确保打印时保留背景色和按钮隐藏 ===== */
-@media print {
-    body {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-    .page {
-        box-shadow: none !important;
-        margin: 0 !important;
-        padding: 40px 50px !important;
-    }
-    .cover {
-        min-height: auto !important;
-        padding: 80px 50px !important;
-    }
-    .pdf-btn {
-        display: none !important;
-    }
-    /* 强制分页 */
-    .page {
-        page-break-after: always;
-        break-after: page;
-    }
-}
 </style>
 </head>
 <body>
-  <!-- PDF 下载按钮 -->
-<button class="pdf-btn" <a href="buupo-ktc.pdf" class="pdf-btn" download>📥 PDFをダウンロード</a>
-    📥 PDFを保存（保存为PDF）
+
+<!-- PDF 下载按钮 -->
+<button class="pdf-btn" id="downloadBtn" onclick="downloadPDF()">
+    📥 一键下载PDF
 </button>
 
 <!-- ===== 封面 ===== -->
@@ -481,7 +352,7 @@
   <p class="tagline">以KTC集团为切入口的日本教育・银发市场</p>
   <div class="date">
     <p>提交对象：国内供应商团队</p>
-    <p>日期：2026年10月・擬</p>
+    <p>日期：2026年10月</p>
   </div>
 </div>
 
@@ -581,51 +452,9 @@
   <div class="page-num">3</div>
 </div>
 
-<!-- ===== 3. 功能要求 ===== -->
+<!-- ===== 3. 市场可期待度 ===== -->
 <div class="page">
-  <h2 class="section-title"><span class="icon">📋</span>3. 必须确保的功能清单</h2>
-
-  <h3><span class="icon-sm">🌐</span>通用功能（两个场景共用）</h3>
-  <table>
-    <tr><th>功能</th><th>优先级</th><th>说明</th></tr>
-    <tr><td>日语对话</td><td><span class="badge red">P0</span></td><td>日语识别、自然对话、适老/适儿语速</td></tr>
-    <tr><td>感情系统</td><td><span class="badge red">P0</span></td><td>27种情感回归，声・表情・文本联动</td></tr>
-    <tr><td>记忆系统</td><td><span class="badge red">P0</span></td><td>记住「共同经历了什么」，而非仅对话内容</td></tr>
-    <tr><td>家属/家长端App</td><td><span class="badge red">P0</span></td><td>绑定、查看、设置、通知</td></tr>
-    <tr><td>积分系统</td><td><span class="badge orange">P1</span></td><td>用于皮肤解锁、配件购买</td></tr>
-    <tr><td>皮肤/配件系统</td><td><span class="badge orange">P1</span></td><td>虚拟皮肤+物理配件联动</td></tr>
-    <tr><td>离线处理</td><td><span class="badge">P2</span></td><td>设备离线、断电时的状态恢复</td></tr>
-  </table>
-
-  <h3><span class="icon-sm">👧</span>儿童场景专属</h3>
-  <table>
-    <tr><th>功能</th><th>优先级</th><th>说明</th></tr>
-    <tr><td>英语陪学模式</td><td><span class="badge red">P0</span></td><td>与KTC课程进度匹配的英语对话练习</td></tr>
-    <tr><td>儿童语音识别</td><td><span class="badge red">P0</span></td><td>3-12岁儿童发音特征优化</td></tr>
-    <tr><td>学习进度反馈</td><td><span class="badge red">P0</span></td><td>家长端查看、讲师端调用</td></tr>
-    <tr><td>好友系统</td><td><span class="badge orange">P1</span></td><td>同班孩子互加好友、英语消息交换</td></tr>
-    <tr><td>学习排行榜</td><td><span class="badge orange">P1</span></td><td>周榜、月榜，激发竞争</td></tr>
-    <tr><td>合作任务</td><td><span class="badge orange">P1</span></td><td>2-3人共同完成英语挑战</td></tr>
-    <tr><td>使用时间限制</td><td><span class="badge">P2</span></td><td>单次时长、每日总时长</td></tr>
-  </table>
-
-  <h3><span class="icon-sm">👴</span>银发场景专属</h3>
-  <table>
-    <tr><th>功能</th><th>优先级</th><th>说明</th></tr>
-    <tr><td>服药提醒</td><td><span class="badge red">P0</span></td><td>家属设置、BuuPo提醒、回应记录</td></tr>
-    <tr><td>异常通知</td><td><span class="badge red">P0</span></td><td>累计未回应/答非所问时通知家属</td></tr>
-    <tr><td>认知症预防游戏</td><td><span class="badge orange">P1</span></td><td>记忆、语言、计算类游戏</td></tr>
-    <tr><td>对话模式分析</td><td><span class="badge orange">P1</span></td><td>词汇多样性、句子连贯性、应答延迟</td></tr>
-    <tr><td>家属群组</td><td><span class="badge">P2</span></td><td>多个子女共享老人状态</td></tr>
-    <tr><td>老人间社区</td><td><span class="badge">P2</span></td><td>同社区/同兴趣老人交流</td></tr>
-  </table>
-  <div class="footer">BuuPo 日本市场落地 — 供应商合作资料</div>
-  <div class="page-num">4</div>
-</div>
-
-<!-- ===== 4. 市场可期待度 ===== -->
-<div class="page">
-  <h2 class="section-title"><span class="icon">📈</span>4. 日本市场可期待度分析</h2>
+  <h2 class="section-title"><span class="icon">📈</span>3. 日本市场可期待度分析</h2>
 
   <h3><span class="icon-sm">🏢</span>KTC渠道的规模价值</h3>
   <table>
@@ -635,6 +464,102 @@
     <tr><td>市民パソコン塾</td><td>全国展开</td><td>中高龄学员</td><td>500台</td></tr>
     <tr style="background:#FFF8E1;"><td><strong>合计</strong></td><td></td><td></td><td><strong>2,000台（保守）</strong></td></tr>
   </table>
+
+  <h3><span class="icon-sm">📊</span>日本AI玩具市场增长预期</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <h4>市场规模</h4>
+      <p>日本生成AI市场2025年59亿美元，预计2034年达578.9亿美元，CAGR 25.5%。AI玩具是其中增长最快的细分领域之一。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <h4>竞品定价空间</h4>
+      <p>LOVOT 57万日元、KATAフレンズ 12.9万日元、ポケとも 4.9万日元、芙崽 1.98万日元。BuuPo定价2.98万日元，处于中价位空白地带。</p>
+    </div>
+  </div>
+
+  <h3><span class="icon-sm">🗺️</span>从KTC到全日本市场的扩展路径</h3>
+  <table>
+    <tr><th>阶段</th><th>目标</th><th>累计台数</th></tr>
+    <tr><td>Phase 1（KTC试点）</td><td>验证PMF，收集反馈</td><td>50台</td></tr>
+    <tr><td>Phase 2（KTC限定展开）</td><td>KTC品牌版，500台规模</td><td>550台</td></tr>
+    <tr><td>Phase 3（KTC全国展开）</td><td>2,000台以上，ペッピーキッズ専用版</td><td>2,550台</td></tr>
+    <tr><td>Phase 4（其他日本渠道）</td><td>复制KTC模式到其他教育/银发机构</td><td>5,000台+</td></tr>
+  </table>
+
+  <div class="box gold">
+    <div class="box-title">🎯 核心预期</div>
+    <p>以KTC为锚点，日本市场首年保守估计2,000台，第三年可期待5,000台以上。硬件收入之外，软件月费和皮肤配件是持续性收入来源。</p>
+  </div>
+  <div class="footer">BuuPo 日本市场落地 — 供应商合作资料</div>
+  <div class="page-num">4</div>
+</div>
+
+<!-- ===== 4. 供应支持请求 ===== -->
+<div class="page">
+  <h2 class="section-title"><span class="icon">🤝</span>4. 供应支持请求</h2>
+
+  <h3><span class="icon-sm">📋</span>所需支持</h3>
+  <table>
+    <tr><th>项目</th><th>具体要求</th><th>时间节点</th></tr>
+    <tr><td>硬件报价</td><td>样机/试点/批量三档报价，含成本、MOQ、数量阶梯</td><td>拟・2026年10月底</td></tr>
+    <tr><td>日语适配支持</td><td>日语UI、语音识别优化、适老/适儿交互设计</td><td>2026年11月</td></tr>
+    <tr><td>认知症预防功能</td><td>对话模式分析算法、预警逻辑</td><td>2026年12月</td></tr>
+    <tr><td>英语陪学功能</td><td>课程接入接口、儿童语音识别优化</td><td>2026年12月</td></tr>
+    <tr><td>皮肤/配件系统</td><td>虚拟皮肤+物理配件联动的技术方案</td><td>2027年1月</td></tr>
+    <tr><td>认证支持</td><td>ST Mark、PSE认证的技术文档和测试支持</td><td>2027年1月</td></tr>
+  </table>
+
+  <h3><span class="icon-sm">🧪</span>首批试点需求（Phase 1）</h3>
+  <div class="box gold">
+    <ul class="icon-list">
+      <li><span class="li-icon">📦</span><strong>样机数量：</strong>50台（ペッピーキッズ1教室20台 + シニアモニター30台）</li>
+      <li><span class="li-icon">⏱️</span><strong>试点周期：</strong>8周（2026年12月〜2027年2月）</li>
+      <li><span class="li-icon">📊</span><strong>验证指标：</strong>日语对话准确率、用户满意度、月额续费率、家属端使用率</li>
+      <li><span class="li-icon">✅</span><strong>验收标准：</strong>日语对话准确率≥85%、用户满意度≥4.0/5.0、月额续费率≥60%</li>
+    </ul>
+  </div>
+
+  <h3><span class="icon-sm">📦</span>批量交付预期</h3>
+  <table>
+    <tr><th>阶段</th><th>数量</th><th>交付时间</th></tr>
+    <tr><td>试点</td><td>50台</td><td>2026年12月</td></tr>
+    <tr><td>首批量产</td><td>500台</td><td>2027年3月</td></tr>
+    <tr><td>第二批量产</td><td>2,000台</td><td>2027年7月</td></tr>
+    <tr><td>第三批量产</td><td>5,000台+</td><td>2028年Q1</td></tr>
+  </table>
+  <div class="footer">BuuPo 日本市场落地 — 供应商合作资料</div>
+  <div class="page-num">5</div>
+</div>
+
+<!-- ===== 5. 合作价值与商业逻辑 ===== -->
+<div class="page">
+  <h2 class="section-title"><span class="icon">💎</span>5. 合作价值与商业逻辑</h2>
+
+  <h3><span class="icon-sm">🌟</span>为什么值得供应商全力支持？</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-icon">🇯🇵</div>
+      <h4>① 日本市场的战略意义</h4>
+      <p>日本是全球第三大游戏市场，AI玩具渗透率快速提升。以KTC为锚点，可复制到其他教育机构、银发服务机构、保险公司等，市场空间远超单一客户。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <h4>② 持续性收入模型</h4>
+      <p>硬件是一次性收入，但软件月费、皮肤、配件是持续性收入。供应商作为技术方，可以从每一笔软件月费和配件销售中获得长期稳定收益。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏆</div>
+      <h4>③ 技术壁垒的验证</h4>
+      <p>日本市场对品质要求极高。BuuPo的日语对话、情感系统、记忆系统如能通过日本客户验证，将成为全球市场的标杆案例。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📡</div>
+      <h4>④ KTC的渠道杠杆</h4>
+      <p>KTC拥有12.7万英语学员和成熟的银发客户体系。供应商不需要自己获客，只需要通过KTC的渠道即可触达大量用户。</p>
+    </div>
+  </div>
 
   <h3><span class="icon-sm">📊</span>B2B采购与授权模型（核心商业逻辑）</h3>
   <p style="font-size:13px; color:#556677; margin-bottom:12px;">我们与供应商是长期稳定的采购与授权关系，而非终端收入分成。供应商提供硬件制造与底层技术服务，我方买断后独立负责日本市场的定价、销售与本地化运营。</p>
@@ -665,107 +590,10 @@
     <p style="font-size:13px;">供应商不需要承担日本市场的获客、合规、客服和汇率风险。只要设备卖出去，供应商就有稳定的硬件收入和按月结算的技术服务费。而日本市场的定价权、渠道利润、IP溢价，完全由我方掌握。</p>
   </div>
 
-  <h3><span class="icon-sm">🗺️</span>从KTC到全日本市场的扩展路径</h3>
-  <table>
-    <tr><th>阶段</th><th>目标</th><th>累计台数</th></tr>
-    <tr><td>Phase 1（KTC试点）</td><td>验证PMF，收集反馈</td><td>50台</td></tr>
-    <tr><td>Phase 2（KTC限定展开）</td><td>KTC品牌版，500台规模</td><td>550台</td></tr>
-    <tr><td>Phase 3（KTC全国展开）</td><td>2,000台以上，ペッピーキッズ専用版</td><td>2,550台</td></tr>
-    <tr><td>Phase 4（其他日本渠道）</td><td>复制KTC模式到其他教育/银发机构</td><td>5,000台+</td></tr>
-  </table>
 
-  <div class="box gold">
-    <div class="box-title">🎯 核心预期</div>
-    <p>以KTC为锚点，日本市场首年保守估计2,000台，第三年可期待5,000台以上。硬件收入之外，软件月费和皮肤配件是持续性收入来源。</p>
-  </div>
-  <div class="footer">BuuPo 日本市场落地 — 供应商合作资料</div>
-  <div class="page-num">5</div>
-</div>
-
-<!-- ===== 5. 供应支持请求 ===== -->
+<!-- ===== 6. 时间线 ===== -->
 <div class="page">
-  <h2 class="section-title"><span class="icon">🤝</span>5. 供应支持请求</h2>
-
-  <h3><span class="icon-sm">📋</span>所需支持</h3>
-  <table>
-    <tr><th>项目</th><th>具体要求</th><th>时间节点</th></tr>
-    <tr><td>硬件报价</td><td>样机/试点/批量三档报价，含成本、MOQ、数量阶梯</td><td>拟・2026年10月底</td></tr>
-    <tr><td>日语适配支持</td><td>日语UI、语音识别优化、适老/适儿交互设计</td><td>拟・2026年11月</td></tr>
-    <tr><td>认知症预防功能</td><td>对话模式分析算法、预警逻辑</td><td>拟・2026年12月</td></tr>
-    <tr><td>英语陪学功能</td><td>课程接入接口、儿童语音识别优化</td><td>2026年12月</td></tr>
-    <tr><td>皮肤/配件系统</td><td>虚拟皮肤+物理配件联动的技术方案</td><td>2027年1月</td></tr>
-    <tr><td>认证支持</td><td>ST Mark、PSE认证的技术文档和测试支持</td><td>2027年1月</td></tr>
-  </table>
-
-  <h3><span class="icon-sm">🧪</span>首批试点需求（Phase 1）</h3>
-  <div class="box gold">
-    <ul class="icon-list">
-      <li><span class="li-icon">📦</span><strong>样机数量：</strong>50台（ペッピーキッズ1教室20台 + シニアモニター30台）</li>
-      <li><span class="li-icon">⏱️</span><strong>试点周期：</strong>8周（2026年12月〜2027年2月）</li>
-      <li><span class="li-icon">📊</span><strong>验证指标：</strong>日语对话准确率、用户满意度、月额续费率、家属端使用率</li>
-      <li><span class="li-icon">✅</span><strong>验收标准：</strong>日语对话准确率≥85%、用户满意度≥4.0/5.0、月额续费率≥60%</li>
-    </ul>
-  </div>
-
-  <h3><span class="icon-sm">📦</span>批量交付预期</h3>
-  <table>
-    <tr><th>阶段</th><th>数量</th><th>交付时间</th></tr>
-    <tr><td>试点</td><td>50台</td><td>2026年12月</td></tr>
-    <tr><td>首批量产</td><td>500台</td><td>2027年3月</td></tr>
-    <tr><td>第二批量产</td><td>2,000台</td><td>2027年7月</td></tr>
-    <tr><td>第三批量产</td><td>5,000台+</td><td>2028年Q1</td></tr>
-  </table>
-  <div class="footer">BuuPo 日本市场落地 — 供应商合作资料</div>
-  <div class="page-num">6</div>
-</div>
-
-<!-- ===== 6. 合作价值 ===== -->
-<div class="page">
-  <h2 class="section-title"><span class="icon">💎</span>6. 供应商的合作价值</h2>
-
-  <h3><span class="icon-sm">🌟</span>为什么值得供应商全力支持？</h3>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-icon">🇯🇵</div>
-      <h4>① 日本市场的战略意义</h4>
-      <p>日本是全球第三大游戏市场，AI玩具渗透率快速提升。以KTC为锚点，可复制到其他教育机构、银发服务机构、保险公司等，市场空间远超单一客户。</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">💰</div>
-      <h4>② 持续性收入模型</h4>
-      <p>硬件是一次性收入，但软件月费、皮肤、配件是持续性收入。供应商作为技术方，可以从每一笔软件月费和配件销售中获得长期分成。</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🏆</div>
-      <h4>③ 技术壁垒的验证</h4>
-      <p>日本市场对品质要求极高。BuuPo的日语对话、情感系统、记忆系统如能通过日本客户验证，将成为全球市场的标杆案例。</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">📡</div>
-      <h4>④ KTC的渠道杠杆</h4>
-      <p>KTC拥有12.7万英语学员和成熟的银发客户体系。供应商不需要自己获客，只需要通过KTC的渠道即可触达大量用户。</p>
-    </div>
-  </div>
-
-  <h3><span class="icon-sm">📊</span>分成模型（参考）</h3>
-  <table>
-    <tr><th>收入类型</th><th>BuuPo侧收入</th><th>供应商分成</th><th>备注</th></tr>
-    <tr><td>硬件销售</td><td>9,800円/台</td><td>按成本+利润协商</td><td>建议供应商保留合理利润</td></tr>
-    <tr><td>软件月费</td><td>500円/月</td><td>按技术分成比例协商</td><td>持续性收入</td></tr>
-    <tr><td>皮肤/配件</td><td>70%</td><td>按技术分成比例协商</td><td>高毛利</td></tr>
-  </table>
-
-  <div class="box gold">
-    <div class="box-title">🎯 核心信息</div>
-    <p>日本市场不是一次性买卖，而是一个可以细水长流的市场。供应商的技术投入，将通过软件月费和配件销售获得长期回报。KTC只是第一个客户，后面还有更多的日本教育机构、银发服务机构等着我们。</p>
-  </div>
-  <div class="footer">BuuPo 日本市场落地 — 供应商合作资料</div>
-  <div class="page-num">7</div>
-</div>
-
-<!-- ===== 7. 时间线 ===== -->
-<div class="page">
-  <h2 class="section-title"><span class="icon">🗓️</span>7. 时间线与配合节点</h2>
+  <h2 class="section-title"><span class="icon">🗓️</span>6. 时间线与配合节点</h2>
 
   <table>
     <tr><th>时间</th><th>事项</th><th>供应商配合</th></tr>
@@ -793,8 +621,38 @@
     <p style="font-size:13px; color:var(--text-mid); margin-top:10px;">不趁现在先跑起来，当国人都过来把水搅混的时候，很多事情就失去了原来的优异性跟议价能力了。</p>
   </div>
   <div class="footer">BuuPo 日本市场落地 — 供应商合作资料</div>
-  <div class="page-num">8</div>
+  <div class="page-num">7</div>
 </div>
+
+<!-- ===== PDF生成脚本 ===== -->
+<script>
+  function downloadPDF() {
+    const btn = document.getElementById('downloadBtn');
+    btn.innerText = '⏳ PDF生成中...';
+    btn.disabled = true;
+
+    const element = document.body; // 以整个页面为对象生成PDF
+    const opt = {
+      margin:       0,
+      filename:     'BuuPo_Supplier_Proposal.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2, useCORS: true, scrollY: 0 },
+      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak:    { mode: ['css', 'legacy'] }
+    };
+
+    // 执行生成和下载
+    html2pdf().set(opt).from(element).save().then(() => {
+      btn.innerText = '📥 一键下载PDF';
+      btn.disabled = false;
+    }).catch((error) => {
+      console.error('PDF生成错误:', error);
+      alert('PDF生成失败，请尝试使用浏览器的打印功能（Ctrl+P 或 Cmd+P）并选择“另存为 PDF”。');
+      btn.innerText = '📥 一键下载PDF';
+      btn.disabled = false;
+    });
+  }
+</script>
 
 </body>
 </html>
