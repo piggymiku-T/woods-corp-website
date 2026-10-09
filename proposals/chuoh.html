@@ -35,9 +35,9 @@ html,body{
 .s-head .s-en{margin-left:auto;font-size:11px;letter-spacing:.16em;color:#b6c2d2;font-weight:600;text-transform:uppercase;white-space:nowrap;}
 .s-body{flex:1;min-height:0;display:flex;flex-direction:column;gap:18px;}
 
-/* ============ 修正1：封面大图 ============ */
+/* ============ 封面 ============ */
 .slide--cover{background:var(--navy);display:block;}
-.cover-hero{position:absolute;inset:0;z-index:1;background-image:url('assets/building-facade.webp');background-size:cover;background-position:center;opacity:0.85;}
+.cover-hero{position:absolute;inset:0;z-index:1;background-image:url('../assets/building-facade.webp');background-size:cover;background-position:center;opacity:0.85;}
 .cover-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg, rgba(11,23,41,0.95) 0%, rgba(11,23,41,0.6) 50%, rgba(11,23,41,0.9) 100%);}
 .cover-bar{position:absolute;left:0;top:0;bottom:0;width:7px;z-index:4;background:linear-gradient(180deg,var(--orange),#ffb088 55%,transparent);}
 .cover-inner{position:relative;z-index:5;height:100%;padding:76px 80px 56px;display:flex;flex-direction:column;color:#fff;}
@@ -77,7 +77,7 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
 .card.is-main::before{opacity:1} .card.is-main .c-label{color:#7c93b0} .card.is-main .c-name{color:#fff} .card.is-main .c-desc{color:#a8bcd4}
 .badge-main{position:absolute;top:0;right:0;background:var(--orange);color:#fff;font-size:10px;font-weight:800;letter-spacing:.14em;padding:6px 13px;border-radius:0 12px 0 10px;}
 
-/* ============ 修正2：推荐方案大图 ============ */
+/* ============ 推荐方案 ============ */
 .plan-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;flex:1;min-height:0;}
 .plan-visual{background:linear-gradient(150deg,#0b1729,#1e3555);border-radius:14px;padding:30px 32px;display:flex;flex-direction:column;justify-content:center;gap:16px;color:#fff;position:relative;overflow:hidden;}
 .plan-visual::after{content:"";position:absolute;right:-70px;top:-70px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(255,106,43,.35),transparent 68%);}
@@ -91,7 +91,7 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
 .plan-img-box img{width:100%;height:100%;object-fit:cover;display:block;}
 .plan-img-box .overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(11,23,41,.8), transparent 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:20px;color:#fff;}
 
-/* ============ 修正3：流程图标 ============ */
+/* ============ 流程图标 ============ */
 .flow{display:flex;align-items:stretch;gap:0;flex:1;min-height:0;}
 .flow-step{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:10px;padding:18px 10px;position:relative;}
 .flow-step + .flow-step::before{content:"";position:absolute;left:0;top:50%;width:1px;height:56%;transform:translateY(-50%);background:linear-gradient(180deg,transparent,var(--line),transparent);}
@@ -101,16 +101,29 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
 .flow-t{font-size:14px;font-weight:800;color:var(--navy);line-height:1.4;}
 .flow-d{font-size:11px;color:var(--muted);line-height:1.5;}
 
-/* ============ 修正4：VISION 页面大图沉浸感 ============ */
+/* ============ VISION 页面（调整版：屏幕缩小到右下角） ============ */
 .vision-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:16px;flex:1;min-height:0;}
 .vision-card{position:relative;border-radius:12px;overflow:hidden;background:#0b1729;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 10px 30px rgba(11,23,41,.15);}
 .vision-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform .4s ease;}
 .vision-card:hover .vision-bg{transform:scale(1.05);}
-.vision-screen{position:absolute;left:10%;top:12%;width:80%;height:40%;background:linear-gradient(135deg,rgba(11,23,41,.9),rgba(30,53,85,.9));border-radius:8px;box-shadow:0 0 0 2px rgba(255,106,43,.6),0 0 40px rgba(255,106,43,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;z-index:3;overflow:hidden;}
+.vision-screen{
+  position:absolute;
+  right: 8%;       /* 从左侧改到右下角 */
+  bottom: 15%;     /* 从顶部改到底部 */
+  left: auto;
+  top: auto;
+  width: 45%;      /* 缩小宽度 */
+  height: 28%;     /* 缩小高度 */
+  background:linear-gradient(135deg,rgba(11,23,41,.92),rgba(30,53,85,.92));
+  border-radius:6px;
+  box-shadow:0 0 0 2px rgba(255,106,43,.6),0 0 30px rgba(255,106,43,.4);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  z-index:3;overflow:hidden;
+}
 .vision-screen::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:translateX(-100%);animation:visionSweep 3.5s ease-in-out infinite;}
-.vs-line1{font-size:16px;font-weight:800;color:#fff;position:relative;z-index:2;}
-.vs-line2{font-size:22px;font-weight:800;color:#ff8a55;position:relative;z-index:2;}
-.vs-line3{font-size:11px;color:#c3d3e6;position:relative;z-index:2;}
+.vs-line1{font-size:13px;font-weight:800;color:#fff;position:relative;z-index:2;}
+.vs-line2{font-size:17px;font-weight:800;color:#ff8a55;position:relative;z-index:2;}
+.vs-line3{font-size:10px;color:#c3d3e6;position:relative;z-index:2;}
 .vision-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(11,23,41,.95) 0%, rgba(11,23,41,.4) 50%, transparent 100%);z-index:2;pointer-events:none;}
 .vision-meta{position:relative;z-index:4;padding:20px 18px;display:flex;flex-direction:column;gap:6px;margin-top:auto;}
 .vision-meta .c-label{font-size:11px;font-weight:800;letter-spacing:.14em;color:#ffb088;text-transform:uppercase;}
@@ -151,7 +164,7 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
 <div class="stage">
 <div class="deck" id="deck">
 
-<!-- 01 表紙（大图重制版） -->
+<!-- 01 表紙 -->
 <section class="slide slide--cover">
   <div class="cover-hero"></div>
   <div class="cover-bar"></div>
@@ -234,7 +247,7 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
   </div>
 </section>
 
-<!-- 05 推奨プラン（大图重制版） -->
+<!-- 05 推奨プラン -->
 <section class="slide">
   <div class="slide-inner">
     <header class="s-head"><div class="s-no">05</div><h2>推奨プラン：P3 2.0㎡</h2><div class="s-en">Recommended Plan</div></header>
@@ -360,7 +373,7 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
   </div>
 </section>
 
-<!-- 11 設置・納品フロー（アイコン追加版） -->
+<!-- 11 設置・納品フロー -->
 <section class="slide">
   <div class="slide-inner">
     <header class="s-head"><div class="s-no">11</div><h2>設置・納品フロー</h2><div class="s-en">Delivery Flow</div></header>
@@ -512,7 +525,7 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
   </div>
 </section>
 
-<!-- 18 店頭VISIONイメージ ①（重制版：大图沉浸） -->
+<!-- 18 店頭VISIONイメージ ① -->
 <section class="slide">
   <div class="slide-inner">
     <header class="s-head"><div class="s-no">18</div><h2>店頭VISIONイメージ ①</h2><div class="s-en">Storefront Vision Mockups</div></header>
@@ -520,7 +533,8 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
       <div class="vision-grid">
         <!-- 英語教室 -->
         <div class="vision-card">
-          <img src=../assets/shop-english-transparent.webp" alt="" class="vision-bg" loading="lazy">
+          <!-- 图片路径已加注释：请确保文件名为 shop-english-transparent.webp，若为png请修改此路径 -->
+          <img src="../assets/shop-english-transparent.webp" onerror="this.src='../assets/shop-pc-curved.webp'" alt="" class="vision-bg" loading="lazy">
           <div class="vision-screen">
             <div class="vs-line1">無料体験</div>
             <div class="vs-line2">レッスン受付中</div>
@@ -569,7 +583,7 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
           <div class="vision-screen">
             <div class="vs-line1">日本語学校</div>
             <div class="vs-line2">留学生募集中</div>
-            <div class="vs-line3">みんなで学ぶ</div>
+            <div class="vs-line3">東京で学ぶ</div>
           </div>
           <div class="vision-overlay"></div>
           <div class="vision-meta">
@@ -583,7 +597,7 @@ table.compact tbody td{padding:8px 13px;font-size:13.5px;} table.compact thead t
   </div>
 </section>
 
-<!-- 19 店頭VISIONイメージ ②（重制版：大图沉浸） -->
+<!-- 19 店頭VISIONイメージ ② -->
 <section class="slide">
   <div class="slide-inner">
     <header class="s-head"><div class="s-no">19</div><h2>店頭VISIONイメージ ②</h2><div class="s-en">Storefront Vision Mockups</div></header>
