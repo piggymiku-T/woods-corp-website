@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# AI search crawlers — allow live fetching
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# AI training — keep independent decision
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://woods-corp.jp/sitemap.xml
