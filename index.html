@@ -1973,7 +1973,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } catch (error) {
                 formStatus.className = 'form-status error';
                 formStatus.textContent = lang === 'zh'
-                    ? '✗ 发送失败，请稍后重试，或直接发送邮件至 info@woods-corp.jp'
+                    ? '✗ 发送失败，请稍后重试，或直接发送邮件至 contact@woods-corp.jp'
                     : '✗ 送信に失敗しました。しばらくしてから再度お試しいただくか、contact@woods-corp.jp まで直接ご連絡ください。';
             } finally {
                 submitBtn.disabled = false;
@@ -1984,7 +1984,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script src="/assets/woods-chat.js"
+<script src="/assets/widget/woods-chat.js"
         data-endpoint="https://woods-chat.lin-285.workers.dev/api/chat"
         data-web3forms="9983b9f6-b32f-4f9c-8b7d-ba8e28cb3410"
         defer></script>
