@@ -61,8 +61,8 @@
         placeholder: '请输入您想咨询的内容',
         send: '发送',
         greeting:
-          '您好，这里是 Woods Corporation 的接待 AI。关于中日商务，请问您目前在考虑哪方面的事情？',
-        quick: ['中国市场进入', '交涉・合作资料条款的解读', '合作方调查', 'AI 导入'],
+          '您好，这里是 Woods Corporation 的接待 AI。目前在中国业务上，最接近哪种情况？',
+        quick: ['中方资料来了但拿不准', '想调查合作方', '想用 AI 减轻业务', '先咨询一下'],
         contactHint: '方便留下联系方式吗？负责人会在 1 个工作日内与您联系。',
         contactBtn: '填写联系方式',
         name: '姓名',
@@ -86,8 +86,8 @@
         placeholder: 'ご相談内容をご記入ください',
         send: '送信',
         greeting:
-          'こんにちは。ウッズ・コーポレーションの受付AIです。日中ビジネスについて、いま何を検討されていますか。',
-        quick: ['中国市場への進出', '交渉・提携書類条項の読み方', 'パートナー候補の調査', 'AI導入'],
+          'こんにちは。ウッズ・コーポレーションの受付AIです。いま、中国ビジネスで止まっているのは、どの場面に近いですか。',
+        quick: ['中国側の書類が来て止まっている', '提携先を調べたい', 'AIで業務を軽くしたい', 'まず相談したい'],
         contactHint: '差し支えなければ、ご連絡先を残していただけますか。担当者より1営業日以内にご連絡します。',
         contactBtn: '連絡先を入力する',
         name: 'お名前',
@@ -291,7 +291,7 @@
         bubble('a', reply);
         push('assistant', reply);
 
-        if (state.userTurns >= 3 && !state.leadSent && !state.leadOpen) {
+        if (state.userTurns >= 2 && !state.leadSent && !state.leadOpen) {
           showLead('');
         }
       })
