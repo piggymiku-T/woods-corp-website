@@ -22,3 +22,4 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://woods-corp.jp/sitemap.xml
+Allow: /housing-loan/
