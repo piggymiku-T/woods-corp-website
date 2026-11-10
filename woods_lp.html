@@ -21,9 +21,11 @@
     <style>
         :root { 
             --bg-dark: #0a0a0c; 
+            --bg-card: rgba(255, 255, 255, 0.03);
             --primary: #C9A96E; 
             --text-main: #111111; 
             --text-light: #555555; 
+            --glow: 0 0 30px rgba(201,169,110,0.4);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -37,11 +39,11 @@
         }
         a { text-decoration: none; color: inherit; }
 
-        /* 动画：滚动显现 */
+        /* 核心动效：滚动显现 */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* 导航：极简玻璃拟物 */
+        /* 导航：毛玻璃与发光 */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 15px 5%; 
@@ -49,6 +51,7 @@
             backdrop-filter: blur(16px); 
             position: fixed; width: 100%; top: 0; z-index: 100; 
             border-bottom: 1px solid rgba(255,255,255,0.05); 
+            transition: all 0.3s ease;
         }
         .logo { color: #FFF; font-size: 18px; font-weight: 800; letter-spacing: 2px; font-family: monospace; }
         .logo span { color: var(--primary); }
@@ -57,21 +60,27 @@
             padding: 8px 20px; border-radius: 4px; font-weight: 600; font-size: 13px; 
             transition: all 0.3s; 
         }
-        .cta-nav:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(201,169,110,0.4); }
+        .cta-nav:hover { background: var(--primary); color: #000; box-shadow: var(--glow); transform: translateY(-2px); }
 
-        /* 首屏 Hero */
+        /* 首屏 Hero：极强的视觉冲击力 */
         .hero { 
             background-color: var(--bg-dark); color: #FFF; 
-            padding: 180px 5% 140px; 
+            padding: 200px 5% 160px; 
             position: relative; 
             display: flex; align-items: center;
+            min-height: 100vh;
         }
-        /* 引入刚才上传到GitHub的Banner图 */
+        /* 引入刚才上传到GitHub的Banner图，注意后缀是 .png */
         .hero::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, rgba(10,10,12,0.98) 0%, rgba(10,10,12,0.85) 45%, rgba(10,10,12,0.1) 100%), url('https://woods-corp.jp/assets/lp-banner.jpg') no-repeat center right;
+            background: linear-gradient(90deg, rgba(10,10,12,0.98) 0%, rgba(10,10,12,0.85) 40%, rgba(10,10,12,0.1) 100%), url('https://woods-corp.jp/assets/lp-banner.png') no-repeat center right;
             background-size: cover;
             z-index: 1;
+            animation: pulseBg 10s infinite alternate;
+        }
+        @keyframes pulseBg {
+            0% { background-size: 100%; }
+            100% { background-size: 105%; }
         }
         .hero .container { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; }
         .hero-content { max-width: 650px; }
@@ -82,26 +91,37 @@
             background: rgba(201,169,110,0.05); letter-spacing: 1px;
         }
         .hero h1 { 
-            font-size: clamp(32px, 5vw, 56px); color: #FFF; 
+            font-size: clamp(34px, 5vw, 60px); color: #FFF; 
             line-height: 1.15; margin-bottom: 24px; font-weight: 800; letter-spacing: -1.5px; 
         }
-        .hero h1 span { color: var(--primary); }
-        .hero p { font-size: 16px; color: #AAA; margin-bottom: 40px; line-height: 1.9; }
+        .hero h1 span { color: var(--primary); text-shadow: 0 0 20px rgba(201,169,110,0.3); }
+        .hero p { font-size: 16px; color: #AAA; margin-bottom: 40px; line-height: 1.9; font-weight: 300; }
         
-        /* 按钮：发光与微交互 */
+        /* CTA 按钮：极致微交互 */
         .cta-main { 
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px; 
+            display: inline-flex; align-items: center; justify-content: center; gap: 12px; 
             background: var(--primary); color: var(--bg-dark); 
             padding: 18px 40px; font-size: 16px; font-weight: 700; border-radius: 4px; 
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; border: none; 
             box-shadow: 0 4px 14px rgba(201,169,110,0.3);
+            position: relative;
+            overflow: hidden;
         }
-        .cta-main:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201,169,110,0.5); }
-        .cta-main::after { content: '→'; font-size: 20px; transition: transform 0.3s; }
-        .cta-main:hover::after { transform: translateX(5px); }
+        /* 按钮内部光泽扫过动画 */
+        .cta-main::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-25deg); transition: 0.5s;
+        }
+        .cta-main:hover::before { left: 100%; }
+        /* 上浮和阴影 */
+        .cta-main:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(201,169,110,0.5); }
+        /* 箭头右移 */
+        .cta-main .arrow { font-size: 20px; transition: transform 0.3s ease; }
+        .cta-main:hover .arrow { transform: translateX(6px); }
 
-        /* 信任背书（信任徽章） */
-        .trust-bar { background: #FFF; border-bottom: 1px solid #EEE; padding: 30px 5%; text-align: center; }
+        /* 信任背书 */
+        .trust-bar { background: #FFF; border-bottom: 1px solid #EEE; padding: 30px 5%; text-align: center; position: relative; z-index: 3;}
         .trust-bar-inner { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; font-size: 13px; font-weight: 600; color: #666; }
         .trust-bar-inner span { display: flex; align-items: center; gap: 8px; }
         .trust-bar-inner span::before { content: '✓'; color: var(--primary); font-weight: bold; font-size: 16px; }
@@ -113,42 +133,56 @@
         .problem-card { 
             background: #FFF; padding: 40px; border-radius: 12px; flex: 1; min-width: 280px; 
             box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid #F0F0F0;
-            border-top: 3px solid #FF3B30; text-align: left; transition: all 0.3s;
+            border-top: 3px solid #FF3B30; text-align: left; transition: all 0.4s ease;
         }
-        .problem-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.06); }
+        .problem-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); border-color: #FFCDD2;}
         .problem-card h3 { font-size: 18px; margin-bottom: 15px; color: #111; font-weight: 700; display: flex; align-items: center; gap: 10px;}
         .problem-card h3::before { content: '⚠️'; font-size: 16px;}
 
-        /* 服务区：玻璃拟物 */
-        .service { padding: 120px 5%; background: var(--bg-dark); color: #FFF; }
+        /* 服务区：玻璃拟物 + 金色发光（重点修复） */
+        .service { padding: 120px 5%; background: var(--bg-dark); color: #FFF; position: relative; overflow: hidden;}
         .service .section-title { color: #FFF; }
         .service-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+        
         .service-card { 
-            background: rgba(255,255,255,0.02); backdrop-filter: blur(10px); 
-            border: 1px solid rgba(255,255,255,0.06); padding: 45px 35px; border-radius: 16px; 
-            flex: 1; min-width: 320px; text-align: left; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
-            position: relative; overflow: hidden;
+            background: var(--bg-card); backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255,255,255,0.08); 
+            padding: 45px 35px; border-radius: 16px; 
+            flex: 1; min-width: 320px; text-align: left; 
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+            position: relative; 
         }
-        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--primary); opacity: 0; transition: opacity 0.3s; }
-        .service-card:hover { border-color: rgba(201,169,110,0.3); box-shadow: 0 0 50px rgba(201,169,110,0.08); transform: translateY(-8px); background: rgba(255,255,255,0.04);}
+        /* 顶部发光边线 */
+        .service-card::before { 
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; 
+            background: var(--primary); opacity: 0; transition: opacity 0.4s; 
+        }
+        /* 鼠标悬停：卡片上浮 + 边框亮金 + 背景变亮 + 内部发光 */
+        .service-card:hover { 
+            border-color: rgba(201,169,110,0.6); 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(201,169,110,0.15); 
+            transform: translateY(-10px); 
+            background: rgba(255,255,255,0.06); 
+        }
         .service-card:hover::before { opacity: 1; }
+        
         .service-card h3 { font-size: 20px; color: #FFF; margin-bottom: 15px; }
         .price { font-family: monospace; font-size: 34px; color: var(--primary); font-weight: 800; margin-bottom: 25px; }
         .service-card ul { list-style: none; font-size: 14px; color: #AAA; }
         .service-card ul li { margin-bottom: 12px; padding-left: 24px; position: relative; }
         .service-card ul li::before { content: '▶'; color: var(--primary); position: absolute; left: 0; font-size: 10px; top: 7px; }
 
-        /* 技术栈 */
+        /* 技术栈（秀肌肉区） */
         .tech-stack { padding: 60px 5%; background: #0d0d0f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; }
         .tech-stack p { color: #555; font-size: 12px; font-family: monospace; letter-spacing: 2px; margin-bottom: 25px;}
         .tech-icons { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; color: #444; font-family: monospace; font-weight: bold; font-size: 18px;}
         .tech-icons span { transition: all 0.3s; cursor: default;}
-        .tech-icons span:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); transform: translateY(-2px); }
+        .tech-icons span:hover { color: var(--primary); text-shadow: 0 0 15px var(--primary); transform: translateY(-3px); }
 
         /* FAQ */
         .faq-section { padding: 120px 5%; background: #FAFAFA; }
         .faq-item { background: #FFF; padding: 30px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #EAEAEA; transition: all 0.3s; }
-        .faq-item:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-color: #DDD; }
+        .faq-item:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-color: #DDD; transform: translateY(-3px);}
         .faq-item h3 { font-size: 16px; color: #111; margin-bottom: 15px; font-weight: 700;}
         .faq-item p { font-size: 14px; color: #666; }
 
@@ -160,9 +194,9 @@
         footer { background: #000; color: #444; text-align: center; padding: 30px; font-size: 12px; font-family: monospace;}
         
         @media (max-width: 768px) {
-            .hero::before { background: linear-gradient(180deg, rgba(10,10,12,0.85) 0%, rgba(10,10,12,1) 100%), url('https://woods-corp.jp/assets/lp-banner.jpg') no-repeat center top; background-size: cover;}
+            .hero::before { background: linear-gradient(180deg, rgba(10,10,12,0.85) 0%, rgba(10,10,12,1) 100%), url('https://woods-corp.jp/assets/lp-banner.png') no-repeat center top; background-size: cover;}
             .problem-grid, .service-grid { flex-direction: column; }
-            .hero { padding: 140px 5% 100px; }
+            .hero { padding: 160px 5% 100px; }
             .trust-bar-inner { flex-direction: column; gap: 15px; }
         }
     </style>
@@ -179,12 +213,12 @@
                 <div class="tag">AI-DRIVEN WEB SOLUTION</div>
                 <h1>そのWebサイト、<br><span>「ただの置物」</span><br>になっていませんか？</h1>
                 <p>綺麗なデザインなのに、問い合わせがゼロ。<br>私たちは、20年のビジネス経験と最新AIを掛け合わせ、<br><strong>「成果（Action）を生み出す」</strong>Web制作を提供します。</p>
-                <a href="#contact" class="cta-main">無料Web診断を受ける</a>
+                <a href="#contact" class="cta-main">無料Web診断を受ける <span class="arrow">→</span></a>
             </div>
         </div>
     </section>
 
-    <!-- 信任背书（增加转化率） -->
+    <!-- 信任背书 -->
     <section class="trust-bar">
         <div class="trust-bar-inner">
             <span>20年の経営実績</span>
@@ -257,7 +291,7 @@
     <section class="footer-cta" id="contact">
         <h2 class="section-title reveal">まずは、現状の「もったいない」を<br>無料で診断します。</h2>
         <p class="reveal">貴社のWebサイトを拝見し、改善すべき点を3つだけ無料でお伝えします。</p>
-        <a href="mailto:contact@woods-corp.jp?subject=Web診断の依頼" class="cta-main reveal">無料診断を申し込む</a>
+        <a href="mailto:contact@woods-corp.jp?subject=Web診断の依頼" class="cta-main reveal">無料診断を申し込む <span class="arrow">→</span></a>
     </section>
 
     <footer>&copy; 2026 WOODS CORPORATION | AI-DRIVEN WEB SOLUTIONS</footer>
@@ -270,7 +304,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        observer.unobserve(entry.target); // 触发一次后停止观察，提升性能
+                        observer.unobserve(entry.target); 
                     }
                 });
             }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
