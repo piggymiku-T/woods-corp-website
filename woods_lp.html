@@ -6,7 +6,8 @@
     <title>格安・高品質なWeb/LP制作 | AI×20年経営視点のウッズ・コーポレーション</title>
     <meta name="description" content="「サイトを作ったのに問い合わせが来ない」を解決。最新AIと20年の経営経験で、低コスト・高コンバージョンのWebサイト・LPを制作します。">
     
-    <!-- SEO 结构化数据 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -18,6 +19,27 @@
       "provider": { "@type": "Organization", "name": "株式会社ウッズ・コーポレーション" }
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "なぜ御社は他社より安いのですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "最新のAI技術を駆使してコーディングやコピーライティングの時間を大幅に短縮し、20年の経験を持つプロが最終監修を行うため、高品質を維持したまま低コストを実現しています。"
+        }
+      }, {
+        "@type": "Question",
+        "name": "問い合わせが増えないサイトの原因は何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "主な原因は「スマホ対応の不備」「行動喚起（CTA）の欠如」「ターゲットへの訴求力不足」です。無料診断で貴社サイトの課題を明確にします。"
+        }
+      }]
+    }
+    </script>
 
     <style>
         :root { 
@@ -27,11 +49,13 @@
             --text-main: #111111; 
             --text-light: #555555; 
             --glow: 0 0 30px rgba(201,169,110,0.4);
+            --font-serif: "A1明朝", "Noto Serif JP", "Yu Mincho", serif;
+            --font-sans: "Inter", "Hiragino Sans", "Helvetica Neue", sans-serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { 
-            font-family: "Inter", "Hiragino Sans", "Helvetica Neue", sans-serif; 
+            font-family: var(--font-sans); 
             color: var(--text-main); 
             line-height: 1.8; 
             background: #FAFAFA; 
@@ -39,6 +63,8 @@
             overflow-x: hidden;
         }
         a { text-decoration: none; color: inherit; }
+
+        h1, h2, .price { font-family: var(--font-serif); font-weight: 600; }
 
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -50,14 +76,13 @@
             backdrop-filter: blur(16px); 
             position: fixed; width: 100%; top: 0; z-index: 100; 
             border-bottom: 1px solid rgba(255,255,255,0.05); 
-            transition: all 0.3s ease;
         }
         .logo { color: #FFF; font-size: 18px; font-weight: 800; letter-spacing: 2px; font-family: monospace; }
         .logo span { color: var(--primary); }
         .cta-nav { 
             background: transparent; color: #FFF; border: 1px solid rgba(201,169,110,0.5); 
             padding: 8px 20px; border-radius: 4px; font-weight: 600; font-size: 13px; 
-            transition: all 0.3s; 
+            transition: all 0.3s; font-family: var(--font-sans);
         }
         .cta-nav:hover { background: var(--primary); color: #000; box-shadow: var(--glow); transform: translateY(-2px); }
 
@@ -73,9 +98,7 @@
             background: linear-gradient(90deg, rgba(10,10,12,0.98) 0%, rgba(10,10,12,0.85) 40%, rgba(10,10,12,0.1) 100%), url('https://woods-corp.jp/assets/lp-banner.png') no-repeat center right;
             background-size: cover;
             z-index: 1;
-            animation: pulseBg 10s infinite alternate;
         }
-        @keyframes pulseBg { 0% { background-size: 100%; } 100% { background-size: 105%; } }
         .hero .container { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; }
         .hero-content { max-width: 650px; }
         .tag { 
@@ -85,8 +108,8 @@
             background: rgba(201,169,110,0.05); letter-spacing: 1px;
         }
         .hero h1 { 
-            font-size: clamp(34px, 5vw, 60px); color: #FFF; 
-            line-height: 1.15; margin-bottom: 24px; font-weight: 800; letter-spacing: -1.5px; 
+            font-size: clamp(38px, 5vw, 64px); color: #FFF; 
+            line-height: 1.2; margin-bottom: 24px; letter-spacing: 1px; 
         }
         .hero h1 span { color: var(--primary); text-shadow: 0 0 20px rgba(201,169,110,0.3); }
         .hero p { font-size: 16px; color: #AAA; margin-bottom: 40px; line-height: 1.9; font-weight: 300; }
@@ -97,7 +120,7 @@
             padding: 18px 40px; font-size: 16px; font-weight: 700; border-radius: 4px; 
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; border: none; 
             box-shadow: 0 4px 14px rgba(201,169,110,0.3);
-            position: relative; overflow: hidden;
+            position: relative; overflow: hidden; font-family: var(--font-sans);
         }
         .cta-main::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
@@ -122,7 +145,8 @@
         .tech-icons span:hover { color: var(--primary); text-shadow: 0 0 15px var(--primary); transform: translateY(-3px); }
 
         .problem { padding: 120px 5%; background: #FFF; }
-        .section-title { font-size: 32px; color: #111; margin-bottom: 60px; font-weight: 800; text-align: center; letter-spacing: -0.5px;}
+        .section-title { font-size: 36px; color: #111; margin-bottom: 20px; text-align: center; letter-spacing: 1px;}
+        .section-subtitle { text-align: center; color: #666; font-size: 16px; margin-bottom: 60px; }
         .problem-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
         .problem-card { 
             background: #FFF; padding: 40px; border-radius: 12px; flex: 1; min-width: 280px; 
@@ -130,33 +154,61 @@
             border-top: 3px solid #FF3B30; text-align: left; transition: all 0.4s ease;
         }
         .problem-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); border-color: #FFCDD2;}
-        .problem-card h3 { font-size: 18px; margin-bottom: 15px; color: #111; font-weight: 700; display: flex; align-items: center; gap: 10px;}
-        .problem-card h3::before { content: '⚠️'; font-size: 16px;}
+        .problem-card h3 { font-size: 20px; margin-bottom: 15px; color: #111; font-weight: 600; display: flex; align-items: center; gap: 10px; font-family: var(--font-serif);}
+        .problem-card h3::before { content: '⚠️'; font-size: 16px; font-family: var(--font-sans);}
 
-        .service { padding: 120px 5%; background: var(--bg-dark); color: #FFF; position: relative; overflow: hidden;}
-        .service .section-title { color: #FFF; }
+        /* 服务区：替换背景图占位，加入副标题 */
+        .bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.4; /* 调整透明度，保证文字清晰 */
+}
+        .service { 
+            padding: 120px 5%; 
+            background-color: var(--bg-dark); 
+            color: #FFF; 
+            position: relative; 
+            overflow: hidden;
+        }
+        .service::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            /* 替换成你生成的转化金线图 */
+            background: linear-gradient(rgba(10,10,12,0.85), rgba(10,10,12,0.95)), url('https://woods-corp.jp/assets/service-bg.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.6; 
+            z-index: 0;
+        }
+        .service .container { position: relative; z-index: 1; }
+        .service .section-title { color: #FFF; margin-bottom: 15px;}
+        .service .section-subtitle { color: var(--primary); margin-bottom: 60px; font-family: var(--font-serif); font-size: 18px; letter-spacing: 1px;}
+        
         .service-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
         .service-card { 
-            background: var(--bg-card); backdrop-filter: blur(10px); 
-            border: 1px solid rgba(255,255,255,0.08); 
+            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255,255,255,0.1); 
             padding: 45px 35px; border-radius: 16px; 
             flex: 1; min-width: 320px; text-align: left; 
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
             position: relative; 
         }
         .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--primary); opacity: 0; transition: opacity 0.4s; }
-        .service-card:hover { border-color: rgba(201,169,110,0.6); box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(201,169,110,0.15); transform: translateY(-10px); background: rgba(255,255,255,0.06); }
+        .service-card:hover { border-color: rgba(201,169,110,0.8); box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 40px rgba(201,169,110,0.2); transform: translateY(-10px); background: rgba(255,255,255,0.08); }
         .service-card:hover::before { opacity: 1; }
-        .service-card h3 { font-size: 20px; color: #FFF; margin-bottom: 15px; }
-        .price { font-family: monospace; font-size: 34px; color: var(--primary); font-weight: 800; margin-bottom: 25px; }
-        .service-card ul { list-style: none; font-size: 14px; color: #AAA; }
+        .service-card h3 { font-size: 22px; color: #FFF; margin-bottom: 15px; font-family: var(--font-serif); }
+        .price { font-size: 38px; color: var(--primary); font-weight: 600; margin-bottom: 25px; }
+        .service-card ul { list-style: none; font-size: 14px; color: #CCC; }
         .service-card ul li { margin-bottom: 12px; padding-left: 24px; position: relative; }
         .service-card ul li::before { content: '▶'; color: var(--primary); position: absolute; left: 0; font-size: 10px; top: 7px; }
 
         .faq-section { padding: 120px 5%; background: #FAFAFA; }
         .faq-item { background: #FFF; padding: 30px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #EAEAEA; transition: all 0.3s; }
         .faq-item:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-color: #DDD; transform: translateY(-3px);}
-        .faq-item h3 { font-size: 16px; color: #111; margin-bottom: 15px; font-weight: 700;}
+        .faq-item h3 { font-size: 18px; color: #111; margin-bottom: 15px; font-family: var(--font-serif);}
         .faq-item p { font-size: 14px; color: #666; }
 
         .footer-cta { padding: 120px 5%; text-align: center; background: #FFF; }
@@ -217,26 +269,34 @@
         </div>
     </section>
 
-    <section class="service">
-        <h2 class="section-title reveal">AI駆動型 Webソリューション</h2>
-        <div class="service-grid">
-            <div class="service-card reveal">
-                <h3>LP制作（ランディングページ）</h3>
-                <div class="price">¥49,800〜</div>
-                <p style="font-size:13px; color:#888; margin-bottom:20px;">単一のサービスに特化し、問い合わせを最大化する1ページのサイト。</p>
-                <ul><li>スマホ完全最適化</li><li>AI高成約コピー</li><li>最短3営業日納品</li></ul>
-            </div>
-            <div class="service-card reveal" style="transition-delay: 0.1s;">
-                <h3>コーポレートサイト再構築</h3>
-                <div class="price">¥198,000〜</div>
-                <p style="font-size:13px; color:#888; margin-bottom:20px;">古くなった自社サイトを、信頼感と機能性を備えた最新のWeb資産へ。</p>
-                <ul><li>モダンなUI/UXデザイン</li><li>SEO内部構造の最適化</li><li>CMS導入（自社更新可能）</li></ul>
-            </div>
-            <div class="service-card reveal" style="transition-delay: 0.2s;">
-                <h3>Webマーケティング運用</h3>
-                <div class="price">月額 ¥49,800〜</div>
-                <p style="font-size:13px; color:#888; margin-bottom:20px;">サイトは作って終わりではありません。継続的なSEOと分析で成果を維持します。</p>
-                <ul><li>月次アクセス解析</li><li>AIコンテンツ量産</li><li>SNS・広告運用改善</li></ul>
+    <!-- 服务区：加入转化暗示副标题 -->
+   <section class="service">
+    <!-- 插入视频背景 -->
+    <video autoplay loop muted playsinline class="bg-video">
+        <source src="https://woods-corp.jp/assets/service-bg.mp4" type="video/mp4">
+    </video>
+        <div class="container">
+            <h2 class="section-title reveal">AI駆動型 Webソリューション</h2>
+            <p class="section-subtitle reveal">デザインは「入り口」、大切なのは「成果」を届けること。</p>
+            <div class="service-grid">
+                <div class="service-card reveal">
+                    <h3>LP制作（ランディングページ）</h3>
+                    <div class="price">¥49,800〜</div>
+                    <p style="font-size:13px; color:#AAA; margin-bottom:20px;">単一のサービスに特化し、問い合わせを最大化する1ページのサイト。</p>
+                    <ul><li>スマホ完全最適化</li><li>AI高成約コピー</li><li>最短3営業日納品</li></ul>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.1s;">
+                    <h3>コーポレートサイト再構築</h3>
+                    <div class="price">¥198,000〜</div>
+                    <p style="font-size:13px; color:#AAA; margin-bottom:20px;">古くなった自社サイトを、信頼感と機能性を備えた最新のWeb資産へ。</p>
+                    <ul><li>モダンなUI/UXデザイン</li><li>SEO内部構造の最適化</li><li>CMS導入（自社更新可能）</li></ul>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.2s;">
+                    <h3>Webマーケティング運用</h3>
+                    <div class="price">月額 ¥49,800〜</div>
+                    <p style="font-size:13px; color:#AAA; margin-bottom:20px;">サイトは作って終わりではありません。継続的なSEOと分析で成果を維持します。</p>
+                    <ul><li>月次アクセス解析</li><li>AIコンテンツ量産</li><li>SNS・広告運用改善</li></ul>
+                </div>
             </div>
         </div>
     </section>
@@ -260,9 +320,7 @@
         <p class="reveal">貴社のWebサイトを拝見し、改善すべき点を3つだけ無料でお伝えします。<br>以下のフォームに必要事項をご記入ください。</p>
         
         <div class="form-container reveal">
-            <!-- 改用 Web3Forms -->
             <form id="contact-form">
-                <!-- 这里是你的 Web3Forms Access Key (沿用之前官网的) -->
                 <input type="hidden" name="access_key" value="9983b9f6-b32f-4f9c-8b7d-ba8e28cb3410">
                 <input type="hidden" name="subject" value="【LPより】無料Web診断の依頼が届きました">
                 
@@ -320,7 +378,6 @@
 
                     const formData = new FormData(form);
 
-                    // 发送给 Web3Forms
                     fetch('https://api.web3forms.com/submit', {
                         method: 'POST',
                         body: formData
