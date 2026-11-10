@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>格安・高品質なWeb/LP制作 | AI×20年経営視点のウッズ・コーポレーション</title>
+    <meta name="description" content="「サイトを作ったのに問い合わせが来ない」を解決。最新AIと20年の経営経験で、低コスト・高コンバージョンのWebサイト・LPを制作します。">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "WOODS DIGITAL - AI Web制作",
+      "description": "AIと20年の経営視点を掛け合わせた、成果にコミットするWeb/LP制作サービス。",
+      "priceRange": "¥49,800 - ¥198,000+",
+      "areaServed": "JP",
+      "provider": { "@type": "Organization", "name": "株式会社ウッズ・コーポレーション" }
+    }
+    </script>
+
+    <style>
+        :root { 
+            --bg-dark: #0a0a0c; 
+            --primary: #C9A96E; 
+            --text-main: #111111; 
+            --text-light: #555555; 
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: "Inter", "Hiragino Sans", "Helvetica Neue", sans-serif; 
+            color: var(--text-main); 
+            line-height: 1.8; 
+            background: #FAFAFA; 
+            -webkit-font-smoothing: antialiased; 
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* 动画：滚动显现 */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* 导航：极简玻璃拟物 */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 5%; 
+            background: rgba(10,10,12,0.85); 
+            backdrop-filter: blur(16px); 
+            position: fixed; width: 100%; top: 0; z-index: 100; 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+        }
+        .logo { color: #FFF; font-size: 18px; font-weight: 800; letter-spacing: 2px; font-family: monospace; }
+        .logo span { color: var(--primary); }
+        .cta-nav { 
+            background: transparent; color: #FFF; border: 1px solid rgba(201,169,110,0.5); 
+            padding: 8px 20px; border-radius: 4px; font-weight: 600; font-size: 13px; 
+            transition: all 0.3s; 
+        }
+        .cta-nav:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(201,169,110,0.4); }
+
+        /* 首屏 Hero */
+        .hero { 
+            background-color: var(--bg-dark); color: #FFF; 
+            padding: 180px 5% 140px; 
+            position: relative; 
+            display: flex; align-items: center;
+        }
+        /* 引入刚才上传到GitHub的Banner图 */
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, rgba(10,10,12,0.98) 0%, rgba(10,10,12,0.85) 45%, rgba(10,10,12,0.1) 100%), url('https://woods-corp.jp/assets/lp-banner.jpg') no-repeat center right;
+            background-size: cover;
+            z-index: 1;
+        }
+        .hero .container { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .hero-content { max-width: 650px; }
+        .tag { 
+            display: inline-block; font-family: monospace; font-size: 12px; 
+            color: var(--primary); border: 1px solid rgba(201,169,110,0.3); 
+            padding: 6px 12px; border-radius: 20px; margin-bottom: 24px; 
+            background: rgba(201,169,110,0.05); letter-spacing: 1px;
+        }
+        .hero h1 { 
+            font-size: clamp(32px, 5vw, 56px); color: #FFF; 
+            line-height: 1.15; margin-bottom: 24px; font-weight: 800; letter-spacing: -1.5px; 
+        }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 16px; color: #AAA; margin-bottom: 40px; line-height: 1.9; }
+        
+        /* 按钮：发光与微交互 */
+        .cta-main { 
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px; 
+            background: var(--primary); color: var(--bg-dark); 
+            padding: 18px 40px; font-size: 16px; font-weight: 700; border-radius: 4px; 
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; border: none; 
+            box-shadow: 0 4px 14px rgba(201,169,110,0.3);
+        }
+        .cta-main:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201,169,110,0.5); }
+        .cta-main::after { content: '→'; font-size: 20px; transition: transform 0.3s; }
+        .cta-main:hover::after { transform: translateX(5px); }
+
+        /* 信任背书（信任徽章） */
+        .trust-bar { background: #FFF; border-bottom: 1px solid #EEE; padding: 30px 5%; text-align: center; }
+        .trust-bar-inner { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; font-size: 13px; font-weight: 600; color: #666; }
+        .trust-bar-inner span { display: flex; align-items: center; gap: 8px; }
+        .trust-bar-inner span::before { content: '✓'; color: var(--primary); font-weight: bold; font-size: 16px; }
+
+        /* 痛点区 */
+        .problem { padding: 120px 5%; background: #FFF; }
+        .section-title { font-size: 32px; color: #111; margin-bottom: 60px; font-weight: 800; text-align: center; letter-spacing: -0.5px;}
+        .problem-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+        .problem-card { 
+            background: #FFF; padding: 40px; border-radius: 12px; flex: 1; min-width: 280px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid #F0F0F0;
+            border-top: 3px solid #FF3B30; text-align: left; transition: all 0.3s;
+        }
+        .problem-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.06); }
+        .problem-card h3 { font-size: 18px; margin-bottom: 15px; color: #111; font-weight: 700; display: flex; align-items: center; gap: 10px;}
+        .problem-card h3::before { content: '⚠️'; font-size: 16px;}
+
+        /* 服务区：玻璃拟物 */
+        .service { padding: 120px 5%; background: var(--bg-dark); color: #FFF; }
+        .service .section-title { color: #FFF; }
+        .service-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+        .service-card { 
+            background: rgba(255,255,255,0.02); backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255,255,255,0.06); padding: 45px 35px; border-radius: 16px; 
+            flex: 1; min-width: 320px; text-align: left; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+            position: relative; overflow: hidden;
+        }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--primary); opacity: 0; transition: opacity 0.3s; }
+        .service-card:hover { border-color: rgba(201,169,110,0.3); box-shadow: 0 0 50px rgba(201,169,110,0.08); transform: translateY(-8px); background: rgba(255,255,255,0.04);}
+        .service-card:hover::before { opacity: 1; }
+        .service-card h3 { font-size: 20px; color: #FFF; margin-bottom: 15px; }
+        .price { font-family: monospace; font-size: 34px; color: var(--primary); font-weight: 800; margin-bottom: 25px; }
+        .service-card ul { list-style: none; font-size: 14px; color: #AAA; }
+        .service-card ul li { margin-bottom: 12px; padding-left: 24px; position: relative; }
+        .service-card ul li::before { content: '▶'; color: var(--primary); position: absolute; left: 0; font-size: 10px; top: 7px; }
+
+        /* 技术栈 */
+        .tech-stack { padding: 60px 5%; background: #0d0d0f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; }
+        .tech-stack p { color: #555; font-size: 12px; font-family: monospace; letter-spacing: 2px; margin-bottom: 25px;}
+        .tech-icons { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; color: #444; font-family: monospace; font-weight: bold; font-size: 18px;}
+        .tech-icons span { transition: all 0.3s; cursor: default;}
+        .tech-icons span:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); transform: translateY(-2px); }
+
+        /* FAQ */
+        .faq-section { padding: 120px 5%; background: #FAFAFA; }
+        .faq-item { background: #FFF; padding: 30px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #EAEAEA; transition: all 0.3s; }
+        .faq-item:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-color: #DDD; }
+        .faq-item h3 { font-size: 16px; color: #111; margin-bottom: 15px; font-weight: 700;}
+        .faq-item p { font-size: 14px; color: #666; }
+
+        /* 底部 CTA */
+        .footer-cta { padding: 120px 5%; text-align: center; background: #FFF; }
+        .footer-cta .section-title { color: #111; margin-bottom: 20px;}
+        .footer-cta p { color: #666; margin-bottom: 40px; font-size: 15px; }
+        
+        footer { background: #000; color: #444; text-align: center; padding: 30px; font-size: 12px; font-family: monospace;}
+        
+        @media (max-width: 768px) {
+            .hero::before { background: linear-gradient(180deg, rgba(10,10,12,0.85) 0%, rgba(10,10,12,1) 100%), url('https://woods-corp.jp/assets/lp-banner.jpg') no-repeat center top; background-size: cover;}
+            .problem-grid, .service-grid { flex-direction: column; }
+            .hero { padding: 140px 5% 100px; }
+            .trust-bar-inner { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">WOODS<span>_DIGITAL</span></div>
+        <a href="#contact" class="cta-nav">無料診断</a>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="tag">AI-DRIVEN WEB SOLUTION</div>
+                <h1>そのWebサイト、<br><span>「ただの置物」</span><br>になっていませんか？</h1>
+                <p>綺麗なデザインなのに、問い合わせがゼロ。<br>私たちは、20年のビジネス経験と最新AIを掛け合わせ、<br><strong>「成果（Action）を生み出す」</strong>Web制作を提供します。</p>
+                <a href="#contact" class="cta-main">無料Web診断を受ける</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 信任背书（增加转化率） -->
+    <section class="trust-bar">
+        <div class="trust-bar-inner">
+            <span>20年の経営実績</span>
+            <span>AI最先端技術を採用</span>
+            <span>従来の1/3のコスト</span>
+            <span>最短3営業日で納品</span>
+        </div>
+    </section>
+
+    <!-- 秀肌肉：技术栈展示区 -->
+    <section class="tech-stack reveal">
+        <p>POWERED BY NEXT-GEN TECHNOLOGY</p>
+        <div class="tech-icons">
+            <span>OpenAI</span>
+            <span>Next.js</span>
+            <span>React</span>
+            <span>Figma</span>
+            <span>Google Analytics</span>
+            <span>SEO_GEO</span>
+        </div>
+    </section>
+
+    <section class="problem">
+        <h2 class="section-title reveal">こんな「Webの落とし穴」に<br>ハマっていませんか？</h2>
+        <div class="problem-grid">
+            <div class="problem-card reveal"><h3>スマホ対応の不備</h3><p>ユーザーの7割はスマホで検索します。スマホで見づらいサイトは、機会損失を生んでいます。</p></div>
+            <div class="problem-card reveal" style="transition-delay: 0.1s;"><h3>問い合わせ導線の欠如</h3><p>「会社概要」ばかりで、ユーザーが次に何をすればいいか（CTA）が分からないサイトは、ただのパンフレットです。</p></div>
+            <div class="problem-card reveal" style="transition-delay: 0.2s;"><h3>古いSEO対策</h3><p>キーワードを詰め込むだけのSEOはもう通用しません。AI時代の検索アルゴリズムに最適化が必要です。</p></div>
+        </div>
+    </section>
+
+    <section class="service">
+        <h2 class="section-title reveal">AI駆動型 Webソリューション</h2>
+        <div class="service-grid">
+            <div class="service-card reveal">
+                <h3>LP制作（ランディングページ）</h3>
+                <div class="price">¥49,800〜</div>
+                <p style="font-size:13px; color:#888; margin-bottom:20px;">単一のサービスに特化し、問い合わせを最大化する1ページのサイト。</p>
+                <ul><li>スマホ完全最適化</li><li>AI高成約コピー</li><li>最短3営業日納品</li></ul>
+            </div>
+            <div class="service-card reveal" style="transition-delay: 0.1s;">
+                <h3>コーポレートサイト再構築</h3>
+                <div class="price">¥198,000〜</div>
+                <p style="font-size:13px; color:#888; margin-bottom:20px;">古くなった自社サイトを、信頼感と機能性を備えた最新のWeb資産へ。</p>
+                <ul><li>モダンなUI/UXデザイン</li><li>SEO内部構造の最適化</li><li>CMS導入（自社更新可能）</li></ul>
+            </div>
+            <div class="service-card reveal" style="transition-delay: 0.2s;">
+                <h3>Webマーケティング運用</h3>
+                <div class="price">月額 ¥49,800〜</div>
+                <p style="font-size:13px; color:#888; margin-bottom:20px;">サイトは作って終わりではありません。継続的なSEOと分析で成果を維持します。</p>
+                <ul><li>月次アクセス解析</li><li>AIコンテンツ量産</li><li>SNS・広告運用改善</li></ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2 class="section-title reveal">よくある質問</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item reveal">
+                <h3>Q. なぜ御社は他社より安いのですか？</h3>
+                <p>A. 最新のAI技術を駆使してコーディングやコピーライティングの時間を大幅に短縮し、20年の経験を持つプロが最終監修を行うため、高品質を維持したまま低コストを実現しています。</p>
+            </div>
+            <div class="faq-item reveal">
+                <h3>Q. 問い合わせが増えないサイトの原因は何ですか？</h3>
+                <p>A. 主な原因は「スマホ対応の不備」「行動喚起（CTA）の欠如」「ターゲットへの訴求力不足」です。無料診断で貴社サイトの課題を明確にします。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-cta" id="contact">
+        <h2 class="section-title reveal">まずは、現状の「もったいない」を<br>無料で診断します。</h2>
+        <p class="reveal">貴社のWebサイトを拝見し、改善すべき点を3つだけ無料でお伝えします。</p>
+        <a href="mailto:contact@woods-corp.jp?subject=Web診断の依頼" class="cta-main reveal">無料診断を申し込む</a>
+    </section>
+
+    <footer>&copy; 2026 WOODS CORPORATION | AI-DRIVEN WEB SOLUTIONS</footer>
+
+    <!-- 原生JS：滚动显现动画 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // 触发一次后停止观察，提升性能
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+            
+            reveals.forEach(reveal => {
+                observer.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
