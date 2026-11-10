@@ -6,6 +6,7 @@
     <title>格安・高品質なWeb/LP制作 | AI×20年経営視点のウッズ・コーポレーション</title>
     <meta name="description" content="「サイトを作ったのに問い合わせが来ない」を解決。最新AIと20年の経営経験で、低コスト・高コンバージョンのWebサイト・LPを制作します。">
     
+    <!-- 核心 SEO 结构化数据：告诉 AI 和谷歌我们是谁 -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -15,6 +16,28 @@
       "priceRange": "¥49,800 - ¥198,000+",
       "areaServed": "JP",
       "provider": { "@type": "Organization", "name": "株式会社ウッズ・コーポレーション" }
+    }
+    </script>
+    <!-- 核心 SEO 结构化数据：FAQ，极度利于 AI 搜索引用 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "なぜ御社は他社より安いのですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "最新のAI技術を駆使してコーディングやコピーライティングの時間を大幅に短縮し、20年の経験を持つプロが最終監修を行うため、高品質を維持したまま低コストを実現しています。"
+        }
+      }, {
+        "@type": "Question",
+        "name": "問い合わせが増えないサイトの原因は何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "主な原因は「スマホ対応の不備」「行動喚起（CTA）の欠如」「ターゲットへの訴求力不足」です。無料診断で貴社サイトの課題を明確にします。"
+        }
+      }]
     }
     </script>
 
@@ -43,7 +66,7 @@
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* 导航：毛玻璃与发光 */
+        /* 导航 */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 15px 5%; 
@@ -62,7 +85,7 @@
         }
         .cta-nav:hover { background: var(--primary); color: #000; box-shadow: var(--glow); transform: translateY(-2px); }
 
-        /* 首屏 Hero */
+        /* 首屏 */
         .hero { 
             background-color: var(--bg-dark); color: #FFF; 
             padding: 200px 5% 160px; 
@@ -77,10 +100,7 @@
             z-index: 1;
             animation: pulseBg 10s infinite alternate;
         }
-        @keyframes pulseBg {
-            0% { background-size: 100%; }
-            100% { background-size: 105%; }
-        }
+        @keyframes pulseBg { 0% { background-size: 100%; } 100% { background-size: 105%; } }
         .hero .container { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; }
         .hero-content { max-width: 650px; }
         .tag { 
@@ -96,7 +116,7 @@
         .hero h1 span { color: var(--primary); text-shadow: 0 0 20px rgba(201,169,110,0.3); }
         .hero p { font-size: 16px; color: #AAA; margin-bottom: 40px; line-height: 1.9; font-weight: 300; }
         
-        /* CTA 按钮 */
+        /* 按钮与微交互 */
         .cta-main { 
             display: inline-flex; align-items: center; justify-content: center; gap: 12px; 
             background: var(--primary); color: var(--bg-dark); 
@@ -114,12 +134,20 @@
         .cta-main:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(201,169,110,0.5); }
         .cta-main .arrow { font-size: 20px; transition: transform 0.3s ease; }
         .cta-main:hover .arrow { transform: translateX(6px); }
+        .w-full { width: 100%; }
 
         /* 信任背书 */
         .trust-bar { background: #FFF; border-bottom: 1px solid #EEE; padding: 30px 5%; text-align: center; position: relative; z-index: 3;}
         .trust-bar-inner { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; font-size: 13px; font-weight: 600; color: #666; }
         .trust-bar-inner span { display: flex; align-items: center; gap: 8px; }
         .trust-bar-inner span::before { content: '✓'; color: var(--primary); font-weight: bold; font-size: 16px; }
+
+        /* 技术栈（秀肌肉） */
+        .tech-stack { padding: 60px 5%; background: #0d0d0f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; }
+        .tech-stack p { color: #555; font-size: 12px; font-family: monospace; letter-spacing: 2px; margin-bottom: 25px;}
+        .tech-icons { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; color: #444; font-family: monospace; font-weight: bold; font-size: 18px;}
+        .tech-icons span { transition: all 0.3s; cursor: default;}
+        .tech-icons span:hover { color: var(--primary); text-shadow: 0 0 15px var(--primary); transform: translateY(-3px); }
 
         /* 痛点区 */
         .problem { padding: 120px 5%; background: #FFF; }
@@ -146,16 +174,8 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
             position: relative; 
         }
-        .service-card::before { 
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; 
-            background: var(--primary); opacity: 0; transition: opacity 0.4s; 
-        }
-        .service-card:hover { 
-            border-color: rgba(201,169,110,0.6); 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(201,169,110,0.15); 
-            transform: translateY(-10px); 
-            background: rgba(255,255,255,0.06); 
-        }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--primary); opacity: 0; transition: opacity 0.4s; }
+        .service-card:hover { border-color: rgba(201,169,110,0.6); box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(201,169,110,0.15); transform: translateY(-10px); background: rgba(255,255,255,0.06); }
         .service-card:hover::before { opacity: 1; }
         .service-card h3 { font-size: 20px; color: #FFF; margin-bottom: 15px; }
         .price { font-family: monospace; font-size: 34px; color: var(--primary); font-weight: 800; margin-bottom: 25px; }
@@ -163,14 +183,7 @@
         .service-card ul li { margin-bottom: 12px; padding-left: 24px; position: relative; }
         .service-card ul li::before { content: '▶'; color: var(--primary); position: absolute; left: 0; font-size: 10px; top: 7px; }
 
-        /* 技术栈 */
-        .tech-stack { padding: 60px 5%; background: #0d0d0f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; }
-        .tech-stack p { color: #555; font-size: 12px; font-family: monospace; letter-spacing: 2px; margin-bottom: 25px;}
-        .tech-icons { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; color: #444; font-family: monospace; font-weight: bold; font-size: 18px;}
-        .tech-icons span { transition: all 0.3s; cursor: default;}
-        .tech-icons span:hover { color: var(--primary); text-shadow: 0 0 15px var(--primary); transform: translateY(-3px); }
-
-        /* FAQ */
+        /* FAQ（AI 爬虫最爱的部分） */
         .faq-section { padding: 120px 5%; background: #FAFAFA; }
         .faq-item { background: #FFF; padding: 30px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #EAEAEA; transition: all 0.3s; }
         .faq-item:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-color: #DDD; transform: translateY(-3px);}
@@ -181,21 +194,12 @@
         .footer-cta { padding: 120px 5%; text-align: center; background: #FFF; }
         .footer-cta .section-title { color: #111; margin-bottom: 20px;}
         .footer-cta p { color: #666; margin-bottom: 40px; font-size: 15px; }
-        
         .form-container { max-width: 500px; margin: 0 auto; text-align: left; background: #FFF; padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid #EEE;}
         .form-group { margin-bottom: 20px; }
         .form-group input { width: 100%; padding: 16px 20px; border: 1px solid #DDD; border-radius: 6px; font-family: inherit; font-size: 15px; transition: all 0.3s; background: #FAFAFA;}
         .form-group input:focus { outline: none; border-color: var(--primary); background: #FFF; box-shadow: 0 0 0 3px rgba(201,169,110,0.1); }
-        .w-full { width: 100%; }
         
         footer { background: #000; color: #444; text-align: center; padding: 30px; font-size: 12px; font-family: monospace;}
-        
-        @media (max-width: 768px) {
-            .hero::before { background: linear-gradient(180deg, rgba(10,10,12,0.85) 0%, rgba(10,10,12,1) 100%), url('https://woods-corp.jp/assets/lp-banner.png') no-repeat center top; background-size: cover;}
-            .problem-grid, .service-grid { flex-direction: column; }
-            .hero { padding: 160px 5% 100px; }
-            .trust-bar-inner { flex-direction: column; gap: 15px; }
-        }
     </style>
 </head>
 <body>
@@ -224,6 +228,7 @@
         </div>
     </section>
 
+    <!-- 秀肌肉：技术栈展示区 -->
     <section class="tech-stack reveal">
         <p>POWERED BY NEXT-GEN TECHNOLOGY</p>
         <div class="tech-icons">
@@ -283,7 +288,7 @@
         </div>
     </section>
 
-    <!-- 底部表单（已接入 EmailJS） -->
+    <!-- 底部表单（最终决战场） -->
     <section class="footer-cta" id="contact">
         <h2 class="section-title reveal">まずは、現状の「もったいない」を<br>無料で診断します。</h2>
         <p class="reveal">貴社のWebサイトを拝見し、改善すべき点を3つだけ無料でお伝えします。<br>以下のフォームに必要事項をご記入ください。</p>
@@ -303,23 +308,28 @@
                 <button type="submit" class="cta-main w-full" id="submitBtn">無料診断を申し込む <span class="arrow">→</span></button>
             </form>
             
+            <!-- 成功提示 -->
             <div id="successMessage" style="display: none; text-align: center; padding: 20px; background: rgba(76, 175, 80, 0.1); border: 1px solid #4CAF50; border-radius: 8px; margin-top: 20px;">
                 <p style="color: #4CAF50; font-weight: bold; margin: 0;">✓ 送信が完了しました。1〜2営業日以内に診断結果をお送りいたします。</p>
+            </div>
+            <!-- 失败提示（红框显示具体错误，防盲猜） -->
+            <div id="errorMessage" style="display: none; text-align: center; padding: 20px; background: rgba(244, 67, 54, 0.1); border: 1px solid #F44336; border-radius: 8px; margin-top: 20px;">
+                <p id="errorText" style="color: #F44336; font-weight: bold; margin: 0;">エラーが発生しました。</p>
             </div>
         </div>
     </section>
 
     <footer>&copy; 2026 WOODS CORPORATION | AI-DRIVEN WEB SOLUTIONS</footer>
 
-    <!-- 引入 EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- 引入 EmailJS (使用最稳定的 V3 版本) -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // 1. 初始化 EmailJS (Public Key 已填)
-            emailjs.init("vxKjHq2HSOB8j8OTy"); 
+        // 直接绑定你的公钥
+        emailjs.init("vxKjHq2HSOB8j8OTy"); 
 
-            // 2. 滚动显现动画
+        document.addEventListener("DOMContentLoaded", function() {
+            // 滚动动画
             const reveals = document.querySelectorAll('.reveal');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -331,30 +341,35 @@
             }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
             reveals.forEach(reveal => observer.observe(reveal));
 
-            // 3. 表单提交拦截
+            // 表单提交逻辑
             const form = document.getElementById('contact-form');
             const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
             const submitBtn = document.getElementById('submitBtn');
 
             if (form) {
                 form.addEventListener('submit', function(e) {
-                    e.preventDefault(); // 阻止网页刷新
+                    e.preventDefault(); 
                     
                     const originalText = submitBtn.innerHTML;
                     submitBtn.innerHTML = '送信中... 🚀';
                     submitBtn.style.opacity = '0.7';
+                    errorMsg.style.display = 'none'; 
 
-                    // 4. 发送邮件 (Template ID 已填)
-                    // ⚠️⚠️⚠️ 注意：请把下面的 '你的_SERVICE_ID' 换成你 EmailJS 后台真实的 Service ID！
+                    // 核心发送（ID已死锁）
                     emailjs.sendForm('service_ujsk5cy', 'template_7dljl3l', this)
                         .then(() => {
                             form.style.display = 'none';
                             successMsg.style.display = 'block';
                         }, (error) => {
                             console.error('FAILED...', error);
-                            alert('送信に失敗しました。時間をおいて再度お試しください。');
                             submitBtn.innerHTML = originalText;
                             submitBtn.style.opacity = '1';
+                            
+                            // 如果失败，直接在页面下方亮红字，不用去控制台找
+                            errorMsg.style.display = 'block';
+                            errorText.innerText = '送信失敗: ' + (error.text || error.message || JSON.stringify(error));
                         });
                 });
             }
