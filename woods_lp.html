@@ -6,6 +6,7 @@
     <title>格安・高品質なWeb/LP制作 | AI×20年経営視点のウッズ・コーポレーション</title>
     <meta name="description" content="「サイトを作ったのに問い合わせが来ない」を解決。最新AIと20年の経営経験で、低コスト・高コンバージョンのWebサイト・LPを制作します。">
     
+    <!-- SEO 结构化数据 -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -15,27 +16,6 @@
       "priceRange": "¥49,800 - ¥198,000+",
       "areaServed": "JP",
       "provider": { "@type": "Organization", "name": "株式会社ウッズ・コーポレーション" }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "なぜ御社は他社より安いのですか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "最新のAI技術を駆使してコーディングやコピーライティングの時間を大幅に短縮し、20年の経験を持つプロが最終監修を行うため、高品質を維持したまま低コストを実現しています。"
-        }
-      }, {
-        "@type": "Question",
-        "name": "問い合わせが増えないサイトの原因は何ですか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "主な原因は「スマホ対応の不備」「行動喚起（CTA）の欠如」「ターゲットへの訴求力不足」です。無料診断で貴社サイトの課題を明確にします。"
-        }
-      }]
     }
     </script>
 
@@ -280,7 +260,12 @@
         <p class="reveal">貴社のWebサイトを拝見し、改善すべき点を3つだけ無料でお伝えします。<br>以下のフォームに必要事項をご記入ください。</p>
         
         <div class="form-container reveal">
+            <!-- 改用 Web3Forms -->
             <form id="contact-form">
+                <!-- 这里是你的 Web3Forms Access Key (沿用之前官网的) -->
+                <input type="hidden" name="access_key" value="9983b9f6-b32f-4f9c-8b7d-ba8e28cb3410">
+                <input type="hidden" name="subject" value="【LPより】無料Web診断の依頼が届きました">
+                
                 <div class="form-group">
                     <input type="text" name="name" placeholder="お名前 (例: 山田 太郎)" required>
                 </div>
@@ -305,11 +290,7 @@
 
     <footer>&copy; 2026 WOODS CORPORATION | AI-DRIVEN WEB SOLUTIONS</footer>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
     <script>
-        emailjs.init("vxKjHq2HSOB8j8OTy"); 
-
         document.addEventListener("DOMContentLoaded", function() {
             const reveals = document.querySelectorAll('.reveal');
             const observer = new IntersectionObserver((entries) => {
@@ -337,20 +318,29 @@
                     submitBtn.style.opacity = '0.7';
                     errorMsg.style.display = 'none'; 
 
-                    // 使用你指定的 ID：template_7dljl3l
-                    emailjs.sendForm('service_ujsk5cy', 'template_7dljl3l', this)
-                        .then(() => {
+                    const formData = new FormData(form);
+
+                    // 发送给 Web3Forms
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
                             form.style.display = 'none';
                             successMsg.style.display = 'block';
-                        }, (error) => {
-                            console.error('FAILED...', error);
-                            submitBtn.innerHTML = originalText;
-                            submitBtn.style.opacity = '1';
-                            
-                            errorMsg.style.display = 'block';
-                            // 为了方便排查，把当前的ID写进错误信息里
-                            errorText.innerText = '送信失敗(S:ujsk5cy, T:7dljl3l): ' + (error.text || error.message || JSON.stringify(error));
-                        });
+                        } else {
+                            throw new Error(data.message || 'Send failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('FAILED...', error);
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.opacity = '1';
+                        errorMsg.style.display = 'block';
+                        errorText.innerText = '送信失敗: ' + (error.message || JSON.stringify(error));
+                    });
                 });
             }
         });
