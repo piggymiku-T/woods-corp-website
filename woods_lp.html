@@ -62,7 +62,7 @@
         }
         .cta-nav:hover { background: var(--primary); color: #000; box-shadow: var(--glow); transform: translateY(-2px); }
 
-        /* 首屏 Hero：极强的视觉冲击力 */
+        /* 首屏 Hero */
         .hero { 
             background-color: var(--bg-dark); color: #FFF; 
             padding: 200px 5% 160px; 
@@ -70,7 +70,6 @@
             display: flex; align-items: center;
             min-height: 100vh;
         }
-        /* 引入刚才上传到GitHub的Banner图，注意后缀是 .png */
         .hero::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(90deg, rgba(10,10,12,0.98) 0%, rgba(10,10,12,0.85) 40%, rgba(10,10,12,0.1) 100%), url('https://woods-corp.jp/assets/lp-banner.png') no-repeat center right;
@@ -97,26 +96,22 @@
         .hero h1 span { color: var(--primary); text-shadow: 0 0 20px rgba(201,169,110,0.3); }
         .hero p { font-size: 16px; color: #AAA; margin-bottom: 40px; line-height: 1.9; font-weight: 300; }
         
-        /* CTA 按钮：极致微交互 */
+        /* CTA 按钮 */
         .cta-main { 
             display: inline-flex; align-items: center; justify-content: center; gap: 12px; 
             background: var(--primary); color: var(--bg-dark); 
             padding: 18px 40px; font-size: 16px; font-weight: 700; border-radius: 4px; 
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; border: none; 
             box-shadow: 0 4px 14px rgba(201,169,110,0.3);
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
         }
-        /* 按钮内部光泽扫过动画 */
         .cta-main::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
             transform: skewX(-25deg); transition: 0.5s;
         }
         .cta-main:hover::before { left: 100%; }
-        /* 上浮和阴影 */
         .cta-main:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(201,169,110,0.5); }
-        /* 箭头右移 */
         .cta-main .arrow { font-size: 20px; transition: transform 0.3s ease; }
         .cta-main:hover .arrow { transform: translateX(6px); }
 
@@ -139,11 +134,10 @@
         .problem-card h3 { font-size: 18px; margin-bottom: 15px; color: #111; font-weight: 700; display: flex; align-items: center; gap: 10px;}
         .problem-card h3::before { content: '⚠️'; font-size: 16px;}
 
-        /* 服务区：玻璃拟物 + 金色发光（重点修复） */
+        /* 服务区 */
         .service { padding: 120px 5%; background: var(--bg-dark); color: #FFF; position: relative; overflow: hidden;}
         .service .section-title { color: #FFF; }
         .service-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
-        
         .service-card { 
             background: var(--bg-card); backdrop-filter: blur(10px); 
             border: 1px solid rgba(255,255,255,0.08); 
@@ -152,12 +146,10 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
             position: relative; 
         }
-        /* 顶部发光边线 */
         .service-card::before { 
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; 
             background: var(--primary); opacity: 0; transition: opacity 0.4s; 
         }
-        /* 鼠标悬停：卡片上浮 + 边框亮金 + 背景变亮 + 内部发光 */
         .service-card:hover { 
             border-color: rgba(201,169,110,0.6); 
             box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(201,169,110,0.15); 
@@ -165,14 +157,13 @@
             background: rgba(255,255,255,0.06); 
         }
         .service-card:hover::before { opacity: 1; }
-        
         .service-card h3 { font-size: 20px; color: #FFF; margin-bottom: 15px; }
         .price { font-family: monospace; font-size: 34px; color: var(--primary); font-weight: 800; margin-bottom: 25px; }
         .service-card ul { list-style: none; font-size: 14px; color: #AAA; }
         .service-card ul li { margin-bottom: 12px; padding-left: 24px; position: relative; }
         .service-card ul li::before { content: '▶'; color: var(--primary); position: absolute; left: 0; font-size: 10px; top: 7px; }
 
-        /* 技术栈（秀肌肉区） */
+        /* 技术栈 */
         .tech-stack { padding: 60px 5%; background: #0d0d0f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; }
         .tech-stack p { color: #555; font-size: 12px; font-family: monospace; letter-spacing: 2px; margin-bottom: 25px;}
         .tech-icons { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; color: #444; font-family: monospace; font-weight: bold; font-size: 18px;}
@@ -186,10 +177,16 @@
         .faq-item h3 { font-size: 16px; color: #111; margin-bottom: 15px; font-weight: 700;}
         .faq-item p { font-size: 14px; color: #666; }
 
-        /* 底部 CTA */
+        /* 底部表单 */
         .footer-cta { padding: 120px 5%; text-align: center; background: #FFF; }
         .footer-cta .section-title { color: #111; margin-bottom: 20px;}
         .footer-cta p { color: #666; margin-bottom: 40px; font-size: 15px; }
+        
+        .form-container { max-width: 500px; margin: 0 auto; text-align: left; background: #FFF; padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid #EEE;}
+        .form-group { margin-bottom: 20px; }
+        .form-group input { width: 100%; padding: 16px 20px; border: 1px solid #DDD; border-radius: 6px; font-family: inherit; font-size: 15px; transition: all 0.3s; background: #FAFAFA;}
+        .form-group input:focus { outline: none; border-color: var(--primary); background: #FFF; box-shadow: 0 0 0 3px rgba(201,169,110,0.1); }
+        .w-full { width: 100%; }
         
         footer { background: #000; color: #444; text-align: center; padding: 30px; font-size: 12px; font-family: monospace;}
         
@@ -218,7 +215,6 @@
         </div>
     </section>
 
-    <!-- 信任背书 -->
     <section class="trust-bar">
         <div class="trust-bar-inner">
             <span>20年の経営実績</span>
@@ -228,7 +224,6 @@
         </div>
     </section>
 
-    <!-- 秀肌肉：技术栈展示区 -->
     <section class="tech-stack reveal">
         <p>POWERED BY NEXT-GEN TECHNOLOGY</p>
         <div class="tech-icons">
@@ -288,17 +283,43 @@
         </div>
     </section>
 
+    <!-- 底部表单（已接入 EmailJS） -->
     <section class="footer-cta" id="contact">
         <h2 class="section-title reveal">まずは、現状の「もったいない」を<br>無料で診断します。</h2>
-        <p class="reveal">貴社のWebサイトを拝見し、改善すべき点を3つだけ無料でお伝えします。</p>
-        <a href="mailto:contact@woods-corp.jp?subject=Web診断の依頼" class="cta-main reveal">無料診断を申し込む <span class="arrow">→</span></a>
+        <p class="reveal">貴社のWebサイトを拝見し、改善すべき点を3つだけ無料でお伝えします。<br>以下のフォームに必要事項をご記入ください。</p>
+        
+        <div class="form-container reveal">
+            <form id="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="お名前 (例: 山田 太郎)" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="メールアドレス" required>
+                </div>
+                <div class="form-group">
+                    <input type="url" name="url" placeholder="貴社のWebサイトURL (例: https://example.co.jp)" required>
+                </div>
+                
+                <button type="submit" class="cta-main w-full" id="submitBtn">無料診断を申し込む <span class="arrow">→</span></button>
+            </form>
+            
+            <div id="successMessage" style="display: none; text-align: center; padding: 20px; background: rgba(76, 175, 80, 0.1); border: 1px solid #4CAF50; border-radius: 8px; margin-top: 20px;">
+                <p style="color: #4CAF50; font-weight: bold; margin: 0;">✓ 送信が完了しました。1〜2営業日以内に診断結果をお送りいたします。</p>
+            </div>
+        </div>
     </section>
 
     <footer>&copy; 2026 WOODS CORPORATION | AI-DRIVEN WEB SOLUTIONS</footer>
 
-    <!-- 原生JS：滚动显现动画 -->
+    <!-- 引入 EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // 1. 初始化 EmailJS (Public Key 已填)
+            emailjs.init("vxKjHq2HSOB8j8OTy"); 
+
+            // 2. 滚动显现动画
             const reveals = document.querySelectorAll('.reveal');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -308,10 +329,35 @@
                     }
                 });
             }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-            
-            reveals.forEach(reveal => {
-                observer.observe(reveal);
-            });
+            reveals.forEach(reveal => observer.observe(reveal));
+
+            // 3. 表单提交拦截
+            const form = document.getElementById('contact-form');
+            const successMsg = document.getElementById('successMessage');
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault(); // 阻止网页刷新
+                    
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '送信中... 🚀';
+                    submitBtn.style.opacity = '0.7';
+
+                    // 4. 发送邮件 (Template ID 已填)
+                    // ⚠️⚠️⚠️ 注意：请把下面的 '你的_SERVICE_ID' 换成你 EmailJS 后台真实的 Service ID！
+                    emailjs.sendForm('你的_SERVICE_ID', 'template_7dljl3l', this)
+                        .then(() => {
+                            form.style.display = 'none';
+                            successMsg.style.display = 'block';
+                        }, (error) => {
+                            console.error('FAILED...', error);
+                            alert('送信に失敗しました。時間をおいて再度お試しください。');
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.style.opacity = '1';
+                        });
+                });
+            }
         });
     </script>
 </body>
