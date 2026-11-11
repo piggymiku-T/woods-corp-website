@@ -223,9 +223,16 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">WOODS<span>_DIGITAL</span></div>
-        <a href="#contact" class="cta-nav">無料診断</a>
+        <nav>
+        <!-- 将 Logo 变成一个可点击的返回主站链接 -->
+        <a href="https://woods-corp.jp/" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <span style="font-family: monospace; font-size: 18px; color: #FFF; font-weight: 800;">←</span> WOODS<span>_DIGITAL</span>
+        </a>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <!-- 加一个直白的返回按钮 -->
+            <a href="https://woods-corp.jp/" style="color: #999; font-size: 13px; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#FFF'" onmouseout="this.style.color='#999'">コーポレートサイトへ戻る</a>
+            <a href="#contact" class="cta-nav">無料診断</a>
+        </div>
     </nav>
 
     <section class="hero">
