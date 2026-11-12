@@ -4,218 +4,173 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NLOS 非視野イメージング技術 | 株式会社ウッズ・コーポレーション</title>
-<meta name="description" content="隠れたリスクを科学する。NLOS非視野イメージング技術により、地中や構造物内部の腐食・劣化を非破壊・非接触で可視化。日本国内代理店：株式会社ウッズ・コーポレーション">
 <style>
-    /* --- 基础重置与变量 --- */
     :root {
         --main-blue: #1a56db;
-        --dark-bg: #0f172a;
-        --text-main: #1f2937;
-        --text-light: #4b5563;
-        --bg-light: #f8fafc;
+        --dark-blue: #1e3a8a;
         --woods-accent: #0056b3;
     }
-    body {
-        font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-        margin: 0; padding: 0; color: var(--text-main); background: #fff; line-height: 1.7;
-    }
+    body { font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; margin: 0; padding: 0; background: #fff; line-height: 1.7; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
-
-    /* --- 顶部导航 --- */
-    .site-header { padding: 20px 0; background: #fff; border-bottom: 1px solid #e5e7eb; }
+    
+    /* 顶部导航 */
+    .site-header { padding: 20px 0; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; }
     .site-header .logo-text { font-size: 20px; font-weight: bold; color: var(--woods-accent); text-decoration: none; }
-    .exclusive-badge { display: inline-block; background: #ef4444; color: #fff; font-size: 12px; padding: 2px 8px; border-radius: 4px; margin-left: 10px; vertical-align: middle; }
+    .exclusive-badge { background: #ef4444; color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 4px; }
 
-    /* --- Hero 头部区域 --- */
-    .hero {
-        background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
-        padding: 80px 0; text-align: center;
-    }
-    .hero h1 { font-size: 40px; color: #1e3a8a; margin-bottom: 10px; font-weight: 800; letter-spacing: 1px; }
-    .hero h2 { font-size: 20px; color: #4b5563; font-weight: normal; margin-bottom: 30px; }
-    .hero .slogan { font-size: 24px; color: var(--main-blue); font-weight: bold; font-style: italic; margin-top: 20px; }
-
-    /* --- 通用章节 --- */
-    .section { padding: 80px 0; border-bottom: 1px solid #e5e7eb; }
-    .section-title { font-size: 32px; font-weight: bold; color: #1e3a8a; text-align: center; margin-bottom: 15px; }
-    .section-subtitle { font-size: 16px; color: #6b7280; text-align: center; margin-bottom: 50px; }
-
-    /* --- 图片容器 --- */
-    .image-wrapper { position: relative; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden; }
+    /* 通用章节 */
+    .section { padding: 60px 0; border-bottom: 1px solid #e5e7eb; }
+    .section-title { font-size: 32px; font-weight: bold; color: var(--dark-blue); text-align: center; margin-bottom: 15px; }
     
-    /* --- 文本面板 --- */
-    .translation-panel {
-        background: #f8fafc; border: 1px solid #e2e8f0; padding: 30px; border-radius: 8px;
-        margin-top: 20px; box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+    /* ★ 核心：图片相对定位容器 ★ */
+    .img-container {
+        position: relative; /* 让内部的绝对定位元素以此为基准 */
+        width: 100%;
+        margin-bottom: 40px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
-    .translation-panel h3 { color: var(--woods-accent); margin-top: 0; border-bottom: 2px solid #bfdbfe; padding-bottom: 10px; margin-bottom: 20px; font-size: 20px;}
-    .translation-panel p { color: var(--text-light); margin-bottom: 15px; font-size: 15px;}
-    .translation-panel strong { color: #1e3a8a; }
+    .img-container img {
+        width: 100%;
+        display: block;
+    }
 
-    /* --- 深色技术原理区 --- */
-    .tech-dark { background-color: var(--dark-bg); color: #fff; }
-    .tech-dark .section-title { color: #60a5fa; }
-    .tech-dark .translation-panel { background: #1e293b; border-color: #334155; }
-    .tech-dark .translation-panel h3 { color: #93c5fd; border-bottom-color: #475569; }
-    .tech-dark .translation-panel p { color: #cbd5e1; }
-    .tech-dark .translation-panel strong { color: #f8fafc; }
+    /* ==========================================
+       ★ 痛点图（原图1）的日文覆盖卡片定位 ★
+       ========================================== */
+    .pain-card {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.95); /* 白色半透明背景，完全遮盖中文 */
+        padding: 1.5vw;
+        border-radius: 0.5vw;
+        width: 26%; /* 卡片宽度占图片的26% */
+        box-sizing: border-box;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .pain-card h4 { margin: 0 0 5px 0; font-size: 1.2vw; color: var(--dark-blue); }
+    .pain-card p { margin: 0; font-size: 0.9vw; color: #4b5563; line-height: 1.4; }
 
-    /* --- 网格卡片区 --- */
-    .grid-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 30px; border-top: 4px solid var(--woods-accent); }
-    .card h4 { color: #1e3a8a; font-size: 18px; margin-top: 0; margin-bottom: 15px; }
-    .card p { color: var(--text-light); font-size: 14px; margin: 0; }
-    
-    /* --- 底部 --- */
+    /* 🔴 您需要微调的地方：调整 top 和 left 的百分比 */
+    .card-left   { top: 40%; left: 2%; }
+    .card-center { top: 40%; left: 37%; }
+    .card-right  { top: 40%; left: 72%; }
+
+    /* ==========================================
+       ★ 深色原理图（原图3）的日文覆盖区定位 ★
+       ========================================== */
+    .tech-cover {
+        position: absolute;
+        background: #0f172a; /* 纯深色背景，直接盖住原图底部的中文 */
+        bottom: 0; /* 贴在底部 */
+        left: 0;
+        width: 100%;
+        padding: 3vw 5vw;
+        box-sizing: border-box;
+        color: #cbd5e1;
+    }
+    .tech-cover h3 { color: #60a5fa; margin-top: 0; font-size: 1.5vw; }
+    .tech-cover p { margin-bottom: 0; font-size: 1vw; }
+
+    /* ==========================================
+       ★ 流程图（原图6）的日文覆盖区定位 ★
+       ========================================== */
+    .workflow-cover {
+        position: absolute;
+        background: #fff;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 3vw 5vw;
+        box-sizing: border-box;
+    }
+    .workflow-cover h3 { color: var(--dark-blue); margin-top: 0; font-size: 1.5vw; }
+    .workflow-cover p { margin-bottom: 0; font-size: 1vw; color: #4b5563; }
+
+
+    /* 📱 手机端适配：手机上无法完美悬浮，自动取消覆盖，文字按顺序排在图下方 */
+    @media (max-width: 768px) {
+        .pain-card, .tech-cover, .workflow-cover {
+            position: relative;
+            width: 100%;
+            top: auto; left: auto; bottom: auto;
+            padding: 20px;
+            background: #f8fafc;
+            box-shadow: none;
+        }
+        .pain-card h4, .pain-card p, .tech-cover h3, .tech-cover p, .workflow-cover h3, .workflow-cover p {
+            font-size: 14px;
+        }
+        .pain-card { border-bottom: 1px solid #ddd; }
+    }
+
     .footer { text-align: center; padding: 40px 0; background: #f8fafc; color: #9ca3af; font-size: 14px; }
-    .footer a { color: var(--woods-accent); text-decoration: none; }
 </style>
 </head>
 <body>
 
-    <!-- 顶部导航 -->
-    <header class="site-header">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="https://woods-corp.jp/" class="logo-text">株式会社ウッズ・コーポレーション</a>
-            <div>
-                <span class="exclusive-badge">日本国内代理店</span>
-            </div>
-        </div>
+    <header class="site-header container">
+        <a href="https://woods-corp.jp/" class="logo-text">株式会社ウッズ・コーポレーション</a>
+        <div><span class="exclusive-badge">日本国内独占代理店</span></div>
     </header>
 
-    <!-- 1. Hero 头部区 -->
-    <header class="hero">
-        <div class="container">
-            <h1>NLOS 非視野イメージング技術</h1>
-            <h2>隠れた資産のための計算光学的センシングと物理制約状態逆推定システム</h2>
-            <div class="slogan">「見えない世界も、科学の目で見ることができる。」</div>
-            <p style="margin-top: 20px; color: var(--text-light);">最先端AI技術を日本市場へ。地中や構造物内部のリスクを、掘削せずに可視化します。</p>
+    <div class="container" style="padding-top: 40px;">
+        <h1 style="text-align: center; color: var(--dark-blue); margin-bottom: 10px;">NLOS 非視野イメージング技術</h1>
+        <p style="text-align: center; color: #6b7280; margin-bottom: 40px;">隠れた資産のための計算光学的センシングと物理制約状態逆推定システム</p>
+    </div>
+
+    <!-- 1. 痛点图 -->
+    <div class="section container">
+        <h2 class="section-title">私たちが解決する課題とアプローチ</h2>
+        <div class="img-container">
+            <img src="/assets/nlos-lp/nlos-pain-points.jpg" alt="課題">
             
-            <!-- 主视觉大图已取消注释并修正绝对路径 -->
-            <div class="image-wrapper" style="margin-top: 40px;">
-                <img src="/assets/nlos-lp/nlos-hero-bg.jpg" alt="NLOS技術によるインフラ可視化">
+            <!-- 悬浮的日文卡片 -->
+            <div class="pain-card card-left">
+                <h4>1. 見えない</h4>
+                <p>リスク密度が最も高い重要な資産は、地下、構造物内部、または被覆材の下に存在し、直接観測できません。</p>
+            </div>
+            <div class="pain-card card-center">
+                <h4>2. 調査コストが高い</h4>
+                <p>全線調査は高コストであり、高精度な検出手法は特定の点（スポット）に限定されます。</p>
+            </div>
+            <div class="pain-card card-right">
+                <h4>3. 掘削が怖い</h4>
+                <p>開削・解体は周辺環境へ多大な影響を及ぼし、安全リスクを伴うため大規模化が困難です。</p>
             </div>
         </div>
-    </header>
+    </div>
 
-    <!-- 2. 痛点与解决方案 -->
-    <section class="section" style="background: #fff;">
-        <div class="container">
-            <h2 class="section-title">私たちが解決する課題とアプローチ</h2>
-            <p class="section-subtitle">外部から観測可能な物理信号を用いて、不可視領域の状態を逆推定し、実行可能な再検証の提案を行います。</p>
+    <!-- 2. 深色原理图 -->
+    <div class="section container">
+        <h2 class="section-title">技術の仕組み：見えないが、科学的に感知できる</h2>
+        <div class="img-container">
+            <img src="/assets/nlos-lp/nlos-tech-principle.jpg" alt="原理">
             
-            <!-- 对应原图1：痛点图 -->
-            <div class="image-wrapper">
-                <img src="/assets/nlos-lp/nlos-pain-points.jpg" alt="社会インフラの見えないリスク">
-            </div>
-
-            <div class="translation-panel">
-                <h3>現状の3つの壁と、私たちの答え</h3>
-                <p><strong>1. 見えない（リスクの不可視化）：</strong> リスク密度が最も高い重要な資産は、地下、構造物内部、または被覆材の下に存在します。<br>
-                <strong>2. 調査コストが高い：</strong> 全線調査は高コストであり、高精度な検出手法は特定の点（スポット）に限定されます。<br>
-                <strong>3. 掘削が怖い：</strong> 開削・解体は周辺環境へ多大な影響を及ぼし、安全リスクを伴い、大規模化が困難です。</p>
-                <p><strong>私たちの答え：</strong><br>
-                <strong>外部観測 ＋ 物理制約状態逆推定 ＝ 「まずどこを調査するか、なぜそこなのか」</strong><br>
-                Woods Corporationは、外部から観測可能な微弱な物理信号を記録し、独自の物理世界モデル（材質DB、物理DB、化学DB）と組み合わせて内部状態を逆推定します。その結果を<strong>エビデンス等級（E0-E4）</strong>として分類し、無駄な開削を減らすための最適な意思決定情報（座標・状態台帳）を提供します。</p>
+            <!-- 悬浮在底部的深色日文覆盖区（直接盖住底部的中文） -->
+            <div class="tech-cover">
+                <h3>可視光に依存しない、高エネルギー粒子の活用</h3>
+                <p>自然界の自然背景粒子（宇宙線、環境光など）を利用し、材料の隙間や多重散乱を通じて微弱な信号を取得。内部鋼線の腐食・断線・減面の可能性を、時間分布＋強度統計から検知します。</p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- 3. 技术原理区 (深色背景) -->
-    <section class="section tech-dark">
-        <div class="container">
-            <h2 class="section-title">技術の仕組み：見えないが、科学的に感知できる</h2>
-            <p class="section-subtitle" style="color: #94a3b8;">自然界に存在する光子と粒子を用いて、見えない外殻を透過し、隠れたリスクを位置特定・検証可能な情報に変えます。</p>
+    <!-- 3. 流程图 -->
+    <div class="section container">
+        <h2 class="section-title">3層の知識構造と意思決定プロセス</h2>
+        <div class="img-container">
+            <img src="/assets/nlos-lp/nlos-workflow.jpg" alt="フロー">
             
-            <!-- 对应原图3：深色技术原理图 -->
-            <div class="image-wrapper">
-                <img src="/assets/nlos-lp/nlos-tech-principle.jpg" alt="NLOS技術の原理">
-            </div>
-
-            <div class="translation-panel">
-                <h3>図解：信号が内部状態を反映する仕組み</h3>
-                <p><strong>可視光に依存せず、高エネルギー特性を持つ自然背景粒子（宇宙線、環境光など）を利用します。</strong><br>
-                材料の隙間や多重散乱を通じて微弱な信号を取得し、材料内部の多重散乱から検出可能な微弱信号を形成。これにより、内部鋼線の腐食・断線・減面の可能性を、時間分布＋強度統計から検知します。</p>
-                <p><strong>3ステップの作業プロセス：</strong><br>
-                ① <strong>外部観測：</strong> 専用センサーで材料表面の物理反応、幾何学、工学的コンテキストを記録。<br>
-                ② <strong>物理制約逆推定：</strong> 「スペクトル-材料-状態」暗号帳（SMSL）と世界モデルに基づき確率論的に推定。<br>
-                ③ <strong>信頼できる意思決定の出力：</strong> E0-E4のエビデンス等級に基づき、「まずどの区間を調査すべきか、なぜそこなのか」の優先順位を出力。</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. 三层知识架构与工作流 -->
-    <section class="section" style="background: var(--bg-light);">
-        <div class="container">
-            <h2 class="section-title">3層の知識構造と意思決定プロセス</h2>
-            
-            <div class="grid-box" style="margin-bottom: 50px;">
-                <div class="card">
-                    <h4>L1 物理世界DB</h4>
-                    <p>材質DB、物理DB、化学DB。「どのような材料が、どのような条件下で、どのような観測応答を生むか」を定義。</p>
-                </div>
-                <div class="card">
-                    <h4>L2 SMSL 暗号帳</h4>
-                    <p>スペクトル-材料-状態のマッピング。観測応答を、解釈可能な材料・状態へ翻訳。</p>
-                </div>
-                <div class="card">
-                    <h4>L3 3D-VASM 状態モデル</h4>
-                    <p>3次元ベクトル化資産状態モデル。座標・時系列を紐付け、再検証と資産管理を支援。</p>
-                </div>
-            </div>
-
-            <!-- 对应原图6/5：流程图 -->
-            <div class="image-wrapper">
-                <img src="/assets/nlos-lp/nlos-workflow.jpg" alt="意思決定ワークフロー">
-            </div>
-
-            <div class="translation-panel">
+            <!-- 悬浮在底部的白色日文覆盖区 -->
+            <div class="workflow-cover">
                 <h3>私たちは代替するのではなく、確認をより効率的にする</h3>
-                <p>本技術は超音波、磁粉探傷、掘削、または法定検査に取って代わるものではなく、これらの高コストな手段を最も必要な場所に集中させます。<br>
-                <strong>【ワークフロー】</strong><br>
-                NLOS探査（広域リスクの優先順位付け） → NDE（非破壊検査：超音波/磁粉等） → 掘削/解体検査（必要な場合） → 状態台帳（3D-VASMへの記録）</p>
-                <p style="font-size: 18px; font-weight: bold; color: #1a56db; margin-top: 20px;">
-                    「同じリソースで、より大きな安全と価値を。」
-                </p>
+                <p>本技術は超音波、磁粉探傷、掘削、または法定検査に取って代わるものではなく、これらの高コストな手段を最も必要な場所に集中させます。</p>
             </div>
         </div>
-    </section>
-
-    <!-- 5. 结尾价值与咨询区 -->
-    <section class="section" style="background: #fff;">
-        <div class="container" style="text-align: center;">
-            <h2 class="section-title">Woods Corporationが提供する価値</h2>
-            <div class="grid-box" style="margin-top: 40px; margin-bottom: 60px;">
-                <div>
-                    <h4 style="color:#1e3a8a;">🛡️ より安全に</h4>
-                    <p style="color:#4b5563; font-size:14px;">高リスクを事前に特定し、突発事故を削減。</p>
-                </div>
-                <div>
-                    <h4 style="color:#1e3a8a;">💰 より経済的に</h4>
-                    <p style="color:#4b5563; font-size:14px;">高コストな検査を必要な場所に集中し、ライフサイクルコストを削減。</p>
-                </div>
-                <div>
-                    <h4 style="color:#1e3a8a;">⏱️ より高効率に</h4>
-                    <p style="color:#4b5563; font-size:14px;">迅速なカバレッジと正確な優先順位付けで、意思決定期間を短縮。</p>
-                </div>
-                <div>
-                    <h4 style="color:#1e3a8a;">🌱 より持続可能に</h4>
-                    <p style="color:#4b5563; font-size:14px;">低侵襲な観測により、掘削を減らし資産寿命を延長。</p>
-                </div>
-            </div>
-
-            <div style="background: var(--bg-light); padding: 40px; border-radius: 12px; border: 1px solid #e5e7eb;">
-                <h3 style="color: #1e3a8a; margin-top: 0;">まずは無料相談・デモンストレーションのご依頼</h3>
-                <p style="color: var(--text-light); margin-bottom: 20px;">ガソリンスタンドの地下タンク・配管、ホテルの温泉・給湯配管など、非破壊での調査をご検討の際は、ぜひ一度ご相談ください。</p>
-                <a href="https://woods-corp.jp/" style="display: inline-block; background: var(--woods-accent); color: #fff; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 16px;">Woods Corporation 公式サイトへ</a>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <footer class="footer">
-        <p>© 2026 株式会社ウッズ・コーポレーション | <a href="https://woods-corp.jp/">https://woods-corp.jp/</a></p>
-        <p>本技術に関する日本国内でのお問い合わせは、当社が代理店に承っております。</p>
+        <p>© 2026 株式会社ウッズ・コーポレーション | 日本国内独占代理店</p>
     </footer>
 
 </body>
