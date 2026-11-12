@@ -9,160 +9,140 @@
         --main-blue: #1a56db;
         --dark-blue: #1e3a8a;
         --woods-accent: #0056b3;
+        --text-gray: #4b5563;
     }
     body { font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; margin: 0; padding: 0; background: #fff; line-height: 1.7; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     
     /* 顶部导航 */
     .site-header { padding: 20px 0; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; background: #fff; }
     .site-header .logo-text { font-size: 20px; font-weight: bold; color: var(--woods-accent); text-decoration: none; }
     .exclusive-badge { background: #ef4444; color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 4px; }
 
-    /* 通用章节 */
-    .section { padding: 60px 0; border-bottom: 1px solid #e5e7eb; }
-    .section-title { font-size: 32px; font-weight: bold; color: var(--dark-blue); text-align: center; margin-bottom: 15px; }
-    
     /* ==========================================
-       ★ 核心：封面图遮盖与重写 ★
+       1. 完美的主视觉区 (Hero Section)
        ========================================== */
-    .hero-cover {
+    .hero-wrapper {
         position: relative;
         width: 100%;
-        background-color: #fff;
-        /* 这里使用的是原封面图，您确保图片路径正确 */
-        background-image: url('/assets/nlos-lp/nlos-hero-bg.jpg');
-        background-size: cover;
-        background-position: center bottom; /* 重点展示桥梁和地下部分 */
-        padding-top: 60px; /* 顶部留出空间写字 */
-        padding-bottom: 80px;
+        background-color: #f8fafc;
         overflow: hidden;
-        border-bottom: 1px solid #e5e7eb;
     }
 
-    /* 顶部纯白色块：彻底盖住原图的“中文大标题”区 */
-    .cover-top-mask {
-        background: rgba(255, 255, 255, 0.95);
-        padding: 40px;
+    /* 在图片上方覆盖一层轻微的渐变，让文字更清晰 */
+    .hero-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 60%;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* 文字容器，悬浮在图片上方 */
+    .hero-content {
+        position: absolute;
+        top: 10%;
+        left: 0;
+        width: 100%;
+        z-index: 2; /* 确保文字在图片和渐变层之上 */
         text-align: center;
-        border-radius: 8px;
-        margin: 0 auto 100px auto; /* 留出下方空间显示图 */
-        max-width: 900px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
-    .cover-top-mask h1 { font-size: 42px; color: var(--dark-blue); margin: 0 0 10px 0; font-weight: 800; }
-    .cover-top-mask h2 { font-size: 20px; color: #4b5563; margin: 0 0 20px 0; font-weight: normal; }
-    .cover-top-mask .slogan { font-size: 24px; color: var(--main-blue); font-weight: bold; font-style: italic; }
+
+    .hero-content h1 {
+        font-size: clamp(28px, 4vw, 48px); /* 使用 clamp 确保在手机和电脑上都能自动缩放 */
+        color: var(--dark-blue);
+        margin: 0 0 15px 0;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 10px rgba(255,255,255,0.8); /* 白边发光，防止和背景混色 */
+    }
+
+    .hero-content h2 {
+        font-size: clamp(16px, 2vw, 24px);
+        color: var(--text-gray);
+        margin: 0 0 20px 0;
+        font-weight: 600;
+    }
+
+    .hero-content .slogan {
+        display: inline-block;
+        font-size: clamp(18px, 2.5vw, 28px);
+        color: var(--main-blue);
+        font-weight: bold;
+        font-style: italic;
+        background: rgba(255,255,255,0.7);
+        padding: 10px 30px;
+        border-radius: 30px;
+        backdrop-filter: blur(5px); /* 毛玻璃效果 */
+    }
+
+    /* 图片容器 */
+    .hero-image-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .hero-image-container img {
+        width: 100%;
+        max-width: 1400px; /* 防止在大屏幕上无限拉大 */
+        height: auto;
+        display: block;
+        /* 如果你希望底部有暗角，可以加个 mask-image，但目前原样最干净 */
+    }
 
     /* ==========================================
-       ★ 痛点卡片区：彻底盖住原图底部的“中文卡片” ★
+       2. 下方内容占位（等您抠好其他图再替换）
        ========================================== */
-    .pain-points-wrapper {
-        background: #fff;
-        padding: 40px;
-        margin-top: -60px; /* 向上提一点，盖住原图底部 */
-        position: relative;
-        z-index: 10;
-        border-radius: 12px;
-        box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
-    }
-    .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .pain-card { background: #f8fafc; border-top: 4px solid var(--main-blue); padding: 25px; border-radius: 8px; }
-    .pain-card h4 { color: var(--dark-blue); font-size: 20px; margin: 0 0 10px 0; }
-    .pain-card p { color: #4b5563; font-size: 14px; margin: 0; }
+    .section { padding: 80px 0; background: #fff; text-align: center; }
+    .section-title { font-size: 32px; font-weight: bold; color: var(--dark-blue); margin-bottom: 20px; }
+    .placeholder-text { color: #9ca3af; font-size: 16px; margin-bottom: 40px; }
 
-    /* ==========================================
-       ★ 深色原理图区域 ★
-       ========================================== */
-    .dark-section {
-        background-color: #0f172a;
-        color: #fff;
-        padding: 80px 0;
-    }
-    .dark-section h2 { color: #60a5fa; text-align: center; font-size: 32px; margin-bottom: 40px; }
-    
-    .tech-img-container { position: relative; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-    .tech-img-container img { width: 100%; display: block; }
-    
-    /* 底部深色遮罩：盖住原图底部的中文说明 */
-    .tech-cover-mask {
-        background: #0f172a;
-        padding: 30px;
-        border-top: 1px solid #334155;
-    }
-    .tech-cover-mask h3 { color: #60a5fa; margin: 0 0 10px 0; font-size: 20px; }
-    .tech-cover-mask p { color: #cbd5e1; font-size: 15px; margin: 0; }
+    /* 底部 */
+    .footer { text-align: center; padding: 40px 0; background: #f8fafc; color: #9ca3af; font-size: 14px; border-top: 1px solid #e5e7eb; }
 
     /* 手机端适配 */
     @media (max-width: 768px) {
-        .pain-grid { grid-template-columns: 1fr; }
-        .cover-top-mask h1 { font-size: 28px; }
-        .cover-top-mask { padding: 20px; margin-bottom: 50px; }
-        .pain-points-wrapper { padding: 20px; margin-top: 20px; box-shadow: none; }
+        .hero-content { top: 5%; }
+        .hero-content .slogan { padding: 5px 15px; font-size: 16px; }
+        .hero-wrapper::before { height: 70%; }
     }
-
-    .footer { text-align: center; padding: 40px 0; background: #f8fafc; color: #9ca3af; font-size: 14px; }
 </style>
 </head>
 <body>
 
     <header class="site-header container">
         <a href="https://woods-corp.jp/" class="logo-text">株式会社ウッズ・コーポレーション</a>
-        <div><span class="exclusive-badge">日本国内代理店</span></div>
+        <div><span class="exclusive-badge">日本国内独占代理店</span></div>
     </header>
 
-    <!-- 1. 头部主视觉区（用白色面板遮挡原图上方大标题，只露出中间的桥梁和光束） -->
-    <div class="hero-cover">
-        <div class="cover-top-mask">
+    <!-- 1. 主视觉区（测试您抠好的图） -->
+    <div class="hero-wrapper">
+        
+        <!-- 悬浮在图片上方的日文标题 -->
+        <div class="hero-content">
             <h1>NLOS 非視野イメージング技術</h1>
             <h2>隠れた資産のための計算光学的センシングと物理制約状態逆推定システム</h2>
             <div class="slogan">「見えない世界も、科学の目で見ることができる。」</div>
         </div>
+
+        <!-- 展示您刚刚上传的纯图 -->
+        <div class="hero-image-container">
+            <img src="/assets/nlos-lp/nlos-hero-clean.jpg" alt="NLOS技術主视觉">
+        </div>
+
     </div>
 
-    <!-- 2. 痛点区（用纯白底面板顶替原图底部的中文卡片） -->
+    <!-- 2. 下方内容区（暂时留白，等待其他图） -->
     <div class="section container">
-        <div class="pain-points-wrapper">
-            <h2 class="section-title" style="margin-bottom: 30px;">私たちが解決する課題とアプローチ</h2>
-            <div class="pain-grid">
-                <div class="pain-card">
-                    <h4>1. 見えない</h4>
-                    <p>リスク密度が最も高い重要な資産は、地下、構造物内部、または被覆材の下に存在し、直接観測できません。</p>
-                </div>
-                <div class="pain-card">
-                    <h4>2. 調査コストが高い</h4>
-                    <p>全線調査は高コストであり、高精度な検出手法は特定の点（スポット）に限定され、持続可能な調査が困難です。</p>
-                </div>
-                <div class="pain-card">
-                    <h4>3. 掘削が怖い</h4>
-                    <p>開削・解体は周辺環境へ多大な影響を及ぼし、安全リスクを伴うため、大規模化が困難です。</p>
-                </div>
-            </div>
-            <div style="background: var(--main-blue); color: #fff; padding: 20px; border-radius: 8px; margin-top: 20px; text-align: center; font-weight: bold;">
-                私たちの答え：外部観測 ＋ 物理制約状態逆推定 ＝ 「まずどこを調査するか、なぜそこなのか」
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. 深色技术原理（保留原图最帅的粒子透视图，只把底部的字用纯黑背景替换掉） -->
-    <div class="dark-section">
-        <div class="container">
-            <h2>技術の仕組み：見えないが、科学的に感知できる</h2>
-            
-            <div class="tech-img-container">
-                <!-- 使用您的原图3（深色粒子图） -->
-                <img src="/assets/nlos-lp/nlos-tech-principle.jpg" alt="技術原理">
-                
-                <!-- 用深色色块直接把原图底部的字盖住，换成日文 -->
-                <div class="tech-cover-mask">
-                    <h3>可視光に依存しない、高エネルギー粒子の活用</h3>
-                    <p>自然界の自然背景粒子（宇宙線、環境光など）を利用し、材料の隙間や多重散乱を通じて微弱な信号を取得。内部鋼線の腐食・断線・減面の可能性を、時間分布＋強度統計から検知します。</p>
-                </div>
-            </div>
-        </div>
+        <h2 class="section-title">私たちが解決する課題とアプローチ</h2>
+        <p class="placeholder-text">（ここに「痛点図」のHTMLを挿入します。他の画像が完成次第、コードを更新します。）</p>
     </div>
 
     <footer class="footer">
-        <p>© 2026 株式会社ウッズ・コーポレーション | 日本国内代理店</p>
+        <p>© 2026 株式会社ウッズ・コーポレーション | 日本国内独占代理店</p>
     </footer>
 
 </body>
