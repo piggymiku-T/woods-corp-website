@@ -10,104 +10,66 @@
         --dark-blue: #1e3a8a;
         --woods-accent: #0056b3;
         --text-gray: #4b5563;
+        --bg-light: #f8fafc;
     }
-    body { font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; margin: 0; padding: 0; background: #fff; line-height: 1.7; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    
+    body { font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; margin: 0; padding: 0; background: #fff; line-height: 1.6; color: #1f2937; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    img { max-width: 100%; height: auto; display: block; }
+
     /* 顶部导航 */
-    .site-header { padding: 20px 0; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; background: #fff; }
+    .site-header { padding: 15px 0; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; }
     .site-header .logo-text { font-size: 20px; font-weight: bold; color: var(--woods-accent); text-decoration: none; }
     .exclusive-badge { background: #ef4444; color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 4px; }
 
-    /* ==========================================
-       1. 完美的主视觉区 (Hero Section)
-       ========================================== */
-    .hero-wrapper {
-        position: relative;
-        width: 100%;
-        background-color: #f8fafc;
-        overflow: hidden;
-    }
+    /* 1. 大标题区 */
+    .hero-header { text-align: center; padding: 50px 0 40px 0; }
+    .hero-header h1 { font-size: clamp(32px, 5vw, 48px); color: var(--dark-blue); margin: 0 0 10px 0; font-weight: 800; letter-spacing: 1px; }
+    .hero-header h2 { font-size: clamp(16px, 2vw, 22px); color: var(--text-gray); margin: 0 0 15px 0; font-weight: 500; }
+    .hero-header .features { font-size: 14px; color: var(--main-blue); font-weight: bold; letter-spacing: 2px; }
 
-    /* 在图片上方覆盖一层轻微的渐变，让文字更清晰 */
-    .hero-wrapper::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 60%;
-        background: linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
-        z-index: 1;
-        pointer-events: none;
-    }
+    /* 2. 全宽主图 */
+    .hero-img-wrap { width: 100%; max-width: 1200px; margin: 0 auto 60px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+    .hero-img-wrap img { width: 100%; display: block; }
 
-    /* 文字容器，悬浮在图片上方 */
-    .hero-content {
-        position: absolute;
-        top: 10%;
-        left: 0;
-        width: 100%;
-        z-index: 2; /* 确保文字在图片和渐变层之上 */
-        text-align: center;
-    }
+    /* 3. 核心问题（四宫格+价值） */
+    .section-title-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; }
+    .section-title-wrap::before { content: ''; display: block; width: 6px; height: 28px; background: var(--main-blue); }
+    .section-title { font-size: 26px; font-weight: bold; color: var(--dark-blue); margin: 0; }
+    .section-subtitle { color: var(--text-gray); margin-bottom: 40px; font-size: 15px; }
 
-    .hero-content h1 {
-        font-size: clamp(28px, 4vw, 48px); /* 使用 clamp 确保在手机和电脑上都能自动缩放 */
-        color: var(--dark-blue);
-        margin: 0 0 15px 0;
-        font-weight: 800;
-        letter-spacing: 1px;
-        text-shadow: 0 2px 10px rgba(255,255,255,0.8); /* 白边发光，防止和背景混色 */
-    }
-
-    .hero-content h2 {
-        font-size: clamp(16px, 2vw, 24px);
-        color: var(--text-gray);
-        margin: 0 0 20px 0;
-        font-weight: 600;
-    }
-
-    .hero-content .slogan {
-        display: inline-block;
-        font-size: clamp(18px, 2.5vw, 28px);
-        color: var(--main-blue);
-        font-weight: bold;
-        font-style: italic;
-        background: rgba(255,255,255,0.7);
-        padding: 10px 30px;
-        border-radius: 30px;
-        backdrop-filter: blur(5px); /* 毛玻璃效果 */
-    }
-
-    /* 图片容器 */
-    .hero-image-container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+    .problem-grid { display: grid; grid-template-columns: repeat(4, 1fr) 1.2fr; gap: 15px; margin-bottom: 80px; }
+    .problem-card { background: var(--bg-light); border-radius: 8px; padding: 25px 15px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
+    .problem-card .icon { font-size: 36px; margin-bottom: 15px; }
+    .problem-card h4 { font-size: 18px; color: #1f2937; margin: 0 0 10px 0; }
+    .problem-card p { font-size: 13px; color: var(--text-gray); margin: 0; }
     
-    .hero-image-container img {
-        width: 100%;
-        max-width: 1400px; /* 防止在大屏幕上无限拉大 */
-        height: auto;
-        display: block;
-        /* 如果你希望底部有暗角，可以加个 mask-image，但目前原样最干净 */
-    }
+    .value-card { background: #e0f2fe; border-radius: 8px; padding: 25px; display: flex; flex-direction: column; justify-content: center; border-left: 4px solid var(--main-blue); }
+    .value-card h4 { font-size: 18px; color: var(--dark-blue); margin: 0 0 10px 0; font-weight: bold; }
+    .value-card ul { padding-left: 20px; margin: 0; font-size: 14px; color: var(--text-gray); }
+    .value-card li { margin-bottom: 5px; }
 
-    /* ==========================================
-       2. 下方内容占位（等您抠好其他图再替换）
-       ========================================== */
-    .section { padding: 80px 0; background: #fff; text-align: center; }
-    .section-title { font-size: 32px; font-weight: bold; color: var(--dark-blue); margin-bottom: 20px; }
-    .placeholder-text { color: #9ca3af; font-size: 16px; margin-bottom: 40px; }
-
-    /* 底部 */
-    .footer { text-align: center; padding: 40px 0; background: #f8fafc; color: #9ca3af; font-size: 14px; border-top: 1px solid #e5e7eb; }
+    /* 4. 技术思路（5步流程） */
+    .tech-flow { display: flex; gap: 10px; margin-bottom: 60px; overflow-x: auto; padding-bottom: 20px; }
+    .tech-step { flex: 1; min-width: 180px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+    .tech-step-header { background: var(--main-blue); color: #fff; padding: 12px; text-align: center; font-weight: bold; font-size: 15px; position: relative; }
+    .tech-step-header::after { content: '▶'; position: absolute; right: -12px; top: 50%; transform: translateY(-50%); color: var(--main-blue); font-size: 20px; z-index: 10; }
+    .tech-step:last-child .tech-step-header::after { display: none; }
+    .tech-step-body { padding: 15px; flex: 1; }
+    .tech-step-body p { font-size: 13px; color: var(--text-gray); margin: 0 0 15px 0; min-height: 60px; }
+    .tech-step-body img { border-radius: 4px; width: 100%; height: 100px; object-fit: cover; }
 
     /* 手机端适配 */
-    @media (max-width: 768px) {
-        .hero-content { top: 5%; }
-        .hero-content .slogan { padding: 5px 15px; font-size: 16px; }
-        .hero-wrapper::before { height: 70%; }
+    @media (max-width: 900px) {
+        .problem-grid { grid-template-columns: 1fr 1fr; }
+        .value-card { grid-column: span 2; }
+        .tech-flow { flex-wrap: wrap; }
+        .tech-step { min-width: 45%; }
+        .tech-step-header::after { display: none; }
+    }
+    @media (max-width: 600px) {
+        .problem-grid { grid-template-columns: 1fr; }
+        .value-card { grid-column: span 1; }
+        .tech-step { min-width: 100%; }
     }
 </style>
 </head>
@@ -118,32 +80,103 @@
         <div><span class="exclusive-badge">日本国内独占代理店</span></div>
     </header>
 
-    <!-- 1. 主视觉区（测试您抠好的图） -->
-    <div class="hero-wrapper">
-        
-        <!-- 悬浮在图片上方的日文标题 -->
-        <div class="hero-content">
-            <h1>NLOS 非視野イメージング技術</h1>
-            <h2>隠れた資産のための計算光学的センシングと物理制約状態逆推定システム</h2>
-            <div class="slogan">「見えない世界も、科学の目で見ることができる。」</div>
-        </div>
-
-        <!-- 展示您刚刚上传的纯图 -->
-        <div class="hero-image-container">
-            <img src="/assets/nlos-lp/nlos-hero-clean.jpg" alt="NLOS技術主视觉">
-        </div>
-
+    <!-- 1. 标题区 -->
+    <div class="container hero-header">
+        <h1>NLOS 非視野イメージング技術 白書 <span style="font-size: 24px; background: #e2e8f0; padding: 2px 8px; border-radius: 4px; vertical-align: middle;">v2.0</span></h1>
+        <h2>隠れた資産のための計算光学的センシングと物理制約状態逆推定システム</h2>
+        <div class="features">見えないリスクの可視化 ｜ 高リスクの特定 ｜ 精密な再検証の指示 ｜ インフラの安全性向上</div>
     </div>
 
-    <!-- 2. 下方内容区（暂时留白，等待其他图） -->
-    <div class="section container">
-        <h2 class="section-title">私たちが解決する課題とアプローチ</h2>
-        <p class="placeholder-text">（ここに「痛点図」のHTMLを挿入します。他の画像が完成次第、コードを更新します。）</p>
+    <!-- 2. 大图区（请确保上传了无字版桥梁图） -->
+    <div class="hero-img-wrap">
+        <!-- 替换为您抠好的大图路径 -->
+        <img src="/assets/nlos-lp/nlos-hero-clean.jpg" alt="NLOS技術イメージ">
     </div>
 
-    <footer class="footer">
-        <p>© 2026 株式会社ウッズ・コーポレーション | 日本国内独占代理店</p>
-    </footer>
+    <div class="container">
+        <!-- 3. 核心问题区 -->
+        <div class="section-title-wrap">
+            <h2 class="section-title">私たちが解決する核心的な課題</h2>
+        </div>
+        <p class="section-subtitle">「どこにでも問題があるかもしれない」を「まずこの区間を調査する」に変えます。</p>
+
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="icon">🚫</div>
+                <h4>見えない</h4>
+                <p>リスク密度が最も高い資産は、直接観測することができません。</p>
+            </div>
+            <div class="problem-card">
+                <div class="icon">💸</div>
+                <h4>調査コストが高い</h4>
+                <p>全線検出は高コストで、長期間にわたり持続不可能です。</p>
+            </div>
+            <div class="problem-card">
+                <div class="icon">⛏️</div>
+                <h4>掘削が怖い</h4>
+                <p>開削・解体は影響が大きく、安全リスクや営業停止を伴います。</p>
+            </div>
+            <div class="problem-card">
+                <div class="icon">🎯</div>
+                <h4>優先順位が不明</h4>
+                <p>既存の手法では、どこから調査すべきか判断が難しい。</p>
+            </div>
+            <div class="value-card">
+                <h4>📈 私たちの価値</h4>
+                <ul>
+                    <li>リスクの可視化</li>
+                    <li>再検証の根拠</li>
+                    <li>より精密なメンテナンス</li>
+                    <li>より安全な資産</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 4. 技术流程区 -->
+        <div class="section-title-wrap">
+            <h2 class="section-title">技術アプローチ（一目でわかる）</h2>
+        </div>
+        <p class="section-subtitle">外部から観測可能な微弱な信号と物理世界の知識ベースを組み合わせ、不可視領域の状態情報を逆推定します。</p>
+
+        <div class="tech-flow">
+            <div class="tech-step">
+                <div class="tech-step-header">1. 外部観測</div>
+                <div class="tech-step-body">
+                    <p>表面反射や散乱を記録し、幾何学や工学的文脈と組み合わせます。</p>
+                    <!-- 如果没有图，可以暂时删掉img标签 -->
+                    <img src="/assets/nlos-lp/img-tech-car.jpg" alt="観測">
+                </div>
+            </div>
+            <div class="tech-step">
+                <div class="tech-step-header">2. 信号処理</div>
+                <div class="tech-step-body">
+                    <p>6つのゲートフィルターを通し、解釈可能な微弱信号を抽出。</p>
+                    <img src="/assets/nlos-lp/img-tech-wave.jpg" alt="信号処理">
+                </div>
+            </div>
+            <div class="tech-step">
+                <div class="tech-step-header">3. 物理制約逆推定</div>
+                <div class="tech-step-body">
+                    <p>「スペクトル-材料-状態」暗号帳（SMSL）に基づく推定。</p>
+                    <img src="/assets/nlos-lp/img-tech-cylinder.jpg" alt="逆推定">
+                </div>
+            </div>
+            <div class="tech-step">
+                <div class="tech-step-header">4. 証拠等級</div>
+                <div class="tech-step-body">
+                    <p>E0〜E4の等級付けを行い、信頼区間を提示します。</p>
+                    <img src="/assets/nlos-lp/img-tech-heatmap.jpg" alt="証拠等級">
+                </div>
+            </div>
+            <div class="tech-step">
+                <div class="tech-step-header">5. 意思決定出力</div>
+                <div class="tech-step-body">
+                    <p>再検証提案と状態台帳を生成し、資産管理に接続します。</p>
+                    <img src="/assets/nlos-lp/img-tech-map.jpg" alt="意思決定">
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
