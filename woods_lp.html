@@ -144,6 +144,7 @@
         .tech-icons span { transition: all 0.3s; cursor: default;}
         .tech-icons span:hover { color: var(--primary); text-shadow: 0 0 15px var(--primary); transform: translateY(-3px); }
 
+        /* 痛点区 */
         .problem { padding: 120px 5%; background: #FFF; }
         .section-title { font-size: 36px; color: #111; margin-bottom: 20px; text-align: center; letter-spacing: 1px;}
         .section-subtitle { text-align: center; color: #666; font-size: 16px; margin-bottom: 60px; }
@@ -157,17 +158,28 @@
         .problem-card h3 { font-size: 20px; margin-bottom: 15px; color: #111; font-weight: 600; display: flex; align-items: center; gap: 10px; font-family: var(--font-serif);}
         .problem-card h3::before { content: '⚠️'; font-size: 16px; font-family: var(--font-sans);}
 
-        /* 服务区：替换背景图占位，加入副标题 */
+        /* 成功案例区 */
+        .case-study-section { padding: 100px 5%; background: #F9F9F9; }
+        .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .case-card { 
+            text-decoration: none; display: block; background: #FFF; padding: 30px; 
+            border-radius: 12px; border-left: 4px solid var(--primary); 
+            transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .case-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        .case-tag { font-size: 12px; color: var(--primary); font-weight: bold; margin-bottom: 10px; }
+        .case-card h3 { font-size: 18px; margin-bottom: 10px; color: #111; font-family: var(--font-serif); }
+        .case-card p { font-size: 14px; color: #555; line-height: 1.6; }
+        .case-link { display: inline-block; margin-top: 15px; font-size: 13px; color: var(--primary); font-weight: bold; }
+
         .bg-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-    opacity: 0.4; /* 调整透明度，保证文字清晰 */
-}
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.4;
+        }
         .service { 
             padding: 120px 5%; 
             background-color: var(--bg-dark); 
@@ -177,7 +189,6 @@
         }
         .service::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            /* 替换成你生成的转化金线图 */
             background: linear-gradient(rgba(10,10,12,0.85), rgba(10,10,12,0.95)), url('https://woods-corp.jp/assets/service-bg.jpg') no-repeat center center;
             background-size: cover;
             opacity: 0.6; 
@@ -211,7 +222,8 @@
         .faq-item h3 { font-size: 18px; color: #111; margin-bottom: 15px; font-family: var(--font-serif);}
         .faq-item p { font-size: 14px; color: #666; }
 
-        .footer-cta { padding: 120px 5%; text-align: center; background: #FFF; }
+        /* 底部联系与合规 */
+        .footer-cta { padding: 120px 5% 80px; text-align: center; background: #FFF; }
         .footer-cta .section-title { color: #111; margin-bottom: 20px;}
         .footer-cta p { color: #666; margin-bottom: 40px; font-size: 15px; }
         .form-container { max-width: 500px; margin: 0 auto; text-align: left; background: #FFF; padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid #EEE;}
@@ -219,17 +231,37 @@
         .form-group input { width: 100%; padding: 16px 20px; border: 1px solid #DDD; border-radius: 6px; font-family: inherit; font-size: 15px; transition: all 0.3s; background: #FAFAFA;}
         .form-group input:focus { outline: none; border-color: var(--primary); background: #FFF; box-shadow: 0 0 0 3px rgba(201,169,110,0.1); }
         
+        .company-info-text {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #EAEAEA;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .company-info-text strong { color: #111; font-size: 16px; }
+
+        .legal-section {
+            background: #0a0a0c; color: #666; padding: 40px 5%; font-size: 12px; border-top: 1px solid #222;
+        }
+        .legal-section details { max-width: 1000px; margin: 0 auto; }
+        .legal-section summary { cursor: pointer; font-weight: bold; font-size: 14px; color: #999; margin-bottom: 15px; outline: none; }
+        .legal-section table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .legal-section th, .legal-section td { padding: 12px 10px; border-bottom: 1px solid #222; text-align: left; }
+        .legal-section th { width: 30%; color: #888; font-weight: normal; }
+        .legal-section td { color: #AAA; }
+
         footer { background: #000; color: #444; text-align: center; padding: 30px; font-size: 12px; font-family: monospace;}
     </style>
 </head>
 <body>
-        <nav>
-        <!-- 将 Logo 变成一个可点击的返回主站链接 -->
+
+    <nav>
         <a href="https://woods-corp.jp/" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
             <span style="font-family: monospace; font-size: 18px; color: #FFF; font-weight: 800;">←</span> WOODS<span>_DIGITAL</span>
         </a>
         <div style="display: flex; gap: 20px; align-items: center;">
-            <!-- 加一个直白的返回按钮 -->
             <a href="https://woods-corp.jp/" style="color: #999; font-size: 13px; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#FFF'" onmouseout="this.style.color='#999'">コーポレートサイトへ戻る</a>
             <a href="#contact" class="cta-nav">無料診断</a>
         </div>
@@ -276,12 +308,49 @@
         </div>
     </section>
 
-    <!-- 服务区：加入转化暗示副标题 -->
-   <section class="service">
-    <!-- 插入视频背景 -->
-    <video autoplay loop muted playsinline class="bg-video">
-        <source src="https://woods-corp.jp/assets/service-bg.mp4" type="video/mp4">
-    </video>
+    <!-- 新增：真实案例区 -->
+    <section class="case-study-section">
+        <div class="container" style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title reveal" style="text-align: center; color: #111; font-size: 32px; font-weight: 800; margin-bottom: 20px;">制作実績・開発事例</h2>
+            <p class="section-subtitle reveal" style="text-align: center; color: #666; margin-bottom: 50px;">私たちはフロントエンドの「デザイン」だけでなく、バックエンドの「システム開発・運用」まで一気通貫で手がけます。</p>
+            
+            <div class="case-grid">
+                <a href="https://jkfw2026.com" target="_blank" rel="noopener noreferrer" class="case-card reveal">
+                    <div class="case-tag">CASE 1: 大型国際的イベントプラットフォーム</div>
+                    <h3>JKFW 2026 (国際ファッションウィーク)</h3>
+                    <p>単なるWebサイトではなく、<strong>「オンラインエントリー・会員管理・チケット販売・当日のQR検札・会場投屏システム」</strong>を完全統合したプラットフォームを構築。</p>
+                    <span class="case-link">サイトを見る →</span>
+                </a>
+
+                <a href="https://www.hash-future.com" target="_blank" rel="noopener noreferrer" class="case-card reveal" style="transition-delay: 0.1s;">
+                    <div class="case-tag">CASE 2: 先端ITインフラ企業</div>
+                    <h3>HASH FUTURE株式会社</h3>
+                    <p>AIデータセンターやGPUクラスタといった<strong>極めて高度なB2B技術</strong>を、明快かつ圧倒的な信頼感で伝えるコーポレートサイト。専門用語の適切なローカライズと洗練されたUIが強み。</p>
+                    <span class="case-link">サイトを見る →</span>
+                </a>
+
+                <a href="https://j-aga.jp" target="_blank" rel="noopener noreferrer" class="case-card reveal" style="transition-delay: 0.2s;">
+                    <div class="case-tag">CASE 3: 業界団体・IPライセンス</div>
+                    <h3>日本アニメ・ゲーム協会</h3>
+                    <p>50社以上の会員企業を抱える業界団体の公式サイト。<strong>権利管理や会員限定のアーカイブ閲覧機能</strong>など、セキュアな情報共有システムを実装。</p>
+                    <span class="case-link">サイトを見る →</span>
+                </a>
+
+                <a href="https://japan-kids-association.com" target="_blank" rel="noopener noreferrer" class="case-card reveal" style="transition-delay: 0.3s;">
+                    <div class="case-tag">CASE 4: 非営利団体 (NPO)</div>
+                    <h3>日本キッズ協会</h3>
+                    <p>団体の理念や「夢」を視覚的に伝える、温かみと信頼感を両立したブランディングサイト。問い合わせ・協賛導線の最適化により、パートナー獲得を支援。</p>
+                    <span class="case-link">サイトを見る →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务区 -->
+    <section class="service">
+        <video autoplay loop muted playsinline class="bg-video">
+            <source src="https://woods-corp.jp/assets/service-bg.mp4" type="video/mp4">
+        </video>
         <div class="container">
             <h2 class="section-title reveal">AI駆動型 Webソリューション</h2>
             <p class="section-subtitle reveal">デザインは「入り口」、大切なのは「成果」を届けること。</p>
@@ -351,7 +420,32 @@
                 <p id="errorText" style="color: #F44336; font-weight: bold; margin: 0;">エラーが発生しました。</p>
             </div>
         </div>
+
+        <!-- 新增：公司文字信息 -->
+        <div class="company-info-text reveal">
+            <strong>株式会社ウッズ・コーポレーション</strong><br>
+            〒460-0011 愛知県名古屋市中区大須1-7-14 パークIMビル2F<br>
+            Email: contact@woods-corp.jp<br>
+            ※お問い合わせは原則1〜2営業日以内にご返信いたします。
+        </div>
     </section>
+
+    <!-- 新增：特定商取引法表记（合规必备） -->
+    <div class="legal-section">
+        <details>
+            <summary>特定商取引法に基づく表記</summary>
+            <table>
+                <tr><th>販売業者</th><td>株式会社ウッズ・コーポレーション</td></tr>
+                <tr><th>運営責任者</th><td>田中 莉斯</td></tr>
+                <tr><th>所在地</th><td>〒460-0011 愛知県名古屋市中区大須1-7-14 パークIMビル2F</td></tr>
+                <tr><th>連絡先</th><td>Email: contact@woods-corp.jp</td></tr>
+                <tr><th>販売価格</th><td>各サービスページに記載の通り（税別）</td></tr>
+                <tr><th>支払方法</th><td>銀行振込、クレジットカード決済</td></tr>
+                <tr><th>引渡し時期</th><td>契約締結後、またはご入金確認後、合意したスケジュールに基づき提供</td></tr>
+                <tr><th>返品・キャンセル</th><td>役務提供（サービス）の性質上、納品後の返品は不可。</td></tr>
+            </table>
+        </details>
+    </div>
 
     <footer>&copy; 2026 WOODS CORPORATION | AI-DRIVEN WEB SOLUTIONS</footer>
 
