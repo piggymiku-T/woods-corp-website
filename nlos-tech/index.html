@@ -33,11 +33,31 @@
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
     img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
 
-    /* ================= 鼠标跟随光晕 (科技感细节) ================= */
+    /* ================= 全局向下扫描光效 ================= */
+    .scan-line {
+        position: fixed;
+        top: -10vh;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent 0%, rgba(0, 210, 255, 0.8) 50%, transparent 100%);
+        box-shadow: 0 0 15px 3px rgba(0, 210, 255, 0.3);
+        z-index: 9999;
+        pointer-events: none;
+        animation: scanDown 6s linear infinite;
+    }
+    @keyframes scanDown {
+        0% { top: -10vh; opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { top: 110vh; opacity: 0; }
+    }
+
+    /* ================= 鼠标跟随光晕 ================= */
     .cursor-glow {
         position: fixed;
         width: 300px; height: 300px;
-        background: radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(0, 210, 255, 0.1) 0%, transparent 70%);
         border-radius: 50%;
         pointer-events: none;
         transform: translate(-50%, -50%);
@@ -47,100 +67,84 @@
 
     /* ================= 顶部导航 ================= */
     .site-header { 
-        padding: 20px 0; 
+        padding: 15px 0; /* 缩紧 */
         border-bottom: 1px solid var(--border-color); 
         display: flex; justify-content: space-between; align-items: center; 
-        background: rgba(255,255,255,0.8); backdrop-filter: blur(10px);
+        background: rgba(255,255,255,0.85); backdrop-filter: blur(10px);
         position: sticky; top: 0; z-index: 100;
     }
     .site-header .logo-text { font-size: 20px; font-weight: bold; color: var(--woods-accent); text-decoration: none; letter-spacing: 1px; }
     .exclusive-badge { background: #ef4444; color: #fff; font-size: 13px; font-weight: bold; padding: 6px 14px; border-radius: 4px; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3); }
 
-    /* ================= 标题与主图 ================= */
-    .hero-header { text-align: center; padding: 60px 0 40px 0; }
-    .hero-header h1 { font-size: clamp(32px, 5vw, 46px); color: var(--dark-blue); margin: 0 0 15px 0; font-weight: 800; letter-spacing: 1px; }
-    .hero-header h1 span { color: var(--cyan); font-size: 0.6em; vertical-align: middle; background: rgba(0,210,255,0.1); padding: 4px 12px; border-radius: 20px; margin-left: 10px; border: 1px solid rgba(0,210,255,0.3); }
-    .hero-header h2 { font-size: clamp(18px, 2vw, 22px); color: var(--text-gray); margin: 0 0 20px 0; font-weight: 500; }
-    .hero-header .features { font-size: 15px; color: var(--main-blue); font-weight: bold; letter-spacing: 2px; }
-
-    .hero-img-wrap { width: 100%; margin: 0 auto 70px auto; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid var(--border-color); position: relative; }
-    .hero-img-wrap img { width: 100%; display: block; }
-    .hero-img-wrap::after { /* 图片发光边缘 */
-        content: ''; position: absolute; inset: 0; border-radius: 12px; border: 2px solid transparent;
-        background: linear-gradient(135deg, rgba(255,255,255,0.8), transparent, rgba(0,210,255,0.3)) border-box;
-        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: destination-out; mask-composite: exclude;
-    }
-
     /* ================= 通用区块标题 ================= */
-    .section-padding { padding: 60px 0; }
+    .section-padding { padding: 40px 0; } /* 从 60px 缩短至 40px，更紧凑 */
     .section-title-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
     .section-title-wrap::before { content: ''; display: block; width: 6px; height: 28px; background: var(--main-blue); border-radius: 3px; }
-    .section-title { font-size: 28px; font-weight: bold; color: var(--dark-blue); margin: 0; }
-    .section-subtitle { color: var(--text-gray); margin-bottom: 40px; font-size: 17px; }
+    .section-title { font-size: 26px; font-weight: bold; color: var(--dark-blue); margin: 0; }
+    .section-subtitle { color: var(--text-gray); margin-bottom: 30px; font-size: 16px; } /* 缩紧 */
 
     /* ================= 核心痛点区 ================= */
-    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 60px; }
-    .problem-card { background: #fff; border-radius: 12px; padding: 30px 25px; border: 1px solid var(--border-color); transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; } /* 缩紧 */
+    .problem-card { background: #fff; border-radius: 12px; padding: 25px 20px; border: 1px solid var(--border-color); transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
     .problem-card:hover { transform: translateY(-5px); border-color: #bfdbfe; box-shadow: 0 10px 25px rgba(26,86,219,0.08); }
-    .problem-card .icon { font-size: 36px; margin-bottom: 15px; }
-    .problem-card h4 { font-size: 20px; color: var(--dark-blue); margin: 0 0 10px 0; }
+    .problem-card .icon { font-size: 32px; margin-bottom: 10px; }
+    .problem-card h4 { font-size: 18px; color: var(--dark-blue); margin: 0 0 10px 0; }
     .problem-card p { font-size: 14px; color: var(--text-gray); margin: 0; }
 
     /* 大白话解释框 */
-    .explain-box { background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); border: 2px solid #bfdbfe; border-radius: 16px; padding: 40px; margin-bottom: 60px; display: flex; align-items: center; gap: 40px; box-shadow: 0 10px 30px rgba(26,86,219,0.05); }
+    .explain-box { background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); border: 2px solid #bfdbfe; border-radius: 16px; padding: 30px 40px; margin-bottom: 40px; display: flex; align-items: center; gap: 40px; box-shadow: 0 10px 30px rgba(26,86,219,0.05); } /* 缩紧 */
     .explain-text { flex: 1; }
-    .explain-text h3 { font-size: 24px; color: var(--dark-blue); margin-top: 0; margin-bottom: 15px; }
-    .explain-text p { font-size: 16px; color: #374151; margin-bottom: 10px; }
+    .explain-text h3 { font-size: 22px; color: var(--dark-blue); margin-top: 0; margin-bottom: 15px; }
+    .explain-text p { font-size: 15px; color: #374151; margin-bottom: 10px; }
     .explain-text ul { padding-left: 20px; margin: 0; }
-    .explain-text li { margin-bottom: 8px; font-weight: 500; color: var(--main-blue); }
+    .explain-text li { margin-bottom: 6px; font-weight: 500; color: var(--main-blue); }
     .explain-img { flex: 1; }
 
     /* ================= 技术流程区 ================= */
-    .tech-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 70px; }
+    .tech-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 40px; } /* 缩紧 */
     .tech-step { background: #fff; border-radius: 10px; border: 1px solid var(--border-color); overflow: hidden; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
     .tech-step:hover { box-shadow: 0 10px 30px rgba(0,210,255,0.15); border-color: var(--cyan); }
-    .tech-step-header { background: var(--dark-blue); color: #fff; padding: 12px 5px; text-align: center; font-weight: bold; font-size: 15px; position: relative; }
-    .tech-step-body { padding: 15px; display: flex; flex-direction: column; height: calc(100% - 45px); }
-    .tech-step-body p { font-size: 13px; color: var(--text-gray); margin: 0 0 15px 0; flex: 1; }
-    .tech-step-body img { width: 100%; height: 100px; object-fit: cover; border-radius: 6px; background-color: #e2e8f0; }
+    .tech-step-header { background: var(--dark-blue); color: #fff; padding: 10px 5px; text-align: center; font-weight: bold; font-size: 14px; position: relative; }
+    .tech-step-body { padding: 15px; display: flex; flex-direction: column; height: calc(100% - 40px); }
+    .tech-step-body p { font-size: 13px; color: var(--text-gray); margin: 0 0 10px 0; flex: 1; }
+    .tech-step-body img { width: 100%; height: 90px; object-fit: cover; border-radius: 6px; background-color: #e2e8f0; }
 
     /* ================= 应用场景区 ================= */
-    .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 80px; }
-    .use-case-card { background: #fff; border-radius: 12px; border: 1px solid var(--border-color); padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); transition: 0.3s; }
+    .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; } /* 缩紧 */
+    .use-case-card { background: #fff; border-radius: 12px; border: 1px solid var(--border-color); padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); transition: 0.3s; }
     .use-case-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
-    .use-case-card h3 { font-size: 20px; color: var(--main-blue); margin-top: 0; margin-bottom: 15px; border-bottom: 2px dashed #e2e8f0; padding-bottom: 10px; }
-    .use-case-card p { font-size: 15px; margin-bottom: 15px; }
-    .use-case-card ul { padding-left: 20px; font-size: 14px; color: var(--text-gray); margin-bottom: 0; }
-    .use-case-card li { margin-bottom: 8px; }
+    .use-case-card h3 { font-size: 18px; color: var(--main-blue); margin-top: 0; margin-bottom: 15px; border-bottom: 2px dashed #e2e8f0; padding-bottom: 10px; }
+    .use-case-card p { font-size: 14px; margin-bottom: 10px; }
+    .use-case-card ul { padding-left: 20px; font-size: 13px; color: var(--text-gray); margin-bottom: 0; }
+    .use-case-card li { margin-bottom: 6px; }
 
     /* ================= 实战案例区 (秀肌肉) ================= */
-    .real-case-section { background: #f8fafc; border-radius: 16px; padding: 50px 40px; margin-bottom: 80px; border: 1px solid var(--border-color); }
-    .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-    .case-card { background: #fff; border-radius: 10px; border-top: 4px solid var(--main-blue); box-shadow: 0 10px 25px rgba(0,0,0,0.05); padding: 25px; }
-    .case-card h3 { font-size: 18px; color: var(--dark-blue); margin: 0 0 15px 0; }
+    .real-case-section { background: #f8fafc; border-radius: 16px; padding: 40px; margin-bottom: 40px; border: 1px solid var(--border-color); } /* 缩紧 */
+    .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .case-card { background: #fff; border-radius: 10px; border-top: 4px solid var(--main-blue); box-shadow: 0 10px 25px rgba(0,0,0,0.05); padding: 20px; }
+    .case-card h3 { font-size: 17px; color: var(--dark-blue); margin: 0 0 12px 0; }
     .case-card .highlight { color: #ef4444; font-weight: bold; font-size: 14px; margin-bottom: 10px; display: block; }
-    .case-card p { font-size: 14px; color: #374151; margin-bottom: 10px; }
+    .case-card p { font-size: 13px; color: #374151; margin-bottom: 8px; line-height: 1.6; }
     .case-card strong { color: var(--main-blue); }
 
     /* ================= 流程与报价区 ================= */
-    .process-box { background: #fff; border: 2px solid var(--main-blue); border-radius: 16px; padding: 50px; text-align: center; margin-bottom: 60px; box-shadow: 0 20px 40px rgba(26,86,219,0.08); position: relative; overflow: hidden; }
+    .process-box { background: #fff; border: 2px solid var(--main-blue); border-radius: 16px; padding: 40px; text-align: center; margin-bottom: 40px; box-shadow: 0 20px 40px rgba(26,86,219,0.08); position: relative; overflow: hidden; } /* 缩紧 */
     .process-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--cyan), var(--main-blue)); }
-    .process-box h2 { font-size: 28px; color: var(--dark-blue); margin-top: 0; }
-    .process-box p { font-size: 16px; color: var(--text-gray); max-width: 700px; margin: 0 auto 30px; }
-    .process-steps { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; }
-    .step { flex: 1; max-width: 220px; background: var(--bg-light); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); }
-    .step-num { width: 36px; height: 36px; background: var(--cyan); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; margin: 0 auto 15px; box-shadow: 0 0 15px rgba(0,210,255,0.4); }
-    .step h4 { font-size: 16px; margin: 0 0 5px 0; color: #111; }
-    .step p { font-size: 13px; color: var(--text-gray); margin: 0; }
+    .process-box h2 { font-size: 26px; color: var(--dark-blue); margin-top: 0; margin-bottom: 15px; }
+    .process-box p { font-size: 15px; color: var(--text-gray); max-width: 700px; margin: 0 auto 30px; }
+    .process-steps { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; }
+    .step { flex: 1; max-width: 220px; background: var(--bg-light); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color); }
+    .step-num { width: 32px; height: 32px; background: var(--cyan); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; margin: 0 auto 10px; box-shadow: 0 0 15px rgba(0,210,255,0.4); }
+    .step h4 { font-size: 15px; margin: 0 0 5px 0; color: #111; }
+    .step p { font-size: 12px; color: var(--text-gray); margin: 0; line-height: 1.5; }
 
-    .btn-cta { display: inline-block; background: var(--main-blue); color: #fff; padding: 16px 45px; border-radius: 40px; text-decoration: none; font-weight: bold; font-size: 18px; transition: 0.3s; box-shadow: 0 10px 25px rgba(26, 86, 219, 0.3); }
+    .btn-cta { display: inline-block; background: var(--main-blue); color: #fff; padding: 14px 40px; border-radius: 40px; text-decoration: none; font-weight: bold; font-size: 16px; transition: 0.3s; box-shadow: 0 10px 25px rgba(26, 86, 219, 0.3); }
     .btn-cta:hover { background: var(--dark-blue); transform: translateY(-3px); box-shadow: 0 15px 35px rgba(26, 86, 219, 0.4); }
 
     /* ================= 响应式 ================= */
     @media (max-width: 900px) {
         .problem-grid { grid-template-columns: 1fr 1fr; }
-        .explain-box { flex-direction: column; padding: 30px; }
+        .explain-box { flex-direction: column; padding: 25px; }
         .tech-flow { grid-template-columns: 1fr; }
         .tech-step-body img { height: 150px; }
         .use-case-grid { grid-template-columns: 1fr; }
@@ -150,26 +154,48 @@
     }
     @media (max-width: 600px) {
         .problem-grid { grid-template-columns: 1fr; }
-        .hero-header h1 { font-size: 28px; }
-        .process-box { padding: 30px 20px; }
+        .process-box { padding: 25px 15px; }
+        .section-padding { padding: 30px 0; }
+    }
+        /* ================= 手机端 Header 专属优化 ================= */
+    @media (max-width: 600px) {
+        .site-header {
+            flex-direction: column; /* 手机上改为上下排列，避免横向拥挤 */
+            align-items: flex-start;
+            gap: 10px;
+            padding: 15px 15px;
+        }
+        .site-header .logo-text {
+            font-size: 18px; /* 字号稍微缩小 */
+            white-space: nowrap; /* 绝对不换行 */
+        }
+        .exclusive-badge {
+            font-size: 11px; /* 徽章缩小 */
+            padding: 4px 10px;
+            white-space: nowrap; /* 绝对不换行 */
+            align-self: flex-end; /* 徽章靠右对齐，显得错落有致 */
+        }
     }
 </style>
 </head>
 <body>
 
+    <!-- 全局扫描光效 -->
+    <div class="scan-line"></div>
     <!-- 鼠标跟随光晕 -->
     <div class="cursor-glow" id="cursorGlow"></div>
 
-    <header class="site-header container">
+        <header class="site-header container">
         <a href="https://woods-corp.jp/" class="logo-text">株式会社ウッズ・コーポレーション</a>
         <div><span class="exclusive-badge">日本国内代理店</span></div>
     </header>
-        <!-- 主图与高级渐变标语区 (底部贴边完美版) -->
+
+    <!-- 1. 主图与高级渐变标语区 -->
     <div class="container">
-        <div class="hero-img-wrap" style="position: relative; margin-top: 40px; margin-bottom: 70px; border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.15);">
+        <div class="hero-img-wrap" style="position: relative; margin-top: 20px; margin-bottom: 40px; border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.15);">
             <img src="/assets/nlos-lp/nlos-hero-clean.jpg" alt="NLOS技術イメージ" style="width: 100%; display: block;">
             
-            <!-- 底部极柔和的渐变遮罩 (范围缩小到最底部) -->
+            <!-- 底部极柔和的渐变遮罩 -->
             <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 30%; background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.3) 50%, transparent 100%); z-index: 5; pointer-events: none;"></div>
             
             <!-- 居中高级排版 (贴底不换行) -->
@@ -183,6 +209,7 @@
             </div>
         </div>
     </div>
+
     <!-- 2. 核心问题区 -->
     <section class="section-padding container">
         <div class="section-title-wrap">
@@ -220,8 +247,7 @@
                 </ul>
             </div>
             <div class="explain-img">
-                <!-- 【图2】：如果你有那张“三层知识结构/原理图”，放在这里最佳 -->
-               <img src="/assets/nlos-lp/nlos-techprinciple.jpg" alt="技術の仕組みと知識構造" style="border: 1px solid #e2e8f0; background: #fff; width: 100%;">
+                <img src="/assets/nlos-lp/nlos-techprinciple.jpg" alt="技術の仕組みと知識構造" style="border: 1px solid #e2e8f0; background: #fff; width: 100%;">
             </div>
         </div>
     </section>
@@ -238,7 +264,6 @@
                 <div class="tech-step-header">1. 外部観測</div>
                 <div class="tech-step-body">
                     <p>表面反射や散乱を記録し、幾何学や工学的文脈と組み合わせます。</p>
-                    <!-- 【图3-1】：如果有切片小图就放，没有就用占位图/删掉 -->
                     <img src="/assets/nlos-lp/nlos-step-1.jpg" alt="観測">
                 </div>
             </div>
@@ -273,44 +298,71 @@
         </div>
     </section>
 
-    <!-- 4. 适用场景 -->
+        <!-- 4. 适用场景 (全场景覆盖版) -->
     <section class="section-padding container">
         <div class="section-title-wrap">
             <h2 class="section-title">この技術が活きる具体的なシーン</h2>
         </div>
-        <p class="section-subtitle">複雑で見えない地下のリスクを、圧倒的な低コストとスピードで解決します。</p>
+        <p class="section-subtitle">最も得意とする「管路（パイプライン）」を中心に、あらゆる地下インフラの見えないリスクを可視化します。</p>
 
         <div class="use-case-grid">
+            <!-- 1. 城市生命线 -->
             <div class="use-case-card">
-                <h3>⛽ ガソリンスタンド（地下タンク・配管）</h3>
-                <p>タンクを空にして抜き取り検査（抽干）をするのは、時間もお金もかかる大仕事です。</p>
+                <h3>💧 都市・生活基盤管（水・ガス・熱供給）</h3>
+                <p>水道管、下水道、都市ガス、天然ガス、地域熱供給パイプ。地面の下深くに埋設され、老朽化によるガス漏れや漏水リスクが高まっています。</p>
                 <ul>
-                    <li><strong>解決策：</strong> タンクを稼働させたまま、外側から配管の「腐食の進行度」と「漏洩リスク」を診断。</li>
-                    <li><strong>メリット：</strong> 営業損失ゼロ。土壌汚染が起きる前に、本当に危ない箇所だけをピンポイントで補修できます。</li>
+                    <li><strong>従来の課題：</strong> 漏れてから掘り起こすか、全区間を試掘するしかなく、道路の封鎖や住民への影響が甚大。</li>
+                    <li><strong>NLOSの解決策：</strong> 道路を掘削せず、地上から管の「腐食進行度」「XYZ座標」「漏洩リスク」を透視。ピンポイントで補修計画を立てられます。</li>
                 </ul>
             </div>
+            
+            <!-- 2. 电力和网络 -->
+            <div class="use-case-card">
+                <h3>⚡ 電力・通信管路（地下鉄・共同溝）</h3>
+                <p>地下の電力ケーブル用管路、光ファイバー・通信網を保護する地中管路、大深度の地下鉄構造物や共同溝（インフラチャネル）。</p>
+                <ul>
+                    <li><strong>従来の課題：</strong> 構造が複雑で立ち入りが制限され、内部の破損や水漏れの全容把握が困難。</li>
+                    <li><strong>NLOSの解決策：</strong> 外部からの非破壊検査で、管内の状態や周囲の土壌リスクを評価。大規模な補修が必要な箇所を事前に特定します。</li>
+                </ul>
+            </div>
+
+            <!-- 3. 火力发电厂/工厂 -->
+            <div class="use-case-card">
+                <h3>🏭 火力発電所・プラント配管（CUI腐食）</h3>
+                <p>火力発電所や大規模工場内の高温・高圧配管、保温材（断熱材）に覆われた複雑なプラント配管。</p>
+                <ul>
+                    <li><strong>従来の課題：</strong> 保温材の下で発生する腐食（CUI）は外から見えず、点検のために足場を組んで保温材を剥がすコストが莫大。</li>
+                    <li><strong>NLOSの解決策：</strong> 保温材を一切傷つけずに、内部の金属管の減肉・腐食状態を透視。発電所の稼働を止めずに安全点検が可能です。</li>
+                </ul>
+            </div>
+            
+            <!-- 4. 加油站 -->
+            <div class="use-case-card">
+                <h3>⛽ ガソリンスタンド（地下タンク・配管）</h3>
+                <p>地下深くに埋設された燃料タンクや配管。土壌汚染に直結する漏洩リスクを常に抱えています。</p>
+                <ul>
+                    <li><strong>従来の課題：</strong> タンクを空にして抜き取り検査（抽干）をするのは、時間もお金もかかる大仕事。</li>
+                    <li><strong>NLOSの解決策：</strong> タンクを稼働させたまま、外側から配管の腐食と漏洩リスクを診断。営業損失ゼロで、本当に危ない箇所だけを補修できます。</li>
+                </ul>
+            </div>
+
+            <!-- 5. 酒店温泉 -->
             <div class="use-case-card">
                 <h3>♨️ ホテル・旅館（温泉配管・給湯管）</h3>
                 <p>温泉の成分で配管内部にスケール（湯垢）が付着し、漏水トラブルが絶えません。内視鏡カメラも入りません。</p>
                 <ul>
-                    <li><strong>解決策：</strong> 床下や壁の内部を解体せずに透視し、漏水箇所を特定。</li>
-                    <li><strong>メリット：</strong> お客様の宿泊を妨げることなく調査が可能。大掛かりな復旧工事費用を最小限に抑えられます。</li>
+                    <li><strong>従来の課題：</strong> 漏水箇所を特定するために大掛かりな解体工事が必要で、宿泊客への影響が大きい。</li>
+                    <li><strong>NLOSの解決策：</strong> 床下や壁の内部を解体せずに透視し、漏水箇所を特定。お客様の宿泊を妨げることなく調査が可能です。</li>
                 </ul>
             </div>
+
+            <!-- 6. 桥梁 -->
             <div class="use-case-card">
-                <h3>🏭 工場・プラント（保温配管・設備）</h3>
-                <p>断熱材（保温材）に覆われた配管は、内部の腐食（CUI）が見えません。</p>
+                <h3>🌉 橋梁・社会インフラ（斜張ケーブル）</h3>
+                <p>外見が綺麗でも、内部のワイヤーが錆びて切れかけているかもしれません。コンクリート内部の状態は目視できません。</p>
                 <ul>
-                    <li><strong>解決策：</strong> 保温材を剥がすことなく、内部の減肉・腐食を検査。</li>
-                    <li><strong>メリット：</strong> 足場の設置や保温材の復旧費用を削減し、安全に定期点検を行えます。</li>
-                </ul>
-            </div>
-            <div class="use-case-card">
-                <h3>🌉 橋梁・社会インフラ（ケーブル・橋脚）</h3>
-                <p>外見が綺麗でも、内部のワイヤーが錆びて切れかけているかもしれません。</p>
-                <ul>
-                    <li><strong>解決策：</strong> コンクリートや被覆の奥にあるケーブルの断線・腐食状態を外部から推定。</li>
-                    <li><strong>メリット：</strong> 目視点検の限界を補い、大事故に繋がる前の「予防保全」を実現します。</li>
+                    <li><strong>従来の課題：</strong> 点検には大掛かりな足場や高所作業車が必要で、コストと安全リスクが伴う。</li>
+                    <li><strong>NLOSの解決策：</strong> コンクリートや被覆の奥にあるケーブルの断線・腐食状態を外部から推定し、大事故に繋がる前の「予防保全」を実現します。</li>
                 </ul>
             </div>
         </div>
@@ -319,10 +371,10 @@
     <!-- 5. 实战案例（秀肌肉） -->
     <section class="section-padding container">
         <div class="real-case-section">
-            <div class="section-title-wrap" style="justify-content: center; margin-bottom: 30px;">
+            <div class="section-title-wrap" style="justify-content: center; margin-bottom: 20px;">
                 <h2 class="section-title" style="text-align: center;">「見えなかったリスク」がこうして見つかる</h2>
             </div>
-            <p class="section-subtitle" style="text-align: center;">実証済みのテクノロジーだからこそ、具体的な成果をお見せできます。</p>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 20px;">実証済みのテクノロジーだからこそ、具体的な成果をお見せできます。</p>
 
             <div class="case-grid">
                 <div class="case-card">
@@ -330,8 +382,6 @@
                     <span class="highlight">外側の保温層は、一見「良好」に見えました。</span>
                     <p>4kmの全線を掘ることは不可能です。AI解析により<strong>最もリスクの高い2か所</strong>に絞り込みました。</p>
                     <p>顧客がその2か所のみを掘削した結果、<strong>「保温材を外すと管体には著しい錆が発生。局部の肉厚は2mm未満」</strong>という深刻な腐食を発見。大規模事故になる前に補修が完了しました。</p>
-                    <!-- 【图4】：如果有那张地图带红圈的图，加在这里 -->
-                    <!-- <img src="/assets/nlos-lp/case-heat-pipe.jpg" alt="4kmの調査結果" style="width:100%; margin-top:15px;"> -->
                 </div>
                 <div class="case-card">
                     <h3>🏢 集合住宅のガス管</h3>
@@ -369,7 +419,7 @@
                 <div class="step">
                     <div class="step-num">3</div>
                     <h4>実証テスト(0→1)</h4>
-                    <p>200m以内の区間で、成果保証付きのテストを実施します。</p>
+                    <p>テストパッケージで200m以内の区間で、成果保証付きのテストを実施します。</p>
                 </div>
                 <div class="step">
                     <div class="step-num">4</div>
@@ -378,8 +428,8 @@
                 </div>
             </div>
 
-            <a href="https://woods-corp.jp/#contact" class="btn-cta">事前調査（無料）を申し込む</a>
-            <p style="margin-top: 20px; font-size: 13px; color: #6b7280;">※ご相談・ヒアリングは完全無料です。技術的な実現可能性の判断からサポートいたします。</p>
+            <a href="https://woods-corp.jp/#contact" class="btn-cta">事前ヒアリング（無料）を申し込む</a>
+            <p style="margin-top: 15px; font-size: 13px; color: #6b7280;">※ご相談・ヒアリングは完全無料です。技術的な実現可能性の判断からサポートいたします。</p>
         </div>
     </section>
 
