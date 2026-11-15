@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NLOS 非視野イメージング技術 | 株式会社ウッズ・コーポレーション</title>
-<meta name="description" content="掘削不要のNLOS非破壊透視技術。ガソリンスタンドの地下タンク・配管、ホテルの温泉配管の腐食・漏洩リスクを可視化。">
+<!-- 【SEO优化】标题直接打出燃气管道主打词 -->
+<title>NLOS 非破壊透視技術 | ガス管・天然ガス管の腐食・漏洩リスク診断 | 株式会社ウッズ・コーポレーション</title>
+<!-- 【SEO优化】描述强调燃气管道和无需开挖的卖点 -->
+<meta name="description" content="地面を掘削せずに、ガス管・天然ガス導管の腐食・劣化・漏洩リスクを透視診断。老朽化が進む都市ガス・天然ガスインフラの非破壊検査をNLOS技術で実現。">
 <style>
     /* ================= 基础变量与重置 ================= */
     :root {
@@ -75,6 +77,33 @@
     .site-header .logo-text { font-size: 20px; font-weight: bold; color: var(--woods-accent); text-decoration: none; letter-spacing: 1px; }
     .exclusive-badge { background: #ef4444; color: #fff; font-size: 13px; font-weight: bold; padding: 6px 14px; border-radius: 4px; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3); }
 
+    /* ================= 新增：主打 H1 标语区 ================= */
+    .main-h1-area { 
+        text-align: center; 
+        padding: 50px 20px 20px; 
+        position: relative;
+        z-index: 2;
+    }
+    .main-h1-area h1 {
+        font-size: clamp(24px, 4vw, 38px);
+        color: var(--dark-blue);
+        font-weight: 800;
+        line-height: 1.4;
+        margin: 0 0 15px 0;
+        letter-spacing: 2px;
+    }
+    .main-h1-area h1 span {
+        color: var(--main-blue);
+        border-bottom: 3px solid var(--cyan);
+        padding-bottom: 2px;
+    }
+    .main-h1-area p {
+        font-size: clamp(14px, 2vw, 18px);
+        color: var(--text-gray);
+        font-weight: 500;
+        margin: 0;
+    }
+
     /* ================= 通用区块标题 ================= */
     .section-padding { padding: 40px 0; }
     .section-title-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
@@ -116,6 +145,9 @@
     .use-case-card p { font-size: 14px; margin-bottom: 10px; }
     .use-case-card ul { padding-left: 20px; font-size: 13px; color: var(--text-gray); margin-bottom: 0; }
     .use-case-card li { margin-bottom: 6px; }
+    /* 为主打卡片加一点强调高亮 */
+    .use-case-card.main-focus { border: 2px solid var(--main-blue); background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
+    .use-case-card.main-focus h3 { color: var(--dark-blue); }
 
     /* ================= 实战案例区 ================= */
     .real-case-section { background: #f8fafc; border-radius: 16px; padding: 40px; margin-bottom: 40px; border: 1px solid var(--border-color); }
@@ -140,28 +172,28 @@
     .btn-cta { display: inline-block; background: var(--main-blue); color: #fff; padding: 14px 40px; border-radius: 40px; text-decoration: none; font-weight: bold; font-size: 16px; transition: 0.3s; box-shadow: 0 10px 25px rgba(26, 86, 219, 0.3); }
     .btn-cta:hover { background: var(--dark-blue); transform: translateY(-3px); box-shadow: 0 15px 35px rgba(26, 86, 219, 0.4); }
 
-    /* ================= 科技感悬浮返回按钮 ================= */
+    /* ================= 科技感悬浮返回按钮 (右下角) ================= */
     .back-home-btn {
         position: fixed;
-        top: 20px;
-        left: 20px;
+        bottom: 40px;
+        right: 40px;
         z-index: 9999;
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 10px 20px;
+        padding: 12px 24px;
         border-radius: 30px;
         color: #00D2FF;
         font-size: 14px;
         font-weight: 600;
         text-decoration: none;
-        background: rgba(15, 23, 42, 0.6);
+        background: rgba(15, 23, 42, 0.8);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         border: 1px solid rgba(0, 210, 255, 0.3);
         transition: all 0.3s ease;
         overflow: hidden;
-        box-shadow: 0 0 15px rgba(0, 210, 255, 0.1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 210, 255, 0.1);
     }
     .back-home-btn::before {
         content: '';
@@ -181,7 +213,7 @@
         background: rgba(0, 210, 255, 0.15);
         border-color: #00D2FF;
         box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
-        transform: translateY(-2px);
+        transform: translateY(-3px);
         color: #fff;
     }
     .back-home-btn i { font-size: 16px; }
@@ -204,9 +236,18 @@
         .site-header { flex-direction: column; align-items: flex-start; gap: 10px; padding: 15px 15px; }
         .site-header .logo-text { font-size: 18px; white-space: nowrap; }
         .exclusive-badge { font-size: 11px; padding: 4px 10px; white-space: nowrap; align-self: flex-end; }
-        .back-home-btn { top: 15px; left: 15px; padding: 0; width: 36px; height: 36px; justify-content: center; border-radius: 50%; }
+        
+        .back-home-btn { 
+            bottom: 20px; 
+            right: 20px; 
+            padding: 0; 
+            width: 50px; 
+            height: 50px; 
+            justify-content: center; 
+            border-radius: 50%; 
+        }
         .back-home-btn span { display: none; }
-        .site-header { padding-top: 65px !important; }
+        .back-home-btn i { font-size: 20px; }
     }
 </style>
 </head>
@@ -216,20 +257,20 @@
     <div class="scan-line"></div>
     <!-- 鼠标跟随光晕 -->
     <div class="cursor-glow" id="cursorGlow"></div>
+    
     <!-- 科技感返回主站按钮 -->
     <a href="https://woods-corp.jp/" class="back-home-btn" title="コーポレートサイトに戻る">
-        <i class="fas fa-arrow-left"></i>
+        <i class="fas fa-home"></i>
         <span>コーポレートサイトへ</span>
     </a>
     
     <header class="site-header container">
         <a href="https://woods-corp.jp/" class="logo-text">株式会社ウッズ・コーポレーション</a>
-        <div><span class="exclusive-badge">次なるワールドへ</span></div>
     </header>
 
     <!-- 1. 主图与高级渐变标语区 -->
     <div class="container">
-        <div class="hero-img-wrap" style="position: relative; margin-top: 20px; margin-bottom: 40px; border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.15);">
+        <div class="hero-img-wrap" style="position: relative; margin-top: 20px; margin-bottom: 20px; border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.15);">
             <img src="/assets/nlos-lp/nlos-hero-clean.jpg" alt="NLOS技術イメージ" style="width: 100%; display: block;">
             
             <!-- 底部极柔和的渐变遮罩 -->
@@ -247,7 +288,16 @@
         </div>
     </div>
 
-    <!-- 2. 核心问题区 -->
+    <!-- 2. 新增：主打业务 H1 标题区 -->
+    <div class="main-h1-area container">
+        <h1>
+            老朽化する<span>「ガス管・天然ガス導管」</span>の<br>
+            見えない腐食・漏洩リスクを透視する。
+        </h1>
+        <p>社会のインフラを守る、NLOS非破壊検査ソリューション。</p>
+    </div>
+
+    <!-- 3. 核心问题区 -->
     <section class="section-padding container">
         <div class="section-title-wrap">
             <h2 class="section-title">私たちが解決する核心的な課題</h2>
@@ -289,7 +339,7 @@
         </div>
     </section>
 
-    <!-- 3. 技术流程区 -->
+    <!-- 4. 技术流程区 -->
     <section class="section-padding container">
         <div class="section-title-wrap">
             <h2 class="section-title">技術アプローチ（一目でわかる）</h2>
@@ -335,30 +385,25 @@
         </div>
     </section>
 
-    <!-- 4. 适用场景 -->
+    <!-- 5. 适用场景 (主打燃气，其余为辅助) -->
     <section class="section-padding container">
         <div class="section-title-wrap">
             <h2 class="section-title">この技術が活きる具体的なシーン</h2>
         </div>
-        <p class="section-subtitle">最も得意とする「管路（パイプライン）」を中心に、あらゆる地下インフラの見えないリスクを可視化します。</p>
+        <p class="section-subtitle">最も得意とする「<strong>ガス管・天然ガス導管</strong>」をはじめ、あらゆる地下インフラの見えないリスクを可視化します。</p>
 
         <div class="use-case-grid">
-            <div class="use-case-card">
-                <h3>💧 都市・生活基盤管（水・ガス・熱供給）</h3>
-                <p>水道管、下水道、都市ガス、天然ガス、地域熱供給パイプ。地面の下深くに埋設され、老朽化によるガス漏れや漏水リスクが高まっています。</p>
+            <!-- 1. 主打：燃气/天然气管道 -->
+            <div class="use-case-card main-focus">
+                <h3>🔥 都市ガス・天然ガス導管（最重点分野）</h3>
+                <p>都市ガス、天然ガスの供給を支える地下の主要導管。老朽化によるガス漏れや土壌腐食は、爆発事故や甚大な社会的影響に直結します。</p>
                 <ul>
                     <li><strong>従来の課題：</strong> 漏れてから掘り起こすか、全区間を試掘するしかなく、道路の封鎖や住民への影響が甚大。</li>
-                    <li><strong>NLOSの解決策：</strong> 道路を掘削せず、地上から管の「腐食進行度」「XYZ座標」「漏洩リスク」を透視。ピンポイントで補修計画を立てられます。</li>
+                    <li><strong>NLOSの解決策：</strong> 道路を掘削せず、地上からガス管の「腐食進行度」「XYZ座標」「漏洩リスク」を透視。ピンポイントで補修計画を立てられます。</li>
                 </ul>
             </div>
-            <div class="use-case-card">
-                <h3>⚡ 電力・通信管路（地下鉄・共同溝）</h3>
-                <p>地下の電力ケーブル用管路、光ファイバー・通信網を保護する地中管路、大深度の地下鉄構造物や共同溝（インフラチャネル）。</p>
-                <ul>
-                    <li><strong>従来の課題：</strong> 構造が複雑で立ち入りが制限され、内部の破損や水漏れの全容把握が困難。</li>
-                    <li><strong>NLOSの解決策：</strong> 外部からの非破壊検査で、管内の状態や周囲の土壌リスクを評価。大規模な補修が必要な箇所を事前に特定します。</li>
-                </ul>
-            </div>
+            
+            <!-- 2. 辅：火电厂/工厂 -->
             <div class="use-case-card">
                 <h3>🏭 火力発電所・プラント配管（CUI腐食）</h3>
                 <p>火力発電所や大規模工場内の高温・高圧配管、保温材（断熱材）に覆われた複雑なプラント配管。</p>
@@ -367,6 +412,8 @@
                     <li><strong>NLOSの解決策：</strong> 保温材を一切傷つけずに、内部の金属管の減肉・腐食状態を透視。発電所の稼働を止めずに安全点検が可能です。</li>
                 </ul>
             </div>
+
+            <!-- 3. 辅：加油站 -->
             <div class="use-case-card">
                 <h3>⛽ ガソリンスタンド（地下タンク・配管）</h3>
                 <p>地下深くに埋設された燃料タンクや配管。土壌汚染に直結する漏洩リスクを常に抱えています。</p>
@@ -375,6 +422,18 @@
                     <li><strong>NLOSの解決策：</strong> タンクを稼働させたまま、外側から配管の腐食と漏洩リスクを診断。営業損失ゼロで、本当に危ない箇所だけを補修できます。</li>
                 </ul>
             </div>
+
+            <!-- 4. 辅：城市其他生命线 -->
+            <div class="use-case-card">
+                <h3>💧 水道・熱供給・通信管路</h3>
+                <p>水道管、下水道、地域熱供給パイプ、光ファイバー・通信網を保護する地中管路。</p>
+                <ul>
+                    <li><strong>従来の課題：</strong> 埋設深く老朽化した管の破損や水漏れの全容把握が困難。</li>
+                    <li><strong>NLOSの解決策：</strong> 外部からの非破壊検査で、管内の状態や周囲の土壌リスクを評価。大規模な補修が必要な箇所を事前に特定します。</li>
+                </ul>
+            </div>
+
+            <!-- 5. 辅：酒店温泉 -->
             <div class="use-case-card">
                 <h3>♨️ ホテル・旅館（温泉配管・給湯管）</h3>
                 <p>温泉の成分で配管内部にスケール（湯垢）が付着し、漏水トラブルが絶えません。内視鏡カメラも入りません。</p>
@@ -383,6 +442,8 @@
                     <li><strong>NLOSの解決策：</strong> 床下や壁の内部を解体せずに透視し、漏水箇所を特定。お客様の宿泊を妨げることなく調査が可能です。</li>
                 </ul>
             </div>
+
+            <!-- 6. 辅：桥梁 -->
             <div class="use-case-card">
                 <h3>🌉 橋梁・社会インフラ（斜張ケーブル）</h3>
                 <p>外見が綺麗でも、内部のワイヤーが錆びて切れかけているかもしれません。コンクリート内部の状態は目視できません。</p>
@@ -394,7 +455,7 @@
         </div>
     </section>
 
-    <!-- 5. 实战案例（秀肌肉） -->
+    <!-- 6. 实战案例（秀肌肉） -->
     <section class="section-padding container">
         <div class="real-case-section">
             <div class="section-title-wrap" style="justify-content: center; margin-bottom: 20px;">
@@ -425,7 +486,7 @@
         </div>
     </section>
 
-    <!-- 6. 商务流程与报价区 -->
+    <!-- 7. 商务流程与报价区 -->
     <section class="section-padding container">
         <div class="process-box">
             <h2>お見積もり・導入の流れ</h2>
@@ -445,7 +506,7 @@
                 <div class="step">
                     <div class="step-num">3</div>
                     <h4>実証テスト(0→1)</h4>
-                    <p>テストパッケージで200m以内の区間で、成果保証付きのテストを実施します。</p>
+                    <p>テストパッケージ料金で200m以内の区間で、成果保証付きのテストを実施します。</p>
                 </div>
                 <div class="step">
                     <div class="step-num">4</div>
@@ -459,7 +520,7 @@
         </div>
     </section>
 
-    <!-- 7. 豪华版技术架构长图 (带点击放大功能) -->
+    <!-- 8. 豪华版技术架构长图 (带点击放大功能) -->
     <section class="section-padding container">
         <div class="section-title-wrap" style="justify-content: center; text-align: center;">
             <h2 class="section-title" style="text-align: center;">詳細技術アーキテクチャ</h2>
@@ -467,7 +528,6 @@
         <p class="section-subtitle" style="text-align: center; margin-bottom: 30px;">当社のNLOS技術がどのようにして「見えない状態」を解き明かすのか、その全体像です。<br><span style="color: var(--main-blue); font-size: 14px;">（※画像をクリックすると拡大表示されます）</span></p>
         
         <div style="text-align: center; background: #fff; padding: 20px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid var(--border-color); cursor: zoom-in;" onclick="openFullImage()">
-            <!-- 这里已经根据你提供的文件名修正了路径 -->
             <img id="arch-img" src="/assets/nlos-lp/nlos-workflow.jpg" alt="NLOS技術ワークフロー全体像" style="width: 100%; border-radius: 8px;">
         </div>
     </section>
