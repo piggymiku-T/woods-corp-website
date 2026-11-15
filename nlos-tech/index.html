@@ -21,7 +21,6 @@
         font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; 
         margin: 0; padding: 0; 
         background-color: #ffffff;
-        /* 科技网格背景 */
         background-image: 
             linear-gradient(rgba(26, 86, 219, 0.03) 1px, transparent 1px),
             linear-gradient(90deg, rgba(26, 86, 219, 0.03) 1px, transparent 1px);
@@ -67,7 +66,7 @@
 
     /* ================= 顶部导航 ================= */
     .site-header { 
-        padding: 15px 0; /* 缩紧 */
+        padding: 15px 0; 
         border-bottom: 1px solid var(--border-color); 
         display: flex; justify-content: space-between; align-items: center; 
         background: rgba(255,255,255,0.85); backdrop-filter: blur(10px);
@@ -77,14 +76,14 @@
     .exclusive-badge { background: #ef4444; color: #fff; font-size: 13px; font-weight: bold; padding: 6px 14px; border-radius: 4px; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3); }
 
     /* ================= 通用区块标题 ================= */
-    .section-padding { padding: 40px 0; } /* 从 60px 缩短至 40px，更紧凑 */
+    .section-padding { padding: 40px 0; }
     .section-title-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
     .section-title-wrap::before { content: ''; display: block; width: 6px; height: 28px; background: var(--main-blue); border-radius: 3px; }
     .section-title { font-size: 26px; font-weight: bold; color: var(--dark-blue); margin: 0; }
-    .section-subtitle { color: var(--text-gray); margin-bottom: 30px; font-size: 16px; } /* 缩紧 */
+    .section-subtitle { color: var(--text-gray); margin-bottom: 30px; font-size: 16px; }
 
     /* ================= 核心痛点区 ================= */
-    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; } /* 缩紧 */
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
     .problem-card { background: #fff; border-radius: 12px; padding: 25px 20px; border: 1px solid var(--border-color); transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
     .problem-card:hover { transform: translateY(-5px); border-color: #bfdbfe; box-shadow: 0 10px 25px rgba(26,86,219,0.08); }
     .problem-card .icon { font-size: 32px; margin-bottom: 10px; }
@@ -92,7 +91,7 @@
     .problem-card p { font-size: 14px; color: var(--text-gray); margin: 0; }
 
     /* 大白话解释框 */
-    .explain-box { background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); border: 2px solid #bfdbfe; border-radius: 16px; padding: 30px 40px; margin-bottom: 40px; display: flex; align-items: center; gap: 40px; box-shadow: 0 10px 30px rgba(26,86,219,0.05); } /* 缩紧 */
+    .explain-box { background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); border: 2px solid #bfdbfe; border-radius: 16px; padding: 30px 40px; margin-bottom: 40px; display: flex; align-items: center; gap: 40px; box-shadow: 0 10px 30px rgba(26,86,219,0.05); }
     .explain-text { flex: 1; }
     .explain-text h3 { font-size: 22px; color: var(--dark-blue); margin-top: 0; margin-bottom: 15px; }
     .explain-text p { font-size: 15px; color: #374151; margin-bottom: 10px; }
@@ -101,7 +100,7 @@
     .explain-img { flex: 1; }
 
     /* ================= 技术流程区 ================= */
-    .tech-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 40px; } /* 缩紧 */
+    .tech-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 40px; }
     .tech-step { background: #fff; border-radius: 10px; border: 1px solid var(--border-color); overflow: hidden; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
     .tech-step:hover { box-shadow: 0 10px 30px rgba(0,210,255,0.15); border-color: var(--cyan); }
     .tech-step-header { background: var(--dark-blue); color: #fff; padding: 10px 5px; text-align: center; font-weight: bold; font-size: 14px; position: relative; }
@@ -110,7 +109,7 @@
     .tech-step-body img { width: 100%; height: 90px; object-fit: cover; border-radius: 6px; background-color: #e2e8f0; }
 
     /* ================= 应用场景区 ================= */
-    .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; } /* 缩紧 */
+    .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
     .use-case-card { background: #fff; border-radius: 12px; border: 1px solid var(--border-color); padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); transition: 0.3s; }
     .use-case-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
     .use-case-card h3 { font-size: 18px; color: var(--main-blue); margin-top: 0; margin-bottom: 15px; border-bottom: 2px dashed #e2e8f0; padding-bottom: 10px; }
@@ -118,8 +117,8 @@
     .use-case-card ul { padding-left: 20px; font-size: 13px; color: var(--text-gray); margin-bottom: 0; }
     .use-case-card li { margin-bottom: 6px; }
 
-    /* ================= 实战案例区 (秀肌肉) ================= */
-    .real-case-section { background: #f8fafc; border-radius: 16px; padding: 40px; margin-bottom: 40px; border: 1px solid var(--border-color); } /* 缩紧 */
+    /* ================= 实战案例区 ================= */
+    .real-case-section { background: #f8fafc; border-radius: 16px; padding: 40px; margin-bottom: 40px; border: 1px solid var(--border-color); }
     .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .case-card { background: #fff; border-radius: 10px; border-top: 4px solid var(--main-blue); box-shadow: 0 10px 25px rgba(0,0,0,0.05); padding: 20px; }
     .case-card h3 { font-size: 17px; color: var(--dark-blue); margin: 0 0 12px 0; }
@@ -128,7 +127,7 @@
     .case-card strong { color: var(--main-blue); }
 
     /* ================= 流程与报价区 ================= */
-    .process-box { background: #fff; border: 2px solid var(--main-blue); border-radius: 16px; padding: 40px; text-align: center; margin-bottom: 40px; box-shadow: 0 20px 40px rgba(26,86,219,0.08); position: relative; overflow: hidden; } /* 缩紧 */
+    .process-box { background: #fff; border: 2px solid var(--main-blue); border-radius: 16px; padding: 40px; text-align: center; margin-bottom: 40px; box-shadow: 0 20px 40px rgba(26,86,219,0.08); position: relative; overflow: hidden; }
     .process-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--cyan), var(--main-blue)); }
     .process-box h2 { font-size: 26px; color: var(--dark-blue); margin-top: 0; margin-bottom: 15px; }
     .process-box p { font-size: 15px; color: var(--text-gray); max-width: 700px; margin: 0 auto 30px; }
@@ -141,41 +140,6 @@
     .btn-cta { display: inline-block; background: var(--main-blue); color: #fff; padding: 14px 40px; border-radius: 40px; text-decoration: none; font-weight: bold; font-size: 16px; transition: 0.3s; box-shadow: 0 10px 25px rgba(26, 86, 219, 0.3); }
     .btn-cta:hover { background: var(--dark-blue); transform: translateY(-3px); box-shadow: 0 15px 35px rgba(26, 86, 219, 0.4); }
 
-    /* ================= 响应式 ================= */
-    @media (max-width: 900px) {
-        .problem-grid { grid-template-columns: 1fr 1fr; }
-        .explain-box { flex-direction: column; padding: 25px; }
-        .tech-flow { grid-template-columns: 1fr; }
-        .tech-step-body img { height: 150px; }
-        .use-case-grid { grid-template-columns: 1fr; }
-        .case-grid { grid-template-columns: 1fr; }
-        .process-steps { flex-direction: column; align-items: center; gap: 15px; }
-        .step { max-width: 100%; width: 100%; }
-    }
-    @media (max-width: 600px) {
-        .problem-grid { grid-template-columns: 1fr; }
-        .process-box { padding: 25px 15px; }
-        .section-padding { padding: 30px 0; }
-    }
-        /* ================= 手机端 Header 专属优化 ================= */
-    @media (max-width: 600px) {
-        .site-header {
-            flex-direction: column; /* 手机上改为上下排列，避免横向拥挤 */
-            align-items: flex-start;
-            gap: 10px;
-            padding: 15px 15px;
-        }
-        .site-header .logo-text {
-            font-size: 18px; /* 字号稍微缩小 */
-            white-space: nowrap; /* 绝对不换行 */
-        }
-        .exclusive-badge {
-            font-size: 11px; /* 徽章缩小 */
-            padding: 4px 10px;
-            white-space: nowrap; /* 绝对不换行 */
-            align-self: flex-end; /* 徽章靠右对齐，显得错落有致 */
-        }
-    }
     /* ================= 科技感悬浮返回按钮 ================= */
     .back-home-btn {
         position: fixed;
@@ -196,11 +160,9 @@
         -webkit-backdrop-filter: blur(10px);
         border: 1px solid rgba(0, 210, 255, 0.3);
         transition: all 0.3s ease;
-        overflow: hidden; /* 隐藏扫描光溢出的部分 */
+        overflow: hidden;
         box-shadow: 0 0 15px rgba(0, 210, 255, 0.1);
     }
-
-    /* 核心：激光扫描光效 */
     .back-home-btn::before {
         content: '';
         position: absolute;
@@ -211,13 +173,10 @@
         background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.5), transparent);
         animation: scanBtn 3s infinite linear;
     }
-
     @keyframes scanBtn {
         0% { left: -100%; }
         100% { left: 100%; }
     }
-
-    /* 悬浮交互 */
     .back-home-btn:hover {
         background: rgba(0, 210, 255, 0.15);
         border-color: #00D2FF;
@@ -225,29 +184,29 @@
         transform: translateY(-2px);
         color: #fff;
     }
+    .back-home-btn i { font-size: 16px; }
 
-    .back-home-btn i {
-        font-size: 16px;
+    /* ================= 响应式 ================= */
+    @media (max-width: 900px) {
+        .problem-grid { grid-template-columns: 1fr 1fr; }
+        .explain-box { flex-direction: column; padding: 25px; }
+        .tech-flow { grid-template-columns: 1fr; }
+        .tech-step-body img { height: 150px; }
+        .use-case-grid { grid-template-columns: 1fr; }
+        .case-grid { grid-template-columns: 1fr; }
+        .process-steps { flex-direction: column; align-items: center; gap: 15px; }
+        .step { max-width: 100%; width: 100%; }
     }
-
-    /* 手机端适配：变成小圆图标，不挡视线 */
-    @media (max-width: 768px) {
-        .back-home-btn {
-            top: 15px;
-            left: 15px;
-            padding: 0;
-            width: 36px;
-            height: 36px;
-            justify-content: center;
-            border-radius: 50%;
-        }
-        .back-home-btn span {
-            display: none; /* 隐藏文字，只留箭头 */
-        }
-        /* 配合手机端 Header 的下移 */
-        .site-header {
-            padding-top: 65px !important; 
-        }
+    @media (max-width: 600px) {
+        .problem-grid { grid-template-columns: 1fr; }
+        .process-box { padding: 25px 15px; }
+        .section-padding { padding: 30px 0; }
+        .site-header { flex-direction: column; align-items: flex-start; gap: 10px; padding: 15px 15px; }
+        .site-header .logo-text { font-size: 18px; white-space: nowrap; }
+        .exclusive-badge { font-size: 11px; padding: 4px 10px; white-space: nowrap; align-self: flex-end; }
+        .back-home-btn { top: 15px; left: 15px; padding: 0; width: 36px; height: 36px; justify-content: center; border-radius: 50%; }
+        .back-home-btn span { display: none; }
+        .site-header { padding-top: 65px !important; }
     }
 </style>
 </head>
@@ -262,7 +221,8 @@
         <i class="fas fa-arrow-left"></i>
         <span>コーポレートサイトへ</span>
     </a>
-        <header class="site-header container">
+    
+    <header class="site-header container">
         <a href="https://woods-corp.jp/" class="logo-text">株式会社ウッズ・コーポレーション</a>
         <div><span class="exclusive-badge">日本国内代理店</span></div>
     </header>
@@ -375,7 +335,7 @@
         </div>
     </section>
 
-        <!-- 4. 适用场景 (全场景覆盖版) -->
+    <!-- 4. 适用场景 -->
     <section class="section-padding container">
         <div class="section-title-wrap">
             <h2 class="section-title">この技術が活きる具体的なシーン</h2>
@@ -383,7 +343,6 @@
         <p class="section-subtitle">最も得意とする「管路（パイプライン）」を中心に、あらゆる地下インフラの見えないリスクを可視化します。</p>
 
         <div class="use-case-grid">
-            <!-- 1. 城市生命线 -->
             <div class="use-case-card">
                 <h3>💧 都市・生活基盤管（水・ガス・熱供給）</h3>
                 <p>水道管、下水道、都市ガス、天然ガス、地域熱供給パイプ。地面の下深くに埋設され、老朽化によるガス漏れや漏水リスクが高まっています。</p>
@@ -392,8 +351,6 @@
                     <li><strong>NLOSの解決策：</strong> 道路を掘削せず、地上から管の「腐食進行度」「XYZ座標」「漏洩リスク」を透視。ピンポイントで補修計画を立てられます。</li>
                 </ul>
             </div>
-            
-            <!-- 2. 电力和网络 -->
             <div class="use-case-card">
                 <h3>⚡ 電力・通信管路（地下鉄・共同溝）</h3>
                 <p>地下の電力ケーブル用管路、光ファイバー・通信網を保護する地中管路、大深度の地下鉄構造物や共同溝（インフラチャネル）。</p>
@@ -402,8 +359,6 @@
                     <li><strong>NLOSの解決策：</strong> 外部からの非破壊検査で、管内の状態や周囲の土壌リスクを評価。大規模な補修が必要な箇所を事前に特定します。</li>
                 </ul>
             </div>
-
-            <!-- 3. 火力发电厂/工厂 -->
             <div class="use-case-card">
                 <h3>🏭 火力発電所・プラント配管（CUI腐食）</h3>
                 <p>火力発電所や大規模工場内の高温・高圧配管、保温材（断熱材）に覆われた複雑なプラント配管。</p>
@@ -412,8 +367,6 @@
                     <li><strong>NLOSの解決策：</strong> 保温材を一切傷つけずに、内部の金属管の減肉・腐食状態を透視。発電所の稼働を止めずに安全点検が可能です。</li>
                 </ul>
             </div>
-            
-            <!-- 4. 加油站 -->
             <div class="use-case-card">
                 <h3>⛽ ガソリンスタンド（地下タンク・配管）</h3>
                 <p>地下深くに埋設された燃料タンクや配管。土壌汚染に直結する漏洩リスクを常に抱えています。</p>
@@ -422,8 +375,6 @@
                     <li><strong>NLOSの解決策：</strong> タンクを稼働させたまま、外側から配管の腐食と漏洩リスクを診断。営業損失ゼロで、本当に危ない箇所だけを補修できます。</li>
                 </ul>
             </div>
-
-            <!-- 5. 酒店温泉 -->
             <div class="use-case-card">
                 <h3>♨️ ホテル・旅館（温泉配管・給湯管）</h3>
                 <p>温泉の成分で配管内部にスケール（湯垢）が付着し、漏水トラブルが絶えません。内視鏡カメラも入りません。</p>
@@ -432,8 +383,6 @@
                     <li><strong>NLOSの解決策：</strong> 床下や壁の内部を解体せずに透視し、漏水箇所を特定。お客様の宿泊を妨げることなく調査が可能です。</li>
                 </ul>
             </div>
-
-            <!-- 6. 桥梁 -->
             <div class="use-case-card">
                 <h3>🌉 橋梁・社会インフラ（斜張ケーブル）</h3>
                 <p>外見が綺麗でも、内部のワイヤーが錆びて切れかけているかもしれません。コンクリート内部の状態は目視できません。</p>
@@ -509,7 +458,8 @@
             <p style="margin-top: 15px; font-size: 13px; color: #6b7280;">※ご相談・ヒアリングは完全無料です。技術的な実現可能性の判断からサポートいたします。</p>
         </div>
     </section>
-        <!-- 7. 豪华版技术架构长图 (带点击放大功能) -->
+
+    <!-- 7. 豪华版技术架构长图 (带点击放大功能) -->
     <section class="section-padding container">
         <div class="section-title-wrap" style="justify-content: center; text-align: center;">
             <h2 class="section-title" style="text-align: center;">詳細技術アーキテクチャ</h2>
@@ -517,14 +467,14 @@
         <p class="section-subtitle" style="text-align: center; margin-bottom: 30px;">当社のNLOS技術がどのようにして「見えない状態」を解き明かすのか、その全体像です。<br><span style="color: var(--main-blue); font-size: 14px;">（※画像をクリックすると拡大表示されます）</span></p>
         
         <div style="text-align: center; background: #fff; padding: 20px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid var(--border-color); cursor: zoom-in;" onclick="openFullImage()">
-            <!-- 替换为你做好的大图路径 -->
-            <img id="arch-img" src="/assets/nlos-lp/nlos-workflow-ja.jpg" alt="NLOS技術ワークフロー全体像" style="width: 100%; border-radius: 8px;">
+            <!-- 这里已经根据你提供的文件名修正了路径 -->
+            <img id="arch-img" src="/assets/nlos-lp/nlos-workflow.jpg" alt="NLOS技術ワークフロー全体像" style="width: 100%; border-radius: 8px;">
         </div>
     </section>
 
     <!-- 全屏放大遮罩层 -->
     <div id="fullscreen-img" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.9); z-index: 99999; cursor: zoom-out; overflow: auto;" onclick="closeFullImage()">
-        <img src="/assets/nlos-lp/nlos-workflow-ja.jpg" style="max-width: 95%; height: auto; margin: 2vh auto; display: block; border-radius: 8px;">
+        <img src="/assets/nlos-lp/nlos-workflow.jpg" style="max-width: 95%; height: auto; margin: 2vh auto; display: block; border-radius: 8px;">
         <div style="position: fixed; top: 20px; right: 30px; color: #fff; font-size: 30px; cursor: pointer;">✕</div>
     </div>
 
@@ -532,76 +482,18 @@
     <script>
         function openFullImage() {
             document.getElementById('fullscreen-img').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // 禁止背景滚动
+            document.body.style.overflow = 'hidden';
         }
         function closeFullImage() {
             document.getElementById('fullscreen-img').style.display = 'none';
-            document.body.style.overflow = 'auto'; // 恢复滚动
-        }
-    </script>    <!-- 7. 豪华版技术架构长图 (带点击放大功能) -->
-    <section class="section-padding container">
-        <div class="section-title-wrap" style="justify-content: center; text-align: center;">
-            <h2 class="section-title" style="text-align: center;">詳細技術アーキテクチャ</h2>
-        </div>
-        <p class="section-subtitle" style="text-align: center; margin-bottom: 30px;">当社のNLOS技術がどのようにして「見えない状態」を解き明かすのか、その全体像です。<br><span style="color: var(--main-blue); font-size: 14px;">（※画像をクリックすると拡大表示されます）</span></p>
-        
-        <div style="text-align: center; background: #fff; padding: 20px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid var(--border-color); cursor: zoom-in;" onclick="openFullImage()">
-            <!-- 替换为你做好的大图路径 -->
-            <img id="arch-img" src="/assets/nlos-lp/nlos-workflow-ja.jpg" alt="NLOS技術ワークフロー全体像" style="width: 100%; border-radius: 8px;">
-        </div>
-    </section>
-
-    <!-- 全屏放大遮罩层 -->
-    <div id="fullscreen-img" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.9); z-index: 99999; cursor: zoom-out; overflow: auto;" onclick="closeFullImage()">
-        <img src="/assets/nlos-lp/nlos-workflow-ja.jpg" style="max-width: 95%; height: auto; margin: 2vh auto; display: block; border-radius: 8px;">
-        <div style="position: fixed; top: 20px; right: 30px; color: #fff; font-size: 30px; cursor: pointer;">✕</div>
-    </div>
-
-    <!-- 放大/缩小 JS 逻辑 -->
-    <script>
-        function openFullImage() {
-            document.getElementById('fullscreen-img').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // 禁止背景滚动
-        }
-        function closeFullImage() {
-            document.getElementById('fullscreen-img').style.display = 'none';
-            document.body.style.overflow = 'auto'; // 恢复滚动
-        }
-    </script>    <!-- 7. 豪华版技术架构长图 (带点击放大功能) -->
-    <section class="section-padding container">
-        <div class="section-title-wrap" style="justify-content: center; text-align: center;">
-            <h2 class="section-title" style="text-align: center;">詳細技術アーキテクチャ</h2>
-        </div>
-        <p class="section-subtitle" style="text-align: center; margin-bottom: 30px;">当社のNLOS技術がどのようにして「見えない状態」を解き明かすのか、その全体像です。<br><span style="color: var(--main-blue); font-size: 14px;">（※画像をクリックすると拡大表示されます）</span></p>
-        
-        <div style="text-align: center; background: #fff; padding: 20px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid var(--border-color); cursor: zoom-in;" onclick="openFullImage()">
-            <!-- 替换为你做好的大图路径 -->
-            <img id="arch-img" src="/assets/nlos-lp/nlos-workflow-ja.jpg" alt="NLOS技術ワークフロー全体像" style="width: 100%; border-radius: 8px;">
-        </div>
-    </section>
-
-    <!-- 全屏放大遮罩层 -->
-    <div id="fullscreen-img" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.9); z-index: 99999; cursor: zoom-out; overflow: auto;" onclick="closeFullImage()">
-        <img src="/assets/nlos-lp/nlos-workflow-ja.jpg" style="max-width: 95%; height: auto; margin: 2vh auto; display: block; border-radius: 8px;">
-        <div style="position: fixed; top: 20px; right: 30px; color: #fff; font-size: 30px; cursor: pointer;">✕</div>
-    </div>
-
-    <!-- 放大/缩小 JS 逻辑 -->
-    <script>
-        function openFullImage() {
-            document.getElementById('fullscreen-img').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // 禁止背景滚动
-        }
-        function closeFullImage() {
-            document.getElementById('fullscreen-img').style.display = 'none';
-            document.body.style.overflow = 'auto'; // 恢复滚动
+            document.body.style.overflow = 'auto';
         }
     </script>
+
     <!-- 鼠标跟随特效 JS -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const glow = document.getElementById('cursorGlow');
-            // 只在电脑端显示光晕，手机端隐藏
             if (window.matchMedia('(pointer: fine)').matches) {
                 let mouseX = 0, mouseY = 0;
                 let glowX = 0, glowY = 0;
