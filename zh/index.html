@@ -13,7 +13,7 @@
 </script>
 
 <title>进入日本市场｜中日跨境顾问・月费15万日元起｜WOODS</title>
-<meta name="description" content="面向中国的中型及中小企业。2005年创业、20年中日实战。日本市场调查、伙伴开拓、法人设立、日文合同谈判，由经营者本人判断「去、停、怎么去」。月费15万日元起，45分钟判断咨询3万日元。">
+<meta name="description" content="面向中国的中型及中小企业。2005年创业、20年中日实战。日本市场调查、伙伴开拓、法人设立、日文合同谈判，由20年经验的团队判断「去、停、怎么去」。月费15万日元起，45分钟判断咨询3万日元。">
 <meta name="keywords" content="进入日本市场,日本公司设立,日本市场调查,日本代理店,日本商标,中日并购,日本法人,在留资格,跨境电商日本">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://woods-corp.jp/zh/">
@@ -524,6 +524,39 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
   .hero-media video,.hero-video{display:none;}
 }
 
+
+/* ========== 改行の自然化（CJK） ========== */
+h1, h2, h3, .sec-title, .hero h1, .card h3, .tier h3, .quote {
+  text-wrap: balance;      /* 最終行が1〜2文字だけ残るのを防ぐ */
+  word-break: auto-phrase; /* 文節単位で折る（Chromium） */
+  line-break: strict;
+}
+p, .sec-lead, .card p, .tier p, .faq .answer {
+  text-wrap: pretty;
+}
+
+/* ========== セクション見出しの背景モチーフ ========== */
+.sec-head{position:relative;z-index:0;}
+.sec-head::before{
+  content:"";position:absolute;right:-30px;top:-70px;width:300px;height:300px;z-index:-1;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320' fill='none' stroke='%23C9A96E' stroke-width='1'%3E%3Ccircle cx='160' cy='160' r='150' opacity='.30'/%3E%3Ccircle cx='160' cy='160' r='112' opacity='.22'/%3E%3Ccircle cx='160' cy='160' r='74' opacity='.15'/%3E%3Cpath d='M12 252 Q160 42 308 252' opacity='.30'/%3E%3C/svg%3E") no-repeat center/contain;
+  opacity:.55;pointer-events:none;
+}
+@media (max-width:880px){
+  .sec-head::before{display:none;}
+}
+
+/* ========== 写真の引用帯 ========== */
+.quote-band{position:relative;overflow:hidden;padding:104px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.quote-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.30;filter:grayscale(.25) contrast(1.05);}
+.quote-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,14,12,.96) 0%,rgba(15,14,12,.62) 55%,rgba(15,14,12,.92) 100%);}
+.quote-band .container{position:relative;z-index:1;}
+.quote{font-family:var(--font-serif);font-weight:500;font-size:clamp(19px,2.5vw,30px);line-height:1.85;color:#F4F0E9;max-width:860px;letter-spacing:.02em;}
+.quote-src{display:block;margin-top:24px;font-size:10.5px;letter-spacing:.26em;color:var(--gold);}
+@media (max-width:880px){
+  .quote-band{padding:68px 0;}
+}
+
 </style>
 
 <script type="application/ld+json">
@@ -570,7 +603,7 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
         { "@type": "Question", "name": "「日本市场进入顾问」具体做什么？", "acceptedAnswer": { "@type": "Answer", "text": "每月一次的判断会议、随时沟通、日文合同审查、日本伙伴候选的调查。会前用AI整理论点，会后给一页纸的判断备忘。" } },
         { "@type": "Question", "name": "费用是多少？", "acceptedAnswer": { "@type": "Answer", "text": "45分钟判断咨询3万日元；顾问月费15万日元起。市场调查80万日元起，伙伴发堀100万日元起。" } },
         { "@type": "Question", "name": "中小企业也可以委托吗？", "acceptedAnswer": { "@type": "Answer", "text": "可以。我们主要服务员工50〜500人的企业，不接日本大型咨询公司那种几千万日元的项目。" } },
-        { "@type": "Question", "name": "和日本的大型咨询公司有什么不同？", "acceptedAnswer": { "@type": "Answer", "text": "负责人是经营者本人；48小时内给出一次判断；月费15万日元起。" } },
+        { "@type": "Question", "name": "和日本的大型咨询公司有什么不同？", "acceptedAnswer": { "@type": "Answer", "text": "由20年以上中日商务经验的团队负责；48小时内给出一次判断；月费15万日元起。" } },
         { "@type": "Question", "name": "只做合同审查可以吗？", "acceptedAnswer": { "@type": "Answer", "text": "可以，一份3万日元起。但这不是法律意见，而是商务沟通层面的风险提示。" } },
         { "@type": "Question", "name": "必须去日本吗？", "acceptedAnswer": { "@type": "Answer", "text": "不必。线上即可完成。需要时也可以安排当地同行。" } }
       ]
@@ -627,7 +660,7 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
           <span class="h1-line">进入日本市场，先在 45 分钟里</span>
           <span class="h1-line">把「去、停、怎么去」定下来。</span>
         </h1>
-        <p class="hero-sub">面向中国的中型及中小企业。市场调查、伙伴开拓、法人设立、日文合同谈判——由经营者本人判断，<span class="nb">月费15万日元起</span>。</p>
+        <p class="hero-sub">面向中国的中型及中小企业。市场调查、伙伴开拓、法人设立、日文合同谈判——由20年经验的团队判断，<span class="nb">月费15万日元起</span>。</p>
         <div class="hero-actions">
           <a class="btn btn--primary" href="#pricing">预约45分钟判断咨询（3万日元）</a>
           <a class="btn btn--ghost" href="#advisory">查看顾问内容</a>
@@ -765,6 +798,14 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
     </div>
   </section>
 
+  <section class="quote-band">
+    <img src="/assets/woods-poster.jpg" alt="" loading="lazy" decoding="async">
+    <div class="container">
+      <p class="quote">判断的关键，不是信息的多少，而是经验的角度。</p>
+      <span class="quote-src">WOODS CORPORATION</span>
+    </div>
+  </section>
+
   <section class="section" id="services">
     <div class="container">
       <div class="sec-head reveal">
@@ -893,7 +934,7 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
         <details><summary>「日本市场进入顾问」具体做什么？</summary><div class="answer">每月一次的判断会议、随时沟通、日文合同审查、日本伙伴候选的调查。会前用AI整理论点，会后给一页纸的判断备忘。</div></details>
         <details><summary>费用是多少？</summary><div class="answer">45分钟判断咨询3万日元；顾问月费15万日元起。市场调查80万日元起，伙伴发堀100万日元起。</div></details>
         <details><summary>中小企业也可以委托吗？</summary><div class="answer">可以。我们主要服务员工50〜500人的企业，不接日本大型咨询公司那种几千万日元的项目。</div></details>
-        <details><summary>和日本的大型咨询公司有什么不同？</summary><div class="answer">负责人是经营者本人；48小时内给出一次判断；月费15万日元起。</div></details>
+        <details><summary>和日本的大型咨询公司有什么不同？</summary><div class="answer">由20年以上中日商务经验的团队负责；48小时内给出一次判断；月费15万日元起。</div></details>
         <details><summary>只做合同审查可以吗？</summary><div class="answer">可以，一份3万日元起。但这不是法律意见，而是商务沟通层面的风险提示。</div></details>
         <details><summary>必须去日本吗？</summary><div class="answer">不必。线上即可完成。需要时也可以安排当地同行。</div></details>
         <details><summary>保密方面没问题吗？</summary><div class="answer">签约前先签 NDA。案例公开也只限获得许可的范围。</div></details>
