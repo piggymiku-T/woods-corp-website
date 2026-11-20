@@ -13,7 +13,7 @@
 </script>
 
 <title>料金｜中国進出顧問 月額15万円〜・45分相談3万円｜ウッズ</title>
-<meta name="description" content="中国進出顧問の料金。見極め15万円／標準25万円／伴走40万円〜（税別）。45分の判断相談3万円、契約書1通3万円〜、市場調査80万円〜。最低3ヶ月、違約金なし。">
+<meta name="description" content="中国進出顧問の料金。見極め15万円／標準25万円／伴走40万円〜（税別）。45分の判断相談3万円、契約書1通3万円〜、市場調査80万円〜。">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://woods-corp.jp/pricing/">
 
@@ -517,6 +517,39 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
   .hero-media video,.hero-video{display:none;}
 }
 
+
+/* ========== 改行の自然化（CJK） ========== */
+h1, h2, h3, .sec-title, .hero h1, .card h3, .tier h3, .quote {
+  text-wrap: balance;      /* 最終行が1〜2文字だけ残るのを防ぐ */
+  word-break: auto-phrase; /* 文節単位で折る（Chromium） */
+  line-break: strict;
+}
+p, .sec-lead, .card p, .tier p, .faq .answer {
+  text-wrap: pretty;
+}
+
+/* ========== セクション見出しの背景モチーフ ========== */
+.sec-head{position:relative;z-index:0;}
+.sec-head::before{
+  content:"";position:absolute;right:-30px;top:-70px;width:300px;height:300px;z-index:-1;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320' fill='none' stroke='%23C9A96E' stroke-width='1'%3E%3Ccircle cx='160' cy='160' r='150' opacity='.30'/%3E%3Ccircle cx='160' cy='160' r='112' opacity='.22'/%3E%3Ccircle cx='160' cy='160' r='74' opacity='.15'/%3E%3Cpath d='M12 252 Q160 42 308 252' opacity='.30'/%3E%3C/svg%3E") no-repeat center/contain;
+  opacity:.55;pointer-events:none;
+}
+@media (max-width:880px){
+  .sec-head::before{display:none;}
+}
+
+/* ========== 写真の引用帯 ========== */
+.quote-band{position:relative;overflow:hidden;padding:104px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.quote-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.30;filter:grayscale(.25) contrast(1.05);}
+.quote-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,14,12,.96) 0%,rgba(15,14,12,.62) 55%,rgba(15,14,12,.92) 100%);}
+.quote-band .container{position:relative;z-index:1;}
+.quote{font-family:var(--font-serif);font-weight:500;font-size:clamp(19px,2.5vw,30px);line-height:1.85;color:#F4F0E9;max-width:860px;letter-spacing:.02em;}
+.quote-src{display:block;margin-top:24px;font-size:10.5px;letter-spacing:.26em;color:var(--gold);}
+@media (max-width:880px){
+  .quote-band{padding:68px 0;}
+}
+
 </style>
 
 <script type="application/ld+json">
@@ -652,7 +685,7 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
             <tr><th>市場調査</th><td>800,000円〜</td><td>調査レポート＋判断メモ</td><td>6〜8週間</td></tr>
             <tr><th>パートナー発掘</th><td>1,000,000円〜</td><td>候補リスト＋スクリーニング</td><td>8〜12週間</td></tr>
             <tr><th>越境EC構築</th><td>1,500,000円〜</td><td>店舗構築＋運用手順書</td><td>3〜4ヶ月</td></tr>
-            <tr><th>中国IPO支援</th><td>3,000,000円〜</td><td>案件により見積</td><td>案件により</td></tr>
+            <tr><th>中国IPO支援</th><td>15,000,000円〜</td><td>案件により見積</td><td>案件により</td></tr>
           </tbody>
         </table>
       </div>
@@ -662,15 +695,18 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
 
   <section class="section">
     <div class="container">
-      <div class="sec-head reveal">
-        <span class="sec-label">TERMS</span>
-        <h2 class="sec-title">お支払い・解約</h2>
+      <div class="callout reveal">
+        <strong>お支払い・契約条件</strong>
+        <span>原則として全額前払い。分割や契約期間については、ご相談に応じます。</span>
       </div>
-      <div class="grid grid--3">
-        <article class="card reveal"><span class="card-num">01</span><h3>お支払い</h3><p>月末締め、翌月末払い。単発メニューは納品後のお支払い。</p></article>
-        <article class="card reveal"><span class="card-num">02</span><h3>契約期間</h3><p>最低3ヶ月。以降は1ヶ月ごとの自動更新。</p></article>
-        <article class="card reveal"><span class="card-num">03</span><h3>解約</h3><p>3ヶ月経過後は1ヶ月前の申し出で解約可能。違約金なし。</p></article>
-      </div>
+    </div>
+  </section>
+
+  <section class="quote-band">
+    <img src="/assets/woods-poster.jpg" alt="" loading="lazy" decoding="async">
+    <div class="container">
+      <p class="quote">高い調査はいらない。必要な分だけ、必要な期間だけ。</p>
+      <span class="quote-src">WOODS CORPORATION</span>
     </div>
   </section>
 
