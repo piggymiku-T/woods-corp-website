@@ -1,11 +1,12 @@
 User-agent: *
 Allow: /
+Disallow: /proposals/
 
-# AI search crawlers — allow live fetching
-User-agent: ChatGPT-User
+# AI search crawlers（引用されるために許可）
+User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
 Allow: /
 
 User-agent: PerplexityBot
@@ -14,12 +15,10 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-# AI training — keep independent decision
-User-agent: GPTBot
-Allow: /
-
 User-agent: Google-Extended
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
 Sitemap: https://woods-corp.jp/sitemap.xml
-Allow: /housing-loan/
