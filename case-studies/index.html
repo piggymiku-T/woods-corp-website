@@ -549,6 +549,16 @@ p, .sec-lead, .card p, .tier p, .faq .answer {
   .quote-band{padding:68px 0;}
 }
 
+/* ---------- 下層ページのヒーロー背景 ---------- */
+.page-hero{position:relative;overflow:hidden;}
+.page-hero-bg{position:absolute;inset:0;z-index:0;}
+.page-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 45%;opacity:.38;}
+.page-hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(15,14,12,.97) 0%,rgba(15,14,12,.72) 55%,rgba(15,14,12,.95) 100%);
+}
+.page-hero .container{position:relative;z-index:1;}
+
 </style>
 
 <script type="application/ld+json">
@@ -598,6 +608,7 @@ p, .sec-lead, .card p, .tier p, .faq .answer {
 <main id="main">
 
   <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"><img src="/assets/band-case.jpg" alt="" loading="lazy" decoding="async"></div>
     <div class="container">
       <nav class="breadcrumb" aria-label="パンくず">
         <ol>
