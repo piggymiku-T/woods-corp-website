@@ -506,6 +506,39 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
   .hero-media video,.hero-video{display:none;}
 }
 
+
+/* ========== 改行の自然化（CJK） ========== */
+h1, h2, h3, .sec-title, .hero h1, .card h3, .tier h3, .quote {
+  text-wrap: balance;      /* 最終行が1〜2文字だけ残るのを防ぐ */
+  word-break: auto-phrase; /* 文節単位で折る（Chromium） */
+  line-break: strict;
+}
+p, .sec-lead, .card p, .tier p, .faq .answer {
+  text-wrap: pretty;
+}
+
+/* ========== セクション見出しの背景モチーフ ========== */
+.sec-head{position:relative;z-index:0;}
+.sec-head::before{
+  content:"";position:absolute;right:-30px;top:-70px;width:300px;height:300px;z-index:-1;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320' fill='none' stroke='%23C9A96E' stroke-width='1'%3E%3Ccircle cx='160' cy='160' r='150' opacity='.30'/%3E%3Ccircle cx='160' cy='160' r='112' opacity='.22'/%3E%3Ccircle cx='160' cy='160' r='74' opacity='.15'/%3E%3Cpath d='M12 252 Q160 42 308 252' opacity='.30'/%3E%3C/svg%3E") no-repeat center/contain;
+  opacity:.55;pointer-events:none;
+}
+@media (max-width:880px){
+  .sec-head::before{display:none;}
+}
+
+/* ========== 写真の引用帯 ========== */
+.quote-band{position:relative;overflow:hidden;padding:104px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.quote-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.30;filter:grayscale(.25) contrast(1.05);}
+.quote-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,14,12,.96) 0%,rgba(15,14,12,.62) 55%,rgba(15,14,12,.92) 100%);}
+.quote-band .container{position:relative;z-index:1;}
+.quote{font-family:var(--font-serif);font-weight:500;font-size:clamp(19px,2.5vw,30px);line-height:1.85;color:#F4F0E9;max-width:860px;letter-spacing:.02em;}
+.quote-src{display:block;margin-top:24px;font-size:10.5px;letter-spacing:.26em;color:var(--gold);}
+@media (max-width:880px){
+  .quote-band{padding:68px 0;}
+}
+
 </style>
 </head>
 
