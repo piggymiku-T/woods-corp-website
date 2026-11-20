@@ -14,7 +14,7 @@
 </script>
 
 <title>中国進出支援・日中クロスボーダー顧問｜株式会社ウッズ・コーポレーション</title>
-<meta name="description" content="2005年創業、日中ビジネス20年。中国進出の「行く・止める・どう行く」を経営者自身が判断支援。契約書・パートナー選定・交渉・撤退まで、月額15万円からの顧問。中小企業専門。45分の判断相談は3万円。">
+<meta name="description" content="2005年創業、日中ビジネス20年。中国進出の「行く・止める・どう行く」を、経験20年のチームが判断支援。契約書・パートナー選定・交渉・撤退まで、月額15万円からの顧問。中小企業専門。45分の判断相談は3万円。">
 <meta name="keywords" content="中国進出支援,中国進出 コンサル,中国ビジネス 顧問,日中ビジネス,中国市場調査,中国 パートナー 探し,中国 契約書,越境EC,中国IPO,名古屋">
 <meta name="author" content="株式会社ウッズ・コーポレーション">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -527,6 +527,39 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
   .hero-media video,.hero-video{display:none;}
 }
 
+
+/* ========== 改行の自然化（CJK） ========== */
+h1, h2, h3, .sec-title, .hero h1, .card h3, .tier h3, .quote {
+  text-wrap: balance;      /* 最終行が1〜2文字だけ残るのを防ぐ */
+  word-break: auto-phrase; /* 文節単位で折る（Chromium） */
+  line-break: strict;
+}
+p, .sec-lead, .card p, .tier p, .faq .answer {
+  text-wrap: pretty;
+}
+
+/* ========== セクション見出しの背景モチーフ ========== */
+.sec-head{position:relative;z-index:0;}
+.sec-head::before{
+  content:"";position:absolute;right:-30px;top:-70px;width:300px;height:300px;z-index:-1;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320' fill='none' stroke='%23C9A96E' stroke-width='1'%3E%3Ccircle cx='160' cy='160' r='150' opacity='.30'/%3E%3Ccircle cx='160' cy='160' r='112' opacity='.22'/%3E%3Ccircle cx='160' cy='160' r='74' opacity='.15'/%3E%3Cpath d='M12 252 Q160 42 308 252' opacity='.30'/%3E%3C/svg%3E") no-repeat center/contain;
+  opacity:.55;pointer-events:none;
+}
+@media (max-width:880px){
+  .sec-head::before{display:none;}
+}
+
+/* ========== 写真の引用帯 ========== */
+.quote-band{position:relative;overflow:hidden;padding:104px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.quote-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.30;filter:grayscale(.25) contrast(1.05);}
+.quote-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,14,12,.96) 0%,rgba(15,14,12,.62) 55%,rgba(15,14,12,.92) 100%);}
+.quote-band .container{position:relative;z-index:1;}
+.quote{font-family:var(--font-serif);font-weight:500;font-size:clamp(19px,2.5vw,30px);line-height:1.85;color:#F4F0E9;max-width:860px;letter-spacing:.02em;}
+.quote-src{display:block;margin-top:24px;font-size:10.5px;letter-spacing:.26em;color:var(--gold);}
+@media (max-width:880px){
+  .quote-band{padding:68px 0;}
+}
+
 </style>
 
 <!-- structured data -->
@@ -592,10 +625,10 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
       "mainEntity": [
         { "@type": "Question", "name": "中国進出支援とは何ですか？", "acceptedAnswer": { "@type": "Answer", "text": "日本企業が中国で事業を始める際の、市場調査・パートナー選定・法人設立・販路開拓・契約交渉・撤退までを一貫して支援するサービスです。" } },
         { "@type": "Question", "name": "費用はいくらですか？", "acceptedAnswer": { "@type": "Answer", "text": "45分の判断相談が3万円（税別）、進出支援顧問が月額15万円からです。単発の市場調査は80万円から承ります。" } },
-        { "@type": "Question", "name": "中小企業でも依頼できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。従業員50〜500名規模の企業が中心です。大手コンサルティングの数千万円の案件はお受けしていません。" } },
-        { "@type": "Question", "name": "大手コンサルティングとの違いは何ですか？", "acceptedAnswer": { "@type": "Answer", "text": "担当が経営者本人であること、判断が48時間以内に出ること、価格が月額15万円からであることの3点です。" } },
+        { "@type": "Question", "name": "中小企業でも依頼できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。基本的に中小企業様が中心です。中小企業様の中国進出に、伴走型でサポートいたします。" } },
+        { "@type": "Question", "name": "大手コンサルティングとの違いは何ですか？", "acceptedAnswer": { "@type": "Answer", "text": "担当が日中ビジネスコンサル支援20年以上経験チームであること、判断が48時間以内に出ること、価格が月額15万円からであることの3点です。" } },
         { "@type": "Question", "name": "契約書のレビューだけでも依頼できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。1通3万円から承ります。ただし法的判断ではなく、ビジネスコミュニケーション上のリスク指摘です。" } },
-        { "@type": "Question", "name": "現地に行かなくても支援できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。オンラインで完結します。必要に応じて現地同行も承ります。" } },
+        { "@type": "Question", "name": "現地に行かなくても支援できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。オンラインで完結する事も可能です。必要に応じて現地同行も承ります。" } },
         { "@type": "Question", "name": "秘密保持は大丈夫ですか？", "acceptedAnswer": { "@type": "Answer", "text": "NDAを締結のうえ支援します。事例公開も許諾を得た範囲のみです。" } },
         { "@type": "Question", "name": "どのくらいで成果が出ますか？", "acceptedAnswer": { "@type": "Answer", "text": "判断は45分で出ます。実行支援の場合、最初の成果は3〜6ヶ月が目安です。" } }
       ]
@@ -606,7 +639,7 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
 </head>
 
 <body data-title-ja="中国進出支援・日中クロスボーダー顧問｜株式会社ウッズ・コーポレーション"
-      data-title-zh="中国进军支援・中日跨境顾问｜WOODS Corporation">
+      data-title-zh="协助进入中国市场・中日跨境顾问｜WOODS Corporation">
 
 <a class="skip" href="#main">本文へ</a>
 
@@ -657,7 +690,7 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
           <span class="h1-line">20年の経営判断で。</span>
         </h1>
         <p class="hero-sub">
-          中堅・中小企業のための日中クロスボーダー顧問。AIで情報を網羅し、経営者自身が判断します。<span class="nb">月額15万円から</span>。
+          中堅・中小企業のための日中クロスボーダー顧問。AIで情報を網羅し、経験20年のチームが判断します。<span class="nb">月額15万円から</span>。
         </p>
         <div class="hero-actions">
           <a class="btn btn--primary" href="/services/china-entry-advisory/#pricing">45分の判断相談を予約する（¥30,000）</a>
@@ -799,6 +832,14 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
     </div>
   </section>
 
+  <section class="quote-band">
+    <img src="/assets/woods-poster.jpg" alt="" loading="lazy" decoding="async">
+    <div class="container">
+      <p class="quote">判断は、情報量ではなく、経験の角度で決まる。</p>
+      <span class="quote-src">WOODS CORPORATION</span>
+    </div>
+  </section>
+
   <!-- ============ SERVICES ============ -->
   <section class="section" id="services">
     <div class="container">
@@ -837,7 +878,7 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
           <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20v-8M10 20V8M16 20v-5"/><path d="M3 20h18"/><path d="M4 8l6-4 6 3 5-3"/></svg></span>
           <span class="card-num">05</span>
           <h3>中国IPO・資金調達</h3>
-          <p>新四板（深圳・上海・福州・海南）への上場支援。これまで5社を支援。</p>
+          <p>新四板（深圳・上海・福州・海南）への上場支援。これまで5社を支援。約10億円の調達実績あり。</p>
         </article>
         <article class="card card--svc reveal">
           <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v3M14 3v3M10 18v3M14 18v3M3 10h3M3 14h3M18 10h3M18 14h3"/></svg></span>
@@ -860,7 +901,7 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
     <div class="container">
       <div class="sec-head reveal">
         <span class="sec-label">WHY WOODS</span>
-        <h2 class="sec-title">なぜ、ウッズか。</h2>
+        <h2 class="sec-title">なぜ、ウッズなのか？</h2>
       </div>
 
       <div class="reveal">
@@ -908,12 +949,13 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
       <div class="grid grid--2" style="margin-bottom:56px">
         <div class="reveal">
           <div class="timeline">
-            <div class="tl-item"><time>2010–現在</time><p>中国・福州「日本生活体験館」運営（現在は中断、再開準備中）</p></div>
-            <div class="tl-item"><time>2015–2017</time><p>IPO支援5社（深圳・上海・福州新四板）</p></div>
+            <div class="tl-item"><time>2010–2013</time><p>中国・福州「日本生活体験館」運営（現在は中断、再開準備中）</p></div>
+            <div class="tl-item"><time>2015–2017</time><p>IPO支援5社（深圳・上海・福州新四板）（現在は再開準備中）</p></div>
             <div class="tl-item"><time>2016</time><p>福建地方行政と「日中文化交流会」共催（初音ミク）</p></div>
-            <div class="tl-item"><time>2017–2020</time><p>NetDragon Websoft（香港上場）アドバイザリー、ゲーム開発、テーマパーク設計</p></div>
+            <div class="tl-item"><time>2017–現在</time><p>NetDragon Websoft（香港上場）アドバイザリー、ゲーム開発、テーマパーク設計</p></div>
             <div class="tl-item"><time>2020</time><p>第6回 Japan Tourism Awards 受賞</p></div>
             <div class="tl-item"><time>2021</time><p>東京都経営革新計画 承認企業に選定</p></div>
+            <div class="tl-item"><time>2023</time><p>NetEaseYoudao(米国NASDAQ上場企業）と大規模公開オンライン講座（MOOC） プラットフォームの日本市場の販売権を締結し、マルチランゲージ翻訳ペンも販売代理取得。</p></div>
             <div class="tl-item"><time>2026</time><p>AIソリューション・AI導入支援サービス提供開始</p></div>
           </div>
         </div>
@@ -975,11 +1017,11 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
         </details>
         <details>
           <summary>中小企業でも依頼できますか？</summary>
-          <div class="answer">はい。従業員50〜500名規模の企業が中心です。大手コンサルティングの数千万円の案件はお受けしていません。</div>
+          <div class="answer">はい。基本的に中小企業様が中心です。中小企業様の中国進出に、伴走型でサポートいたします。</div>
         </details>
         <details>
           <summary>大手コンサルティングとの違いは何ですか？</summary>
-          <div class="answer">担当が経営者本人であること、判断が48時間以内に出ること、価格が月額15万円からであることの3点です。</div>
+          <div class="answer">担当が日中ビジネスコンサル支援20年以上経験チームであること、判断が48時間以内に出ること、価格が月額15万円からであることの3点です。</div>
         </details>
         <details>
           <summary>契約書のレビューだけでも依頼できますか？</summary>
@@ -987,7 +1029,7 @@ html[lang="zh-CN"] .faq summary{line-height:1.75;}
         </details>
         <details>
           <summary>現地に行かなくても支援できますか？</summary>
-          <div class="answer">はい。オンラインで完結します。必要に応じて現地同行も承ります。</div>
+          <div class="answer">はい。オンラインで完結する事も可能です。必要に応じて現地同行も承ります。</div>
         </details>
         <details>
           <summary>秘密保持は大丈夫ですか？</summary>
