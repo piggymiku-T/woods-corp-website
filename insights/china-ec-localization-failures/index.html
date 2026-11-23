@@ -2,71 +2,920 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-888Q1V6FFD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-888Q1V6FFD');
+</script>
 <title>中国越境ECの罠。AI翻訳が完璧でも、売れない理由。｜ウッズ・コーポレーション</title>
 <meta name="description" content="AI翻訳で言葉の壁は消えた。それでも中国ECで売れない日本企業が絶えません。日本の良さの押し付け、AIの定型文対応、SNSの文脈無視という3つの失敗と、ローカライズの突破口を20年の現場から解説します。">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://woods-corp.jp/insights/china-ec-localization-failures/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社ウッズ・コーポレーション">
+<meta property="og:title" content="中国越境ECの罠。AI翻訳が完璧でも、売れない理由。｜ウッズ・コーポレーション">
+<meta property="og:description" content="AI翻訳で言葉の壁は消えた。それでも中国ECで売れない日本企業が絶えません。日本の良さの押し付け、AIの定型文対応、SNSの文脈無視という3つの失敗と、ローカライズの突破口を20年の現場から解説します。">
+<meta property="og:url" content="https://woods-corp.jp/insights/china-ec-localization-failures/">
+<meta property="og:image" content="https://woods-corp.jp/assets/woods-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/assets/logo.png">
 <style>
-  .wds{--ink:#0a0a0a;--gold:#c8a25c;--line:#242424;--bg:#e8e6e1;--mut:#9c9a95;
-       background:var(--ink);color:var(--bg);
-       font-family:"Hiragino Mincho ProN","Yu Mincho",serif;line-height:1.95;
-       padding:72px 20px 96px;}
-  .wds-in{max-width:720px;margin:0 auto;}
-  .wds-eyebrow{font-family:"Helvetica Neue",sans-serif;font-size:11px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;}
-  .wds h1{font-size:34px;line-height:1.45;font-weight:600;letter-spacing:.02em;margin:18px 0 14px;}
-  .wds .lead{font-size:16px;color:#cfccc5;border-left:2px solid var(--gold);padding-left:16px;margin:0 0 44px;}
-  .wds .rule{height:1px;background:var(--line);margin:0 0 44px;}
-  .wds h2{font-size:21px;font-weight:600;color:var(--gold);margin:52px 0 16px;letter-spacing:.03em;}
-  .wds h2 span{display:inline-block;margin-right:10px;font-family:"Helvetica Neue",sans-serif;font-size:13px;color:#6d6a64;vertical-align:2px;}
-  .wds p{font-size:16px;margin:0 0 1.4em;}
-  .wds strong{color:#fff;font-weight:600;border-bottom:1px solid rgba(200,162,92,.45);}
-  .wds blockquote{margin:36px 0;padding:20px 24px;border-left:2px solid var(--gold);background:#121212;color:#d8d5ce;font-size:15px;}
-  .wds-cta{margin-top:64px;border:1px solid var(--gold);padding:32px 28px;text-align:center;}
-  .wds-cta p{font-size:14px;color:#cfccc5;margin:0 0 18px;}
-  .wds-cta a{display:inline-block;padding:14px 34px;background:var(--gold);color:#0a0a0a;
-             font-family:"Helvetica Neue",sans-serif;font-size:13px;letter-spacing:.12em;text-decoration:none;}
-  .wds-back{display:inline-block;margin-top:40px;font-size:13px;letter-spacing:.08em;color:var(--mut);text-decoration:none;}
-  @media(max-width:640px){.wds{padding:48px 18px 64px;}.wds h1{font-size:26px;}.wds p{font-size:15px;}}
+/* =========================================================
+   WOODS Corporation — site.css
+   共通デザインシステム / 2026.11
+   ========================================================= */
+
+:root{
+  --bg:#0F0E0C;
+  --bg-2:#141312;
+  --bg-3:#1A1816;
+  --gold:#C9A96E;
+  --gold-2:#E4CB95;
+  --gold-dim:rgba(201,169,110,.16);
+  --line:rgba(255,255,255,.08);
+  --line-strong:rgba(201,169,110,.28);
+  --text:#EDEAE4;
+  --muted:#A7A199;
+  --muted-2:#8A857E;
+  --max:1160px;
+  --radius:10px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --font-sans:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  --font-serif:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN","MS PMincho",serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  font-size:16px;line-height:1.8;letter-spacing:.02em;
+  color:var(--text);background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-break:strict;
+}
+img{max-width:100%;height:auto;display:block;}
+a{color:inherit;text-decoration:none;transition:color .25s var(--ease),opacity .25s var(--ease);}
+ul{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.35;letter-spacing:.01em;line-break:strict;word-break:auto-phrase;}
+h1,h2,.sec-title{font-family:var(--font-serif);font-weight:600;letter-spacing:.01em;font-feature-settings:"palt" 1;}
+h3,h4{font-feature-settings:"palt" 1;}
+p{margin:0;}
+::selection{background:var(--gold);color:#141210;}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 40px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip{position:fixed;top:-100px;left:16px;z-index:2000;background:var(--gold);color:#141210;padding:10px 18px;border-radius:var(--radius);}
+.skip:focus{top:12px;}
+
+/* ---------- header ---------- */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:18px 0;
+  background:rgba(15,14,12,.72);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  border-bottom:1px solid transparent;
+  transition:padding .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease);
+}
+.header.is-scrolled{padding:11px 0;background:rgba(15,14,12,.96);border-bottom-color:var(--line);}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.brand img{width:auto;height:34px;}
+.brand-text{font-size:12px;letter-spacing:.28em;font-weight:600;white-space:nowrap;}
+.brand-text em{font-style:normal;color:var(--gold);}
+
+.nav-links{display:flex;align-items:center;gap:26px;}
+.nav-links a{font-size:13.5px;letter-spacing:.04em;color:var(--muted);padding:4px 0;position:relative;}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold);
+  transition:width .3s var(--ease);
+}
+.nav-links a:hover{color:var(--text);}
+.nav-links a:hover::after{width:100%;}
+
+.header-actions{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+.lang{
+  font:inherit;font-size:11.5px;letter-spacing:.1em;
+  color:var(--muted);background:transparent;border:1px solid var(--line);
+  padding:7px 12px;border-radius:999px;cursor:pointer;
+  transition:all .25s var(--ease);
+}
+.lang:hover{color:var(--gold);border-color:var(--line-strong);}
+
+.burger{display:none;width:40px;height:40px;border:1px solid var(--line);background:transparent;border-radius:2px;cursor:pointer;position:relative;}
+.burger span,.burger span::before,.burger span::after{
+  position:absolute;left:50%;width:18px;height:1px;background:var(--text);content:"";transition:transform .3s var(--ease),opacity .2s;
+}
+.burger span{top:50%;transform:translate(-50%,-50%);}
+.burger span::before{top:-6px;transform:translateX(-50%);}
+.burger span::after{top:6px;transform:translateX(-50%);}
+.burger[aria-expanded="true"] span{background:transparent;}
+.burger[aria-expanded="true"] span::before{transform:translateX(-50%) rotate(45deg);top:0;}
+.burger[aria-expanded="true"] span::after{transform:translateX(-50%) rotate(-45deg);top:0;}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 30px;font-size:14px;font-weight:600;letter-spacing:.05em;
+  border-radius:2px;border:1px solid transparent;cursor:pointer;
+  transition:all .3s var(--ease);
+}
+.btn--primary{background:var(--gold);color:#141210;}
+.btn--primary:hover{background:var(--gold-2);transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,169,110,.22);}
+.btn--ghost{border-color:rgba(201,169,110,.45);color:var(--gold);}
+.btn--ghost:hover{background:var(--gold-dim);border-color:var(--gold);}
+.btn--sm{padding:11px 20px;font-size:12.5px;}
+.btn--block{width:100%;}
+
+/* ---------- hero ---------- */
+.hero{position:relative;display:flex;align-items:flex-end;min-height:92vh;padding:150px 0 70px;overflow:hidden;}
+.hero-media{position:absolute;inset:0;z-index:0;}
+.hero-media video,.hero-media img{width:100%;height:100%;object-fit:cover;opacity:.5;}
+.hero-video{position:absolute;inset:0;z-index:1;}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(15,14,12,.72) 0%,rgba(15,14,12,.35) 38%,rgba(15,14,12,.92) 100%),
+    radial-gradient(120% 80% at 15% 20%,rgba(201,169,110,.10),transparent 60%);
+}
+.hero-inner{position:relative;z-index:2;max-width:1000px;}
+.eyebrow{
+  display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.22em;
+  color:var(--gold);border:1px solid var(--line-strong);
+  padding:7px 16px;border-radius:999px;margin-bottom:28px;
+}
+.hero h1{font-size:clamp(25px,3.9vw,46px);line-height:1.34;letter-spacing:.005em;}
+.h1-line{display:block;}
+.h1-line + .h1-line{margin-top:.1em;}
+.hero-sub{margin-top:26px;font-size:clamp(15px,1.4vw,17px);color:#CFCAC2;max-width:660px;line-height:1.9;letter-spacing:.01em;}
+.nb{white-space:nowrap;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;}
+.hero-note{margin-top:20px;font-size:12.5px;color:var(--muted-2);letter-spacing:.03em;}
+.scroll-hint{
+  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  font-size:10px;letter-spacing:.3em;color:var(--muted-2);z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.scroll-hint::after{content:"";width:1px;height:34px;background:linear-gradient(180deg,var(--gold),transparent);}
+
+/* ---------- stats（旧サイトの KEY METRICS カード） ---------- */
+.stats{padding:104px 0 96px;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stats .sec-head{margin-bottom:52px;}
+.stat-card{
+  text-align:center;padding:46px 24px 40px;
+  background:rgba(24,22,20,.72);
+  border:1px solid var(--line);border-radius:var(--radius);
+  transition:border-color .35s var(--ease),transform .35s var(--ease),background .35s var(--ease),box-shadow .35s var(--ease);
+}
+.stat-card:hover{
+  transform:translateY(-6px);border-color:rgba(201,169,110,.4);
+  background:rgba(32,29,25,.9);
+  box-shadow:0 26px 60px rgba(0,0,0,.5),0 0 36px rgba(201,169,110,.10);
+}
+.stat-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin-bottom:24px;}
+.stat-icon svg{width:38px;height:38px;fill:none;stroke:var(--gold);stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 10px rgba(201,169,110,.35));}
+.stat-card strong{display:block;font-size:clamp(44px,5vw,64px);line-height:1;letter-spacing:-.02em;color:#F7F4EE;font-weight:700;}
+.stat-card strong em{font-style:normal;font-size:.44em;color:var(--gold);margin-left:3px;vertical-align:.18em;letter-spacing:0;}
+.stat-label{display:block;margin-top:18px;font-size:14px;letter-spacing:.06em;color:var(--muted);}
+
+/* ---------- sections ---------- */
+.section{padding:100px 0;}
+.section--alt{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.sec-head{max-width:760px;margin-bottom:56px;}
+.sec-head--center{margin-left:auto;margin-right:auto;text-align:center;}
+.sec-label{display:block;font-size:11px;font-weight:600;letter-spacing:.24em;color:var(--gold);margin-bottom:16px;}
+.sec-title{
+  font-size:clamp(24px,2.9vw,34px);line-height:1.45;
+  background:linear-gradient(135deg,#F7F4EE 0%,#C9A96E 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.sec-head::after{
+  content:"";display:block;width:60px;height:3px;margin-top:22px;border-radius:3px;
+  background:linear-gradient(90deg,var(--gold),#8C6E3C);
+  box-shadow:0 0 12px rgba(201,169,110,.4);
+}
+.sec-head--center::after{margin-left:auto;margin-right:auto;}
+.sec-lead{margin-top:20px;color:var(--muted);font-size:15.5px;line-height:2;}
+
+/* ---------- grid & cards ---------- */
+.grid{display:grid;gap:22px;}
+.grid--2{grid-template-columns:repeat(2,1fr);}
+.grid--3{grid-template-columns:repeat(3,1fr);}
+.grid--4{grid-template-columns:repeat(4,1fr);}
+
+.card{
+  position:relative;background:rgba(24,22,20,.72);
+  border:1px solid var(--line);
+  padding:32px 28px;border-radius:var(--radius);
+  transition:border-color .35s var(--ease),transform .35s var(--ease),background .35s var(--ease),box-shadow .35s var(--ease);
+}
+.card:hover{
+  border-color:rgba(201,169,110,.42);transform:translateY(-8px);
+  background:rgba(32,29,25,.9);
+  box-shadow:0 28px 70px rgba(0,0,0,.55),0 0 0 1px rgba(201,169,110,.18),0 0 40px rgba(201,169,110,.10);
+}
+.card-num{display:block;font-size:11px;letter-spacing:.18em;color:var(--gold);margin-bottom:16px;}
+.card h3{font-size:16.5px;line-height:1.6;margin-bottom:10px;}
+.card p{font-size:13.8px;color:var(--muted);line-height:1.95;}
+
+/* 事業内容カード：アイコン付き */
+.card--svc{padding-top:30px;background:linear-gradient(180deg,rgba(201,169,110,.035),rgba(201,169,110,0) 42%),var(--bg-3);}
+.svc-icon{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:46px;height:46px;margin-bottom:20px;border-radius:2px;
+  border:1px solid var(--line-strong);background:rgba(201,169,110,.05);
+  transition:background .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease);
+}
+.svc-icon svg{width:23px;height:23px;fill:none;stroke:var(--gold);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;}
+.card--svc:hover .svc-icon{background:rgba(201,169,110,.16);border-color:var(--gold);box-shadow:0 0 26px rgba(201,169,110,.2);}
+.card--svc .card-num{margin-bottom:10px;}
+#services{background:radial-gradient(90% 70% at 78% 0%,rgba(201,169,110,.07),transparent 62%);}
+
+/* ---------- tiers ---------- */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;}
+.tier{
+  display:flex;flex-direction:column;background:var(--bg-3);
+  border:1px solid var(--line);padding:34px 28px;border-radius:var(--radius);
+  transition:border-color .3s var(--ease),transform .3s var(--ease);
+}
+.tier:hover{transform:translateY(-3px);}
+.tier--featured{border-color:var(--line-strong);background:linear-gradient(180deg,rgba(201,169,110,.07),rgba(201,169,110,0) 55%),var(--bg-3);}
+.tier-tag{display:inline-block;align-self:flex-start;font-size:10.5px;letter-spacing:.16em;color:var(--gold);border:1px solid var(--line-strong);padding:4px 10px;border-radius:999px;margin-bottom:18px;}
+.tier h3{font-size:19px;margin-bottom:6px;}
+.tier-sub{font-size:12.5px;color:var(--muted-2);letter-spacing:.05em;margin-bottom:22px;}
+.tier-price{display:flex;align-items:baseline;gap:6px;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:22px;}
+.tier-price strong{font-size:34px;font-weight:700;color:var(--gold);line-height:1;}
+.tier-price strong em{font-style:normal;font-size:14px;color:var(--muted);margin-left:2px;font-weight:500;}
+.tier-price span{font-size:12.5px;color:var(--muted);}
+.tier-list{flex:1;}
+.tier-list li{position:relative;padding-left:18px;font-size:13.5px;color:#CDC8C0;line-height:1.9;margin-bottom:9px;}
+.tier-list li::before{content:"";position:absolute;left:0;top:.8em;width:6px;height:1px;background:var(--gold);}
+.tier .btn{margin-top:26px;}
+
+/* ---------- reason ---------- */
+.reason{display:flex;gap:22px;padding:30px 0;border-top:1px solid var(--line);}
+.reason:last-child{border-bottom:1px solid var(--line);}
+.reason-num{flex:0 0 auto;font-size:12px;letter-spacing:.16em;color:var(--gold);padding-top:4px;}
+.reason h3{font-size:17px;margin-bottom:8px;}
+.reason p{font-size:14px;color:var(--muted);line-height:1.95;}
+
+/* ---------- metrics / timeline ---------- */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:64px;}
+.metric{background:var(--bg-3);padding:30px 22px;text-align:center;}
+.metric strong{display:block;font-size:32px;color:var(--gold);line-height:1.1;}
+.metric span{display:block;margin-top:8px;font-size:11.5px;letter-spacing:.1em;color:var(--muted-2);}
+
+.timeline{position:relative;padding-left:26px;}
+.timeline::before{content:"";position:absolute;left:4px;top:6px;bottom:6px;width:1px;background:var(--line-strong);}
+.tl-item{position:relative;padding-bottom:26px;}
+.tl-item::before{content:"";position:absolute;left:-26px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--gold);}
+.tl-item time{display:block;font-size:11.5px;letter-spacing:.14em;color:var(--gold);margin-bottom:5px;}
+.tl-item p{font-size:13.8px;color:#C9C3BB;line-height:1.9;}
+
+/* ---------- case cards ---------- */
+.case{display:block;background:var(--bg-3);border:1px solid var(--line);padding:30px 28px;transition:all .3s var(--ease);}
+.case:hover{border-color:var(--line-strong);transform:translateY(-3px);}
+.case-cat{font-size:10.5px;letter-spacing:.16em;color:var(--gold);margin-bottom:14px;display:block;}
+.case h3{font-size:16px;line-height:1.65;margin-bottom:12px;}
+.case p{font-size:13.5px;color:var(--muted);line-height:1.9;}
+.case-result{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--gold-2);}
+
+/* ---------- band (NLOS) ---------- */
+.band{background:var(--bg-3);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0;}
+.band-inner{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.band h2{font-size:21px;margin-bottom:10px;}
+.band p{font-size:14px;color:var(--muted);max-width:640px;line-height:1.95;}
+
+/* ---------- faq ---------- */
+.faq{border-top:1px solid var(--line);}
+.faq details{border-bottom:1px solid var(--line);}
+.faq summary{
+  position:relative;cursor:pointer;list-style:none;
+  padding:24px 44px 24px 0;font-size:15px;font-weight:600;line-height:1.7;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{
+  content:"";position:absolute;right:8px;top:50%;width:12px;height:12px;
+  border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);
+  transform:translateY(-70%) rotate(45deg);transition:transform .3s var(--ease);
+}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(225deg);}
+.faq .answer{padding:0 44px 26px 0;font-size:14px;color:var(--muted);line-height:2;}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;}
+.info-list{border-top:1px solid var(--line);margin-top:28px;}
+.info-row{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:13.8px;}
+.info-row dt{color:var(--muted-2);font-size:12.5px;letter-spacing:.08em;}
+.info-row dd{margin:0;line-height:1.8;}
+.info-row a:hover{color:var(--gold);}
+
+.form{background:var(--bg-3);border:1px solid var(--line);padding:34px 30px;border-radius:var(--radius);}
+.form h3{font-size:17px;margin-bottom:8px;}
+.form .form-lead{font-size:12.5px;color:var(--muted-2);margin-bottom:24px;line-height:1.8;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:11.5px;letter-spacing:.08em;color:var(--muted);margin-bottom:7px;}
+.field input,.field textarea,.field select{
+  width:100%;padding:13px 14px;font:inherit;font-size:14px;
+  color:var(--text);background:#100F0E;border:1px solid var(--line);border-radius:2px;
+  transition:border-color .25s var(--ease);
+}
+.field input::placeholder,.field textarea::placeholder{color:#6E6A64;}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);}
+.field textarea{resize:vertical;min-height:120px;}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:var(--muted);line-height:1.7;margin:18px 0;}
+.consent input{margin-top:3px;accent-color:var(--gold);}
+.consent label{cursor:pointer;}
+
+/* 所在地：テキスト表示不可のため画像（alt に住所を入れない） */
+.address-img{
+  display:block;width:100%;max-width:240px;height:auto;
+  margin-top:8px;border:1px solid var(--line);border-radius:2px;
+}
+.consent a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
+.form-status{margin-top:14px;font-size:13px;line-height:1.7;}
+.form-status.is-ok{color:#8FD19E;}
+.form-status.is-err{color:#E28C8C;}
+
+/* ---------- page hero (sub pages) ---------- */
+.page-hero{padding:150px 0 64px;background:var(--bg-2);border-bottom:1px solid var(--line);}
+.page-hero h1{font-size:clamp(27px,3.6vw,42px);line-height:1.4;max-width:860px;}
+.page-hero p{margin-top:20px;color:var(--muted);max-width:720px;font-size:15px;line-height:2;}
+.breadcrumb{font-size:11.5px;letter-spacing:.06em;color:var(--muted-2);margin-bottom:26px;}
+.breadcrumb ol{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.breadcrumb li{display:flex;align-items:center;gap:8px;}
+.breadcrumb li+li::before{content:"/";color:#5A554F;}
+.breadcrumb a:hover{color:var(--gold);}
+
+/* ---------- table ---------- */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);}
+table{width:100%;border-collapse:collapse;font-size:13.6px;min-width:620px;}
+thead th{background:var(--bg-3);text-align:left;padding:15px 18px;font-size:11.5px;letter-spacing:.12em;color:var(--gold);border-bottom:1px solid var(--line);font-weight:600;}
+tbody td{padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.8;color:#CDC8C0;}
+tbody tr:last-child td{border-bottom:0;}
+tbody th{text-align:left;padding:16px 18px;border-bottom:1px solid var(--line);font-weight:600;color:var(--text);font-size:13.6px;}
+
+/* ---------- steps ---------- */
+.steps{counter-reset:step;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.step{background:var(--bg-3);padding:30px 26px;position:relative;}
+.step::before{counter-increment:step;content:counter(step,decimal-leading-zero);display:block;font-size:11px;letter-spacing:.18em;color:var(--gold);margin-bottom:14px;}
+.step h3{font-size:15px;margin-bottom:8px;}
+.step p{font-size:13px;color:var(--muted);line-height:1.9;}
+
+/* ---------- callout ---------- */
+.callout{border-left:2px solid var(--gold);background:rgba(201,169,110,.06);padding:22px 26px;font-size:13.8px;color:#CFCAC2;line-height:1.95;}
+.callout strong{color:var(--gold-2);}
+
+/* ---------- footer ---------- */
+.footer{border-top:1px solid var(--line);background:#0B0A09;padding:64px 0 30px;font-size:13px;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:44px;}
+.footer h4{font-size:11.5px;letter-spacing:.16em;color:var(--gold);margin-bottom:16px;}
+.footer li{margin-bottom:9px;}
+.footer li a{color:var(--muted);}
+.footer li a:hover{color:var(--text);}
+.footer-brand p{color:var(--muted-2);font-size:12.5px;line-height:1.9;margin-top:14px;max-width:340px;}
+.footer-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11.5px;color:#6F6A64;}
+
+/* ---------- 404 ---------- */
+.err{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 0 80px;}
+.err-code{font-size:clamp(64px,12vw,120px);line-height:1;color:var(--gold);font-weight:700;letter-spacing:.02em;}
+.err h1{font-size:22px;margin:18px 0 12px;}
+.err p{color:var(--muted);font-size:14px;}
+.err-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px;}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:1;transform:none;}
+.reveal.is-in{opacity:1;transform:none;}
+
+/* ---------- 旧サイトのLOGOカーソル ---------- */
+.custom-cursor{
+  position:fixed;top:0;left:0;width:32px;height:32px;
+  background-image:url('/assets/logo.png');background-size:contain;background-repeat:no-repeat;background-position:center;
+  pointer-events:none;z-index:9999;opacity:0;
+  transform:translate(-50%,-50%);
+  transition:opacity .3s var(--ease),transform .15s var(--ease),filter .2s var(--ease);
+  filter:drop-shadow(0 0 6px rgba(201,169,110,.75));
+  will-change:transform;
+}
+@media (pointer:fine){.custom-cursor{opacity:1;}}
+.custom-cursor.is-down{transform:translate(-50%,-50%) scale(1.55);filter:drop-shadow(0 0 18px rgba(201,169,110,1)) drop-shadow(0 0 36px rgba(201,169,110,.55));}
+@media (pointer:coarse){.custom-cursor{display:none;}}
+/* LOGO画像が読めた時だけネイティブカーソルを消す（読めないと操作不能になるため） */
+body.has-cursor,
+body.has-cursor a,
+body.has-cursor button,
+body.has-cursor summary{cursor:none;}
+body.has-cursor input,
+body.has-cursor textarea,
+body.has-cursor select{cursor:auto;}
+
+/* ---------- progress bar ---------- */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:1200;pointer-events:none;}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#8C6E3C,var(--gold) 55%,#F2E2BE);box-shadow:0 0 12px rgba(201,169,110,.5);}
+
+/* ---------- cursor glow ---------- */
+.cursor-glow{
+  position:fixed;top:0;left:0;width:460px;height:460px;border-radius:50%;
+  pointer-events:none;z-index:2;opacity:0;mix-blend-mode:screen;
+  background:radial-gradient(circle,rgba(201,169,110,.10) 0%,rgba(201,169,110,.035) 42%,transparent 68%);
+  transform:translate(-50%,-50%);transition:opacity .8s var(--ease);will-change:transform;
+}
+@media (pointer:fine){.cursor-glow{opacity:1}}
+
+/* ---------- button sheen ---------- */
+.btn--primary{position:relative;overflow:hidden;}
+.btn--primary::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.38) 50%,transparent 68%);
+  transform:translateX(-130%);transition:transform .8s var(--ease);
+}
+.btn--primary:hover::after{transform:translateX(130%);}
+
+/* ---------- scroll hint ---------- */
+.scroll-hint::after{transform-origin:top;animation:scrollLine 2.6s var(--ease) infinite;}
+@keyframes scrollLine{0%{transform:scaleY(.25);opacity:.25}45%{transform:scaleY(1);opacity:1}100%{transform:scaleY(.25);opacity:.25}}
+
+/* ================= 中文（简体）字体覆盖 =================
+   明朝/宋体、角ゴ/方黒を「対」で指定しないと、
+   簡体字だけ別書体にフォールバックして太さが揃わない。
+   ======================================================= */
+html[lang="zh-CN"]{
+  --font-sans:"Noto Sans SC","PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+  --font-serif:"Noto Serif SC","Songti SC","SimSun","Noto Serif JP",serif;
+}
+html[lang="zh-CN"] body{letter-spacing:.01em;line-height:1.78;}
+html[lang="zh-CN"] p{line-height:1.8;}
+html[lang="zh-CN"] h1,
+html[lang="zh-CN"] h2,
+html[lang="zh-CN"] .sec-title{font-feature-settings:"palt" 0;letter-spacing:.02em;}
+html[lang="zh-CN"] .hero h1{font-size:clamp(23px,3.4vw,42px);line-height:1.4;}
+html[lang="zh-CN"] .hero-sub{line-height:1.85;}
+html[lang="zh-CN"] .card h3{letter-spacing:.01em;}
+html[lang="zh-CN"] .faq summary{line-height:1.75;}
+
+/* ---------- responsive ---------- */
+@media (max-width:1024px){
+  .container{padding:0 28px;}
+  .nav-links{gap:18px;}
+  .nav-links a{font-size:12.5px;}
+  .grid--4{grid-template-columns:repeat(2,1fr);}
+  .steps{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:1024px){
+  .nav{
+    position:fixed;top:0;right:0;bottom:0;width:min(78vw,340px);
+    background:rgba(12,11,10,.98);border-left:1px solid var(--line);
+    padding:96px 30px 40px;transform:translateX(102%);
+    transition:transform .4s var(--ease);overflow-y:auto;
+  }
+  .nav.is-open{transform:none;}
+  .nav-links{flex-direction:column;align-items:flex-start;gap:0;}
+  .nav-links li{width:100%;border-bottom:1px solid var(--line);}
+  .nav-links a{display:block;padding:16px 0;font-size:15px;color:var(--text);}
+  .burger{display:block;}
+  .header-actions{gap:10px;}
+}
+@media (max-width:880px){
+  .hero{min-height:88vh;padding:130px 0 60px;}
+  .hero-media video,.hero-video{display:none;}
+  .section{padding:72px 0;}
+  .grid--2,.grid--3,.tiers,.contact-grid{grid-template-columns:1fr;}
+  .metrics{grid-template-columns:repeat(2,1fr);}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr;gap:32px;}
+  .band-inner{flex-direction:column;align-items:flex-start;}
+}
+@media (max-width:560px){
+  .container{padding:0 20px;}
+  .brand-text{display:none;}
+  .header-actions .btn--sm{padding:9px 14px;font-size:11.5px;}
+  .hero h1{font-size:22px;}
+  .hero-actions .btn{width:100%;}
+  .metrics{grid-template-columns:1fr;}
+  .info-row{grid-template-columns:1fr;gap:4px;}
+  .form{padding:26px 20px;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+  .reveal{opacity:1;transform:none;}
+  .hero-media video,.hero-video{display:none;}
+}
+
+
+/* ========== 改行の自然化（CJK） ========== */
+h1, h2, h3, .sec-title, .hero h1, .card h3, .tier h3, .quote {
+  text-wrap: balance;      /* 最終行が1〜2文字だけ残るのを防ぐ */
+  word-break: auto-phrase; /* 文節単位で折る（Chromium） */
+  line-break: strict;
+}
+p, .sec-lead, .card p, .tier p, .faq .answer {
+  text-wrap: pretty;
+}
+
+/* ========== セクション見出しの背景モチーフ ========== */
+.sec-head{position:relative;z-index:0;}
+.sec-head::before{
+  content:"";position:absolute;right:-30px;top:-70px;width:300px;height:300px;z-index:-1;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320' fill='none' stroke='%23C9A96E' stroke-width='1'%3E%3Ccircle cx='160' cy='160' r='150' opacity='.30'/%3E%3Ccircle cx='160' cy='160' r='112' opacity='.22'/%3E%3Ccircle cx='160' cy='160' r='74' opacity='.15'/%3E%3Cpath d='M12 252 Q160 42 308 252' opacity='.30'/%3E%3C/svg%3E") no-repeat center/contain;
+  opacity:.55;pointer-events:none;
+}
+@media (max-width:880px){
+  .sec-head::before{display:none;}
+}
+
+/* ========== 写真の引用帯 ========== */
+.quote-band{position:relative;overflow:hidden;padding:104px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.quote-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.78;filter:grayscale(.25) contrast(1.05);}
+.quote-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,14,12,.86) 0%,rgba(15,14,12,.30) 55%,rgba(15,14,12,.82) 100%);}
+.quote-band .container{position:relative;z-index:1;}
+.quote{font-family:var(--font-serif);font-weight:500;font-size:clamp(19px,2.5vw,30px);line-height:1.85;color:#F4F0E9;max-width:860px;letter-spacing:.02em;}
+.quote-src{display:block;margin-top:24px;font-size:10.5px;letter-spacing:.26em;color:var(--gold);}
+@media (max-width:880px){
+  .quote-band{padding:68px 0;}
+}
+
+/* ---------- 下層ページのヒーロー背景 ---------- */
+.page-hero{position:relative;overflow:hidden;}
+.page-hero-bg{position:absolute;inset:0;z-index:0;}
+.page-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 45%;opacity:.82;}
+.page-hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(15,14,12,.88) 0%,rgba(15,14,12,.28) 55%,rgba(15,14,12,.84) 100%);
+}
+.page-hero .container{position:relative;z-index:1;}
+
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "中国越境ECの罠。AI翻訳が完璧でも、売れない理由。",
+      "description": "AI翻訳で言葉の壁は消えた。それでも中国ECで売れない日本企業が絶えません。日本の良さの押し付け、AIの定型文対応、SNSの文脈無視という3つの失敗と、ローカライズの突破口を20年の現場から解説します。",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "author": { "@type": "Organization", "name": "株式会社ウッズ・コーポレーション" },
+      "publisher": { "@type": "Organization", "name": "株式会社ウッズ・コーポレーション", "logo": { "@type": "ImageObject", "url": "https://woods-corp.jp/assets/logo.png" } },
+      "mainEntityOfPage": "https://woods-corp.jp/insights/china-ec-localization-failures/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://woods-corp.jp/" },
+        { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://woods-corp.jp/insights/" },
+        { "@type": "ListItem", "position": 3, "name": "中国越境ECの罠。AI翻訳が完璧でも、売れない理由。", "item": "https://woods-corp.jp/insights/china-ec-localization-failures/" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
-<article class="wds">
-  <div class="wds-in">
-    <p class="wds-eyebrow">Column ／ 2026-11-23</p>
-    <h1>中国越境ECの罠。<br>AI翻訳が完璧でも、売れない理由。</h1>
-    <p class="lead">アクセスはある。カートに入らない。レビューは星1。<br>言葉の壁が消えた時代に、なぜ売れないのか。</p>
-    <div class="rule"></div>
-
-    <p>DeepLにChatGPT。商品ページの翻訳も、現地SNSの投稿も、以前の10分の1の手間で作れるようになりました。</p>
-    <p>だから「商品を登録して、広告を出せば売れる」と考える。そして、多くの企業が同じ場所で止まります。<strong>アクセスはあるのに、買われない。レビューが星1で埋まる。</strong></p>
-    <p>理由は単純です。AIが訳せるのは「言語」で、動かせるのは「心」ではないからです。現場で繰り返し見てきた、3つの失敗を挙げます。</p>
-
-    <h2><span>01</span>日本の「良さ」を、そのまま押し付ける</h2>
-    <p>日本の商品は品質が高い。職人技がある。シンプルで洗練されている。どれも事実ですが、中国の若い消費者が比較検討の画面で見ているのは、そこではありません。</p>
-    <p>見た目の華やかさ。写真映え。分かりやすい特典。つまり<strong>買う理由を、感情の側から作ってあるか</strong>です。</p>
-    <p>AIに「日本の高級タオル」を訳させると「高品质毛巾」と返ってきます。間違いではありません。ですが、中国のECでクリックされるのは「极致柔软的触感」「高級感あふれる包装」といった、情緒に寄った表現です。</p>
-    <p>AIは直訳ができる。情緒への変換は、できない。</p>
-
-    <h2><span>02</span>AIの「冷たい返信」が、ブランドを殺す</h2>
-    <p>中国の消費者は、購入前後のやり取りで「速さ」と「寄り添い」を強く求めます。返信が遅いことより、返信が冷たいことのほうが致命傷になります。</p>
-    <p>問い合わせに、AI翻訳の定型文で「規定通り返品に応じます」と返す。すると何が起きるか。<strong>小红书や微博で「日本企業は冷たい」と書かれます。</strong>一件の返信が公開の場で増幅され、ブランドが落ちる。この事例を、私は何度も見てきました。</p>
-    <p>効率化は構いません。ただし「気持ちに寄り添う部分」までAIに丸投げすると、売上より先にリピート率が落ちます。</p>
-
-    <h2><span>03</span>SNSの「文脈」を、無視する</h2>
-    <p>小红书（RED）と抖音は、InstagramやXとは別物です。アルゴリズムも、ユーザーが「何を見たいか」も違います。</p>
-    <p>「小红书向けの投稿文を作って」とAIに頼めば、それらしい文章は出てきます。しかしAIは、<strong>今週どのワードが伸びていて、どのインフルエンサーが動いているか</strong>を知りません。文脈の外側で作られた文章は、綺麗でも滑ります。</p>
-    <blockquote>翻訳の精度は、もう差になりません。差になるのは、文脈を掴んでいるかどうかです。</blockquote>
-
-    <h2><span>04</span>AIは翻訳機。ローカライズは、人の仕事。</h2>
-    <p>AI翻訳は、越境ECの「作業コスト」を劇的に下げました。これは本当です。ただ、下がったのは作業であって、判断ではありません。</p>
-    <p>「中国の消費者は、なぜ財布を開くのか」。ここは今も、経験と直感の領域にあります。データは判断の材料ですが、判断そのものは人がやる。</p>
-    <p>当社は、20年の日中ビジネスの現場と、AIによるデータ分析を掛け合わせ、この部分を支援しています。</p>
-
-    <div class="wds-cta">
-      <p>現在、無料の「15分簡易診断」を実施しています。<br>「越境ECを始めたが売れない」「SNS運用の方向性が分からない」。<br>その1点だけ、15分で。</p>
-      <a href="https://woods-corp.jp/#contact">15分の無料診断を申し込む</a>
+<a class="skip" href="#main">本文へ</a>
+<div class="progress" aria-hidden="true"><span></span></div>
+<div class="custom-cursor" id="customCursor" aria-hidden="true"></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="WOODS Corporation">
+      <img src="/assets/logo.png" alt="WOODS Corporation" width="140" height="36">
+      <span class="brand-text">WOODS <em>CORPORATION</em></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="メインメニュー">
+      <ul class="nav-links">
+        <li><a href="/services/china-entry-advisory/">進出支援顧問</a></li>
+        <li><a href="/#services">事業内容</a></li>
+        <li><a href="/case-studies/">実績・事例</a></li>
+        <li><a href="/pricing/">料金</a></li>
+        <li><a href="/insights/">コラム</a></li>
+        <li><a href="/#about">会社情報</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="lang" href="/zh/" hreflang="zh-Hans" lang="zh-CN">中文</a>
+      <a class="btn btn--primary btn--sm" href="/#contact">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー" aria-expanded="false"><span></span></button>
     </div>
-    <a class="wds-back" href="/insights/">← コラム一覧へ</a>
   </div>
-</article>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"><img src="/assets/insights.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくず">
+        <ol><li><a href="/">ホーム</a></li><li><a href="/insights/">コラム</a></li><li aria-current="page">記事</li></ol>
+      </nav>
+      <p class="sec-label">COLUMN / 2026-11-23</p>
+      <h1>中国越境ECの罠。<br>AI翻訳が完璧でも、売れない理由。</h1>
+      <p>アクセスはある。カートに入らない。レビューは星1。<br>言葉の壁が消えた時代に、なぜ売れないのか。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:820px">
+      <div class="article-body">
+
+ <div style="color: #e2e8f0; font-size: 16px; line-height: 1.9; max-width: 800px; margin: 0 auto;">
+    <p style="margin-bottom: 24px;">DeepLにChatGPT。商品ページの翻訳も、現地SNSの投稿も、以前の10分の1の手間で作れるようになりました。</p>
+
+    <p style="margin-bottom: 24px;">だから「商品を登録して、広告を出せば売れる」と考える。そして、多くの企業が同じ場所で止まります。<strong style="color: #fff;">アクセスはあるのに、買われない。レビューが星1で埋まる。</strong></p>
+
+    <p style="margin-bottom: 24px;">理由は単純です。AIが訳せるのは「言語」で、動かせるのは「心」ではないからです。現場で繰り返し見てきた、3つの失敗を挙げます。</p>
+
+    <h2 style="font-size: 22px; font-weight: bold; margin-top: 40px; margin-bottom: 20px; color: #C9A96E; border-bottom: 1px solid rgba(201, 169, 110, 0.2); padding-bottom: 8px;">01｜日本の「良さ」を、そのまま押し付ける</h2>
+
+    <p style="margin-bottom: 24px;">日本の商品は品質が高い。職人技がある。シンプルで洗練されている。どれも事実ですが、中国の若い消費者が比較検討の画面で見ているのは、そこではありません。</p>
+
+    <p style="margin-bottom: 24px;">見た目の華やかさ。写真映え。分かりやすい特典。つまり<strong style="color: #fff;">買う理由を、感情の側から作ってあるか</strong>です。</p>
+
+    <p style="margin-bottom: 24px;">AIに「日本の高級タオル」を訳させると「高品质毛巾」と返ってきます。間違いではありません。ですが、中国のECでクリックされるのは「极致柔软的触感」「高級感あふれる包装」といった、情緒に寄った表現です。</p>
+
+    <p style="margin-bottom: 24px;">AIは直訳ができる。情緒への変換は、できない。</p>
+
+    <h2 style="font-size: 22px; font-weight: bold; margin-top: 40px; margin-bottom: 20px; color: #C9A96E; border-bottom: 1px solid rgba(201, 169, 110, 0.2); padding-bottom: 8px;">02｜AIの「冷たい返信」が、ブランドを殺す</h2>
+
+    <p style="margin-bottom: 24px;">中国の消費者は、購入前後のやり取りで「速さ」と「寄り添い」を強く求めます。返信が遅いことより、返信が冷たいことのほうが致命傷になります。</p>
+
+    <p style="margin-bottom: 24px;">問い合わせに、AI翻訳の定型文で「規定通り返品に応じます」と返す。すると何が起きるか。<strong style="color: #fff;">小红书や微博で「日本企業は冷たい」と書かれます。</strong>一件の返信が公開の場で増幅され、ブランドが落ちる。この事例を、私は何度も見てきました。</p>
+
+    <p style="margin-bottom: 24px;">効率化は構いません。ただし「気持ちに寄り添う部分」までAIに丸投げすると、売上より先にリピート率が落ちます。</p>
+
+    <h2 style="font-size: 22px; font-weight: bold; margin-top: 40px; margin-bottom: 20px; color: #C9A96E; border-bottom: 1px solid rgba(201, 169, 110, 0.2); padding-bottom: 8px;">03｜SNSの「文脈」を、無視する</h2>
+
+    <p style="margin-bottom: 24px;">小红书（RED）と抖音は、InstagramやXとは別物です。アルゴリズムも、ユーザーが「何を見たいか」も違います。</p>
+
+    <p style="margin-bottom: 24px;">「小红书向けの投稿文を作って」とAIに頼めば、それらしい文章は出てきます。しかしAIは、<strong style="color: #fff;">今週どのワードが伸びていて、どのインフルエンサーが動いているか</strong>を知りません。文脈の外側で作られた文章は、綺麗でも滑ります。</p>
+
+    <blockquote style="margin: 32px 0; padding: 20px 24px; border-left: 3px solid #C9A96E; background: rgba(201, 169, 110, 0.06); font-size: 15px; color: #d8d5ce;">翻訳の精度は、もう差になりません。差になるのは、文脈を掴んでいるかどうかです。</blockquote>
+
+    <h2 style="font-size: 22px; font-weight: bold; margin-top: 40px; margin-bottom: 20px; color: #C9A96E; border-bottom: 1px solid rgba(201, 169, 110, 0.2); padding-bottom: 8px;">04｜AIは翻訳機。ローカライズは、人の仕事。</h2>
+
+    <p style="margin-bottom: 24px;">AI翻訳は、越境ECの「作業コスト」を劇的に下げました。これは本当です。ただ、下がったのは作業であって、判断ではありません。</p>
+
+    <p style="margin-bottom: 24px;">「中国の消費者は、なぜ財布を開くのか」。ここは今も、経験と直感の領域にあります。データは判断の材料ですが、判断そのものは人がやる。</p>
+
+    <p style="margin-bottom: 24px;">当社は、20年の日中ビジネスの現場と、AIによるデータ分析を掛け合わせ、この部分を支援しています。</p>
+
+    <div style="margin-top: 50px; padding: 20px 24px; background: rgba(201, 169, 110, 0.08); border-left: 4px solid #C9A96E; border-radius: 4px;">
+        <p style="margin: 0; font-size: 15px; color: #e2e8f0;">
+            現在、無料の「15分簡易診断」を実施しています。<br>
+            「越境ECを始めたが売れない」「SNS運用の方向性が分からない」。その1点だけ、15分で。<br>
+            <a href="/#contact" style="color: #C9A96E; font-weight: bold;">15分の無料診断を申し込む →</a>
+        </p>
+    </div>
+</div>
+      <p style="margin-top:32px"><a href="/insights/" style="color:var(--gold)">← コラム一覧へ</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/assets/logo.png" alt="WOODS Corporation" width="140" height="36" loading="lazy">
+        <p>2005年創業。中堅・中小企業のための<br>日中クロスボーダー顧問。</p>
+      </div>
+      <div>
+        <h4>サービス</h4>
+        <ul>
+          <li><a href="/services/china-entry-advisory/">進出支援顧問</a></li>
+          <li><a href="/pricing/">料金</a></li>
+          <li><a href="/case-studies/">実績・事例</a></li>
+          <li><a href="/insights/">コラム</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>会社</h4>
+        <ul>
+          <li><a href="/#about">会社概要</a></li>
+          <li><a href="/#contact">お問い合わせ</a></li>
+          <li><a href="/privacy/">プライバシーポリシー</a></li>
+          <li><a href="/woods_lp.html">AI Web/LP制作</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> 株式会社ウッズ・コーポレーション</span>
+      <span>WOODS Corporation CO.,LTD.</span>
+    </div>
+  </div>
+</footer>
+<script>
+/* WOODS Corporation — site.js */
+(function () {
+  'use strict';
+
+  var doc = document;
+  var body = doc.body;
+
+  /* ---------- header ---------- */
+  var header = doc.getElementById('header');
+  if (header) {
+    var onScroll = function () {
+      header.classList.toggle('is-scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---------- mobile nav ---------- */
+  var burger = doc.getElementById('burger');
+  var nav = doc.getElementById('nav');
+  if (burger && nav) {
+    burger.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      doc.documentElement.style.overflow = open ? 'hidden' : '';
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        doc.documentElement.style.overflow = '';
+      });
+    });
+  }
+
+  /* ---------- smooth anchor offset ---------- */
+  doc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = this.getAttribute('href');
+      if (!id || id === '#') return;
+      var target = doc.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top + window.pageYOffset - 78;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+
+  /* ---------- scroll progress / parallax ---------- */
+  var progressBar = doc.querySelector('.progress span');
+  var heroMedia = doc.querySelectorAll('.hero-media img, .hero-video');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ticking = false;
+
+  function onFrame() {
+    var y = window.scrollY || window.pageYOffset;
+    if (progressBar) {
+      var max = doc.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+    }
+    if (false) {
+      var t = 'translate3d(0,' + (y * 0.14).toFixed(2) + 'px,0) scale(1.04)';
+      heroMedia.forEach(function (el) { el.style.transform = t; });
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(onFrame); }
+  }, { passive: true });
+  onFrame();
+
+  /* ---------- cursor glow ---------- */
+  var glow = doc.querySelector('.cursor-glow');
+  if (glow && !reduce && window.matchMedia('(pointer:fine)').matches) {
+    var gx = window.innerWidth / 2, gy = window.innerHeight / 2;
+    var tx = gx, ty = gy;
+    doc.addEventListener('mousemove', function (e) { tx = e.clientX; ty = e.clientY; }, { passive: true });
+    (function follow() {
+      gx += (tx - gx) * 0.08;
+      gy += (ty - gy) * 0.08;
+      glow.style.transform = 'translate3d(' + gx.toFixed(1) + 'px,' + gy.toFixed(1) + 'px,0) translate(-50%,-50%)';
+      requestAnimationFrame(follow);
+    })();
+  }
+
+  /* ---------- logo cursor ---------- */
+  var cur = doc.getElementById('customCursor');
+  if (cur && !reduce && window.matchMedia('(pointer:fine)').matches) {
+    var probe = new Image();
+    probe.onload = function () { body.classList.add('has-cursor'); };
+    probe.src = '/assets/logo.png';
+
+    // 遅延させない：描画位置と実ポインタがズレると、クリックが外れる
+    doc.addEventListener('mousemove', function (e) {
+      cur.style.transform = 'translate3d(' + e.clientX + 'px,' + e.clientY + 'px,0) translate(-50%,-50%)';
+    }, { passive: true });
+    doc.addEventListener('mousedown', function () { cur.classList.add('is-down'); });
+    doc.addEventListener('mouseup', function () { cur.classList.remove('is-down'); });
+  }
+
+  /* ---------- stagger ---------- */
+  doc.querySelectorAll('.grid, .tiers, .steps').forEach(function (group) {
+    var kids = group.querySelectorAll(':scope > .reveal');
+    kids.forEach(function (el, i) {
+      el.style.transitionDelay = Math.min(i * 90, 450) + 'ms';
+    });
+  });
+
+  /* ---------- reveal ---------- */
+  var items = doc.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && items.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('is-in'); });
+  }
+
+  /* ---------- GA4 helpers ---------- */
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
+  doc.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    if (a.getAttribute('href') && a.getAttribute('href').indexOf('tel:') === 0) {
+      track('click_tel', { link_url: a.getAttribute('href') });
+    }
+    if (a.classList.contains('btn')) {
+      track('cta_click', { label: (a.textContent || '').trim().slice(0, 40), page: location.pathname });
+    }
+  });
+
+  /* ---------- contact form ---------- */
+  var form = doc.getElementById('contactForm');
+  if (form) {
+    var status = doc.getElementById('formStatus');
+    var submit = doc.getElementById('submitBtn');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var consent = form.querySelector('[name="consent"]');
+      if (consent && !consent.checked) {
+        status.className = 'form-status is-err';
+        status.textContent = doc.documentElement.lang.indexOf('zh') === 0
+          ? '请先同意隐私政策。'
+          : 'プライバシーポリシーへの同意が必要です。';
+        return;
+      }
+
+      var original = submit.innerHTML;
+      submit.disabled = true;
+      submit.textContent = doc.documentElement.lang.indexOf('zh') === 0 ? '发送中…' : '送信中…';
+      status.className = 'form-status';
+      status.textContent = '';
+
+      var fd = new FormData(form);
+      fetch('https://woods-chat.lin-285.workers.dev/api/contact', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          name: fd.get('name') || '',
+          email: fd.get('email') || '',
+          company: fd.get('company') || '',
+          message: fd.get('message') || '',
+          botcheck: fd.get('botcheck') || '',
+          page: location.pathname
+        })
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (result) {
+          if (!result.ok) throw new Error(result.message || 'failed');
+          status.className = 'form-status is-ok';
+          status.textContent = doc.documentElement.lang.indexOf('zh') === 0
+            ? '✓ 已收到您的咨询，我们将在 1–2 个工作日内回复。'
+            : '✓ お問い合わせありがとうございます。1〜2営業日以内にご連絡いたします。';
+          form.reset();
+          track('generate_lead', { form: 'contact', page: location.pathname });
+        })
+        .catch(function () {
+          status.className = 'form-status is-err';
+          status.textContent = doc.documentElement.lang.indexOf('zh') === 0
+            ? '✗ 发送失败。请稍后重试，或直接邮件联系 contact@woods-corp.jp'
+            : '✗ 送信に失敗しました。しばらくしてから再度お試しいただくか、contact@woods-corp.jp までご連絡ください。';
+        })
+        .finally(function () {
+          submit.disabled = false;
+          submit.innerHTML = original;
+        });
+    });
+  }
+
+  /* ---------- footer year ---------- */
+  var y = doc.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+})();
+
+</script>
 </body>
 </html>
