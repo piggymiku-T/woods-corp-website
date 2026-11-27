@@ -576,6 +576,16 @@ p, .sec-lead, .card p, .tier p, .faq .answer {
 .footer-sns svg{width:26px;height:26px;display:block;}
 @media (max-width:880px){.footer-sns{justify-content:flex-start;}}
 
+/* ヘッダー：NLOS への控えめな入口 */
+.nlos-link{
+  display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  font-size:11px;letter-spacing:.04em;color:#A7A199;text-decoration:none;
+  border:1px solid rgba(255,255,255,.10);border-radius:999px;padding:7px 13px;
+  transition:color .25s ease,border-color .25s ease,background .25s ease;
+}
+.nlos-link:hover{color:#C9A96E;border-color:rgba(201,169,110,.30);background:rgba(201,169,110,.10);}
+.nlos-link svg{width:10px;height:10px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;}
+@media (max-width:1180px){.nlos-link{display:none;}}
 </style>
 
 <script type="application/ld+json">
@@ -662,6 +672,12 @@ p, .sec-lead, .card p, .tier p, .faq .answer {
       </ul>
     </nav>
     <div class="header-actions">
+      <a class="nlos-link" href="/nlos-tech/" target="_blank" rel="noopener"
+         title="見えない地下を可視化する非視域イメージング技術"
+         aria-label="地中を見る技術（NLOS）のページを新しいタブで開く">
+        地中を見る技術
+        <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 2h6.5v6.5"/><path d="M10 2L2.5 9.5"/></svg>
+      </a>
       <a class="lang" href="/" hreflang="ja" lang="ja">日本語</a>
       <a class="btn btn--primary btn--sm" href="#contact">免费咨询</a>
       <button class="burger" id="burger" aria-label="菜单" aria-expanded="false"><span></span></button>
